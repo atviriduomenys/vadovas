@@ -1,61 +1,56 @@
+# Minimal makefile for Sphinx documentation
+#
+
+# You can set these variables from the command line, and also
+# from the environment for the first two.
+SPHINXOPTS    ?= -c .
+SPHINXBUILD   ?= env/bin/sphinx-build
+SOURCEDIR     = vadovas
+BUILDDIR      = build
+
+export PATH := env/bin:$(PATH)
+
 .PHONY: env
-env: .env env/.done requirements.txt requirements-dev.txt docs/requirements.txt
+env: env/done requirements.txt
+
+
+.PHONY: upgrade
+upgrade: env/bin/pip-compile
+	env/bin/pip-compile --upgrade requirements.in -o requirements.txt
+
+
+env/done: env/bin/pip requirements.txt
+	env/bin/pip install -r requirements.txt
+	touch env/done
 
 env/bin/pip:
-	python3 -m venv env
+	python -m venv env
 	env/bin/pip install --upgrade pip wheel setuptools
 
-env/.done: env/bin/pip setup.py requirements-dev.txt docs/requirements.txt
-	env/bin/pip install -r requirements-dev.txt -e .
-	touch env/.done
+requirements.txt: env/bin/pip-compile requirements.in
+	env/bin/pip-compile requirements.in -o requirements.txt
 
 env/bin/pip-compile: env/bin/pip
 	env/bin/pip install pip-tools
 
-requirements-dev.txt: env/bin/pip-compile requirements.in requirements-dev.in docs/requirements.in
-	env/bin/pip-compile --no-emit-index-url requirements.in requirements-dev.in docs/requirements.in -o requirements-dev.txt
+requirements.in:
+	true
 
-requirements.txt: env/bin/pip-compile requirements.in
-	env/bin/pip-compile --no-emit-index-url requirements.in -o requirements.txt
 
-docs/requirements.txt: env/bin/pip-compile docs/requirements.in
-	env/bin/pip-compile --no-emit-index-url docs/requirements.in -o docs/requirements.txt
+# Put it first so that "make" without argument is like "make help".
+help:
+	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-.env: .env.example
-	cp -n .env.example .env | true
-	touch .env
+auto:
+	env/bin/sphinx-autobuild -b html $(SOURCEDIR) $(BUILDDIR)/html $(SPHINXOPTS)
 
-.PHONY: upgrade
-upgrade: env/bin/pip-compile
-	env/bin/pip-compile --upgrade --no-emit-index-url requirements.in -o requirements.txt
-	env/bin/pip-compile --upgrade --no-emit-index-url requirements.in requirements-dev.in -o requirements-dev.txt
-	env/bin/pip-compile --upgrade --no-emit-index-url docs/requirements.in -o docs/requirements.txt
+open:
+	xdg-open http://127.0.0.1:8000
 
-.PHONY: test
-test: env
-	env/bin/py.test -vvxra --tb=short --cov=lodam --cov-report=term-missing
-	tests
+.PHONY: help Makefile
 
-.PHONY: dist
-dist: env/bin/pip
-	env/bin/python setup.py sdist bdist_wheel
-
-.PHONY: run
-run: env
-	AUTHLIB_INSECURE_TRANSPORT=1 env/bin/uvicorn spinta.asgi:app --debug
-
-.PHONY: build-image
-build-image:
-	docker build -t registry.gitlab.com/atviriduomenys/manifest:latest -f docker/Dockerfile .
-
-.PHONY: push-image
-push-image:
-	docker push registry.gitlab.com/atviriduomenys/manifest
-
-.PHONY: docs-auto
-docs-auto:
-	$(MAKE) -C docs auto
-
-.PHONY: docs-open
-docs-open:
-	$(MAKE) -C docs open
+# Catch-all target: route all unknown targets to Sphinx using the new
+# "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
+%: Makefile
+	@echo $@
+	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
