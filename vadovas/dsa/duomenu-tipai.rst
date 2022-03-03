@@ -83,7 +83,7 @@ Tekstiniai duomenys skirstomi į du skirtingus tipus `string` ir `text`.
 
     - `html` - tekstas pateiktas HTML_ formatu.
     - `md` - tekstas pateiktas Markdown_ formatu.
-    - `rest` - tekstas pateitkas reStructuredText_ formatu.
+    - `rst` - tekstas pateitkas reStructuredText_ formatu.
     - `tei` - tekstas pateiktas TEI_ formatu.
 
     .. _HTML: https://en.wikipedia.org/wiki/HTML
