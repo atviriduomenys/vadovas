@@ -3,7 +3,7 @@
 
 # You can set these variables from the command line, and also
 # from the environment for the first two.
-SPHINXOPTS    ?= -c .
+SPHINXOPTS    ?=
 SPHINXBUILD   ?= env/bin/sphinx-build
 SOURCEDIR     = vadovas
 BUILDDIR      = build

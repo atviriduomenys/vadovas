@@ -17,8 +17,12 @@
 
 # -- Project information -----------------------------------------------------
 
+from datetime import datetime
+
+_now = datetime.now().year
+
 project = 'Duomenų atvėrimo vadovas'
-copyright = '2019-2020, Lietuvos atvirų duomenų naudotojų bendruomenė'
+copyright = f'2019-{_now}, Lietuvos atvirų duomenų naudotojų bendruomenė'
 author = 'Lietuvos atvirų duomenų naudotojų bendruomenė'
 
 
@@ -57,7 +61,7 @@ html_theme = 'sphinx_rtd_theme'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['vadovas/static']
+html_static_path = ['static']
 
 html_css_files = ['style.css']
 
