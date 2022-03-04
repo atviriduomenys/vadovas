@@ -1088,28 +1088,5 @@ migracijas:
         Migracijos atliekamo pakeitimo trumpas aprašymas.
 
 
-.. _vardų-erdvės-dimensija:
-
-Vardų erdvės
-------------
-
-Vardų erdvės gali būti aprašomos  pasitelkiant :data:`ns` papildomą dimensiją.
-
-.. data:: ns
-
-    .. data:: ns.ref
-
-        Vardų erdvės kodinis pavadinimas.
-
-    .. data:: ns.title
-
-        Vardų erdvės pavadinimas.
-
-    .. data:: ns.description
-
-        Vardų erdvės aprašymas.
-
-
-
 .. |nbsp| unicode:: 0xA0
    :trim:

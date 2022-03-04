@@ -93,6 +93,22 @@ Tekstiniai duomenys skirstomi į du skirtingus tipus `string` ir `text`.
     .. _reStructuredText: https://docutils.sourceforge.io/rst.html
     .. _TEI: https://en.wikipedia.org/wiki/Text_Encoding_Initiative
 
+    Pavyzdys:
+
+    ==  ==  ==  ==  ===============  ====  ====
+    d   r   b   m   property         type  ref 
+    ==  ==  ==  ==  ===============  ====  ====
+    example                        
+    -------------------------------  ----  ----
+    \           Country            
+    --  --  --  -------------------  ----  ----
+    \               name\@lt         text      
+    \               description\@lt  text  html
+    ==  ==  ==  ==  ===============  ====  ====
+
+    Šiame pavyzdyje `@lt` nurodo, kad šalies pavadinimai ir aprašymai pateikti
+    Lietuvių kalba. Papildomai, šalies aprašymo teksto formatas yra HTML_ tipo.
+
 
 .. _temporal-types:
 
@@ -250,7 +266,36 @@ Valiuta
     Valiuta. Saugomas valiutos kiekis, nurodant tiek sumą, tiek valiutos
     kodą naudojant `ISO 4217`_ kodus.
 
+    Valiutos kodas nurodomas :ref:`property.ref` stulpelyje.
+
     .. _ISO 4217: https://en.wikipedia.org/wiki/ISO_4217
+
+    Pavyzdys:
+
+    ==  ==  ==  ==  ==============  ========  ===  ==============
+    d   r   b   m   property        type      ref  source        
+    ==  ==  ==  ==  ==============  ========  ===  ==============
+    example                                                      
+    ------------------------------  --------  ---  --------------
+    \           Product                            PRODUCT       
+    --  --  --  ------------------  --------  ---  --------------
+    \               price           currency  EUR  PRICE         
+    ==  ==  ==  ==  ==============  ========  ===  ==============
+
+    Jei valiutos suma ir pavadinimas saugomi atskirai, tuomet valiutą galima
+    aprašyti taip:
+
+    ==  ==  ==  ==  ===============  ========  ===  ==============
+    d   r   b   m   property         type      ref  source        
+    ==  ==  ==  ==  ===============  ========  ===  ==============
+    example                                                       
+    -------------------------------  --------  ---  --------------
+    \           Product                             PRODUCT       
+    --  --  --  -------------------  --------  ---  --------------
+    \               price            currency       
+    \               price._value                    PRICE
+    \               price._currency                 CURRENCY_CODE
+    ==  ==  ==  ==  ===============  ========  ===  ==============
 
 
 Failai
@@ -301,6 +346,23 @@ Failai
     vienas `flag` laukas, kuriame panaudojami duomenys iš dviejų laukų.
     Šiuo atveju, `flag_file_name` ir `flag_file_data` laukai tampa
     pertekliniais, todėl :data:`access` stulpelyje jie pažymėti `private`.
+
+    Analogiškai, tokius pačius duomenis galima aprašyti ir nenaudojant
+    formulių:
+
+    ==  ==  ==  ==  ==============  ======  ==============  =======  =======
+    d   r   b   m   property        type    source          prepare  access
+    ==  ==  ==  ==  ==============  ======  ==============  =======  =======
+    datasets/example
+    ------------------------------  ------  --------------  -------  -------
+    \           Country
+    --  --  --  ------------------  ------  --------------  -------  -------
+    \               name            string  NAME                     open
+    \               flag            file                             open
+    \               flag._name              FLAG_FILE_NAME           open
+    \               flag._content           FLAG_FILE_DATA           open
+    ==  ==  ==  ==  ==============  ======  ==============  =======  =======
+
 
 .. describe:: image
 
