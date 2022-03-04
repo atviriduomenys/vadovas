@@ -93,6 +93,8 @@ rinkinys>` įrašai.
 
     Jei nenurodyta, naudoti \https://data.gov.lt/ adresą.
 
+    Nenaudojama, jei `dataset.type` yra `ns`.
+
 .. data:: dataset.prepare
 
     Nenaudojama.
@@ -105,13 +107,19 @@ rinkinys>` įrašai.
 
     Galimos reikšmės:
 
+    .. describe:: ns
+
+        Atitinka vardų erdvę, kurioje pateikiami duomenų rinkiniai. Naudojamas
+        tais atvejais, kai norima pateiki papildomus metaduomenis vardų erdvei,
+        pavydžui pavadinimą ar parašymą.
+
     .. describe:: ckan
 
-        CKAN_ duomenų katalogas.
+        Atitinka duomenų rinkinį iš CKAN_ duomenų katalogo.
 
     .. describe:: ivpk
 
-        `data.gov.lt`_ duomenų katalogas.
+        Atitinka duomenų rinkinį iš `data.gov.lt`_ duomenų katalogo.
 
 .. _CKAN: https://ckan.org/
 .. _data.gov.lt: https://data.gov.lt/
@@ -121,21 +129,23 @@ rinkinys>` įrašai.
     :term:`Duomenų rinkinio <duomenų rinkinys>` duomenų kataloge
     identifikatorius.
 
+    Nenaudojamas jei :data:`dataset.type` yra `ns`.
+
 .. data:: dataset.level
 
-    Viso duomenų rinkinio :ref:`level`. Paveldimas.
+    Viso duomenų rinkinio ar vardų erdvės :ref:`level`. Paveldimas.
 
 .. data:: dataset.access
 
-    Viso duomenų rinkinio :ref:`access`. Paveldimas.
+    Viso duomenų rinkinio ar vardų erdvės :ref:`access`. Paveldimas.
 
 .. data:: dataset.title
 
-    Duomenų rinkinio pavadinimas.
+    Duomenų rinkinio ar vardų erdvės pavadinimas.
 
 .. data:: dataset.description
 
-    Duomenų rinkinio aprašymas.
+    Duomenų rinkinio ar vardų erdvės aprašymas.
 
 Skaidymas į :term:`duomenų rinkinius <duomenų rinkinys>` turi būti atliekamas
 tokiu principu, kad visi tarpusavyje susiję :term:`modeliai <modelis>` patektų į
@@ -149,6 +159,27 @@ skirtingus duomenų šaltinius, tokie duomenys turėtų būti apjungti į vieną
 :ref:`base` pagalba ir turėtų priklausyti vienam :term:`duomenų rinkiniui
 <duomenų rinkinys>`. Tą pačią semantinę prasmę turintys duomenys neturėtų būti
 išskaidyti keliuose :term:`duomenų rinkiniuose <duomenų rinkinys>`.
+
+Pavyzdys:
+
+
++-----+-----+-----+-----+----------+-------+-------------------------------------------+
+| d   | r   | b   | m   | property | type  |                                           |
++=====+=====+=====+=====+==========+=======+===========================================+
+| datasets/gov/ivpk                | ns    | Informacinės visuomenės plėtros komitetas |
++-----+-----+-----+-----+----------+-------+-------------------------------------------+
+| datasets/gov/ivpk/adp            | ns    | Lietuvos atvirų duomenų portalas          |
++-----+-----+-----+-----+----------+-------+-------------------------------------------+
+| datasets/gov/ivpk/adp/catalog    |       | Lietuvos atvirų duomenų katalogas         |
++-----+-----+-----+-----+----------+-------+-------------------------------------------+
+| datasets/gov/ivpk/adp/store      |       | Lietuvos atvirų duomenų saugykla          |
++-----+-----+-----+-----+----------+-------+-------------------------------------------+
+
+Šiame pavyzdyje apibrėžtos dvi vardų erdvės ir du rinkiniai.
+
+Kiekviena organizacija turėtu deklaruoti tik savo vardų erdvės metaduomenis.
+Globalios vardų erdvės, tokios kaip `datasets` ir `datasets/gov` yra
+administruojamos vyriausiojo duomenų atvėrimo koordinatoriaus.
 
 
 .. _duomenų-šaltinis:
