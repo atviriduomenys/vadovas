@@ -68,9 +68,11 @@ Tekstiniai duomenys skirstomi į du skirtingus tipus `string` ir `text`.
     Galima nurodyti kokia kalba užrašytas tekstas naudojant `ISO 639-1`_ kodus.
     Kalbos kodas nurodomas :data:`property` stulpelyje, prie pavadinimo įrašant
     `@<kodas>`, kur `<kodas>` yra pakeičiamas į dviejų raidžių kalbos kodą.
-    Pavyzdžiui `pavadinimas@lt`.
+    Pavyzdžiui `pavadinimas@lt`. Plačiau apie tai `RDF Turtle`_ specifikacijoje
+    iš kur ir buvo pasiskolintas toks kalbų žymėjimas.
 
     .. _ISO 639-1: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+    .. _RDF Turtle: https://www.w3.org/TR/turtle/#turtle-literals
 
     Tekstas turėtu būti pateikta UTF-8 koduote. Jei šaltinyje tekstas nėra
     UTF-8 koduotės, tuomet galima :data:`prepare` stulepyje įrašoų formulių
