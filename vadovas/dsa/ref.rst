@@ -355,3 +355,95 @@ d  d  r  b  m  property           type      ref     prepare                 leve
 `object_id` ir `object_model` aprašomi atskirai tik todėl, kad duomenys
 ateina iš išorinio šaltinio. Jie duomenys rašomi tiesiogiai į :ref:`Saugyklą
 <saugykla>`, tada atskirai `generic` laukų apsirašyti nereikia.
+
+
+.. _ref-level:
+
+Brandos lygis
+=============
+
+Apibrėžiant ryšius tarp modelių, brandos lygis įrašomas :data:`level`
+stulpelyje atlieka svarbų vaidmenį.
+
+
+Neįmanomas susiejimas
+---------------------
+
+Jei `ref` tipui nurodytas 2 arba žemesnis brandos lygis, tai reiškia, duomenų
+jungimas nėra įmanomas. Tokiu atveju, atveriant duomenis, `property` įgaus tokį
+tipą, koks yra lauko su kuriuo siejamas ryšys tipas.
+
+Pavyzdžiui:
+
+
+== == == == ================== ========= ======= =====
+d  r  b  m  property           type      ref     level
+== == == == ================== ========= ======= =====
+example                       
+------------------------------ --------- ------- -----
+\        Country                         name
+-- -- -- --------------------- --------- ------- -----
+\           name               text              4
+\        City                            name
+-- -- -- --------------------- --------- ------- -----
+\           name               text              4
+\           country            ref       Country 2
+== == == == ================== ========= ======= =====
+
+Šiuo atveju, `City.country` yra siejamas su `Country.name`. Kadangi
+`City.country` brandos lygis yra 2, tai rei6kia, kad `City.country` ir
+`Country.name` pavadinimai nesutampa ir jungimo atlikti neįmanoma. Tokiu
+atveju, `City.country` tipas bus ne `ref`, o toks pat, kaip `Country.name`,
+t.y. `text`.
+
+Tačiau, metaduomenyse išliks informacija, apie tai, kad šios lentelės yra
+susijusios, tačiau dėl prasto duomenų brandos lygios, susiejimas nėra įmanomas.
+
+Jei modeliai yra susiję, tačiau, tokio duomenų lauko, per kurį galima būtų
+atlikti susiejimą iš vis nėra, tuomet, tokį lauką galima sukurti, nurodant
+brandos lygį 0. Pavyzdžiui:
+
+== == == == ================== ========= ================= =====
+d  r  b  m  property           type      ref               level
+== == == == ================== ========= ================= =====
+example                                                   
+------------------------------ --------- ----------------- -----
+\        Country                         name\@lt         
+-- -- -- --------------------- --------- ----------------- -----
+\           name\@lt           text                        4
+\           name\@en           text                        0
+\        City                            name             
+-- -- -- --------------------- --------- ----------------- -----
+\           name               text                        4
+\           country            ref       Country[name\@en] 2
+== == == == ================== ========= ================= =====
+
+Šioje vietoje `City.country` tampa `country@en`, kurio tipas yra `text`. O į
+`Country` yra įtrauktas papildomas laukas `name@en`, per kurį ir atliekamas
+susiejimas, t.y. per kurį galėtu būti atliktas susiejimas, jei toks laukas
+egzistuotų.
+
+
+Nepatikimas susiejimas
+----------------------
+
+Jei `ref` tipui suteiktas 3 brandos lygis, tai reiškia, kad susiejimas
+atliekamas, tačiau susiejimas yra nepatikimas ir duomenys gali būti susieti
+klaidingai.
+
+Susiejimas laikomas nepatikimu, tada, kai siejimas atliekamas ne patikimo
+unikalaus identifikatoriaus pagalba, o per pavadinimą ar panašiais būdais.
+
+Pavadinimai gali keistis, gali dubliuotis, gal skirtis jų užrašymo forma, todėl
+toks jungimas laikomas nepatikimu.
+
+
+Patikimas susiejimas
+--------------------
+
+Jei `ref` tipui suteiktas 4 ar didesnis brandos lygis, vadinasi susiejimas yra
+patikimas. Duomemnys siejami naudojant patikimus unikalius identifikatorius,
+kurie nesidubliuoja ir rašomi visada vienodai.
+
+Dažniausiai patikimais identifikatoriais laikomi sveiki skaičiai, tam tikri
+sutartiniai kodai ir kiti specializuoti identifikatoriai, tokie kaip UUID.
