@@ -106,8 +106,24 @@ kurio teisėmis bus leidžiamos priemonės, tai padaryti galite taip:
 .. code-block:: sh
 
     $ sudo useradd --system --create-home --home-dir /opt/spinta spinta
+    
+Suteikti spinta vartotojui teises
+
+.. code-block:: sh
+    $ sudo visudo
+    $ spinta  ALL=(ALL:ALL) ALL
+
+Išeiti su Ctrl + X
+
+Sukurti spinta vartotojui slaptažodį
+.. code-block:: sh
+    $ sudo passwd spinta
+
+Pereiti į vartotojo aplinką
+.. code-block:: sh    
     $ sudo -u spinta -s --set-home
     $ cd
+
 
 Toliau visus veiksmus atliksime `/opt/spinta` kataloge.
 
@@ -206,6 +222,13 @@ kurioje diegsime reikalingus Python paketus:
 
 .. _install-debian-python-packages:
 
+Senos Python versijos pašalinimas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Jei python3 --version rodo seną versiją (pvz. 3.8), tuomet ją pašalinti galite įvykdę šias komandas:
+.. code-block:: sh
+    $ sudo apt remove python3.8
+    $ sudo apt autoremove
+
 Python paketų diegimas
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -228,7 +251,7 @@ Tai padarius, galite patikrinti ar komanda `spinta` veikia:
 .. code-block:: sh
 
     $ spinta --version
-    0.1.9
+    0.1.21
 
 Ši komanda turi išvesti, Spinta priemonės versijos numerį.
 
