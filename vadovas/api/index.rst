@@ -675,6 +675,85 @@ Duomenų užklausos
 *****************
 
 Visos duomenų užklausos yra pateikiamos URL query dalyje, po `?` žymės.
+Tai kas yra rašoma po `?` yra :ref:`formulės`, tokios pačios, kurios yra
+naudojamos duomenų struktūros aprašo :data:`prepare` stulpelyje.
+
+Atkreipkite dėmesį, kad dalis einanti po `?` turi būti tinkamai koduota
+naudojanti `RFC 3986`_ specifikaciją. Kai kurie klientai tai padaro
+automatiškai, kai kurie ne. Visuose pavyzdžiuose pateikiamas nekoduotas
+variantas dėl geresnio skaitomumo.
+
+.. _RFC 3986: https://datatracker.ietf.org/doc/html/rfc3986.html
+
+Viso užklausoje naudojamos funkcijos yra atskiriamos `&` simboliu.
+Pavyzdžiui::
+
+    /example/Model?(col1="xyz"|col2<42)&select(col1,col2)&sort(col3)&limit(5)
+
+
+.. _query-join:
+
+Jungimas
+========
+
+Duomenis galima sujungti, jei duomenų struktūroje yra nurodyti ryšiai
+tarp modelių.
+
+Jungimas atliekamas `.` (taško) pagalba, pavyzdžiui, norime prie miestų
+duomenų prijungti šalis, kurios pateiktos atskirame modelyjes tuomet
+jungimą galime atlikti taip::
+
+
+    /example/City?select(country.name)
+
+Čia, `country` laukas priklauso miesto modeliui, o `name` laukas
+priklauso šalied modeliui.
+
+Taip apjungtus duomenų laukus galima naudoti atranko, filtravime ir
+rūšiavime.
+
+
+.. _query-select:
+
+Atranka
+=======
+
+Yra galimėbė gauti ne visus duomenų laukus, o tik tim tikrus, kurie
+nurodyti užklausoje. Tokią atranką galima atlikti naudojant `select()`
+funkciją. Pavyzdžiui:
+
+    /example/Model?select(prop1, prop2, prop3)
+
+
+Filtravimas
+===========
+
+Galima atlikti duomenų atranką, pagal pateiktą filtrą. Palaikomi tokie
+filtravimo operatoriai:
+
+- `prop = value` - atranka pagal tikslią reikšmę,
+
+- `prop != value` - atranka objektų, kurių reikšmė neatitinka nurodytai,
+
+- `prop` [ `>`, `>=`, `<`, `<=` ] `value` - atranka palyginant ar
+  reikšmų didesnė ar mažesnė.
+
+- `prop.contains(value)` - atranka objektus, jei `value` yra `prop`
+  reikšmės dalis.
+
+
+- `prop.startswith(value)` - atrenka objektus, kurie prasideda `value`
+  reikšme.
+
+Tais atvejais jei `value` yra simbolių eilutė, reikia naudoti kabutes.
+
+Filtruojanti taip pat galima naudoti AND ir OR operatorius, pavyzdžiui::
+
+    /example/Model?prop=value1&prop=value2
+
+    /example/Model?prop=value1|prop=value2
+
+    /example/Model?prop=value1&(prop=value2|prop=value3)
 
 
 .. _query-sort:
@@ -684,14 +763,25 @@ Rūšiavimas
 
 Duomenis rūšiuoti galima pasitelkus `sort()` funkciją:
 
-- `sort(column)` - rūšiuoja didėjančia tvarka.
-- `sort(-column)` - rūšiuoja mažėjančia tvarka.
+- `sort(prop)` - rūšiuoja didėjančia tvarka.
+- `sort(-prop)` - rūšiuoja mažėjančia tvarka.
 
-Kalima rūšiuoti pagal kelis stulpelius, pavyzdžiui:
+Kalima rūšiuoti pagal kelis stulpelius, pavyzdžiui::
 
-.. code-block:: sh
+    /example/Model?sort(prop1,-prop2,prop3)
 
-    http GET /datasets/gov/dc/geo/Continent?sort(col1,-col2,col3)
+
+.. _query-limit:
+
+Objektų skaičiaus ribojimas
+===========================
+
+Norint apriboti grąžinamų objektų skaičių galima naudoti `limit()`
+funkciją, pavyzdžiui:
+
+    /example/Model?limit(10)
+
+Tokia užklausa grąžins ne daugiau kaip 10 objektų.
 
 
 .. _query-count:
