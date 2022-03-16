@@ -12,12 +12,12 @@ klaidų, perduoti duomenis į :ref:`saugyklą <saugykla>` ir :ref:`publikuoti
 <saugykla>` atvertus duomenis aukščiausiu :ref:`brandos lygiu <level>` ir
 laikantis geriausių atvirų duomenų publikavimo praktikų.
 
-__ https://gitlab.com/atviriduomenys/spinta/
+__ https://github.com/atviriduomenys/spinta
 
 Jei naudodamiesi Spinta radote kokių nors klaidų ar turite kitų pastabų,
 galite `pranešti apie klaidą`__, kad galėtume ją pataisyti.
 
-__ https://gitlab.com/atviriduomenys/spinta/-/issues/new
+__ https://github.com/atviriduomenys/spinta/issues/new
 
 
 Diegimas
@@ -742,7 +742,7 @@ Suteiktas leidimas skaityti visus duomenis ir rašyti tik į
 Kol kas kliento kūrimas Saugykloje yra daromas rankiniu būdu, atskiru
 paklausimu, tačiau planuojama tai `automatizuoti`__.
 
-__ https://gitlab.com/atviriduomenys/spinta/-/issues/92
+__ https://github.com/atviriduomenys/spinta/issues/122
 
 Galiausiai, įkėlus duomenų struktūros aprašą į Katalogą, iš Katalogo įkėlus
 aprašą į saugyklą ir turinti klientą Saugykloje, galima publikuoti duomenis į
