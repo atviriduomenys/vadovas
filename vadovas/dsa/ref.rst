@@ -357,6 +357,78 @@ ateina iš išorinio šaltinio. Jie duomenys rašomi tiesiogiai į :ref:`Saugykl
 <saugykla>`, tada atskirai `generic` laukų apsirašyti nereikia.
 
 
+.. _ref-denorm:
+
+Denormalizuoti duomenys
+=======================
+
+Denormalizuoti duomenų laukai yra tokie laukai, kurie pateikti viename
+modelyje, tačiau pagal semantinę prasmę priklauso skirtingiems modeliams.
+
+Dažniausiai duomenų normalizavimas atveriant duomenis yra nepageidaujamas ir
+duomenų struktūra turėtu būti transformuojama į skirtingus modelius, pagal
+semantinę prasmę. Plačiau apie duomenų normalizavimą galite skaityti skyriuje
+:ref:`norm`.
+
+Tačiau tais atvejais, kai vis dėlto norima pateikti duomenis denormalizuotoje
+formoje, duomenų struktūros apraše galima nurodyti, kurie duomenų laukai yra
+denormalizuoti.
+
+Denormalizuotų laukų brandos lygis negali būti didesnis nei 4.
+
+Pavyzdys, kaip atrodo denormalizuotų duomenų laukų žymėjimas:
+
+
+== == == == ================== ========= ======= =====
+d  r  b  m  property           type      ref     level
+== == == == ================== ========= ======= =====
+example                       
+------------------------------ --------- ------- -----
+\        Country                             
+-- -- -- --------------------- --------- ------- -----
+\           code               string            4
+\           name\@en           text              4
+\        City                                
+-- -- -- --------------------- --------- ------- -----
+\           name\@en           text              4
+\           country            ref       Country 4
+\           country.code                         3
+\           country.name\@en                     3
+\           country.name\@lt   text              3
+== == == == ================== ========= ======= =====
+
+Šiame pavyzdyje turime tokius laukus:
+
+`country`
+    Šis laukas yra `ref` tipo, tai reiškia, kad šiame lauke saugomas `Country`
+    modelio identifikatorius, kurio pagalba `City` galima susieti su `Country`.
+
+    `ref` tipo duomenys yra sudėtiniai, tai reiškia, kad per `ref` tipo lauką
+    galima pasiekti siejamo modelio laukus, nurodant kito modelio laukus po
+    taško.
+
+    Todėl pagal nutylėjimą `country ref Country` yra tas pats, kas `country._id
+    ref Country`, tik `._id` dalis nenurodoma.
+
+`country.code` ir `country.name@en`
+    Šie laukai yra denormalizuoti, tai reiškia, kad jie priklauso `Country`
+    modeliui, tačiau duomenys yra dubliuojami ir pateikiami dviejose vietose,
+    prie `Country` ir prie `City.country`.
+
+    Kadangi `City.country` yra `ref` tipo, tai po taško, galima nurodyti kitus
+    šiam siejamam modeliui priklausančius laukus iš kito modelio.
+
+    Atkreipkite dėmesį, kad denormalizuotiems laukams nepildomas `type`
+    stulpelis, kadangi šių laukų tipas turi sutapti su siejamo modelio laukų
+    tipais, taip pat turi sutapti ir laukų pavadinimai.
+
+`country.name@lt`
+    Tais atvejais, kai siejamame modelyje (šiuo atvjeu `Country` modelyje) nėra
+    tam tikrų laukų, tuoment galima juose pateikti ir prie `City.country`,
+    tačiau tokiu atveju, būtina nurodyti `type`.
+
+
+
 .. _ref-level:
 
 Brandos lygis
