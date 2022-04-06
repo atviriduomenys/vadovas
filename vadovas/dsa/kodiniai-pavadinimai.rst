@@ -85,8 +85,8 @@ pavadinimas užrašomas su tašku, nurodant duomenų lauką iš siejamo
 modelio. Plačiau apie tai :ref:`ref-denorm`.
 
 
-Nekartojame modelio ir tipo
-===========================
+Nekartojame modelio pavadinimo
+==============================
 
 Visi modelio duomenų laukai yra konkretaus modelio laukai, todėl
 nereikia kartoti duomenų laukuose modelio pavadinimo, pavyzdžiui vietoje
@@ -111,3 +111,35 @@ City
 \  id           
 \  name
 == ==================
+
+Jei kiti modeliai siejami su `City`, tada nurodant tarkim `city_name` iš
+kito modelio, reikėtų rašyti `city.city_name`. Todėl `city.name` yra
+aiškesnis pavadinimas, kuriame nesikartoja modelio pavadinimas.
+
+
+Nekartojame modelio pavadinimo
+==============================
+
+Duomenų lauko pavadinime nereikia kartoti duomenų tipo pavadinimo.
+
+Pavyzdžiui taip nereikėtų daryti:
+
+== ================= ===========
+m  property          type       
+== ================= ===========
+City                            
+-------------------- -----------
+\  founded_date      date
+== ================= ===========
+
+Reikėtų rašyti taip:
+
+== ================= ===========
+m  property          type       
+== ================= ===========
+City                            
+-------------------- -----------
+\  founded           date
+== ================= ===========
+
+Nėra prasmės kartoti duomenų tipo, lauko pavadinime.
