@@ -28,6 +28,7 @@ duomenims (:term:`ADSA`) ir dar neatvertiems duomenims (:term:`ŠDSA`).
     formatas
     dimensijos
     duomenu-tipai
+    kodiniai-pavadinimai
     vienetai
     ref
     level

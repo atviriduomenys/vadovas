@@ -202,55 +202,6 @@ svarbi, tačiau rekomenduotina išlaikyti vienodą stulpelių tvarką, tam kad
 lenteles būtų lengviau skaityti.
 
 
-.. _kodiniai-pavadinimai:
-
-Kodiniai pavadinimai
-====================
-
-Kadangi :term:`DSA` lentelė skirta naudoti tiek žmonėms tiek automatizuotoms
-priemonėms, tam tikros lentelės dalys privalo naudoti sutartinius kodinius
-pavadinimus. Kodiniams pavadinimams keliami griežtesni reikalavimai, kadangi
-šiuos pavadinimus interpretuos automatizuotos priemonės.
-
-Visi :term:`DSA` lentelės stulpelių pavadinimai turi būti užrašyti tiksliai
-taip, kaip nurodyta, kad kompiuterio programos galėtų juos atpažinti.
-
-Kodiniai pavadinimai rašomi naudojant tik lotyniškas raidas. Lietuviškų
-raidžių naudoti negalima, todėl geriausia pavadinimus užrašyti anglų kalba,
-arba pakeičiant lietuviškas raides į lotyniškos raidės analogą.
-
-Deja, vis dar pasitaiko vietų, kuriose palaikoma tik lotyniška abėcėlė, todėl
-ir keliamas toks reikalavimas, siekiant užtikrinti maksimalų suderinamumą
-tarp skirtingų sistemų.
-
-Pavadinimai turėtu būti rašomi laikantis tokio stiliaus:
-
-Vardų erdvės ir duomenų rinkiniai
-    Pavyzdys: `datasets/gov/abbr/short/word`
-
-    Visos mažosios raidės, stengiantis naudoti vieno žodžio trumpus pavadinimus
-    arba žodžio trumpinius. Kadangi vardų erdvė rašoma prie kiekvieno modelio
-    pavadinimą, todėl reikia stengtis vardų erdvių ir duomenų rinkinių
-    pavadinimus išlaikyti kiek įmanoma trumpesnius.
-
-Modelių pavadinimai
-    Pavyzdys: `CamelCase`
-
-    Kiekvieno modelio pavadinimo pirma raidė didžioje, kitos mažosios.
-    Pavadinimo žodžiai neatskiriami, nei tarpais, nei kitais skyrybos ženklais.
-
-    Modelio pavadinimai užrašomi vienaskaita.
-
-Duomenų laukų pavadinimai
-    Pavyzdys: `snake_case`
-
-    Visi duomenų lauko žodžiai rašomi mažosiomis raidėmis, atskiriami pabraukimo
-    ženklu.
-
-    :data:`ref` tipo laukai turi būti rašome be `id` ar `_id` sufikso,
-    kadangi jis yra perteklinis.
-
-
 .. _vardų-erdvės:
 
 Vardų erdvės
