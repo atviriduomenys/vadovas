@@ -158,13 +158,45 @@ Data ir laikas
 .. describe:: date
 
     Tas pats kas `datetime` tik dienos tikslumu. Šio tipo reikšmės taip pat
-    turi atitikti `ISO 8601`_:
+    turi atitikti `ISO 8601`_::
 
         YYYY-MM-DD
 
     Jei norima nurodyti datą žemesnio nei dienos tikslumo, tada vietoj mėnesio
     ir dienos galima naudoti `01` ir :data:`property.ref` stulpelyje nurodyti
-    tikslumą, taip, kaip aprašyta prie :data:`datetime`.
+    tikslumą:
+
+    =======  ================
+    Reikšmė  Prasmė
+    =======  ================
+    Y        Metai
+    M        Mėnesiai
+    Q        Metų ketvirčiai
+    W        Savaitės
+    D        Dienos
+    =======  ================
+
+.. describe:: time
+
+    Dienos laikas, be konkrečios datos. Šio tipo reikšmės, kaip ir kiti
+    su laiku sisję tipai turi atitikti `ISO 8601`_::
+
+        HH[:MM[:SS[.fff[fff]]]][+HH:MM[:SS[.ffffff]]]
+
+    Jei norima nurodyti žemesnio nei sekundžių tikslumo laiką, tada
+    vietoj minučių ir/ar sekundžių galima naudoti `00` ir
+    :data:`property.ref` stulpelyje nurodyti tikslumą:
+
+    =======  ================
+    Reikšmė  Prasmė
+    =======  ================
+    H        Valandos
+    T        Minutės
+    S        Sekundės
+    L        Milisekundės
+    U        Mikrosekundės
+    N        Nanosekundžės
+    =======  ================
 
 .. describe:: temporal
 
