@@ -48,7 +48,13 @@ Pavadinimo žodžiai atskiriami juos užrašant iš didžiosios raidės. Tarp
 
 Modelio pavadinimai užrašomi vienaskaita.
 
-Modelio pavadinimas turi atspindėti duomenų subjektą.
+Modelio pavadinimas turi atspindėti `duomenų subjekto`__ tipą.
+Duomnų subjektas yra dalykas turintis pavadinimą ar unikalų identifikatorių.
+Duomenų subjekto tipas yra subjektų grupė priklausančių tai pačiai kategorijai
+ar klasei__.
+
+__ https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model#Entity%E2%80%93relationship_model
+__ https://en.wikipedia.org/wiki/Class_(knowledge_representation)
 
 
 Nekartojame vardų erdvės
