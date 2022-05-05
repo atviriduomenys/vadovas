@@ -629,7 +629,34 @@ Taip pat žiūrėkite:
 
 
 .. _getone:
-.. todo:
+
+getone
+======
+
+Šios užklausos pagalba galima gauti vieną konkretų objektą pagal unikalų
+objekto identifikatorių. Pavyzdžiui
+
+.. code-block:: sh
+
+    http GET /datasets/gov/dc/geo/Continent/abdd1245-bbf9-4085-9366-f11c0f737c1d
+
+.. code-block:: http
+
+    HTTP/1.1 200 OK
+    Content-Type: application/json
+
+    {
+        "_type": "datasets/gov/dc/geo/Continent",
+        "_id": "abdd1245-bbf9-4085-9366-f11c0f737c1d",
+        "_revision": "16dabe62-61e9-4549-a6bd-07cecfbc3508",
+        "_txn": "792a5029-63c9-4c07-995c-cbc063aaac2c",
+        "continent": "Europe"
+    }
+
+Taip pat žiūrėkite:
+
+- :ref:`getall`
+
 
 .. _op-changes:
 

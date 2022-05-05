@@ -1644,7 +1644,7 @@ Ataskaitos laukai (\* – privalomi):
 | *75 pav. Ataskaitos „Atvirų duomenų rinkinių naudojimo intensyvumo detalūs duomenys“ šablono keitimo lango fragmentas*
 
 
-.. _partnerių-api:
+.. _partner-api:
 
 Partnerių API
 *************
@@ -1672,8 +1672,10 @@ Metaduomenų atnaujinimas
 ========================
 
 Jei Portale yra pateikta nuoroda į išorinį duomenų šaltinį, tada kiekvieną
-kartą kai atliekamas duomenų atnaujinimas, naudojantis Partnerių API reikia
+kartą kai atliekamas duomenų atnaujinimas, naudojantis `Partnerių API`_ reikia
 atnaujinti ir metaduomenis, kad būtų užfiksuotas duomenų atnaujinimo faktas.
+
+.. _Partnerių API: https://data.gov.lt/partner/api/1
 
 Metaduomenis galite atnaujinti taip:
 

@@ -1,6 +1,6 @@
 .. default-role:: literal
 
-.. _atvėrimas:
+.. _duomenų-atvėrimas:
 
 #################
 Duomenų atvėrimas
@@ -146,9 +146,12 @@ Metaduomenų atnaujinimas
 ************************
 
 :ref:`Pasirašius sutartį <atvėrimo-sutartis>`, Teikėjas perduoda Katalogo API
-raktą Atvėrėjui, kuris automatiškai per Katalogo Partnerių API atnaujinam
-atvertų duomenų metaduomenis ir po kiekvieno duomenų atnaujinimo siunčia
-pranešimą per API į Katalogą apie tai, kad duomenys buvo sėkmingai atnaujinti.
+raktą Atvėrėjui, kuris automatiškai per Katalogo `Partnerių API`_ atnaujina
+atvertų duomenų `metaduomenis <distribucijos-metaduomenų-atnaujinimas>`_ ir po
+kiekvieno duomenų atnaujinimo siunčia pranešimą per API į Katalogą apie tai,
+kad duomenys buvo sėkmingai atnaujinti.
+
+.. _Partnerių API: https://data.gov.lt/partner/api/1
 
 Tokiu būdu Katalogas gali patikrinti, kad duomenys atnaujinami nustatytu
 periodiškumu.

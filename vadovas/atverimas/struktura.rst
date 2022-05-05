@@ -247,7 +247,7 @@ ADSA publikavimas
 Atvėrėjas ŠDSA pagrindu generuoja ADSA variantą, kuriame pašalinami visi
 atveriamo duomenų šaltinio metaduomenys ir paliekama tik ta dalis, kuri skirta
 publikavimui. Atvėrėjas publikuoja ADSA Kataloge per :ref:`Katalogo partnerių
-API <partnerių-api>`.
+API <partner-api>`.
 
 Publikavus ADSA Kataloge, ADSA taip pat perduodamas ir į  atvirų duomenų
 Saugyklą, ko pasekoje Saugykla paruošiama duomenų priėmimui, kurie atitinka

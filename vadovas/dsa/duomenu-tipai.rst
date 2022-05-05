@@ -298,7 +298,7 @@ Valiuta
     Valiuta. Saugomas valiutos kiekis, nurodant tiek sumą, tiek valiutos
     kodą naudojant `ISO 4217`_ kodus.
 
-    Valiutos kodas nurodomas :ref:`property.ref` stulpelyje.
+    Valiutos kodas nurodomas :data:`property.ref` stulpelyje.
 
     .. _ISO 4217: https://en.wikipedia.org/wiki/ISO_4217
 
