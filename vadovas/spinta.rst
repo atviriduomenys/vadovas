@@ -305,6 +305,42 @@ Panaši situacija gali pasitaikyti ir vykdant:
 Tokių atveju įsitikinkite ar ugniasienė leidžia kreiptis į išore ir
 pabandykite laikinai sustabdyti antivirusinę programą.
 
+
+.. _spinta-configuravimas:
+
+Konfigūravimas
+==============
+
+Įdiegus Spinta jokia papildoma konfigūracija nereikalinga, kadangi visus
+reikalingus parametrus galima perduoti per komandinės eilutės argumentus,
+pavyzdžiui:
+
+.. code-block:: sh
+
+    $ spinta inspect -r sql sqlite:///sqlite.db -o sdsa.xlsx
+
+Tačiau, norint išvengti jautrių duomenų perdavimo per komandinę eilutę ir
+pageidaujant, kad duomenų bazės prisijugnimo parametrai nebūtų įrašomi į
+struktūros aprašą, dalį parametrų galima iškelti į konfigūracijos failą:
+
+.. code-block:: yaml
+    :caption: config.yml
+
+    backends:
+      mydb:
+        type: sql
+        dsn: sqlite://sqlite.db
+
+Iškėlus duomenų bazės konfigūracijos parametrus į konfigūracinį failą, komandų
+eilutėje `-o config=config.yml` nurodoma configūracinio failo vieta, `-r sql
+mydb` nurodo pavadinimą iš `backends` sąrašo:
+
+.. code-block:: sh
+
+    $ spinta -o config=config.yml inspect -r sql mydb -o sdsa.xlsx
+
+
+
 .. _šdsa-generavimas:
 
 ŠDSA generavimas
