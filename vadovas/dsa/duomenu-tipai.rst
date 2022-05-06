@@ -473,3 +473,29 @@ Sudėtiniai tipai
 
     Rekomenduojama vengti naudoti šį tipą, siekiant išlaikyti plokščią
     duomenų modelį. Vietoje `array` tipo rekomenduojama naudoti `backref`.
+
+
+.. _other-types:
+
+Kiti tipai
+==========
+
+.. describe:: url
+
+    Unikali resurso vieta (URL) (angl. *Uniform Resource
+    Locator*).
+
+    Šis tipas naudojamas pateikiant nuorodas į išorinius šaltinius.
+
+    https://en.wikipedia.org/wiki/Uniform_Resource_Locator
+
+
+.. describe:: uri
+
+    Unikalus resurso identifikatorius (URI) (angl. *Uniform Resource
+    Identifier*).
+
+    Šis tipas naudojamas tais atvejais, kai pateikiamas išorinio resurso
+    identifikatorius.
+
+    https://en.wikipedia.org/wiki/Uniform_Resource_Identifier
