@@ -35,21 +35,21 @@ id name    country
 3  Ryga    lv
 == ======= =======
 
-Šiuo atveju, jei norime parengti aukčiau pateiktų duomenų struktūros aprašą,
+Šiuo atveju, jei norime parengti aukščiau pateiktų duomenų struktūros aprašą,
 jis atrodytų taip:
 
 
 == == == == == ================== ========= =========== =====
-d  d  r  b  m  property           type      ref         level
+id d  r  b  m  property           type      ref         level
 == == == == == ================== ========= =========== =====
 1  datasets/gov/example/countries
 -- ------------------------------ --------- ----------- -----
-2           Country                         code
+2           Country                         code        4
 -- -- -- -- --------------------- --------- ----------- -----
 3              id                 integer               4
 4              name               string                4
 5              code               string                4
-6           City                            id
+6           City                            id          4
 -- -- -- -- --------------------- --------- ----------- -----
 7              id                 integer               4
 8              name               string                4
@@ -133,12 +133,12 @@ d  d  r  b  m  property           type      ref               level
 == == == == == ================== ========= ================= =====
 1  datasets/gov/example/countries
 -- ------------------------------ --------- ----------------- -----
-2           Country                         id
+2           Country                         id                4
 -- -- -- -- --------------------- --------- ----------------- -----
 3              id                 integer                     4
 4              name               string                      4
 5              code               string                      4
-6           City                            id
+6           City                            id                4
 -- -- -- -- --------------------- --------- ----------------- -----
 7              id                 integer                     4
 8              name               string                      4
@@ -190,12 +190,12 @@ d  d  r  b  m  property           type      ref              prepare            
 == == == == == ================== ========= ================ ========================== =====
 1  datasets/gov/example/countries
 -- ------------------------------ --------- ---------------- -------------------------- -----
-2           Country                         id
+2           Country                         id                                          4
 -- -- -- -- --------------------- --------- ---------------- -------------------------- -----
 3              id                 integer                                               4
 4              name               string                                                4
 5              code               string                                                4
-6           City                            id
+6           City                            id                                          4
 -- -- -- -- --------------------- --------- ---------------- -------------------------- -----
 7              id                 integer                                               4
 8              name               string                                                4
@@ -254,12 +254,12 @@ d  d  r  b  m  property           type      ref              level
 == == == == == ================== ========= ================ =====
 1  datasets/gov/example/countries
 -- ------------------------------ --------- ---------------- -----
-2           Country                         id
+2           Country                         id               4
 -- -- -- -- --------------------- --------- ---------------- -----
 3              id                 integer                    4
 4              name               string                     4
 5              cities             backref   City             4
-6           City                            id
+6           City                            id               4
 -- -- -- -- --------------------- --------- ---------------- -----
 7              id                 integer                    4
 8              name               string                     4
@@ -310,10 +310,10 @@ Event
 ----------------------------------------------------------------
 id name         object_id object_model
 == ============ ========= ======================================
-1  Gimtadienis  1         datasets/gov/example/countries/Country
-2  Gimtadienis  2         datasets/gov/example/countries/Country
-3  Gimtadienis  1         datasets/gov/example/countries/City
-4  Gimtadienis  2         datasets/gov/example/countries/City
+1  Įkūrimas     1         datasets/gov/example/countries/Country
+2  Įkūrimas     2         datasets/gov/example/countries/Country
+3  Įkūrimas     1         datasets/gov/example/countries/City
+4  Įkūrimas     2         datasets/gov/example/countries/City
 == ============ ========= ======================================
 
 Pavyzdyje aukščiau matome, kad yra du modeliai `Country` ir `City`, kuriuos
@@ -327,17 +327,17 @@ d  d  r  b  m  property           type      ref     prepare                 leve
 == == == == == ================== ========= ======= ======================= =====
 1  datasets/gov/example/countries
 -- ------------------------------ --------- ------- ----------------------- -----
-2           Country                         id
+2           Country                         id                              4
 -- -- -- -- --------------------- --------- ------- ----------------------- -----
 3              id                 integer                                   4
 4              name               string                                    4
 5              cities             backref   City                            4
-6           City                            id
+6           City                            id                              4
 -- -- -- -- --------------------- --------- ------- ----------------------- -----
 7              id                 integer                                   4
 8              name               string                                    4
 9              country            ref       Country                         4
-10          Event                           id
+10          Event                           id                              4
 -- -- -- -- --------------------- --------- ------- ----------------------- -----
 11             id                 integer                                   4
 12             name               string                                    4
@@ -374,8 +374,6 @@ Tačiau tais atvejais, kai vis dėlto norima pateikti duomenis denormalizuotoje
 formoje, duomenų struktūros apraše galima nurodyti, kurie duomenų laukai yra
 denormalizuoti.
 
-Denormalizuotų laukų brandos lygis negali būti didesnis nei 4.
-
 Pavyzdys, kaip atrodo denormalizuotų duomenų laukų žymėjimas:
 
 
@@ -384,17 +382,17 @@ d  r  b  m  property           type      ref     level
 == == == == ================== ========= ======= =====
 example                       
 ------------------------------ --------- ------- -----
-\        Country                             
+\        Country                         code    4
 -- -- -- --------------------- --------- ------- -----
 \           code               string            4
 \           name\@en           text              4
-\        City                                
+\        City                                    3
 -- -- -- --------------------- --------- ------- -----
 \           name\@en           text              4
 \           country            ref       Country 4
-\           country.code                         3
-\           country.name\@en                     3
-\           country.name\@lt   text              3
+\           country.code                         2
+\           country.name\@en                     2
+\           country.name\@lt   text              2
 == == == == ================== ========= ======= =====
 
 Šiame pavyzdyje turime tokius laukus:
@@ -423,8 +421,8 @@ example
     tipais, taip pat turi sutapti ir laukų pavadinimai.
 
 `country.name@lt`
-    Tais atvejais, kai siejamame modelyje (šiuo atvjeu `Country` modelyje) nėra
-    tam tikrų laukų, tuoment galima juose pateikti ir prie `City.country`,
+    Tais atvejais, kai siejamame modelyje (šiuo atveju `Country` modelyje) nėra
+    tam tikrų laukų, tuomet galima juose pateikti ir prie `City.country`,
     tačiau tokiu atveju, būtina nurodyti `type`.
 
 
@@ -435,41 +433,69 @@ Brandos lygis
 =============
 
 Apibrėžiant ryšius tarp modelių, brandos lygis įrašomas :data:`level`
-stulpelyje atlieka svarbų vaidmenį.
+stulpelyje atlieka svarbų vaidmenį. Nuo brandos lygio, priklauso, kaip turi būti
+interpretuojamas išorinis raktas, siejamas su kitu modeliu.
+
+1 brandos lygis: Susiejimas neįmanomas
+    Duomenys pateikti tokia forma, kurios pagalba dviejų modelių jungimas nėra
+    įmanomas.
+
+    Pavyzdžiui, pateikta adreso tekstinė forma, kuri nesutampa su tekstine
+    forma pateikiama oficialiame adresų registre arba naudojamas toks tam
+    tikras identifikatorius, kuris nėra surištas su siejamo modelio pirminiu
+    raktu.
+
+2 brandos lygis: Susiejimas nepatikimas
+    Duomenys pateikiami tam tikra forma, kuri neužtikrina patikimo duomenų
+    susiejimo, tačiau siejimui atliekamas pagal siejamo modelio atributą, kuris
+    negarantuoja unikalaus objekto identifikavimo.
+
+    Pavyzdžiui siejimas daromas pagal pavadinimą, kuris gali keistis arba ne
+    visais atvejais sutampa.
+
+3 brandos lygis: Susiejimas ne per pirminį raktą
+    Duomenims susieti naudojamas patikimas identifikatorius, kuris yra surištas
+    siejamo modelio pirminiu raktu, tačiau naudojamas ne pirminis raktas, o
+    kitas identifikatorius.
+
+4 brandos lygis: Susiejimas per pirminį raktą
+    Susiejimas daromas per pirminį raktą.
 
 
-Neįmanomas susiejimas
+
+Susiejimas neįmanomas
 ---------------------
 
-Jei `ref` tipui nurodytas 2 arba žemesnis brandos lygis, tai reiškia, duomenų
+Jei `ref` tipui nurodytas 1 arba žemesnis brandos lygis, tai reiškia, duomenų
 jungimas nėra įmanomas. Tokiu atveju, atveriant duomenis, `property` įgaus tokį
 tipą, koks yra lauko su kuriuo siejamas ryšys tipas.
 
 Pavyzdžiui:
 
 
-== == == == ================== ========= ======= =====
-d  r  b  m  property           type      ref     level
-== == == == ================== ========= ======= =====
-example                       
------------------------------- --------- ------- -----
-\        Country                         name
--- -- -- --------------------- --------- ------- -----
-\           name               text              4
-\        City                            name
--- -- -- --------------------- --------- ------- -----
-\           name               text              4
-\           country            ref       Country 2
-== == == == ================== ========= ======= =====
+== == == == ================== ========= ========= =====
+d  r  b  m  property           type      ref       level
+== == == == ================== ========= ========= =====
+example                                           
+------------------------------ --------- --------- -----
+\        Country                         name\@lt  4
+-- -- -- --------------------- --------- --------- -----
+\           name\@lt           text                4
+\        City                            name      4
+-- -- -- --------------------- --------- --------- -----
+\           name\@lt           text                4
+\           country            ref       Country   1
+== == == == ================== ========= ========= =====
 
 Šiuo atveju, `City.country` yra siejamas su `Country.name`. Kadangi
-`City.country` brandos lygis yra 2, tai rei6kia, kad `City.country` ir
+`City.country` brandos lygis yra 2, tai reiškia, kad `City.country` ir
 `Country.name` pavadinimai nesutampa ir jungimo atlikti neįmanoma. Tokiu
 atveju, `City.country` tipas bus ne `ref`, o toks pat, kaip `Country.name`,
 t.y. `text`.
 
 Tačiau, metaduomenyse išliks informacija, apie tai, kad šios lentelės yra
-susijusios, tačiau dėl prasto duomenų brandos lygios, susiejimas nėra įmanomas.
+susijusios, tačiau dėl prasto duomenų brandos lygios, realus susiejimas nėra
+įmanomas.
 
 Jei modeliai yra susiję, tačiau, tokio duomenų lauko, per kurį galima būtų
 atlikti susiejimą iš vis nėra, tuomet, tokį lauką galima sukurti, nurodant
@@ -480,28 +506,27 @@ d  r  b  m  property           type      ref               level
 == == == == ================== ========= ================= =====
 example                                                   
 ------------------------------ --------- ----------------- -----
-\        Country                         name\@lt         
+\        Country                         name\@lt          4
 -- -- -- --------------------- --------- ----------------- -----
 \           name\@lt           text                        4
 \           name\@en           text                        0
-\        City                            name             
+\        City                            name              4
 -- -- -- --------------------- --------- ----------------- -----
-\           name               text                        4
-\           country            ref       Country[name\@en] 2
+\           name\@en           text                        4
+\           country            ref       Country[name\@en] 1
 == == == == ================== ========= ================= =====
 
 Šioje vietoje `City.country` tampa `country@en`, kurio tipas yra `text`. O į
 `Country` yra įtrauktas papildomas laukas `name@en`, per kurį ir atliekamas
 susiejimas, t.y. per kurį galėtu būti atliktas susiejimas, jei toks laukas
-egzistuotų.
+egzistuotų ne tik `City.country`, bet ir `Country.name@en`.
 
 
-Nepatikimas susiejimas
+Susiejimas nepatikimas
 ----------------------
 
-Jei `ref` tipui suteiktas 3 brandos lygis, tai reiškia, kad susiejimas
-atliekamas, tačiau susiejimas yra nepatikimas ir duomenys gali būti susieti
-klaidingai.
+Jei `ref` tipui suteiktas 2 brandos lygis, tai reiškia, kad susiejimas yra
+įmanomas, tačiau nėra garantijos, kad jis veiks visais atvejais.
 
 Susiejimas laikomas nepatikimu, tada, kai siejimas atliekamas ne patikimo
 unikalaus identifikatoriaus pagalba, o per pavadinimą ar panašiais būdais.
@@ -509,13 +534,132 @@ unikalaus identifikatoriaus pagalba, o per pavadinimą ar panašiais būdais.
 Pavadinimai gali keistis, gali dubliuotis, gal skirtis jų užrašymo forma, todėl
 toks jungimas laikomas nepatikimu.
 
+Toks jungimas ir 2 brandos lygio žymėjimas taikomas tik tais atvejais, kai
+jungimas daromas, per jungiamo modelio atributą. Pavyzdžiui:
 
-Patikimas susiejimas
---------------------
+== == == == ================== ========= ========= =====
+d  r  b  m  property           type      ref       level
+== == == == ================== ========= ========= =====
+example                                           
+------------------------------ --------- --------- -----
+\        Country                         name\@lt  4
+-- -- -- --------------------- --------- --------- -----
+\           name\@lt           text                4
+\        City                            name      4
+-- -- -- --------------------- --------- --------- -----
+\           name\@lt           text                4
+\           country            ref       Country   2
+== == == == ================== ========= ========= =====
 
-Jei `ref` tipui suteiktas 4 ar didesnis brandos lygis, vadinasi susiejimas yra
-patikimas. Duomemnys siejami naudojant patikimus unikalius identifikatorius,
-kurie nesidubliuoja ir rašomi visada vienodai.
+Šiuo atveju, kadangi `City.country` brandos lygis yra `2`, tai reiškia, kad
+`City.country` duomenys yra realiai paimti iš `Country.name@lt`. Jei
+`City.country` būtų paimti ne iš `Country.name@lt`, o iš kokio nors kito
+šaltinio ir gali nesutapti, tada brandos lygis turėtu būti `1`.
+
+Tai reiškia, kad `2` brandos lygis žymimas tik tais atvejais, kai išorinis
+raktas yra paimtas iš siejamo modelio atributo.
+
+
+Susiejimas ne per pirminį raktą
+-------------------------------
+
+Jei `ref` tipui suteiktas 3 ar didesnis brandos lygis, vadinasi susiejimas yra
+patikimas. Duomenys siejami naudojant patikimus unikalius identifikatorius,
+kurie nesidubliuoja, nesikeičia ir užrašomi visada vienodai.
 
 Dažniausiai patikimais identifikatoriais laikomi sveiki skaičiai, tam tikri
 sutartiniai kodai ir kiti specializuoti identifikatoriai, tokie kaip UUID.
+
+Tačiau, naudojamas ne pirminis raktas, o kitas duomenų laukas. Pavyzdžiui:
+
+== == == == ================== ========= ============= =====
+d  r  b  m  property           type      ref           level
+== == == == ================== ========= ============= =====
+example                                               
+------------------------------ --------- ------------- -----
+\        Country                         id            4
+-- -- -- --------------------- --------- ------------- -----
+\           id                 integer                 4
+\           code               string                  4
+\           name\@lt           text                    4
+\        City                            name          4
+-- -- -- --------------------- --------- ------------- -----
+\           name\@lt           text                    4
+\           country            ref       Country[code] 3
+== == == == ================== ========= ============= =====
+
+Skirtumas tarp `3` ir `4` brandos lygio iš esmės susijęs su duomenų saugojimu
+Saugykloje ar kitoje vietoje, kur pirminiai raktai yra generuojami ir jų
+negalima keisti. Jei naudojamas `3` brandos lygis, tuomet saugykloje saugomas,
+ne išorinis saugyklos identifikatorius UUID, o vidinis duomenų rinkinio
+identifikatorius.
+
+Publikuojant duomenis iš tam tikro šaltinio, išoriniai raktas visada turėtu
+būti konvertuojami į išorinį pirminį raktą, tačiau tais atvejais, jei dėl tam
+tikrų priežasčių tas nėra daroma, tuomet žymimas 3 brandos lygis ir
+publikuojami ne išoriniai pirminiai raktai, o šaltinio vidiniai.
+
+Pavyzdžiui, jei turime tokius duomenis:
+
+=====================================  ====  =====  =========
+example/Country                      
+-------------------------------------------------------------
+_id                                    id    code   name\@lt
+=====================================  ====  =====  =========
+4dbb1b77-a930-4f2a-8ef4-f05b89f0fcfe   1     lt     Lietuva
+=====================================  ====  =====  =========
+
+Ir jei `City.country` turi brandos lygį `3`, tada `City` duomenys atrodys taip:
+
+=====================================  =========  ============
+example/City
+--------------------------------------------------------------
+_id                                    name\@lt   country._id
+=====================================  =========  ============
+096e054e-7a4c-44cc-8f27-98af815080d5   Vilnius    lt          
+=====================================  =========  ============
+
+
+Susiejimas per pirminį raktą
+----------------------------
+
+Šiuo atveju, brandos lygis žymimas `4` ir skirtumas nuo `3` brandos lygio yra
+toks, kad duomenyse naudojamas išorinis pirminis raktas. Pavyzdžiui:
+
+== == == == ================== ========= ======== =====
+d  r  b  m  property           type      ref      level
+== == == == ================== ========= ======== =====
+example                                          
+------------------------------ --------- -------- -----
+\        Country                         id       4
+-- -- -- --------------------- --------- -------- -----
+\           id                 integer            4
+\           code               string             4
+\           name\@lt           text               4
+\        City                            name     4
+-- -- -- --------------------- --------- -------- -----
+\           name\@lt           text               4
+\           country            ref       Country  4
+== == == == ================== ========= ======== =====
+
+Turint tokį struktūros aprašą, kur `City.country` brandos lygis yra `4`,
+duomenys atrodys taip:
+
+=====================================  ====  =====  =========
+example/Country                      
+-------------------------------------------------------------
+_id                                    id    code   name\@lt
+=====================================  ====  =====  =========
+4dbb1b77-a930-4f2a-8ef4-f05b89f0fcfe   1     lt     Lietuva
+=====================================  ====  =====  =========
+
+=====================================  =========  =====================================
+example/City
+---------------------------------------------------------------------------------------
+_id                                    name\@lt   country._id                          
+=====================================  =========  =====================================
+096e054e-7a4c-44cc-8f27-98af815080d5   Vilnius    4dbb1b77-a930-4f2a-8ef4-f05b89f0fcfe
+=====================================  =========  =====================================
+
+Matome, kad `City.country._id` yra `Country` pirminis raktas. Tai reiškia, kad
+vidiniai duomenų rinkinio raktai konvertuojami į išorinius.

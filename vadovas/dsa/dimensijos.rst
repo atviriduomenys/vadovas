@@ -133,7 +133,7 @@ rinkinys>` įrašai.
 
 .. data:: dataset.level
 
-    Viso duomenų rinkinio ar vardų erdvės :ref:`level`. Paveldimas.
+    Nenaudojamas.
 
 .. data:: dataset.access
 
@@ -284,7 +284,8 @@ nurodomas duomenų šaltinio identifikatorius iš :term:`ADK`.
 
 .. data:: resource.level
 
-    Viso duomenų šaltinio brandos lygis. Paveldimas.
+    Duomenų šaltinio brandos lygis, vertinant tik pagal formatą, nežiūrint į
+    šaltinyje esančių duomenų turinį.
 
 .. data:: resource.access
 
@@ -411,8 +412,9 @@ Nenaudojamas.
 
 .. data:: base.level
 
-    Baziniam modeliui priskirtų modelių :ref:`brandos lygis <level>`.
-    Paveldimas.
+    :ref:`Brandos lygis <level>`, nurodantis modelio susiejamumą su nurodytu
+    baziniu modeliu. Plačiau žiūrėti :ref:`Ryšiai tarp modelių | Brandos lygis
+    <ref-level>`.
 
 .. data:: base.access
 
@@ -469,7 +471,9 @@ keisti tik duomenų pateikimą, užtenka naudoti :data:`model.prepare` formules.
 
 .. data:: model.level
 
-    Modeliui priklausančių laukų :ref:`brandos lygis <level>`. Paveldimas.
+    Modelio :ref:`brandos lygis <level>`, nusakantis pačio modelio brandos
+    lygį, pavyzdžiui ar nurodytas pirminis raktas, ar modelio pavadinimas
+    atitinka kodiniams pavadinimams kelimus reikalavimus.
 
 .. data:: model.access
 
@@ -891,24 +895,30 @@ kontekste.
 
         Komentaro numeris.
 
-    .. data:: comment.title
+    .. data:: comment.ref
 
-        Komentaro data, `ISO 8601`_ formatu.
-
-        .. _ISO 8601: https://en.wikipedia.org/wiki/ISO_8601
-
-    .. data:: comment.description
-
-        Komentaro tekstas.
+        Komentuojamo vieno ar kelių kableliu atskirtų :data:`property`
+        pavadinimai. Galima nurodyti ne tik stulpelio pavadinimą, bet ir
+        dimensiją.
 
     .. data:: comment.source
 
         Komentaro autorius.
 
-    .. data:: comment.ref
+    .. data:: comment.prepare
 
-        Cituojamo komentaro numeris. Jei šis stulpelis užpildytas, tai reiškia,
-        kad komentaras yra atsakymas į kitą, nurodyto numerio komentarą.
+        Keitimo pasiūlymas, naudojant `create()`, `update` ir `delete()` funkcijas. Pavyzdžiui::
+
+            update(property: "pavadinimas@lt", type: "text")
+
+        Šiuo atveju nurodoma, kad siūloma keisti `property` pavadnimą į
+        `pavadinimas@lt`, o `type` į `text`.
+
+    .. data:: comment.level
+
+        Nurodoma, kad patenkinus keitimo sliūlymą, kuris nurodytas
+        :data:`comment.prepare` stulplyje, komentuojamai eilutei gali būti
+        suteiktas nurodytas brandos lygis.
 
     .. data:: comment.access
 
@@ -920,6 +930,47 @@ kontekste.
 
         open
             Komentaras gali būti publikuojamas viešai.
+
+    .. uri:: comment.uri
+
+        Viena ar kelios kableliu atskirtos šaltinio nuorodos, kuri pateikta
+        daugiau informacijos apie tai, kas komentuojama. Taip pat gali būti
+        nurodytas kito komentaro :data:`comment.id`, nurodant, kad tai yra
+        atsakymas į ankstesnį komentarą.
+
+        URI pateikiami sutrumpinta forma, naudojant prefikstus. Žiūrėti skrių
+        :ref:`vocab`.
+
+    .. data:: comment.title
+
+        Komentaro data, `ISO 8601`_ formatu.
+
+        .. _ISO 8601: https://en.wikipedia.org/wiki/ISO_8601
+
+    .. data:: comment.description
+
+        Komentaro tekstas.
+
+
+**Pavyzdys**
+
+
+== == == == ============ ======== ========= ================================================== ====== ======= ====================================================
+d  r  b  m  property     type     ref       prepare                                            level  access  uri                                                 
+== == == == ============ ======== ========= ================================================== ====== ======= ====================================================
+example                                                                                                                                                           
+------------------------ -------- --------- -------------------------------------------------- ------ ------- ----------------------------------------------------
+\                        prefix   spinta                                                                      \https://github.com/atviriduomenys/manifest/issues/
+\                                 manifest                                                                    \https://github.com/atviriduomenys/spinta/issues/
+\                                 vadovas                                                                     \https://atviriduomenys.readthedocs.io/
+\        Imone                                                                                 2                           
+-- -- -- --------------- -------- --------- -------------------------------------------------- ------ ------- ----------------------------------------------------
+\                        comment  base      update(base: "/jar/JuridinisAsmuo", ref: "id")     4      open    spinta:205, manifest:1290                                                    
+\                        comment  ref       update(ref: "id")                                  4      open    vadovas:dsa/dimensijos.html#model.ref                                                    
+\           id           integer                                                               4      open                                                        
+\           pavadinimas  string                                                                2      open                                                        
+\                        comment  ref       update(property: "pavadinimas\@lt", type: "text")  4      open    spinta:204                                                    
+== == == == ============ ======== ========= ================================================== ====== ======= ====================================================
 
 
 Daugiakalbiškumas

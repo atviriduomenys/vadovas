@@ -44,6 +44,52 @@ duomenų struktūros apraše nurodytas transformacijas.
 
         Plačiau apie brandos lygio kėlimą skaitykite skyriuje :ref:`to-level-0`.
 
+        **Pavyzdžiai**
+
+        ========== ===================
+        Imone                         
+        ------------------------------
+        imones_id  imones_pavadinimas 
+        ========== ===================
+        42         UAB "Įmonė"        
+        ========== ===================
+
+        ============= ========= ========== ======================= =======
+        Filialas                                                  
+        ------------------------------------------------------------------
+        ikurimo_data  atstumas  imones_id  imones_pavadinimas._id  tel_nr
+        ============= ========= ========== ======================= =======
+        ============= ========= ========== ======================= =======
+
+        == == == == ====================== ======== =========== ======
+        Struktūros aprašas                                            
+        --------------------------------------------------------------
+        d  r  b  m  property               type     ref         level 
+        == == == == ====================== ======== =========== ======
+        example                                                       
+        ---------------------------------- -------- ----------- ------
+        \        Imone                              imones_id   4     
+        -- -- -- ------------------------- -------- ----------- ------
+        \           imones_id              integer              4     
+        \           imones_pavadinimas     string               2     
+        \        Filialas                                       0     
+        -- -- -- ------------------------- -------- ----------- ------
+        \           ikurimo_data           string               0     
+        \           atstumas               string               0     
+        \           imone                  ref      Imone       0     
+        \           tel_nr                 string               0     
+        == == == == ====================== ======== =========== ======
+
+        - **Duomenų nėra** - nuliniu brandos lygiu žymimi duomenys, kurių nėra,
+          pavyzdžiui jei įmonės filialų duomenų niekas nefiksuoja.
+
+        - **Duomenys nepublikuojami** - nuliniu brandos lygiu žymimi duomenys,
+          kurie fiziškai egzistuoja, tačiau nėra publikuojami jokia forma.
+
+        - **Ribojamas duomenų naudojimas** - nuliniu brandos lygiu žymimi
+          duomenys, kuri yra prieinami, tačiau pagal tokias naudojimo sąlygas,
+          kurios nėra suderinamos su atvirų duomenų licencijomis.
+
     .. describe:: 1
 
         **Publikuojama**
@@ -59,19 +105,58 @@ duomenų struktūros apraše nurodytas transformacijas.
 
         **Pavyzdžiai**
 
-        =================== ========== ============== ================
-        datos               vienetai   pavadinimai    numeriai
-        =================== ========== ============== ================
-        vakar               1 m.       Įmonė          +370 345 36522
-        2021 rugpjūčio 1 d. 1 m        UAB Įmonė      8 345 36 522
-        1/9/21              1 metras   Įmonė, UAB     (83) 45 34522
-        21/9/1              0.001 km   „ĮMONĖ“, UAB   037034536522
-        =================== ========== ============== ================
+        ========== ===================
+        Imone                         
+        ------------------------------
+        imones_id  imones_pavadinimas 
+        ========== ===================
+        42         UAB "Įmonė"        
+        ========== ===================
 
-        Pirmas brandos lygis suteikiamas tais atvejais, kei neįmanoma arba
-        sudėtinga automatinėmis priemonėmis sutapatinti unikalią prasmę
-        turinčių reikšmių arba kai duomenų struktūra nėra aiški ir neatitinka
-        kokio nors vieno konkretaus šablono.
+        ==================== ========= ============== =================== ===============
+        Filialas                                                      
+        ---------------------------------------------------------------------------------
+        ikurimo_data         atstumas  imones_id._id  imones_pavadinimas  tel_nr  
+        ==================== ========= ============== =================== ===============
+        vakar                1 m.      1              Įmonė 1             +370 345 36522
+        2021 rugpjūčio 1 d.  1 m       1              UAB Įmonė 1         8 345 36 522
+        1/9/21               1 metras  1              Įmonė 1, UAB        (83) 45 34522
+        21/9/1               0.001 km  1              „ĮMONĖ 1“, UAB      037034536522
+        ==================== ========= ============== =================== ===============
+
+        == == == == ===================== ========= =========== =====
+        Struktūros aprašas
+        -------------------------------------------------------------
+        d  r  b  m  property              type      ref         level
+        == == == == ===================== ========= =========== =====
+        example                                                  
+        --------------------------------- --------- ----------- -----
+        \        Imone                              id          4
+        -- -- -- ------------------------ --------- ----------- -----
+        \           imones_id             integer               2
+        \           imones_pavadinimas    string                2
+        \        Filialas                                       3
+        -- -- -- ------------------------ --------- ----------- -----
+        \           ikurimo_data          string                1
+        \           atstumas              string                1
+        \           imones_id             ref       Imone       1
+        \           imones_pavadinimas    string                1
+        \           tel_nr                string                1
+        == == == == ===================== ========= =========== =====
+
+        - **Neaiški struktūra** - pirmu brandos lygiu žymimi duomenys, kuriuose
+          nėra aiškios struktūros, pavyzdžiui `ikurta` datos formatas nėra
+          vienodas, kiekviena data užrašyta vis kitokiu formatu.
+
+        - **Nėra vientisumo** - pirmu brandos lygiu žymimi duomenuys, kuruose
+          nėra vientisumo, pavyzdžiui `atstumas` užrašytas laikantis tam tikros
+          struktūros, tačiau skirtingais vienetais.
+
+        - **Neįmanomas jungimas** - pirmu brandos lygiu žymimi
+          duomenys, kurių neįmanoma arba sudėtinga sujungti. Pavyzdžiui
+          `Filialas` duomnų laukas `imone` naudoja tam tikrą identifikatorių,
+          kuris nesutampa nei su vienu iš `Imone` atributų, pagal kuriuose būtų
+          galima identifikuoti filialo įmonę.
 
     .. describe:: 2
 
@@ -91,25 +176,97 @@ duomenų struktūros apraše nurodytas transformacijas.
 
         **Pavyzdžiai**
 
-        ============== ============ ====================== ===================
-        datos          vienetai     pavadinimai            numeriai
-        ============== ============ ====================== ===================
-        1/9/21         1 m.         UAB Pavadinimas        (83\) 111 11111
-        2/9/21         2 m.         UAB Įmonė              (83\) 222 22222
-        3/9/21         3 m.         UAB Organizacija       (83\) 333 33333
-        4/9/21         4 m.         UAB Grupė              (83\) 444 44444
-        ============== ============ ====================== ===================
+        ========== ===================
+        Imone                         
+        ------------------------------
+        imones_id  imones_pavadinimas 
+        ========== ===================
+        42         UAB "Įmonė"        
+        ========== ===================
 
-        Pavyzdyje, datos formatas visur pateiktas vieningu formatu, tačiau pats
-        formatas nėra standartinis. Lietuvoje, data yra užrašoma naudojanti
-        ISO 8601 formatu.
+        ============= ========= ========== ======================= ================
+        Filialas                                                  
+        ---------------------------------------------------------------------------
+        ikurimo_data  atstumas  imones_id  imones_pavadinimas._id  tel_nr  
+        ============= ========= ========== ======================= ================
+        1/9/21        1 m.      1          UAB "Įmonė"             (83\) 111 11111
+        2/9/21        2 m.      1          UAB "Įmonė"             (83\) 222 22222
+        3/9/21        3 m.      1          UAB "Įmonė"             (83\) 333 33333
+        4/9/21        4 m.      1          UAB "Įmonė"             (83\) 444 44444
+        ============= ========= ========== ======================= ================
 
-        Skaičiai užrašyti tais pačiais vienetais, tačiau nėra nurodyta kokie
-        tai vienetai, todėl neaišku, kaip interpretuoti šiuos skaičius.
+        == == == == ===================== ========= ========== =====
+        Struktūros aprašas                                     
+        ------------------------------------------------------------
+        d  r  b  m  property              type      ref        level
+        == == == == ===================== ========= ========== =====
+        example                                                 
+        --------------------------------- --------- ---------- -----
+        \        Imone                              imones_id  4
+        -- -- -- ------------------------ --------- ---------- -----
+        \           imones_id             integer              2
+        \           imones_pavadinimas    string               2
+        \        Filialas                                      3
+        -- -- -- ------------------------ --------- ---------- -----
+        \           ikurimo_data          string               2
+        \           atstumas              string               2
+        \           imones_id             integer              2
+        \           imones_pavadinimas    ref       Imone      2
+        \           tel_nr                string               2
+        == == == == ===================== ========= ========== =====
 
-        Įmonių pavadinimai nors ir surašyti vienodu formatu, tačiau nesutampa
-        su juridinių asmenų registro pavadinimais, todėl tokių duomenų jungimas
-        nėra įmanomas.
+        - **Nestandartiniai duomenų tipai** - antru brandos lygiu žymimi duomenys,
+          kurių nurodytas tipas neatitinka realaus duomenų tipo. Pavyzdžiui:
+
+          - `ikurimo_data` - nurodytas `string`, turėtu būti `date`.
+          - `imones_pavadinimas` - nurodytas `string`, turėtu būti `text`.
+          - `atstumas` - nurodytas `string`, turėtu būti `integer`.
+
+        - **Nestandartinis formatas** - antru brandos lygiu žymimi duomenys,
+          kurie pateikti nestandartiniu formatu. Standartinis duomenų
+          pateikimas nurodytas prie kiekvieno duomenų tipo skyriuje
+          :ref:`duomenų-tipai`. Payvzdžiui:
+
+          - `ikurimo_data` - nurodytas `DD/MM/YY`, turėtu būti `YYYY-MM-DD`.
+          - `atstumas` - nurodyta `X m.`, turėtu būti `X`.
+          - `tel_nr` - nurodytas `(XX) XXX XXXXX`, turėtu būti
+            `+XXX-XXX-XXXXX`.
+
+        - **Nestandartiniai kodiniai pavadinimai** - antru brandos lygiu žymimi
+          duomenys, kurių kodiniai pavadinimai, neatitinka :ref:`standartinių
+          reikalavimų keliamų kodiniams pavadinimams <kodiniai-pavadinimai>`.
+          Pavyzdžiui:
+
+          - `imones_id` - dubliuojamas modelio pavadinimas, turėtu būti `id`.
+          - `imones_pavadinimas` - dubliuojamas modelio pavadinimas, turėtu
+            būti `pavadinimas`.
+          - `ikurimo_data` - dubliuojamas tipo pavadinimas, turėtu būti
+            `ikurta`.
+
+        - **Nepatikimi identifikatoriai** - antru brandos lygiu žymimi
+          duomenys, kurių `ref` tipui naudojami nepatikimi identifikatoriai,
+          pavyzdžiui tokie, kaip pavadinimai, kurie gali keistis arba kartotis.
+          Pavyzdžiui:
+
+          - `imones_pavadinimas` - jungimas daromas per įmonės pavadinimą,
+            tačiau šiuo atveju kito varianto nėra, nes `Filialas.imones_id`
+            nesutampa su `Imone.imones_id`.
+
+        - **Denormalizuoti duomenys** - antru brandos lygiu žymimi duomenys,
+          kurie dubliuoja kito modelio duomenis ir yra užrašyti nenurodant, kad
+          tai yra duomenys dubliuojantys kito modelio duomenis. Pavyzdžiui:
+
+          - `Filialas.imones_id` turėtu būti `Filialas.imone.imones_id`.
+          - `Filialas.imones_pavadinimas` turėtu būti suskaidytas į du laukus
+            `Filialas.imone` (`ref Imone` tipas) ir
+            `Filialas.imone.imones_pavadinimas` (`string` tipas).
+
+          Plačiau apie denormalizuotus duomenis skaitykite skyriuje
+          :ref:`ref-denorm`.
+
+        - **Nenurodytas susiejimas** - antru brandos lygiu žymimi duomenys,
+          kurie siejasi su kitu modeliu, tačiau tokia informacija nėra pateikta
+          metaduomenyse.
 
     .. describe:: 3
 
@@ -128,24 +285,71 @@ duomenų struktūros apraše nurodytas transformacijas.
 
         **Pavyzdžiai**
 
-        ============== =========== =================== ===================
-        datos          vienetai    pavadinimai         numeriai
-        ============== =========== =================== ===================
-        2021-09-01     1           UAB "Pavadinimas"   +37011111111
-        2021-09-02     2           UAB "Įmonė"         +37022222222
-        2021-09-03     3           UAB "Organizacija"  +37033333333
-        2021-09-04     4           UAB "Grupė"         +37044444444
-        ============== =========== =================== ===================
+        ===== ================
+        Imone                                                       
+        ----------------------
+        id    pavadinimas\@lt 
+        ===== ================
+        42    UAB "Įmonė"
+        ===== ================
 
-        Šiuo atveju, visos reikšmės pateiktos standartinėmis formomis.
-        Vienetai pateikti ne prie skaičių, o atskirai metaduomenyse
-        :data:`property.ref` stulpelyje.
+        =========== ========= ========== ====================== =============
+        Filialas                                         
+        ---------------------------------------------------------------------
+        ikurta      atstumas  imone._id  imone.pavadinimas\@lt  tel_nr  
+        =========== ========= ========== ====================== =============
+        2021-09-01  1         42         UAB "Įmonė"            +37011111111
+        2021-09-02  2         42         UAB "Įmonė"            +37022222222
+        2021-09-03  3         42         UAB "Įmonė"            +37033333333
+        2021-09-04  4         42         UAB "Įmonė"            +37044444444
+        =========== ========= ========== ====================== =============
 
-        Įoonių pavadinimai sutampa su juridinių asmenų registro pavadinimais ir
-        atsiranda galimybė juos jungi. Tačiau suteiktas 3 brandos lygis,
-        kadangi pavadinimai nėra patikimas duomenų jungimo būdas. Pavadinimai
-        gali keistis, gali dubliuotis, todėl duomenų jungimas gali būti
-        nepatikimas.
+        == == == == ===================== ========= =========== =====
+        Struktūros aprašas
+        -------------------------------------------------------------
+        d  r  b  m  property              type      ref         level
+        == == == == ===================== ========= =========== =====
+        example                                                  
+        --------------------------------- --------- ----------- -----
+        \        Imone                              id          4
+        -- -- -- ------------------------ --------- ----------- -----
+        \           id                    integer               4
+        \           pavadinimas\@lt       text                  4
+        \        Filialas                                       3
+        -- -- -- ------------------------ --------- ----------- -----
+        \           ikurta                date                  3
+        \           atstumas              integer               3
+        \           imone                 ref       Imone       3
+        \           imone.pavadinimas\@lt text                  4
+        \           tel_nr                string                4
+        == == == == ===================== ========= =========== =====
+
+        - **Nenurodytas pirminis raktas** - trečiu brandos lygiu žymimi
+          duomenys, kurie neturi nurodyto pirminio rakto :data:`model.ref`
+          stulpelyje. Pavyzdžiui:
+
+          - `Filialas` - nenurodytas pirminis raktas :data:`model.ref`
+            stulpelyje.
+
+        - **Nenurodyt vienetai** - trečiu brandos lygiu žymimi kiekybiniai
+          duomenys, kuriems nėra nurodyti matavimo vienetai
+          :data:`property.ref` stulpelyje. Pavyzdžiui:
+
+          - `atstumas` - nenurodyta, kokiais vienetais matuojamas atstumas.
+
+        - **Nenurodyti tikslumas** - trečiu brandos lygiu žymimi laiko ir
+          erdviniai duomenys, kuriems nėra nurodytas matavimo tikslumas.
+          Matavimo tikslumas nurodomas `property.ref` stulpelyje. Pavyzdžiui:
+
+          - `ikurta` - nenurodytas datos tikslumas, turėtu būti `D` - vienos
+            dienos tiksumas.
+
+        - **Siejimas ne per priminį raktą** - trečiu brandos lygiu žymimi `ref`
+          tipo duomenų laukai, kurie siejami ne per perminį raktą `_id`, o per
+          kitą identifikatorių. Pavyzdžiui:
+
+          - `Filialas.imone` - siejimas atliekamas per `Imone.id`, o ne per
+            `Imone._id`.
 
     .. describe:: 4
 
@@ -178,36 +382,51 @@ duomenų struktūros apraše nurodytas transformacijas.
 
         **Pavyzdžiai**
 
-        =============== ============ ============ =============== =============
-        _id             datos        vienetai     pavadinimai     numeriai
-        =============== ============ ============ =============== =============
-        353e3a6d941b    2021-09-01   1            123456790       +37011111111
-        16d7418b8e1c    2021-09-02   2            123456791       +37022222222
-        495b9fb0f0b1    2021-09-03   3            123456782       +37033333333
-        0a539b7e7e3c    2021-09-04   4            123456783       +37044444444
-        =============== ============ ============ =============== =============
+        ===================================== ===== ================
+        Imone                                                       
+        ------------------------------------------------------------
+        _id                                   id    pavadinimas\@lt 
+        ===================================== ===== ================
+        26510da5-f6a6-45b0-a9b9-27b3d0090a58  42    UAB "Įmonė"
+        ===================================== ===== ================
 
-        Šiame pavyzdyje kiekvienam objektui arba kiekvienai lentelės eilutei
-        yra sutiktas unikalus identifikatorius `_id`, kurio reikšmė niekada
-        nesikeičia.
+        ===================================== === =========== ========= ===================================== ========= ====================== =============
+        Filialas                                                                                                      
+        ------------------------------------- --- ----------------------------------------------------------------------------------------------------------
+        _id                                   id  ikurta      atstumas  imone._id                             imone.id  imone.pavadinimas\@lt  tel_nr       
+        ===================================== === =========== ========= ===================================== ========= ====================== =============
+        63161bd2-158f-4d62-9804-636573abb9c7  1   2021-09-01  1         26510da5-f6a6-45b0-a9b9-27b3d0090a58  42        UAB "Įmonė"            +37011111111
+        65ec7208-fb97-41a8-9cfc-dfedd197ced6  2   2021-09-02  2         26510da5-f6a6-45b0-a9b9-27b3d0090a58  42        UAB "Įmonė"            +37022222222
+        2b8cdfa6-1396-431a-851c-c7c6eb7aa433  3   2021-09-03  3         26510da5-f6a6-45b0-a9b9-27b3d0090a58  42        UAB "Įmonė"            +37033333333
+        1882bb9e-73ee-4057-b04d-d4af47f0aae8  4   2021-09-04  4         26510da5-f6a6-45b0-a9b9-27b3d0090a58  42        UAB "Įmonė"            +37044444444
+        ===================================== === =========== ========= ===================================== ========= ====================== =============
 
-        Vietoj įmonės pavadinimu naudojami nesikeičiantys identifikatoriai,
-        šiuo atveju įmonės registracijos numeris. Registracijos numeris
-        užtikrina, kad kiekviena įmonė turi unikalų identifikatorių iš
-        juridinių asmenų registro ir tai suteikia galimybę duomenis jungti
-        patikimai.
+        == == == == ===================== ========= =========== =====
+        Struktūros aprašas
+        -------------------------------------------------------------
+        d  r  b  m  property              type      ref         level
+        == == == == ===================== ========= =========== =====
+        example                                                  
+        --------------------------------- --------- ----------- -----
+        \        Imone                              id          4
+        -- -- -- ------------------------ --------- ----------- -----
+        \           id                    integer               4
+        \           pavadinimas\@lt       text                  4
+        \        Filialas                           id          4
+        -- -- -- ------------------------ --------- ----------- -----
+        \           id                    integer               4
+        \           ikurta                date      D           4
+        \           atstumas              integer   km          4
+        \           imone                 ref       Imone       4
+        \           imone.id              integer               4
+        \           imone.pavadinimas\@lt text                  4
+        \           tel_nr                string                4
+        == == == == ===================== ========= =========== =====
 
-        Kadangi lentelė turi unkalų identifikatorių `_id`, kuris yra nustatomas
-        :data:`model.ref` stulpelyje, todėl visi kiti stulpeliai, gali įgauti 4
-        brandos lygį. Jei lentelė neturi unikalaus identifikatoriaus, tuomet,
-        net jei prie atskirų stulpelių yra nudytas 4 ar 5 brandos lygis, tačiau
-        letelės kontekste, tokie stulpeliai bus ne didesnio nei 3 brandos
-        lygio.
-
-        Rengiant duomenų struktūros aprašą, šiais identifikatoriais pasirūpinama
-        automatiškai, jums reikia tik užpildyti `model.ref` ir pažymėti ryšius
-        tarp modelių, užpildant `property.ref`, kuri `property.type` yra `ref`.
-
+        - **Nesusieta su standartiniu žodynu** - ketvirtu brandos lygiu žimimi
+          duomenys, kurie nėra susieti su standartiniais žodynais ar
+          ontologijomis. Siejimas su žodynais atliekamas `model.uri` ir
+          `property.uri` stulpeluose.
 
     .. describe:: 5
 
@@ -231,11 +450,49 @@ duomenų struktūros apraše nurodytas transformacijas.
         Penktame brandos lygyje visas dėmesys yra sutelkiamas yra semantinę
         duomenų prasmę.
 
+        **Pavyzdžiai**
 
-Daugeliu atveju brandos lygis gali būti nustatomas automatiškai pagal tai ar yra
-užpildyti tam tikri stulpeliai. Automatiškai brandos lygio negalima nustatyti
-tarp `2` ir `3` brandos lygio, todėl automatinės priemonės visada turėtų
-parinkti žemesnį `2` brandos lygį, jei nenurodyta kitaip.
+        ===================================== ===== ================
+        Imone                                                       
+        ------------------------------------------------------------
+        _id                                   id    pavadinimas\@lt 
+        ===================================== ===== ================
+        26510da5-f6a6-45b0-a9b9-27b3d0090a58  42    UAB "Įmonė"
+        ===================================== ===== ================
 
-Jei žemesnėje dimensijoje nėra nurodytas joks brandos lygis, jis yra paveldimas
-iš aukštesnės dimensijos.
+        ===================================== === =========== ========= ===================================== ========= ====================== =================
+        Filialas                                                                                                      
+        ------------------------------------- ------------------------------------------------------------------------------------------------------------------
+        _id                                   id  ikurta      atstumas  imone._id                             imone.id  imone.pavadinimas\@lt  tel_nr           
+        ===================================== === =========== ========= ===================================== ========= ====================== =================
+        63161bd2-158f-4d62-9804-636573abb9c7  1   2021-09-01  1         26510da5-f6a6-45b0-a9b9-27b3d0090a58  42        UAB "Įmonė"            \tel:+37011111111
+        65ec7208-fb97-41a8-9cfc-dfedd197ced6  2   2021-09-02  2         26510da5-f6a6-45b0-a9b9-27b3d0090a58  42        UAB "Įmonė"            \tel:+37022222222
+        2b8cdfa6-1396-431a-851c-c7c6eb7aa433  3   2021-09-03  3         26510da5-f6a6-45b0-a9b9-27b3d0090a58  42        UAB "Įmonė"            \tel:+37033333333
+        1882bb9e-73ee-4057-b04d-d4af47f0aae8  4   2021-09-04  4         26510da5-f6a6-45b0-a9b9-27b3d0090a58  42        UAB "Įmonė"            \tel:+37044444444
+        ===================================== === =========== ========= ===================================== ========= ====================== =================
+
+        == == == == ====================== ========= =========== ===== ============================
+        Struktūros aprašas                                                                         
+        -------------------------------------------------------------- ----------------------------
+        d  r  b  m  property               type      ref         level uri                         
+        == == == == ====================== ========= =========== ===== ============================
+        example                                                                                    
+        ---------------------------------- --------- ----------- ----- ----------------------------
+        \                                  prefix    foaf              \http://xmlns.com/foaf/0.1/                            
+        \                                            dct               \http://purl.org/dc/terms/
+        \                                            schema            \http://schema.org/
+        \        Imone                               id          5     foaf:Organization           
+        -- -- -- ------------------------- --------- ----------- ----- ----------------------------
+        \           id                     integer               5     dct:identifier                            
+        \           pavadinimas\@lt        text                  5     dct:title                            
+        \        Filialas                            id          5     schema:LocalBusiness
+        -- -- -- ------------------------- --------- ----------- ----- ----------------------------
+        \           id                     date      1D          5     dct:identifier                            
+        \           ikurta                 date      1D          5     dct:created                            
+        \           atstumas               integer   km          5     schema:distance
+        \           imone                  ref       Imone       5     foaf:Organization                            
+        \           imone.id               integer               5     dct:identifier
+        \           imone.pavadinimas\@lt  text                  5     dct:title                            
+        \           tel_nr                 string                5     foaf:phone
+        == == == == ====================== ========= =========== ===== ============================
+
