@@ -339,6 +339,11 @@ tačiau :data:`model` gali turėti ir papildomų laukų, kurių nėra :data:`bas
 modelyje Visi :data:`base.ref` laukai turi būti aprašyti tiek :data:`base`, tiek
 :data:`model` modeliuose.
 
+Jei :data:`base` stulpelyje nurodoma `/` reikšmė, tai reiškia, kad
+:data:`model` neturi bazės, arba modelio bazė yra panaikinama. `/` naudojamas
+tais atvejais, kai norima vieną ar kelis modelius prijungti prie vienos bazės,
+tačiau sekantys modeliai nebeturi priklausyti jokiai bazei.
+
 .. data:: base.source
 
 Nenaudojamas.
@@ -422,6 +427,49 @@ Nenaudojamas.
     Paveldimas.
 
 Paaiškinimas, ką reiškia kiekviena savybė.
+
+Pavyzdys:
+
+== == == == =========== =========
+d  r  b  m  property    type     
+== == == == =========== =========
+example                          
+----------------------- ---------
+\        Gyvenviete              
+-- -- -- -------------- ---------
+\           name\@lt    text     
+\           gyventoju   integer  
+\      Gyvenviete                
+-- -- ----------------- ---------
+\        Miestas
+-- -- -- -------------- ---------
+\           name\@lt             
+\           gyventoju            
+\        Kaimas   
+-- -- -- -------------- ---------
+\           name\@lt             
+\           gyventoju            
+\           rajonas     ref      
+\     / 
+-- -- ----------------- ---------
+\        Salis
+-- -- -- -------------- ---------
+\           name\@lt             
+\           gyventoju            
+== == == == =========== =========
+
+Šiame pavyzdyje:
+
+- `Miestas` ir `Kaimas` priklauso vienai bazei `Gyvenviete`.
+
+- Kadangi `Gyvenviete` turi savybes `name@lt` ir `gyventoju`, tai `Miestas` ir
+  `Kaimas` modeliuose tą pačią semantinę prasmę turinčios savybės turi turėti
+  lygiai tokius pačius pavadinimus, o `type` turi būti tuščias. Kai `type` yra
+  tuščias, tai reiškia, kad savybė ateina iš bazinio modelio.
+
+- Kadangi `Salis` semantiškai nėra tas pats, kas `Gyvenviete`, nors ir turi
+  tokias pačias savybes, atskiriame ją nuo `Gyvenviete` bazės, priskirdami `/`
+  bazei, kas reiškia, kas bazės nėra.
 
 
 .. _duomenų-modelis:

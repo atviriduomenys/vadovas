@@ -202,16 +202,22 @@ duomenų struktūros apraše nurodytas transformacijas.
         == == == == ===================== ========= ========== =====
         example                                                 
         --------------------------------- --------- ---------- -----
-        \        Imone                              imones_id  4
+        \        JuridinisAsmuo                     kodas      4
+        -- -- -- ------------------------ --------- ---------- -----
+        \           kodas                 integer              4
+        \           pavadinimas\@lt       text                 4
+        \        Imone                              imones_id  2
         -- -- -- ------------------------ --------- ---------- -----
         \           imones_id             integer              2
         \           imones_pavadinimas    string               2
+        \     /                                                                                
+        -- -- -- ------------------------ --------- ---------- -----
         \        Filialas                                      3
         -- -- -- ------------------------ --------- ---------- -----
         \           ikurimo_data          string               2
         \           atstumas              string               2
         \           imones_id             integer              2
-        \           imones_pavadinimas    ref       Imone      2
+        \           imones_pavadinimas    string               2
         \           tel_nr                string               2
         == == == == ===================== ========= ========== =====
 
@@ -257,16 +263,30 @@ duomenų struktūros apraše nurodytas transformacijas.
           tai yra duomenys dubliuojantys kito modelio duomenis. Pavyzdžiui:
 
           - `Filialas.imones_id` turėtu būti `Filialas.imone.imones_id`.
-          - `Filialas.imones_pavadinimas` turėtu būti suskaidytas į du laukus
-            `Filialas.imone` (`ref Imone` tipas) ir
-            `Filialas.imone.imones_pavadinimas` (`string` tipas).
+          - `Filialas.imones_pavadinimas` turėtu būti
+            `Filialas.imone.imones_pavadinimas`.
 
           Plačiau apie denormalizuotus duomenis skaitykite skyriuje
           :ref:`ref-denorm`.
 
         - **Nenurodytas susiejimas** - antru brandos lygiu žymimi duomenys,
           kurie siejasi su kitu modeliu, tačiau tokia informacija nėra pateikta
-          metaduomenyse.
+          metaduomenyse. Pavyzdžiui:
+
+          - `Filialas.imone` - `Filialas` siejasi su `Imone`, per
+            `Filialas.imones_pavadiniams`, todėl turėtu būti nurodytas `imone
+            ref Imone` ryšys su `Imone`.
+
+        - **Neatitinka modelio bazės** - antru brandos lygiu žymimi duomenys,
+          kurie priklauso vienai semantinei klasei, tačiau duomenų schema
+          nesutampa su bazinio modelio schema. Pavyzdžiui:
+
+          - `Imone` - priklauso semantinei klasei `JuridinisAsmuo`, tačiau tai
+            nėra pažymėta metaduomenyse.
+          - `Imone.imones_id` turėtu būti `Imone.kodas`, kad sutaptu su baze
+            (`JuridinisAsmuo.kodas`).
+          - `Imone.imones_pavadinimas` turėtu būti `Imone.pavadinimas@lt`, kad
+            sutaptu su baze (`JuridinisAsmuo.pavadinimas@lt`).
 
     .. describe:: 3
 
@@ -311,16 +331,25 @@ duomenų struktūros apraše nurodytas transformacijas.
         == == == == ===================== ========= =========== =====
         example                                                  
         --------------------------------- --------- ----------- -----
-        \        Imone                              id          4
+        \        JuridinisAsmuo                     kodas       4
         -- -- -- ------------------------ --------- ----------- -----
-        \           id                    integer               4
+        \           kodas                 integer               4
         \           pavadinimas\@lt       text                  4
+        \     JuridinisAsmuo                                    4
+        -- -- --------------------------- --------- ----------- -----
+        \        Imone                              kodas       4
+        -- -- -- ------------------------ --------- ----------- -----
+        \           kodas                                       4
+        \           pavadinimas\@lt                             4
+        \     /                                                                                
+        -- -- --------------------------- --------- ----------- -----
         \        Filialas                                       3
         -- -- -- ------------------------ --------- ----------- -----
         \           ikurta                date                  3
         \           atstumas              integer               3
         \           imone                 ref       Imone       3
-        \           imone.pavadinimas\@lt text                  4
+        \           imone.kodas                                 4
+        \           imone.pavadinimas\@lt                       4
         \           tel_nr                string                4
         == == == == ===================== ========= =========== =====
 
@@ -348,7 +377,7 @@ duomenų struktūros apraše nurodytas transformacijas.
           tipo duomenų laukai, kurie siejami ne per perminį raktą `_id`, o per
           kitą identifikatorių. Pavyzdžiui:
 
-          - `Filialas.imone` - siejimas atliekamas per `Imone.id`, o ne per
+          - `Filialas.imone` - siejimas atliekamas per `Imone.kodas`, o ne per
             `Imone._id`.
 
     .. describe:: 4
@@ -408,18 +437,26 @@ duomenų struktūros apraše nurodytas transformacijas.
         == == == == ===================== ========= =========== =====
         example                                                  
         --------------------------------- --------- ----------- -----
-        \        Imone                              id          4
+        \        JuridinisAsmuo                     kodas       4
+        -- -- -- ------------------------ --------- ----------- -----
+        \           kodas                 integer               4
+        \           pavadinimas\@lt       text                  4
+        \     JuridinisAsmuo                                    4
+        -- -- --------------------------- --------- ----------- -----
+        \        Imone                              kodas       4
         -- -- -- ------------------------ --------- ----------- -----
         \           id                    integer               4
         \           pavadinimas\@lt       text                  4
+        \     /                                                                                
+        -- -- --------------------------- --------- ----------- -----
         \        Filialas                           id          4
         -- -- -- ------------------------ --------- ----------- -----
         \           id                    integer               4
         \           ikurta                date      D           4
         \           atstumas              integer   km          4
         \           imone                 ref       Imone       4
-        \           imone.id              integer               4
-        \           imone.pavadinimas\@lt text                  4
+        \           imone.id                                    4
+        \           imone.pavadinimas\@lt                       4
         \           tel_nr                string                4
         == == == == ===================== ========= =========== =====
 
@@ -481,10 +518,18 @@ duomenų struktūros apraše nurodytas transformacijas.
         \                                  prefix    foaf              \http://xmlns.com/foaf/0.1/                            
         \                                            dct               \http://purl.org/dc/terms/
         \                                            schema            \http://schema.org/
+        \        JuridinisAsmuo                       kodas      4                             
+        -- -- -- ------------------------- --------- ----------- ----- ----------------------------
+        \           kodas                  integer               4                             
+        \           pavadinimas\@lt        text                  4                             
+        \     JuridinisAsmuo                                     4                             
+        -- -- ---------------------------- --------- ----------- ----- ----------------------------
         \        Imone                               id          5     foaf:Organization           
         -- -- -- ------------------------- --------- ----------- ----- ----------------------------
-        \           id                     integer               5     dct:identifier                            
-        \           pavadinimas\@lt        text                  5     dct:title                            
+        \           id                                           5     dct:identifier                            
+        \           pavadinimas\@lt                              5     dct:title                            
+        \     /                                                                                
+        -- -- ---------------------------- --------- ----------- ----- ----------------------------
         \        Filialas                            id          5     schema:LocalBusiness
         -- -- -- ------------------------- --------- ----------- ----- ----------------------------
         \           id                     date      1D          5     dct:identifier                            
