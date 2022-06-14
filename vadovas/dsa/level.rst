@@ -46,13 +46,13 @@ duomenų struktūros apraše nurodytas transformacijas.
 
         **Pavyzdžiai**
 
-        ========== ===================
-        Imone                         
-        ------------------------------
-        imones_id  imones_pavadinimas 
-        ========== ===================
-        42         UAB "Įmonė"        
-        ========== ===================
+        ========== =================== ======
+        Imone                                
+        -------------------------------------
+        imones_id  imones_pavadinimas  rusis 
+        ========== =================== ======
+        42         UAB "Įmonė"         1     
+        ========== =================== ======
 
         ============= ========= ========== ======================= =======
         Filialas                                                  
@@ -72,6 +72,7 @@ duomenų struktūros apraše nurodytas transformacijas.
         -- -- -- ------------------------- -------- ----------- ------
         \           imones_id              integer              4     
         \           imones_pavadinimas     string               2     
+        \           rusis                  integer              2     
         \        Filialas                                       0     
         -- -- -- ------------------------- -------- ----------- ------
         \           ikurimo_data           string               0     
@@ -105,23 +106,23 @@ duomenų struktūros apraše nurodytas transformacijas.
 
         **Pavyzdžiai**
 
-        ========== ===================
-        Imone                         
-        ------------------------------
-        imones_id  imones_pavadinimas 
-        ========== ===================
-        42         UAB "Įmonė"        
-        ========== ===================
+        ========== =================== ======
+        Imone                                
+        -------------------------------------
+        imones_id  imones_pavadinimas  rusis 
+        ========== =================== ======
+        42         UAB "Įmonė"         1     
+        ========== =================== ======
 
         ==================== ========= ============== =================== ===============
-        Filialas                                                      
+        Filialas                                                                         
         ---------------------------------------------------------------------------------
-        ikurimo_data         atstumas  imones_id._id  imones_pavadinimas  tel_nr  
+        ikurimo_data         atstumas  imones_id._id  imones_pavadinimas  tel_nr         
         ==================== ========= ============== =================== ===============
-        vakar                1 m.      1              Įmonė 1             +370 345 36522
-        2021 rugpjūčio 1 d.  1 m       1              UAB Įmonė 1         8 345 36 522
-        1/9/21               1 metras  1              Įmonė 1, UAB        (83) 45 34522
-        21/9/1               0.001 km  1              „ĮMONĖ 1“, UAB      037034536522
+        vakar                1 m.      1              Įmonė 1             +370 345 36522 
+        2021 rugpjūčio 1 d.  1 m       1              UAB Įmonė 1         8 345 36 522   
+        1/9/21               1 metras  1              Įmonė 1, UAB        (83) 45 34522  
+        21/9/1               0.001 km  1              „ĮMONĖ 1“, UAB      037034536522   
         ==================== ========= ============== =================== ===============
 
         == == == == ===================== ========= =========== =====
@@ -135,6 +136,7 @@ duomenų struktūros apraše nurodytas transformacijas.
         -- -- -- ------------------------ --------- ----------- -----
         \           imones_id             integer               2
         \           imones_pavadinimas    string                2
+        \           rusis                 integer               2     
         \        Filialas                                       3
         -- -- -- ------------------------ --------- ----------- -----
         \           ikurimo_data          string                1
@@ -176,23 +178,23 @@ duomenų struktūros apraše nurodytas transformacijas.
 
         **Pavyzdžiai**
 
-        ========== ===================
-        Imone                         
-        ------------------------------
-        imones_id  imones_pavadinimas 
-        ========== ===================
-        42         UAB "Įmonė"        
-        ========== ===================
+        ========== =================== ======
+        Imone                                
+        -------------------------------------
+        imones_id  imones_pavadinimas  rusis 
+        ========== =================== ======
+        42         UAB "Įmonė"         1     
+        ========== =================== ======
 
         ============= ========= ========== ======================= ================
-        Filialas                                                  
+        Filialas                                                                   
         ---------------------------------------------------------------------------
-        ikurimo_data  atstumas  imones_id  imones_pavadinimas._id  tel_nr  
+        ikurimo_data  atstumas  imones_id  imones_pavadinimas._id  tel_nr          
         ============= ========= ========== ======================= ================
-        1/9/21        1 m.      1          UAB "Įmonė"             (83\) 111 11111
-        2/9/21        2 m.      1          UAB "Įmonė"             (83\) 222 22222
-        3/9/21        3 m.      1          UAB "Įmonė"             (83\) 333 33333
-        4/9/21        4 m.      1          UAB "Įmonė"             (83\) 444 44444
+        1/9/21        1 m.      1          UAB "Įmonė"             (83\) 111 11111 
+        2/9/21        2 m.      1          UAB "Įmonė"             (83\) 222 22222 
+        3/9/21        3 m.      1          UAB "Įmonė"             (83\) 333 33333 
+        4/9/21        4 m.      1          UAB "Įmonė"             (83\) 444 44444 
         ============= ========= ========== ======================= ================
 
         == == == == ===================== ========= ========== =====
@@ -210,8 +212,7 @@ duomenų struktūros apraše nurodytas transformacijas.
         -- -- -- ------------------------ --------- ---------- -----
         \           imones_id             integer              2
         \           imones_pavadinimas    string               2
-        \     /                                                                                
-        -- -- -- ------------------------ --------- ---------- -----
+        \           rusis                 integer              2     
         \        Filialas                                      3
         -- -- -- ------------------------ --------- ---------- -----
         \           ikurimo_data          string               2
@@ -288,6 +289,15 @@ duomenų struktūros apraše nurodytas transformacijas.
           - `Imone.imones_pavadinimas` turėtu būti `Imone.pavadinimas@lt`, kad
             sutaptu su baze (`JuridinisAsmuo.pavadinimas@lt`).
 
+        - **Nenurodytas enum kodinėms reikšmėms** - antru brandos lygiu žymimi
+          kategoriniai duomenys, kurių reikšmės pateiktos sutartiniais
+          kodinais, kurių prasmė nėra aiški. Pavyzdžiui:
+
+          - `Imone.rusis` - įmonės rūšis žymima skaičiais, tačiau nėra aišku,
+            kokks skaičius, ką rei6kia, todėl reikia pateitki `enum` sąrašą,
+            kuriame būtų nurodyta, ką koks skaičius reiškia. Plačiau skaityti
+            :ref:`enum`.
+
     .. describe:: 3
 
         **Standartizuota**
@@ -305,13 +315,13 @@ duomenų struktūros apraše nurodytas transformacijas.
 
         **Pavyzdžiai**
 
-        ===== ================
-        Imone                                                       
-        ----------------------
-        id    pavadinimas\@lt 
-        ===== ================
-        42    UAB "Įmonė"
-        ===== ================
+        ===== ================ ==========
+        Imone                                                                  
+        ---------------------------------
+        id    pavadinimas\@lt  rusis     
+        ===== ================ ==========
+        42    UAB "Įmonė"      juridinis 
+        ===== ================ ==========
 
         =========== ========= ========== ====================== =============
         Filialas                                         
@@ -324,34 +334,35 @@ duomenų struktūros apraše nurodytas transformacijas.
         2021-09-04  4         42         UAB "Įmonė"            +37044444444
         =========== ========= ========== ====================== =============
 
-        == == == == ===================== ========= =========== =====
-        Struktūros aprašas
-        -------------------------------------------------------------
-        d  r  b  m  property              type      ref         level
-        == == == == ===================== ========= =========== =====
-        example                                                  
-        --------------------------------- --------- ----------- -----
-        \        JuridinisAsmuo                     kodas       4
-        -- -- -- ------------------------ --------- ----------- -----
-        \           kodas                 integer               4
-        \           pavadinimas\@lt       text                  4
-        \     JuridinisAsmuo                                    4
-        -- -- --------------------------- --------- ----------- -----
-        \        Imone                              kodas       4
-        -- -- -- ------------------------ --------- ----------- -----
-        \           kodas                                       4
-        \           pavadinimas\@lt                             4
-        \     /                                                                                
-        -- -- --------------------------- --------- ----------- -----
-        \        Filialas                                       3
-        -- -- -- ------------------------ --------- ----------- -----
-        \           ikurta                date                  3
-        \           atstumas              integer               3
-        \           imone                 ref       Imone       3
-        \           imone.kodas                                 4
-        \           imone.pavadinimas\@lt                       4
-        \           tel_nr                string                4
-        == == == == ===================== ========= =========== =====
+        == == == == ===================== ========= =========== ===== ======== ==========
+        Struktūros aprašas                                                               
+        ---------------------------------------------------------------------------------
+        d  r  b  m  property              type      ref         level prepare  title     
+        == == == == ===================== ========= =========== ===== ======== ==========
+        example                                                                          
+        --------------------------------- --------- ----------- ----- -------- ----------
+        \        JuridinisAsmuo                     kodas       4                        
+        -- -- -- ------------------------ --------- ----------- ----- -------- ----------
+        \           kodas                 integer               4                        
+        \           pavadinimas\@lt       text                  4                        
+        \     JuridinisAsmuo                                    4                        
+        -- -- --------------------------- --------- ----------- ----- -------- ----------
+        \        Imone                              kodas       4                        
+        -- -- -- ------------------------ --------- ----------- ----- -------- ----------
+        \           kodas                                       4                        
+        \           pavadinimas\@lt                             4                        
+        \           rusis                 string                3                         
+        \     /                                                                                                    
+        -- -- --------------------------- --------- ----------- ----- -------- ----------
+        \        Filialas                                       3                        
+        -- -- -- ------------------------ --------- ----------- ----- -------- ----------
+        \           ikurta                date                  3                        
+        \           atstumas              integer               3                        
+        \           imone                 ref       Imone       3                        
+        \           imone.kodas                                 4                        
+        \           imone.pavadinimas\@lt                       4                        
+        \           tel_nr                string                4                        
+        == == == == ===================== ========= =========== ===== ======== ==========
 
         - **Nenurodytas pirminis raktas** - trečiu brandos lygiu žymimi
           duomenys, kurie neturi nurodyto pirminio rakto :data:`model.ref`
@@ -379,6 +390,15 @@ duomenų struktūros apraše nurodytas transformacijas.
 
           - `Filialas.imone` - siejimas atliekamas per `Imone.kodas`, o ne per
             `Imone._id`.
+
+        - **Neaprašyti kategoriniai duomenys** - trečiu brandos lygiu žymimi
+          kategoriniai duomenys, kurių reikšmės pačios savaime yra aiškios,
+          tačiau neišvardintos struktūros apraše. Pavyzdžiui:
+
+          - `Imone.rusis` - įmonės rūšies kategorijos duomenys yra pateikta
+            tekstine forma, tačiau, struktūros apraše nėra išvardintos visos
+            galimos kategorijos ir pats duomenų laukas nėra pažymėtas, kaip
+            kategorinis.
 
     .. describe:: 4
 
@@ -411,13 +431,13 @@ duomenų struktūros apraše nurodytas transformacijas.
 
         **Pavyzdžiai**
 
-        ===================================== ===== ================
-        Imone                                                       
-        ------------------------------------------------------------
-        _id                                   id    pavadinimas\@lt 
-        ===================================== ===== ================
-        26510da5-f6a6-45b0-a9b9-27b3d0090a58  42    UAB "Įmonė"
-        ===================================== ===== ================
+        ===================================== ===== ================ ======
+        Imone                                                              
+        -------------------------------------------------------------------
+        _id                                   id    pavadinimas\@lt  rusis 
+        ===================================== ===== ================ ======
+        26510da5-f6a6-45b0-a9b9-27b3d0090a58  42    UAB "Įmonė"      1     
+        ===================================== ===== ================ ======
 
         ===================================== === =========== ========= ===================================== ========= ====================== =============
         Filialas                                                                                                      
@@ -430,35 +450,38 @@ duomenų struktūros apraše nurodytas transformacijas.
         1882bb9e-73ee-4057-b04d-d4af47f0aae8  4   2021-09-04  4         26510da5-f6a6-45b0-a9b9-27b3d0090a58  42        UAB "Įmonė"            +37044444444
         ===================================== === =========== ========= ===================================== ========= ====================== =============
 
-        == == == == ===================== ========= =========== =====
-        Struktūros aprašas
-        -------------------------------------------------------------
-        d  r  b  m  property              type      ref         level
-        == == == == ===================== ========= =========== =====
-        example                                                  
-        --------------------------------- --------- ----------- -----
-        \        JuridinisAsmuo                     kodas       4
-        -- -- -- ------------------------ --------- ----------- -----
-        \           kodas                 integer               4
-        \           pavadinimas\@lt       text                  4
-        \     JuridinisAsmuo                                    4
-        -- -- --------------------------- --------- ----------- -----
-        \        Imone                              kodas       4
-        -- -- -- ------------------------ --------- ----------- -----
-        \           id                    integer               4
-        \           pavadinimas\@lt       text                  4
-        \     /                                                                                
-        -- -- --------------------------- --------- ----------- -----
-        \        Filialas                           id          4
-        -- -- -- ------------------------ --------- ----------- -----
-        \           id                    integer               4
-        \           ikurta                date      D           4
-        \           atstumas              integer   km          4
-        \           imone                 ref       Imone       4
-        \           imone.id                                    4
-        \           imone.pavadinimas\@lt                       4
-        \           tel_nr                string                4
-        == == == == ===================== ========= =========== =====
+        == == == == ===================== ========= ====== ===== ======== ==========
+        Struktūros aprašas                                                          
+        ----------------------------------------------------------------------------
+        d  r  b  m  property              type      ref    level prepare  title     
+        == == == == ===================== ========= ====== ===== ======== ==========
+        example                                                                     
+        --------------------------------- --------- ------ ----- -------- ----------
+        \        JuridinisAsmuo                     kodas  4                        
+        -- -- -- ------------------------ --------- ------ ----- -------- ----------
+        \           kodas                 integer          4                        
+        \           pavadinimas\@lt       text             4                        
+        \     JuridinisAsmuo                               4                        
+        -- -- --------------------------- --------- ------ ----- -------- ----------
+        \        Imone                              kodas  4                        
+        -- -- -- ------------------------ --------- ------ ----- -------- ----------
+        \           id                    integer          4                        
+        \           pavadinimas\@lt       text             4                        
+        \           rusis                 integer          4                                             
+        \                                 enum                   1        Juridinis
+        \                                                        2        Fizinis
+        \     /                                                                                               
+        -- -- --------------------------- --------- ------ ----- -------- ----------
+        \        Filialas                           id     4                        
+        -- -- -- ------------------------ --------- ------ ----- -------- ----------
+        \           id                    integer          4                        
+        \           ikurta                date      D      4                        
+        \           atstumas              integer   km     4                        
+        \           imone                 ref       Imone  4                        
+        \           imone.id                               4                        
+        \           imone.pavadinimas\@lt                  4                        
+        \           tel_nr                string           4
+        == == == == ===================== ========= ====== ===== ======== ==========
 
         - **Nesusieta su standartiniu žodynu** - ketvirtu brandos lygiu žimimi
           duomenys, kurie nėra susieti su standartiniais žodynais ar
@@ -489,13 +512,13 @@ duomenų struktūros apraše nurodytas transformacijas.
 
         **Pavyzdžiai**
 
-        ===================================== ===== ================
-        Imone                                                       
-        ------------------------------------------------------------
-        _id                                   id    pavadinimas\@lt 
-        ===================================== ===== ================
-        26510da5-f6a6-45b0-a9b9-27b3d0090a58  42    UAB "Įmonė"
-        ===================================== ===== ================
+        ===================================== ===== ================ ======
+        Imone                                                              
+        -------------------------------------------------------------------
+        _id                                   id    pavadinimas\@lt  rusis 
+        ===================================== ===== ================ ======
+        26510da5-f6a6-45b0-a9b9-27b3d0090a58  42    UAB "Įmonė"      1     
+        ===================================== ===== ================ ======
 
         ===================================== === =========== ========= ===================================== ========= ====================== =================
         Filialas                                                                                                      
@@ -508,36 +531,38 @@ duomenų struktūros apraše nurodytas transformacijas.
         1882bb9e-73ee-4057-b04d-d4af47f0aae8  4   2021-09-04  4         26510da5-f6a6-45b0-a9b9-27b3d0090a58  42        UAB "Įmonė"            \tel:+37044444444
         ===================================== === =========== ========= ===================================== ========= ====================== =================
 
-        == == == == ====================== ========= =========== ===== ============================
-        Struktūros aprašas                                                                         
-        -------------------------------------------------------------- ----------------------------
-        d  r  b  m  property               type      ref         level uri                         
-        == == == == ====================== ========= =========== ===== ============================
-        example                                                                                    
-        ---------------------------------- --------- ----------- ----- ----------------------------
-        \                                  prefix    foaf              \http://xmlns.com/foaf/0.1/                            
-        \                                            dct               \http://purl.org/dc/terms/
-        \                                            schema            \http://schema.org/
-        \        JuridinisAsmuo                       kodas      4                             
-        -- -- -- ------------------------- --------- ----------- ----- ----------------------------
-        \           kodas                  integer               4                             
-        \           pavadinimas\@lt        text                  4                             
-        \     JuridinisAsmuo                                     4                             
-        -- -- ---------------------------- --------- ----------- ----- ----------------------------
-        \        Imone                               id          5     foaf:Organization           
-        -- -- -- ------------------------- --------- ----------- ----- ----------------------------
-        \           id                                           5     dct:identifier                            
-        \           pavadinimas\@lt                              5     dct:title                            
-        \     /                                                                                
-        -- -- ---------------------------- --------- ----------- ----- ----------------------------
-        \        Filialas                            id          5     schema:LocalBusiness
-        -- -- -- ------------------------- --------- ----------- ----- ----------------------------
-        \           id                     date      1D          5     dct:identifier                            
-        \           ikurta                 date      1D          5     dct:created                            
-        \           atstumas               integer   km          5     schema:distance
-        \           imone                  ref       Imone       5     foaf:Organization                            
-        \           imone.id               integer               5     dct:identifier
-        \           imone.pavadinimas\@lt  text                  5     dct:title                            
-        \           tel_nr                 string                5     foaf:phone
-        == == == == ====================== ========= =========== ===== ============================
-
+        == == == == ====================== ========= ======= ===== ============================ ======== ==========
+        Struktūros aprašas                                                                                         
+        -----------------------------------------------------------------------------------------------------------
+        d  r  b  m  property               type      ref     level uri                          prepare  title     
+        == == == == ====================== ========= ======= ===== ============================ ======== ==========
+        example                                                                                                    
+        ---------------------------------- --------- ------- ----- ---------------------------- -------- ----------
+        \                                  prefix    foaf          \http://xmlns.com/foaf/0.1/                                                
+        \                                            dct           \http://purl.org/dc/terms/  
+        \                                            schema        \http://schema.org/                             
+        \        JuridinisAsmuo                       kodas  4                                                     
+        -- -- -- ------------------------- --------- ------- ----- ---------------------------- -------- ----------                    
+        \           kodas                  integer           4                                 
+        \           pavadinimas\@lt        text              4                                                     
+        \     JuridinisAsmuo                                 4                                 
+        -- -- ---------------------------- --------- ------- ----- ---------------------------- -------- ----------                    
+        \        Imone                               id      5     foaf:Organization                               
+        -- -- -- ------------------------- --------- ------- ----- ---------------------------- -------- ----------                    
+        \           id                                       5     dct:identifier               
+        \           pavadinimas\@lt                          5     dct:title                    
+        \           rusis                  integer           4                                  
+        \                                  enum                                                 1        Juridinis               
+        \                                                                                       2        Fizinis            
+        \     /                                                                                                                
+        -- -- ---------------------------- --------- ------- ----- ---------------------------- -------- ----------
+        \        Filialas                            id      5     schema:LocalBusiness
+        -- -- -- ------------------------- --------- ------- ----- ---------------------------- -------- ----------                                      
+        \           id                     date      1D      5     dct:identifier                                                
+        \           ikurta                 date      1D      5     dct:created                                                
+        \           atstumas               integer   km      5     schema:distance                                 
+        \           imone                  ref       Imone   5     foaf:Organization                                                
+        \           imone.id               integer           5     dct:identifier              
+        \           imone.pavadinimas\@lt  text              5     dct:title                            
+        \           tel_nr                 string            5     foaf:phone
+        == == == == ====================== ========= ======= ===== ============================ ======== ==========
