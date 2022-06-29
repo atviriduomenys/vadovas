@@ -1774,7 +1774,7 @@ pavyzdžiui naudojantis httpie_, tai galite gauti taip:
     $ http GET $SERVER/datasets $AUTH
     [
         {
-            "id": 1857,
+            "id": 2,
             ...
         },
         ...
@@ -1782,7 +1782,7 @@ pavyzdžiui naudojantis httpie_, tai galite gauti taip:
     $ http GET $SERVER/datasets/1857/distributions $AUTH
     [
         {
-            "id": 3146,
+            "id": 3062,
             ...
         },
         ...
@@ -1792,8 +1792,8 @@ pavyzdžiui naudojantis httpie_, tai galite gauti taip:
 
 .. code-block:: python
 
-    dataset = 1857
-    distribution = 3146
+    dataset = 2
+    distribution = 3062
 
 
 Dėl išsamesnės informacijos apie Katalogo Partnerių API naudojimą, prašome
