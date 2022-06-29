@@ -1692,6 +1692,8 @@ Metaduomenis galite atnaujinti taip:
         distribution = 0        # Distribution id.
         data = {
             'url': '',          # URL to published data.
+            # For list of all parameters see:
+            # https://data.gov.lt/partner/api/1#operation/updateDatasetDistributionByIdUsingPATCH_1
         }
 
         # Metadata update
@@ -1713,6 +1715,8 @@ Metaduomenis galite atnaujinti taip:
         $distribution = "";     // Distribution id.
         $data = array(
             "url" => ""         // URL to published data.
+            // For list of all parameters see:
+            // https://data.gov.lt/partner/api/1#operation/updateDatasetDistributionByIdUsingPATCH_1
         );
 
         # Metadata update
@@ -1748,6 +1752,52 @@ atnaujinimo metu, todėl būtina užfiksuoti patį atnaujinimo faktą.
 
 Jei duomenys teikiami realiu laiku, tuomet šio API prieigos taško nebūtina
 kviesti.
+
+`dataset` parametrą galite rasti čia:
+
+.. image:: static/katalogas/dataset_id.png
+
+`distribution` parametrą galite rasti čia:
+
+.. image:: static/katalogas/dist_id.png
+
+Analogiškai `dataset` ir `distribution` parametrus galite gauti per API,
+pavyzdžiui naudojantis httpie_, tai galite gauti taip:
+
+.. _httpie: https://httpie.io/
+
+.. code-block:: sh
+
+
+    $ SERVER=https://data.gov.lt/partner/api/1
+    $ AUTH="Authorization: ApiKey $API_KEY"
+    $ http GET $SERVER/datasets $AUTH
+    [
+        {
+            "id": 1857,
+            ...
+        },
+        ...
+    ]
+    $ http GET $SERVER/datasets/1857/distributions $AUTH
+    [
+        {
+            "id": 3146,
+            ...
+        },
+        ...
+    ]
+
+Šiame pavyzdyje, parametrai būtų tokie:
+
+.. code-block:: python
+
+    dataset = 1857
+    distribution = 3146
+
+
+Dėl išsamesnės informacijos apie Katalogo Partnerių API naudojimą, prašome
+žiūrėti `Partnerių API`_ dokumentacijoje.
 
 
 Slaptažodžio keitimas
