@@ -692,10 +692,50 @@ daryti nuo nurodyto momento.
         ]
     }
 
-Šiame pavyzdyje prašoma grąžinto visus keitimus, kurie buvo daryti po keitimo
+Šiame pavyzdyje prašoma grąžinti visus keitimus, kurie buvo daryti po keitimo
 numeris 10, taip pat nurodyta, kad viso grąžinti 10 keitimų. Išsaugojus
 paskutinio keitimo numerį `_cid`, galima paprašyti sekančių keitimų, einančių
 po nurodytojo keitimo id.
+
+Dažniausiai ši funkcija naudojama skaitant keitimus nedideliais gabalais,
+pavyzdžiui po 100, tada išsisaugomas paskutinis keitimo numeris `_cid` ir
+nurodoma sekančios užklausos metu. Tokiu būdu, galite gauti visus keitimus.
+
+Keitimų įrašai turi tokius metaduomenis apie kiekvieną keitimą:
+
+:_cid:
+    Keitimo numeris.
+
+:_id:
+    Pakeisto objekto unikalus numeris (UUID formatu).
+
+:_revision:
+    Objekto revizijos numeris, naudojamas norint atlikti keitimo operaciją.
+
+:_txn:
+    Tranzakcijos numeris, nurodo kokie keitimai buvo atlikti konkrečios keitimo
+    tranzakcijos metu.
+
+:_created:
+    Data ir laikas, kada buvo atliktas keitimas.
+
+:_op:
+    Keitimo operacijos pavadinimas, gali būti tokie variantai:
+
+    :insert:
+        Sukurtas naujas objektas.
+
+    :patch:
+        Objekto keitimas, pateikiami tik toks reikšmės, kurios buvo pakeistos.
+
+    :delete:
+        Objektas buvo ištrintas.
+
+    Atkreipkite dėmesį, kad vienam objektui, gali būti viena `insert`
+    operacija, daug `patch` operacijų ir vienas `delete`.
+
+Įgyvendinant duomenų atnaujinimą `:changes` protokolu, reikia interpretuoti
+`_op` reikšmę ir atlikti atitinkamą operaciją savo pusėje.
 
 
 Duomenų užklausos
