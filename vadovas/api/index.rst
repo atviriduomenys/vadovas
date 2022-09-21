@@ -1026,8 +1026,7 @@ vidinį arba išorinį raktą. Kas yra išoriniai ir vidiniai raktai, paaiškint
 žemiau.
 
         
-Vidinis pirminis raktas
------------------------
+**Vidinis pirminis raktas**
 
 Vidinis pirminis raktas yra vienas ar daugiau :data:`property`, kurie yra
 įrašomi į struktūros aprašo :data:`model.ref`, taip nurodant lentelės pirminį
@@ -1038,8 +1037,7 @@ Jei visi :data:`property` nurodyti :data:`model.ref` yra atviri, t.y.
 buvo įrašytas ar ne.
 
 
-Išorinis pirminis raktas
-------------------------
+**Išorinis pirminis raktas**
 
 Išorinis pirminis raktas `_id` yra generuojamas pačios Saugyklos, tačiau turint
 `spinta_set_meta_fields` teises, galite išorinį pirminį raktą, UUIDv4 formatu
