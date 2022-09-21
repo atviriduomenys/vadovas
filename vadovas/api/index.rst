@@ -19,6 +19,14 @@ priemonės duomenis gauti palaipsniniu būdu (angl. `Incremental download`_).
 .. _Incremental download: https://en.wikipedia.org/wiki/Incremental_computing
 
 
+**Daugiau informacijos**
+
+.. toctree::
+    :maxdepth: 1
+
+    install
+
+
 Statusas ir planas
 ******************
 

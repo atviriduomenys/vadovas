@@ -159,7 +159,7 @@ Naujausios Python versijos diegimas naudojant pyenv_ daromas taip:
 
 .. code-block:: sh
 
-    $ .pyenv/bin/pyenv install 3.9.9
+    $ .pyenv/bin/pyenv install 3.10.7
 
 Jei diegiate Spintą kitoje Linux distribucijoje, reikalingų paketų sąrašą
 galite rasti `pyenv dokumentacijoje`_.
@@ -171,7 +171,7 @@ kurioje diegsime reikalingus Python paketus:
 
 .. code-block:: sh
 
-    $ .pyenv/versions/3.9.9/bin/python -m venv venv
+    $ .pyenv/versions/3.10.7/bin/python -m venv venv
 
 
 .. _install-debian-ppa:
@@ -194,14 +194,14 @@ Ir galiausiai įdiegiame pageidaujamą Python versiją:
 .. code-block:: sh
 
     $ sudo apt update
-    $ sudo apt install python3.9 python3.9-venv
+    $ sudo apt install python3.10 python3.10-venv
 
 Atlikus naujos Python versijos diegimo veiksmus susikuriame izoliuotą aplinką,
 kurioje diegsime reikalingus Python paketus:
 
 .. code-block:: sh
 
-    $ python3.9 -m venv venv
+    $ python3.10 -m venv venv
 
 
 .. _install-debian-python-packages:
