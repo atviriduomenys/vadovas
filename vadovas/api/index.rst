@@ -946,6 +946,107 @@ dydžio.
 Rašymo veiksmai
 ***************
 
+Atliekant rašymo veiksmus, Saugykla priima viską, ką bandote į ją rašyti, su
+sąlyga, kad rašomos reikšmės atitinka nurodytus tipus.
+
+Todėl perduodant duomenis į Saugyklą reikia išsisaugoti būseną, ką jau esate
+atidavę, o kas dar nebuvo perduota. Kuriant naują objektą `insert` užklausos
+pagalba,  Saugykla išduoda išorinį objekto raktą, kuris neturėtu niekada
+keistis. Norint atnaujinti tą patį objektą, reikėtų daryti ne `insert`, o
+`patch` veiksmą, siunčiant tik tas reikšmes, kurios pasikeitė.
+
+Kartais nutinka taip, kad išsiuntus užklausą, negaunate atsakymo iš Saugyklos,
+dėl kokios nors klaidos, tokiais atvejais nėra galimybės sužinoti ar duomenys
+buvo įrašyti ar ne. Tokiu atveju turėtumėte daryti `search` arba `getone`
+užklausą, nurodant vidinį arba išorinį pirminį raktą, kad įsitikintumėte ar
+duomenys buvo įrašyti ar ne. Jei duomenys nebuvo įrašyti, tuomet rašymo
+užklausą turėtumėte pakartoti.
+
+Iliustruojant visą tai psiaudokodu, rašymas į Saugyklą turėtu vykti taip:
+
+.. code-block:: python
+
+    state = State()
+    store = Store('put.data.gov.lt')
+
+    # Sinchronizuojam, ką reikia naujinti, ką trinti, o ką publikuoti pirmą
+    # kartą.
+    state.update()
+
+    # Kol ne visi objektas publikuoti, kartojam...
+    while not state.empty():
+
+        # Skaitom objektus, kuriuos reikia publikuoti.
+        for obj in state.objects:
+            try:
+
+                # Objektas buvo ištrintas šaltinyje, triname Saugykloje.
+                if obj.deleted:
+                    store.delete(obj)
+
+                # Objektas nebuvo publikuotas, publikuojam pirmą kartą.
+                if obj.created:
+                    store.insert(obj)
+
+                # Objektas jau buvo publikuotas ir pasikeitė nuo paskutinio
+                # publikavimo. Atnaujinam.
+                if obj.changed:
+                    store.patch(obj)
+
+            # Klaidos atveju:
+            except HTTPError, IOError:
+                # Jei objektas turėjo ir buvo ištrintas, triname iš eilės.
+                # šaliname iš eilės.
+                if obj.deleted and not store.exists(obj):
+                    state.remove(obj)
+
+                # Jei objektas turėjo ir buvo publikuotas, triname iš eilės.
+                if obj.created and store.exists(obj):
+                    state.remove(obj)
+
+                # Visais kitais atvejais, paliekame objektą eilėje ir kartojame
+                # publikavimą, sekančios iteracijos metu.
+
+            # Jei klaidų nebuvo, šaliname objektą iš eilės.
+            else:
+                state.remove(obj)
+
+
+Šiame pavyzdyje į `state` objektą įtraukiami visi šaltinio objektai, kuriuos
+reikia publikuoti, t.y. tuos, kurie dar nebuvo publikuoti, kurie pasikeitė nuo
+paskutinio publikavimo, arba buvo ištrinti šaltinyje.
+
+Jei publikavimo metu įvyko klaida, kurios metu nebuvo gautas atsakymas iš
+Saugyklos, tikriname `store.exists(obj)` pagalba, ar realiai publikavimas įvyko
+ar ne. Jei ne, paliekame objektą eilėje ir sekančios iteracijos metu, bandome
+dar kartą.
+
+Pats `store.exists(obj)` kreipiasi į Saugyklą ir bando gauti objektą, pagal jo
+vidinį arba išorinį raktą. Kas yra išoriniai ir vidiniai raktai, paaiškinta
+žemiau.
+
+        
+Vidinis pirminis raktas
+-----------------------
+
+Vidinis pirminis raktas yra vienas ar daugiau :data:`property`, kurie yra
+įrašomi į struktūros aprašo :data:`model.ref`, taip nurodant lentelės pirminį
+raktą.
+
+Jei visi :data:`property` nurodyti :data:`model.ref` yra atviri, t.y.
+`access=open`, tuomet, galite užtikrintai žinoti ar konkretus duomenų objektas
+buvo įrašytas ar ne.
+
+
+Išorinis pirminis raktas
+------------------------
+
+Išorinis pirminis raktas `_id` yra generuojamas pačios Saugyklos, tačiau turint
+`spinta_set_meta_fields` teises, galite išorinį pirminį raktą, UUIDv4 formatu
+generuoti patys. Tokiu atveju, nebūtina publikuoti vidinio pirminio rakto ir
+nebūtina laukti atsakymo iš Saugyklos, nes išorinis raktas generuojamas jūsų
+pusėje ir klaidos atveju galite pasitikrinti ar objektas buvo įrašytas ar ne.
+
 
 .. _insert:
 
@@ -1147,7 +1248,6 @@ būdu ištrinto objekto atstatyti neįmanoma.
         "_revision": "7c2d7b98-498f-49c6-bbb2-b0fd0b03b815",
         "_txn": "448045c6-9993-4845-b889-56483a20f8f3"
     }
-
 
 
 Grupiniai rašymo veiksmai
