@@ -421,9 +421,20 @@ Sąvokos
         Įstaigos ar kitos organizacijos pagrindinis duomenų šaltinis.
 
     DCAT
-        Duomenų katalogo žodynas (angl. `Data Catalog Vocabulary`_).
+        Duomenų katalogo žodynas (angl. `Data Catalog Vocabulary`_)  yra
+        standartas skirtas duomenų rinkiniams aprašyti. Aprašant duomenis DCAT
+        standartu reikėŧų vadovautis :term:`DCAT-AP` specifikacijomis.
 
         .. _Data Catalog Vocabulary: https://www.w3.org/TR/vocab-dcat-2/
+
+    DCAT-AP
+        `DCAT-AP`_ (DCAT Application Profile) yra specifikacija__, detalizuojanti
+        DCAT naudojima, nurodant kurios DCAT klasės ir savybės yra privalomos,
+        kurios rekomenduojamos ir kaip jas naudoti.
+
+        .. _DCAT-AP: https://joinup.ec.europa.eu/collection/semantic-interoperability-community-semic/solution/dcat-application-profile-data-portals-europe
+
+        __ https://github.com/SEMICeu/DCAT-AP
 
     dimensija
         Dimensija yra metaduomenų, aprašomų DSA lentelėje, grupė. DSA lentelėje
