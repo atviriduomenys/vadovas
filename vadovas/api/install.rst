@@ -229,6 +229,11 @@ Pats konfigūracijos failas `config.yml` turėtu atrodyti panašiai taip:
     env: production
     manifest: default
 
+    keymaps:
+      default:
+        type: sqlalchemy
+        dsn: sqlite:////opt/spinta/var/keymap.db
+
     backends:
       default:
         type: postgresql
@@ -251,6 +256,7 @@ Prieš testuojant ar konfigūracija veikia, sukuriame reikalingus katalogus:
 
     mkdir /opt/spinta/config
     mkdir /opt/spinta/logs
+    mkdir /opt/spinta/var
 
 Generuojame kriptografinius autorizacijos raktus:
 
