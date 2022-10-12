@@ -306,6 +306,24 @@ Tokių atveju įsitikinkite ar ugniasienė leidžia kreiptis į išore ir
 pabandykite laikinai sustabdyti antivirusinę programą.
 
 
+Atnaujinimas
+============
+
+Norint atnaujinti Spinta paketą, reikia atlikti tokius žingsnius:
+
+1. Komandų eilutėje pakeisti aktyvų kelią, kur yra įdiegta Spinta:
+
+   .. code-block:: sh
+
+       cd /kelias/iki/spinta
+
+2. Atnaujinti Spinta paketą:
+
+   .. code-block:: sh
+
+       venv/bin/pip install --upgrade spinta
+
+
 .. _spinta-configuravimas:
 
 Konfigūravimas
