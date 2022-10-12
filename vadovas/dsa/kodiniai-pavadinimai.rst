@@ -46,7 +46,9 @@ Kiekvieno modelio pavadinimo pirma raidė didžioji, kitos mažosios.
 Pavadinimo žodžiai atskiriami juos užrašant iš didžiosios raidės. Tarp
 žodžių neturi būti nei tarpų, nei kitų skyrybos ženklų.
 
-Modelio pavadinimai užrašomi vienaskaita.
+Modelio pavadinimai užrašomi vienaskaita išskyrus atvejus, kai subjekto
+pavadinimas neturi vienaskaitos žodžio formos, pavyzdžiui rašom `Pajamos`, nes
+tokio žodžio kaip `Pajama` nėra.
 
 Modelio pavadinimas turi atspindėti `duomenų subjekto`__ tipą.
 Duomnų subjektas yra dalykas turintis pavadinimą ar unikalų identifikatorių.
@@ -86,6 +88,9 @@ perteklinis.
 objektą. Konkretus identifikatorius yra rezervuotas pavadinimas ir
 duomenų struktūros apraše nenurodomas.
 
+Pavyzdžiui vietoje `savininkas_id`, kurio tipas yra `ref`, reikėŧų rašyti
+`savininkas`.
+
 Tais atvejais, kai duomenys yra denormalizuoti, duomenų lauko
 pavadinimas užrašomas su tašku, nurodant duomenų lauką iš siejamo
 modelio. Plačiau apie tai :ref:`ref-denorm`.
@@ -123,8 +128,8 @@ kito modelio, reikėtų rašyti `city.city_name`. Todėl `city.name` yra
 aiškesnis pavadinimas, kuriame nesikartoja modelio pavadinimas.
 
 
-Nekartojame modelio pavadinimo
-==============================
+Nekartojame duomenų tipo pavadinimo
+===================================
 
 Duomenų lauko pavadinime nereikia kartoti duomenų tipo pavadinimo.
 
