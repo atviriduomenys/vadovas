@@ -673,12 +673,26 @@ changes
 
 Šios užklausos pagalba galima gauti visų duomenų keitimų sąrašą. Ši užklausa
 yra skirta tęstiniam duomenų atnaujinimui. Tam, kad nereikėtų kiekvieną kartą
-iš naujo siųsti visų pasikeitimų, galima paprašyti tik pasikeitimų, kurie buvo
-daryti nuo nurodyto momento.
+iš naujo siųsti visų duomenų. Šios funkcijos pagalba, galite gauti tik tai, kas
+pasikeitė, nuo jūsų paskutinio siuntimo.
+
+Atkreipkite dėmesį, kad pasikeitimų žurnalas yra skirtas tik duomenų
+sinchronizavimui ir keitimai yra periodiškai išvalomi. Jei norite gauti
+istorinius duomenis, tuomet tai turėtu atsispindėti pačiuose duomenyse, o ne
+keitimų žurnale. Keitimų žurnalas nėra skirtas istorinių duomenų saugojimui.
+
+Norint sinchronizuoti duomenis, prieš pradedant sinchronizavimą, pirmiausiai
+rekomenduojama atsisiųsti visus duomenis naudojant :ref:`getall` užklausą.
+Siųsti viso keitimo žurnalo nėra prasmės, kadangi žurnalas yra nuolat valomas
+ir jame paliekama tik kelių savaičių ar kelių mėnesių keitimai, priklausomai
+nuo duomenų rinkinio.
+
+Tačiau prieš siunčiant visus duomenis, reikia išsisaugoti paskutinio keitimo
+ID, tai galite padaryti šios užklausos pagalba:
 
 .. code-block:: sh
 
-    http GET /datasets/gov/dc/geo/Continent/:changes?_cid=10&limit(100)
+    http GET /datasets/gov/dc/geo/Continent/:changes/-1
 
 .. code-block:: http
 
@@ -700,25 +714,77 @@ daryti nuo nurodyto momento.
         ]
     }
 
-Šiame pavyzdyje prašoma grąžinti visus keitimus, kurie buvo daryti po keitimo
-numeris 10, taip pat nurodyta, kad viso grąžinti 10 keitimų. Išsaugojus
-paskutinio keitimo numerį `_cid`, galima paprašyti sekančių keitimų, einančių
-po nurodytojo keitimo id.
+Čia argumentas `-1` nurodo, kad norite gauti paskutinį įrašą keitimų žurnale.
+Šiame pavyzdyje, paskutinio keitimo ID yra `11`, keitimo ID yra nurodomas
+`_cid` duomenų lauke.
 
-Dažniausiai ši funkcija naudojama skaitant keitimus nedideliais gabalais,
-pavyzdžiui po 100, tada išsisaugomas paskutinis keitimo numeris `_cid` ir
-nurodoma sekančios užklausos metu. Tokiu būdu, galite gauti visus keitimus.
+Išsisaugojus paskutinio keitimo ID, galite atsisiųsti visus duomenis
+naudodamiesi :ref:`getall` funkcija.
+
+Atsisiuntus duomenis, galite pradėti sinchronizavimą, tokios užklausos pagalba:
+
+.. code-block:: sh
+
+    http GET /datasets/gov/dc/geo/Continent/:changes/11?limit(100)
+
+.. code-block:: http
+
+    HTTP/1.1 200 OK
+    Content-Type: application/json
+
+    {
+        "_type": "datasets/gov/dc/geo/Continent",
+        "_data": [
+            {
+                "_cid": "11",
+                "_id": "abdd1245-bbf9-4085-9366-f11c0f737c1d",
+                "_revision": "16dabe62-61e9-4549-a6bd-07cecfbc3508",
+                "_txn": "792a5029-63c9-4c07-995c-cbc063aaac2c",
+                "_created": "2021-07-30T14:03:14.645198",
+                "_op": "insert",
+                "continent": "Europe"
+            }
+        ]
+    }
+
+Šiuo atveju, užklausoje nurodomas išsaugotas keitimo id 11.
+
+Atsakyme visada pateikiamas keitimas, kurio ID nurodėte. Rekomenduojama visada
+patikrinti ar pirmas grąžintas keitimas yra būtent tas, kurį nurodėte,
+papildomai rekomenduojama patikrinti ar sutampa `_id` ir `_revision` su tuo, ką
+jūs gavote paskutinį kartą.
+
+Toks patikrinimas reikalingas tam, kad įsitikinti, ar keitimų žurnalas nebuvo
+išvalytas arba duomenys nebuvo perkrauti iš naujo. Jei patikrinimo metu, kažkas
+nesutampa, toliau sinchronizavimą reikėtų nutraukti ir pakartoti viską iš
+naujo, gaunat paskutinio keitimo ID, atsisiunčiant duomenis ir tik tada
+sinchronizuojant.
+
+Rekomenduojame sinchronizavimą daryti nedideliais puslapiais, pavyzdžiui po 100
+įrašų, puslapio dydis nurodomas `limit(100)` parametro pagalba. Nuskaičius
+vieną, puslapį, jei gavote daugiau nei vieną keitimą, tada galite kartoti
+užklausą dar kartą, su paskutiniu gautu keitimo ID, tol, kol gausite vieną
+keitimą, tą kurį nurodėte kaip argumentą.
+
+Jei daugiau keitimų nėra, sekančią užklausą rekomenduojame daryti tada, kai
+praeina prie duomenų rinkinio nurodytas duomenų atnaujinimo periodiškumas.
+Pavyzdžiui, jei duomenys atnaujinami kasdien, tada sinchronizavimą taip pat
+reikėtų daryti kasdien.
+
+Dažnesnis sinchronizavimas nei nurodytas duomenų atnaujinimo periodiškumas yra
+beprasmis, kadangi visais atvejais gausite tuščią keitimų sąrašą.
 
 Keitimų įrašai turi tokius metaduomenis apie kiekvieną keitimą:
 
 :_cid:
-    Keitimo numeris.
+    Monotoniškai didėjantis keitimo numeris (keitimo ID).
 
 :_id:
     Pakeisto objekto unikalus numeris (UUID formatu).
 
 :_revision:
     Objekto revizijos numeris, naudojamas norint atlikti keitimo operaciją.
+    Kiekvieną kartą, kai duomenys keičiami išduodamas naujas revizijos numeris.
 
 :_txn:
     Tranzakcijos numeris, nurodo kokie keitimai buvo atlikti konkrečios keitimo
@@ -735,6 +801,9 @@ Keitimų įrašai turi tokius metaduomenis apie kiekvieną keitimą:
 
     :patch:
         Objekto keitimas, pateikiami tik toks reikšmės, kurios buvo pakeistos.
+        Atkreipkite dėmesio, kad jei tam tikras laukas nebuvo pakeistas, jo
+        keitimo įraše nebus. Jei laukas anksčiau buvo ir dabar yra ištrintas,
+        tada keitimo įraše ištrintasis laukas bus pateiktas su `null` reikšme.
 
     :delete:
         Objektas buvo ištrintas.
@@ -744,6 +813,17 @@ Keitimų įrašai turi tokius metaduomenis apie kiekvieną keitimą:
 
 Įgyvendinant duomenų atnaujinimą `:changes` protokolu, reikia interpretuoti
 `_op` reikšmę ir atlikti atitinkamą operaciją savo pusėje.
+
+Pavyzdžiui, jei gavote `_op=insert`, tuomet, savo pusėje, galite susikurti
+naują įrašą. Jei gavote `_op=patch`, tada, savo pusėje turėtumėte atnaujinti
+įrašą, pagal nurodyti `_id`. Ir atitinkamai, jei gavote `_op=delete`, tai
+reiškia, kad objektas buvo ištrintas, turėtumėte jį ištrinti ir savo pusėje,
+pagal `_id` reikšmę.
+
+Keitimu žurnalas yra naudingas, tais atvejais, kai duomenys dažnai keičiasi ir
+norite greitai gauti informaciją, kas ir kada pasikeitė. Taip pat, jei duomenų
+yra labai daug ir jų siuntimas užtrunka daug laiko, tada galite atsisiųsti
+duomenis vieną kartą ir toliau sekti keitimus.
 
 
 Duomenų užklausos
