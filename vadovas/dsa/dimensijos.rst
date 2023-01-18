@@ -327,26 +327,68 @@ Modeliai ne tik susiejami semantiškai tarpusavyje, bet taip pat suliejami ir
 dviejų modelių duomenys naudojant laukų sąrašą nurodytą :data:`base.ref`
 stulpelyje. :data:`base.ref` stulpelyje nurodyti laukai naudojami norint
 unikaliai identifikuoti :data:`model` lentelėje esančią eilutę, kuri atitinka
-:data:`base` lentelėje esančią eilutę.
+:data:`base` lentelėje esančią eilutę. Tai reiškia, kad modelis ir jo bazė turi
+vienodus identifikatorius.
 
 Siejant :data:`model` ir :data:`base` duomenis tarpusavyje, :data:`model`
 lentelė įgauna lygiai tokius pačius unikalius identifikatorius, kurie yra base
 lentelėje. Tai reiškia, kad :data:`model` lentelėje negali būti duomenų, kurių
 nėra :data:`base` lentelėje.
 
-:data:`model.property` laukai turi sutapti su :data:`base` modelio laukais,
+:data:`model.property` laukams, kurie sutampa su :data:`base` modelio laukais,
+nenurodomas :data:`property.type`, tokiu būdu nurodoma, kad
+:data:`model.property` turi tą pačią semantinę prasmę, kaip ir :data:`base`,
 tačiau :data:`model` gali turėti ir papildomų laukų, kurių nėra :data:`base`
-modelyje Visi :data:`base.ref` laukai turi būti aprašyti tiek :data:`base`, tiek
-:data:`model` modeliuose.
+modelyje, tokiu atveju :data:`property.type` turi būti nurodomas.
+
+Visi :data:`base.ref` laukai turi būti aprašyti tiek :data:`base`, tiek
+:data:`model` modeliuose, tai reiškia, kad :data:`base.ref` gali būti naudojami
+tik tiek laukai, kurie neturi tipo.
 
 Jei :data:`base` stulpelyje nurodoma `/` reikšmė, tai reiškia, kad
 :data:`model` neturi bazės, arba modelio bazė yra panaikinama. `/` naudojamas
 tais atvejais, kai norima vieną ar kelis modelius prijungti prie vienos bazės,
 tačiau sekantys modeliai nebeturi priklausyti jokiai bazei.
 
+**Sinonimai**
+
+Tais atvejais, kai visi :data:`model` laukai neturi :data:`property.type`, tada
+toks modelis laikomas :data:`base` sinonimu ir iš esmės saugomas tik
+identifikatorius.
+
+Tačiau, jei bent vienas :data:`property.type` yra nurodytas, tada modelis įgyja
+fizinę reprezentaciją ir turi vieną ar kelis savo laukus, kurių nėra
+:data:`base` modelyje.
+
+Kiekvieną kartą saugant duomenis per kitą modelį į bazę, bazės modelio
+istorijoje išsaugoma informacija iš kokio modelio atėjo duomenys.
+
+**Paveldimumas**
+
+:data:`model` paveldi visus laukus, įskaitant ir tuos, kurie nėra nurodyti prie
+:data:`model` laukų sąrašo. Tai reiškia, kad galima skaityti ir rašyti duomenis
+į :data:`base`, per :data:`model`. Jei skaitomas ar rašomas laukas, kurio nėra
+:data:`model` laukų sąraše, tada to lauko duomenys sakomi iš arba rašomi į
+:data:`base` modelį.
+
+Visi modelio laukai, kurie neturi tipo, fiziškai yra priskiriami :data:`base`
+modeliui.
+
+**Dubliavimas**
+
+Laukai pavadinimai modelyje, kurie turi tą pačią semantinę prasmę, kaip ir
+bazėje turi sutapti su pavadinimais nurodytais bazėje. Tačiau, jei yra
+nurodomas jų tipas, tada tie duomenys dubliuojami, laikant, kad duomenys
+skiriasi nuo bazės, nepaisant to, kad semantiškai jie yra vienodi.
+
+Turint tokius dubliuojamus laukus su nurodytais tipais, jei norima pasiekti
+bazės lauką, galima naudoti `_base.prop` išraišką, kuri nurodo, kad norima
+pasiekti bazėje esančius duomenis, laukui tuo pačiu pavadinimu.
+
+
 .. data:: base.source
 
-Nenaudojamas.
+    Nenaudojamas.
 
 .. data:: base.prepare
 
@@ -356,57 +398,7 @@ Nenaudojamas.
 
 .. data:: base.type
 
-    Lentelių susiejimo tipas. Jei nenurodyta naudoti `sameas`.
-
-    Galimos reikšmės:
-
-    .. describe:: base
-
-        Išplečia :data:`base` ir saugo tik tų :data:`property` duomenis, kurių
-        neturi :data:`base`. :data:`base` ir :data:`model` identifikatoriai
-        sutampa.
-
-    .. describe:: sameas
-
-        Naudojama, kai tą pačią semantinę prasmę turintys duomenys saugomi
-        skirtingose vietose.
-
-    .. describe:: proxy
-
-        Naudojama tada, kai kelių modelių duomenys yra identiški vienam
-        :data:`base` ir reikia duomenis saugoti tik į :data:`base`.
-
-    .. describe:: prototype
-
-        Naudojamas tada, kai :data:`model` tik paveldi :data:`base` savybes,
-        tačiau duomenis saugo atskirai ir identifikatorių nepernaudoja iš
-        :data:`base`.
-
-    Savybių matrica:
-
-    ==========  ==========  ===========  =======================  =======  =========
-    \           Sutampantys laukai                                Saugo duomenis į
-    ----------  ------------------------------------------------  ------------------
-    base.type   Išplečiami  Dubliuojami  Vienas identifikatorius  base     model
-    ==========  ==========  ===========  =======================  =======  =========
-    base        taip        ne           taip                     taip     taip [*]_
-    sameas      taip        taip         taip                     taip     taip
-    proxy       ne          ne           taip                     taip     ne
-    prototype   taip        taip         ne                       ne       taip
-    ==========  ==========  ===========  =======================  =======  =========
-
-    .. [*] Saugo tik tuos duomenis, kurie nėra saugomi base modelyje.
-
-    Išplečiami
-        :data:`model` gali turėti property eilučių, kurių neturi :data:`base`.
-
-    Dubliuojami
-        :data:`model` saugo :data:`property` reikšmes, kurios sutampa su
-        :data:`base`.
-
-    Vienas identifikatorius
-        :data:`model` gauna identifikatorių iš :data:`base` ir abiejose vietose
-        naudojamas vienodas identifikatorius.
+    Nenaudojamas.
 
 .. data:: base.ref
 
@@ -415,61 +407,107 @@ Nenaudojamas.
     yra neįmanomas, galima nurodyti kelis :data:`model.property` pavadinimus
     atskirtus kableliu.
 
+    Galima naudoti tik tuos :data:`model.property`, kurie neturi nurodyto
+    :data:`property.type`, kas reiškia, kad toks pat laukas turi būti tiek
+    :data:`base`, tiek :data:`model` laukų sąraše.
+
+    Tais atvejais, kai :data:`base.ref` rodo į modelio lauką, kuris turi tipą,
+    tada :data:`base.level` negali būti didesnis nei `3`, kadangi jei modelio
+    laukas turi tipą, tai reiškia, kad jo duomenys nesutampa su bazės
+    duomenimis ir todėl jungimas negali būti daromas.
+
 .. data:: base.level
 
     :ref:`Brandos lygis <level>`, nurodantis modelio susiejamumą su nurodytu
     baziniu modeliu. Plačiau žiūrėti :ref:`Ryšiai tarp modelių | Brandos lygis
     <ref-level>`.
 
+    Jei brandos lygis yra žemesnis nei `3`, tada identifikatorių siejimas nėra
+    atliekamas, tokiu būdu tiesiog nurodomas semantinis susiejimas metaduomenų,
+    o ne duomenų lygmenyje.
+
 .. data:: base.access
 
-    Baziniam modeliui priskirtų modelių :ref:`prieigos lygis <access>`.
-    Paveldimas.
+    Nenaudojamas.
 
 Paaiškinimas, ką reiškia kiekviena savybė.
 
-Pavyzdys:
+Pavyzdys be išorinio duomenų šaltinio:
 
-== == == == =========== =========
-d  r  b  m  property    type     
-== == == == =========== =========
-example                          
------------------------ ---------
-\        Gyvenviete              
--- -- -- -------------- ---------
-\           name\@lt    text     
-\           gyventoju   integer  
-\      Gyvenviete                
--- -- ----------------- ---------
-\        Miestas
--- -- -- -------------- ---------
-\           name\@lt             
-\           gyventoju            
-\        Kaimas   
--- -- -- -------------- ---------
-\           name\@lt             
-\           gyventoju            
-\           rajonas     ref      
-\     / 
--- -- ----------------- ---------
-\        Salis
--- -- -- -------------- ---------
-\           name\@lt             
-\           gyventoju            
-== == == == =========== =========
+== == == == =========== ========= ==========
+d  r  b  m  property    type      ref       
+== == == == =========== ========= ==========
+example                                     
+----------------------- --------- ----------
+\        Location
+-- -- -- -------------- --------- ----------
+\           name\@lt    text                
+\           population  integer             
+\      Settlement
+-- -- ----------------- --------- ----------
+\        City
+-- -- -- -------------- --------- ----------
+\           name\@lt                        
+\           population
+\        Village
+-- -- -- -------------- --------- ----------
+\           name\@lt                        
+\           population
+\           region      ref       Location
+\     /                                     
+-- -- ----------------- --------- ----------
+\        Country
+-- -- -- -------------- --------- ----------
+\           name\@lt                        
+\           population
+== == == == =========== ========= ==========
 
 Šiame pavyzdyje:
 
-- `Miestas` ir `Kaimas` priklauso vienai bazei `Gyvenviete`.
+- `City` ir `Village` priklauso vienai bazei `Location`.
 
-- Kadangi `Gyvenviete` turi savybes `name@lt` ir `gyventoju`, tai `Miestas` ir
-  `Kaimas` modeliuose tą pačią semantinę prasmę turinčios savybės turi turėti
-  lygiai tokius pačius pavadinimus, o `type` turi būti tuščias. Kai `type` yra
-  tuščias, tai reiškia, kad savybė ateina iš bazinio modelio.
+- Kadangi `Location` turi savybes `name@lt` ir `population`, tai `City` ir
+  `Village` modeliuose tą pačią semantinę prasmę turinčios savybės turi turėti
+  lygiai tokius pačius pavadinimus, o :data:`property.type` turi būti tuščias.
+  Kai :data:`property.type` yra tuščias, tai reiškia, kad savybė ateina iš
+  bazinio modelio.
 
-- Kadangi `Salis` semantiškai nėra tas pats, kas `Gyvenviete`, nors ir turi
-  tokias pačias savybes, atskiriame ją nuo `Gyvenviete` bazės, priskirdami `/`
+- Kadangi `Village` turi papildomą :data:`property` su nurodytu
+  :data:`property.type`, tai reiškia, kad `name` ir population` priklauso
+  bazei, tačiau `region` priklauso `Village` modeliui ir jo nėra bazėje.
+
+- Kadangi `Country` semantiškai nėra tas pats, kas `Gyvenviete`, nors ir turi
+  tokias pačias savybes, atskiriame ją nuo `Location` bazės, priskirdami `/`
   bazei, kas reiškia, kas bazės nėra.
+
+
+Pavyzdys su išoriniu duomenų šaltiniu:
+
+== == == == =========== ========= ========= ==================
+d  r  b  m  property    type      ref       source
+== == == == =========== ========= ========= ==================
+example                                                       
+----------------------- --------- --------- ------------------
+\        Location                 id       
+-- -- -- -------------- --------- --------- ------------------
+\           id          integer
+\           name\@lt    text
+\           population  integer
+\     Location                    name\@lt 
+-- -- ----------------- --------- --------- ------------------
+\        City                     name\@lt  CITY
+-- -- -- -------------- --------- --------- ------------------
+\           name\@lt                        NAME
+\           population                      POPULATION
+\        Village                  name\@lt  VILLAGE
+-- -- -- -------------- --------- --------- ------------------
+\           name\@lt                        VILLAGE
+\           population                      POPULATION
+\           region      ref       Location  REGION
+== == == == =========== ========= ========= ==================
+
+Šiame pavyzdyje esminis skirtumas yra tas, kad nurodyta kaip daromas jungimas.
+`City` ir `Village` su `Location` jungiame per `name\@lt` lauką.
 
 
 .. _duomenų-modelis:
