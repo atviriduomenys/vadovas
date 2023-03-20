@@ -409,11 +409,53 @@ Išoriniai raktai
 
 Taip pat žiūrėkite: :ref:`ryšiai`.
 
+Išoriniai raktai iš dalies yra panašūs į sudėtinius tipus, kadangi laukas,
+kuris rodo į kitą objektą, yra traktuojamas, kaip kitas objektas.
+
+
 .. describe:: ref
 
     Ryšys su modeliu. Šis tipas naudojamas norint pažymėti, kad lauko
-    reikšmė yra :data:`property.ref` stulpelyje nurodyto :data:`model.ref`
-    modelio id.
+    reikšmė yra :data:`property.ref` stulpelyje nurodyto modelio objektas.
+
+    Pagal nutylėjimą, jungimas su kito modelio objektais daromas per siejamo
+    pirminį raktą (:data:`model.ref`), tačiau yra galimybė nurodyti ir kitą,
+    nebūtinai pirminį raktą.
+
+    Jei jungimas daromas, ne per pirminį raktą, tuomet, laukai per kuriuos
+    daromas jungimas nurodomi :data:`property.ref` stulpelyje laužtiniuose
+    sklaustuose, pavyzdžiui::
+
+        Country[code]
+
+    Čia jungiama su `Country` modeliu, per `Country` modelio `code` duomenų
+    lauką.
+
+    Jei laukas, per kurį daromas jungimas nenurodytas, pavyzdžiui::
+
+        Country
+
+    Tada, jungimas daromas per `Country` modelio pirminį raktą, kuris nurodytas
+    :data:`model.ref` stulpelyje.
+
+
+    Šio objekto reikšmės yra pateikiamos, kaip dalis objekto į kurį rodoma. Jei
+    `ref` tipo lauko brandos lygis (:data:`property.level`) yra 4 ar didesnis,
+    tuomet šio duomenų tipo reikšmės atrodo taip:
+
+    .. code-block:: json
+
+        {"_id": "69c98b0f-9e4e-424b-9575-9f601d79b68e"}
+
+    Jei brandos lygis (:data:`property.level`) yra žemesnis nei 4, tada reikšmė
+    atrodo taip:
+
+    .. code-block:: json
+
+        {"id": "69c98b0f-9e4e-424b-9575-9f601d79b68e"}
+
+    Čia `id` yra :data:`model.ref` arba kitas laukas, per kurį daromas
+    jungimas.
 
 .. describe:: backref
 

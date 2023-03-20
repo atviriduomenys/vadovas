@@ -775,23 +775,23 @@ __ https://specifications.freedesktop.org/basedir-spec/latest/ar01s03.html
 
 .. code-block:: ini
 
-    [ivpk@put.data.gov.lt]
-    client = ivpk
+    [myclient@put.data.gov.lt]
+    client = myclient
     secret = verysecret
     scopes =
       spinta_getall
       spinta_getone
       spinta_search
       spinta_changes
-      spinta_datasets_gov_ivpk_insert
-      spinta_datasets_gov_ivpk_upsert
-      spinta_datasets_gov_ivpk_update
-      spinta_datasets_gov_ivpk_patch
-      spinta_datasets_gov_ivpk_delete
+      spinta_datasets_gov_myorg_insert
+      spinta_datasets_gov_myorg_upsert
+      spinta_datasets_gov_myorg_update
+      spinta_datasets_gov_myorg_patch
+      spinta_datasets_gov_myorg_delete
 
 Čia nurodomas kliento pavadinimas, slaptažodis ir leidimai (`scopes`).
 Suteiktas leidimas skaityti visus duomenis ir rašyti tik į
-`datasets/gov/ivpk` vardų erdvę.
+`datasets/gov/myorg` vardų erdvę.
 
 Kol kas kliento kūrimas Saugykloje yra daromas rankiniu būdu, atskiru
 paklausimu, tačiau planuojama tai `automatizuoti`__.
@@ -804,14 +804,17 @@ saugyklą tokiu būdu:
 
 .. code-block:: sh
 
-    $ spinta push sdsa.csv -o ivpk@put.data.gov.lt
+    $ spinta push sdsa.csv -o myclient@put.data.gov.lt
+
+Vietoj `sdsa.csv` galima naudoti ir `sdsa.xlsx`, abu formatai, tiek CSV, tiek
+XLSX yra palaikomi.
 
 Dar vienas dalykas, į kurį reikėtu atkreipti dėmesį yra būsenos ir objektų
 identifikatorių failai. Kadangi `spinta push` komanda į Saugyklą siunčia tik
 tuos duomenis kurie dar nebuvo siųsti arba kurie pasikeitė, kad tai veiktų
 saugoma duomenų perdavimo į Saugyklą būsena ir identifikatoriai. Būsena saugoma
 SQLite duomenų bazėje, `$XDG_DATA_HOME/spinta/push/{remote}.db`__ faile (pavyzdžiui
-`~/.local/share/spinta/push/get_data_gov_lt.db`). Identifikatoriai saugomie
+`~/.local/share/spinta/push/get_data_gov_lt.db`). Identifikatoriai saugomi
 `$XDG_DATA_HOME/spinta/keymap.db` SQLite faile (pavyzdžiui
 `~/.local/share/spinta/keymap.db`. Priklausomai nuo duomenų kiekio šie failai
 gali užimti gan daug vietos. Būsenos ir identifikatorių failuose saugomi
@@ -830,3 +833,19 @@ pavyzdžiui kas naktį arba kas valandą.
 
 Reikėtu atkreipti dėmesį į tai, kad vienu metu reikėtu leisti tik vieną
 `spinta push` komandos procesą.
+
+`spinta push` komanda, prieš siunčiant duomenis, pirmiausiai suskaičiuoja kiek
+yra objektų, kurie bus siunčiami, kad galėtų atvaizduoti progreso juostą. Jei
+jūsų šaltinis yra lėtas galite naudoti `--no-progress-bar`, kad neskaičiuotų
+objektų, pavyzdžiui:
+
+.. code-block:: sh
+
+    $ spinta push sdsa.csv -o myclient@put.data.gov.lt --no-progress-bar
+
+Kitus galimus komandinės eilutės argumentus galite sužinoti taip:
+
+
+.. code-block:: sh
+
+    $ spinta push --help

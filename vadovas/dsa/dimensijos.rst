@@ -587,6 +587,9 @@ keisti tik duomenų pateikimą, užtenka naudoti :data:`model.prepare` formules.
 Savybė
 ------
 
+Duomenų laukas atspindi tam tikrą modelio savybę arba tai gali būti lentelės
+stulpelis, jei duomenų šaltinis yra lentelė.
+
 .. data:: property.source
 
     Duomenų lauko pavadinimas šaltinyje. Prasmė priklauso nuo
@@ -599,7 +602,30 @@ Savybė
 
 .. data:: property.type
 
-    Žiūrėti :ref:`duomenų-tipai`.
+    Nurodomas loginis duomenų tipas. Dėl galimų tipų sąrašo žiūrėti
+    :ref:`duomenų-tipai`.
+
+    Loginis duomenų tipas yra toks tipas, kurį tikitės gauti publikuojant
+    duomenis per API. Loginis tipas gali skirtis nuo duomenų šaltinio tipo.
+
+    Visi duomenų tipai gali turėti tokius parametrus:
+
+    - `required` - nurodo, kad šis duomenų laukas yra privalomas, tai reiškia,
+      kad šio duomenų lauko reikšmė visada turi būti pateikta. Pagal nutylėjimą
+      visi modelio duomenų laukai yra neprivalomi.
+
+    Kai kurie duomenų tipai, gali turėti konkrečiam duomenų tipui pateikiamus
+    papildomus parametrus, tokie parametrai nurodomi skliausteliuose.
+
+    Dupmenų tipų pavyzdžiai:
+
+    - `integer`
+
+    - `integer required`
+
+    - `geometry`
+
+    - `geometry(linestringm, 3345) required`
 
 .. data:: property.ref
 
