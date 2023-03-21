@@ -34,7 +34,7 @@ pavadinimus arba žodžio trumpinius. Kadangi vardų erdvė rašoma prie
 kiekvieno modelio pavadinimo, todėl reikia stengtis vardų erdvių ir
 duomenų rinkinių pavadinimus išlaikyti kiek įmanoma trumpesnius.
 
-Vardų erdvės pavadinimai užrašomi daugiskaita ir prasidėti raide.
+Vardų erdvės pavadinimai užrašomi daugiskaita ir turi prasidėti mažąja raide.
 
 
 Modeliai
@@ -50,7 +50,7 @@ Modelio pavadinimai užrašomi vienaskaita išskyrus atvejus, kai subjekto
 pavadinimas neturi vienaskaitos žodžio formos, pavyzdžiui rašom `Pajamos`, nes
 tokio žodžio kaip `Pajama` nėra.
 
-Modelio pavadinimas turi prasidėti raide.
+Modelio pavadinimas turi prasidėti didžiąja raide.
 
 Modelio pavadinimas turi atspindėti `duomenų subjekto`__ tipą.
 Duomnų subjektas yra dalykas turintis pavadinimą ar unikalų identifikatorių.
@@ -79,7 +79,7 @@ Pavyzdys: `snake_case`
 Visi duomenų lauko žodžiai rašomi mažosiomis raidėmis, atskiriami pabraukimo
 ženklu `_`.
 
-Duomenų lauko pavadinimas turi prasidėti raide.
+Duomenų lauko pavadinimas turi prasidėti mažąja raide.
 
 
 ref tipo laukai
