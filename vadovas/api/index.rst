@@ -1278,15 +1278,7 @@ Trina objektą. Objektas pilnai nėra ištrinamas, jis vis dar lieka keitimų
 
 .. code-block:: http
 
-    HTTP/1.1 200 OK
-    Content-Type: application/json
-
-    {
-        "_type": "datasets/gov/dc/geo/Continent",
-        "_id": "b8f1edaa-220d-4e0b-b59b-dc27555a0fb5",
-        "_revision": "7c2d7b98-498f-49c6-bbb2-b0fd0b03b815",
-        "_txn": "448045c6-9993-4845-b889-56483a20f8f3"
-    }
+    HTTP/1.1 204 No Content
 
 
 .. _wipe:
@@ -1318,13 +1310,9 @@ būdu ištrinto objekto atstatyti neįmanoma.
 .. code-block:: http
 
     HTTP/1.1 200 OK
-    Content-Type: application/json
-
+    
     {
-        "_type": "datasets/gov/dc/geo/Continent",
-        "_id": "b8f1edaa-220d-4e0b-b59b-dc27555a0fb5",
-        "_revision": "7c2d7b98-498f-49c6-bbb2-b0fd0b03b815",
-        "_txn": "448045c6-9993-4845-b889-56483a20f8f3"
+        "wiped": true
     }
 
 
