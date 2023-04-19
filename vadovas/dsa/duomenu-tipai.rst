@@ -14,6 +14,20 @@ Duomenų tipai
 
     Loginė reikšmė.
 
+    **Brandos lygis**
+
+    :1:
+        - Duomyse nėra vientisumo, kartais `true` pateikta kaip `1`, kartais
+          akip `taip`, arba `yes`.
+
+    :2:
+        - Visi duomenys pateikti vienoda, tačiau nestandartine forma.
+
+    :3:
+        - Duomenys pateikti standartine forma. Standartinė forma priklauso nuo
+          pasirinkto duomenų saugojimo formato. Pavyzdžiui JSON formatu
+          `boolean` tipas išreiškiamas kaip `true` ir `false`.
+
 .. describe:: integer
 
     Sveikas skaičius.
@@ -155,6 +169,28 @@ Data ir laikas
 
     .. __: https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_temporal_resolution
 
+
+    **Brandos lygis**
+
+    :1:
+        - Data ir laikas pateikti naudojant skirtingus formatus, pavyzdžiui
+          `2020-01-31`, `01/31/2020`, `31.1.20`.
+
+        - Data ir laikas pateikti laisvu tekstu, pavyzdžiui `2020 paskutinę
+          pirmo mėnesio dieną`.
+
+    :2:
+        - Duomenys pateikti nesatandartiniu formatu, tačiau visi duomenys
+          pateikti vienodu formatu. Pavyzdžiui visi duomenys pateikti
+          `01/31/2020` formatu.
+
+    :3:
+        - Duomenys pateikti standartiniu `ISO 8601`_ formatu.
+
+        - Nenurodytas :data:`property.ref`, kuriame turėtu būti pateiktas
+          duomenų tikslumas.
+
+
 .. describe:: date
 
     Tas pats kas `datetime` tik dienos tikslumu. Šio tipo reikšmės taip pat
@@ -217,53 +253,110 @@ Erdviniai duomenys
 
 .. describe:: geometry
 
-    Erdviniai duomenys. Duomenys pateikiami WKT_ formatu.
+    Erdviniai duomenys. Duomenys pateikiami WKT_ formatu, naudojant EPSG_
+    duomenų bazės parametrus, skirtingoms projekcijoms išreikšti.
 
     .. _WKT: https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry
+    .. _EPSG: https://epsg.org/home.html
     .. _WKB: https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry#Well-known_binary
 
     :data:`property.ref` stulpelyje nurodomas tikslumas metrais. Tikslumą
     galima pateikti naudojanti SI vienetus, pavyzdžiui `m`, `km` arba `10m`,
-    100km`.
+    `100km`.
 
-    `geometry` tipas gali turėti du argumentus: geometrijos tipą ir projekciją.
+    `geometry` tipas gali turėti du argumentus `geometry(form, crs)`:
 
-    Jei geometrijos tipas nenurodytas, tada duomenys gali būti bet kokio
-    geometrinio tipo. Jei tipas nurodytas, tada visi duomenys turi būti tik
-    tokio tipo, koks nurodytas.
+    - `form` - geometrijos forma
+    - `crs` - koordinačių sistema
+
+    Pats tipas gali būti pateiktas vienu iš šių variantų:
+
+    - `geometry(form, crs)` - nurodant formą ir koordinačių sistemą
+    - `geometry(crs)` - nurodant tik koordinačių sistemą
+    - `geometry(form)` - nurodant tik formą
+    - `geometry` - be argumentų.
+
+    **Geometrijos forma** (`form`)
 
     Galimi tokie geometrijos tipai:
 
     - `point` - taškas.
     - `linestring` - linija.
-    - `polygon` - daugiakampis.
+    - `polygon` - daugiakampis (pradžios ir pabaigos taškai **turi** sutapti).
     - `multipoint` - keli taškai.
     - `multilinestring` - kelios linijos.
-    - `multipolygon` - keli daugiakampiai.
+    - `multipolygon` - keli daugiakampiai (kiekvieno daugiakampio pradžios ir pabaigos taškai **turi** sutapti).
 
-    Kiekvienas iš šių tipų gali turėti tokius dimensijų sufiksus:
+    Kiekviena iš formų gali turėti tokias galūnes nurodančias papildomą dimensiją:
 
     - `z` - aukštis.
     - `m` - pasirinktas matmuo (pavyzdžiui laikas, atstumas, storis ir pan.)
     - `zm` - aukštis ir pasirinktas matmuo.
 
-    Antrasis projekcijos argumentas nurodomas pateikiant SRID_ numerį. Visi
-    duomenys turi atitikti nurodytą projekciją. Jei projekcija nenurodyta,
-    tuomet pagal nutylėjimą bus naudojamas `4326 (WGS84)`_ projekcija.
+    Jei geometrijos forma nenurodyta, tada duomenys gali būti bet kokios
+    geometrinės formos. Jei forma nurodyta, tada visi duomenys turi būti tik
+    tokios formos, kokia nurodyta.
 
-    Jei duomenų projekcija yra nežinoma, tuomet duomenų brandos lygis turi
-    būti 2. Jei duomenų projekcija skirtingiems objektams yra skirtinga, tada
-    brandos lygis turi būti 1.
+    **Koordinačių sistema** (`crs`)
+
+    Antrasis `geometry` argumentas nurodomas pateikiant SRID_ numerį, kuris yra
+    konkrečios koordinačių sistemos identifikacinis numeris EPSG_ duomenų
+    bazėje. Jei koordinačių sistemos numeris nenurodytas, tuomet daroma
+    prielaida, kad erdviniai duomenys atitinka `4326` (WGS84_) koordinačių
+    sistemą.
+
+    .. _SRID: https://en.wikipedia.org/wiki/Spatial_reference_system#Identifier
+
+    Svarbu, kad pateikiant duomenis, koordinačių ašių eiliškumas atitiktų tokį
+    eiliškumą, kuris nurodytas EPSG_ parametrų duomenų bazėje, konkrečiai
+    koordinačių sistemai, kuria pateikiami duomenys.
 
     Pilną SRID_ kodų sąrašą galite rasti `epsg.io`_ svetainėje. Keletas
     dažniau naudojamų SRID_ kodų:
 
-    - `4326 (WGS84)`_ - Pasaulinė geodezinė sistema, priimta 1984 m., naudojama
-      GPS imtuvuose.
+    .. _epsg.io: https://epsg.io/
 
-    - `3346 (LKS94)`_ - Lietuvos koordinačių sistema, priimta 1994 m.
+    ======  ==========================  =======  ==================   =======  ==================  =========
+    \                                   ašis #1                       ašis #2                               
+    ------  --------------------------  ---------------------------   ---------------------------  ---------
+    SRID    CRS                         kryptis  žymėjimas            kryptis  žymėjimas           vienetai 
+    ======  ==========================  =======  ==================   =======  ==================  =========
+    `4326`  `WGS84`_                    šiaurė   latitude (platuma)   rytai    longitude (ilguma)  laipsniai
+    `3346`  `LKS94`_                    šiaurė   x (abscisė)          rytai    y (ordinatė)        metrai   
+    `3857`  `WGS84 / Pseudo-Mercator`_  rytai    x (abscisė)          šiaurė   y (ordinatė)        metrai   
+    ======  ==========================  =======  ==================   =======  ==================  =========
 
-    Geometrinio tipo naudojimo pavyzdžiai:
+    .. _WGS84: https://epsg.io/4326
+    .. _LKS94: https://epsg.io/3346
+    .. _WGS84 / Pseudo-Mercator: https://epsg.io/3857
+
+    *Atkreipkite dėmesį, kad LKS94 koordinačių sistemoje geometrinės ašys
+    neatitinka matematinių ašių ir yra sukeistos vietomis. Įprastai šiaurė ir y
+    ašis yra viršuje, tačiau LKS94 atveju šiaurėje yra x ašis.*
+
+    Prieš publikuojant duomenis, galite pasitikrinti, ar koordinačių ašys
+    pateikiamos teisinga tvarka, naudotami taško atvaizdavimo įrankį.
+
+    Pavyzdžiui, norint patikrinti Vilniaus Katedros varpinės bokšto taško
+    koordinates, LKS94 (EPSG:3346) sistemoje, galite naršyklės adreso juostoje
+    pateikti šį adresą:
+
+    https://get.data.gov.lt/_srid/3346/6061789/582964
+
+    Jei ašių eiliškumas teisingas, gausite tašką ten kur tikėjotės, jei ašys
+    sukeistos vietomis, tada taškas žemėlapyje gali būti visai kitoje vietoje,
+    nei tikėjotės.
+
+    Adreso formatas::
+    
+        /_srid/{srid}/{ašis1}/{ašis2}
+
+    - `{srid}` - EPSG_ duomenų bazėje esančios koordinačių sistemos SRID_ kodas
+    - `{ašis1}` - pirmosios ašies reikšmė (kryptis priklauso nuo `{srid}`)
+    - `{ašis2}` - antrosios ašies reikšmė (kryptis priklauso nuo `{srid}`)
+
+
+    **Pavyzdžiai** (strukūros aprašas)
 
     - `geometry` - WGS84 projekcijos, bet kokio  tipo geometriniai objektai.
     - `geometry(3346)` - LKS94 projekcijos, bet kokio tipo geometriniai
@@ -273,10 +366,36 @@ Erdviniai duomenys
     - `geometry(linestringm, 3345)` - LKS94 projekcijos, `linestringm` tipo
       geometriniai objektai su pasirinktu matmeniu, kaip trečia dimensija.
 
-    .. _SRID: https://en.wikipedia.org/wiki/Spatial_reference_system#Identifier
-    .. _epsg.io: https://epsg.io/
-    .. _4326 (WGS84): https://epsg.io/4326
-    .. _3346 (LKS94): https://epsg.io/3346
+
+    **Pavyzdžiai** (duomenys)
+
+    Vilniaus Katedros varpinės bokšto taškas, LKS94 (EPSG:3346) koordinačių sistemoje::
+
+        POINT (6061789 582964)
+
+
+    **Brandos lygis**
+
+    :1:
+        - Nenurodytas koordinačių sistema ir duomenys pateikti skirtingomis
+          koordinatėmis.
+
+        - Sumaišytos ašys, pavyzdžiui vieni duomenys pateikiami x, y, kiti y, x.
+
+        - Sumaišyti vienetai, pavyzdžiui vieni duomenys pateikti metrais, kiti
+          laipsniais.
+
+        - Pateiktas adresas, nenurodant adreso koordinačių.
+
+    :2:
+        - Nenurodyta koordinačių sistema, tačiau visi duomenys pateikti
+          naudojant vienodą koordinačių sistemą.
+
+    :3:
+        - Nenurodytas :data:`property.ref`, kuriame turėtu būti pateiktas
+          duomenų tikslumas metrais.
+
+
 
 .. describe:: spatial
 
