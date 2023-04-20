@@ -184,6 +184,11 @@ Data ir laikas
           pateikti vienodu formatu. Pavyzdžiui visi duomenys pateikti
           `01/31/2020` formatu.
 
+        - Duomenys pateikti atskiruose laukuose, pavyzdžiui metai pateikti
+          viename `integer` tipo lauke, o ketvirtis, kitame `integer` tipo
+          lauke. Norint didesnio brandos lygio, duomenys turi būti viename
+          `date` tipo lauke su `property.ref = Q`.
+
     :3:
         - Duomenys pateikti standartiniu `ISO 8601`_ formatu.
 

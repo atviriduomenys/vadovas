@@ -248,6 +248,11 @@ ir :data:`model` pavadinimai formuojami pasitelkiant vardų erdves.
     Įstaigos duomenų rinkinio vardų erdvė į kurią patenka visi įstaigos duomenų
     modeliai.
 
+    Viskas, kas eina po `/datasets/<type>/<org>/` yra įstaigos vardu erdvė,
+    kurioje įstaiga, gali įsitraukti papildomas vardų erdves, pavyzdžiui
+    `/datasets/<type>/<org>/<isr>/<dataset>`, kuri `<isr>` yra Informacinės
+    sistemos ar Registro trumpinys.
+
 .. describe:: /provisional/
 
     **Duomenų rinkiniai turintys negalutinę struktūrą**
