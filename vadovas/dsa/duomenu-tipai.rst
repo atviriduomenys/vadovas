@@ -317,22 +317,30 @@ Erdviniai duomenys
     .. _epsg.io: https://epsg.io/
 
     ======  ==========================  =======  ==================   =======  ==================  =========
-    \                                   ašis #1                       ašis #2                               
+    \                                   ašis #1                       ašis #2
     ------  --------------------------  ---------------------------   ---------------------------  ---------
-    SRID    CRS                         kryptis  žymėjimas            kryptis  žymėjimas           vienetai 
+    SRID    CRS                         kryptis  žymėjimas            kryptis  žymėjimas           vienetai
     ======  ==========================  =======  ==================   =======  ==================  =========
     `4326`  `WGS84`_                    šiaurė   latitude (platuma)   rytai    longitude (ilguma)  laipsniai
-    `3346`  `LKS94`_                    šiaurė   x (abscisė)          rytai    y (ordinatė)        metrai   
-    `3857`  `WGS84 / Pseudo-Mercator`_  rytai    x (abscisė)          šiaurė   y (ordinatė)        metrai   
+    `3346`  `LKS94`_                    šiaurė   x (abscisė)          rytai    y (ordinatė)        metrai
+    `3857`  `WGS84 / Pseudo-Mercator`_  rytai    x (abscisė)          šiaurė   y (ordinatė)        metrai
+    `4258`  `ETRS89`_                   šiaurė   latitude (platuma)   rytai    longitude (ilguma)  laipsniai
     ======  ==========================  =======  ==================   =======  ==================  =========
 
     .. _WGS84: https://epsg.io/4326
     .. _LKS94: https://epsg.io/3346
     .. _WGS84 / Pseudo-Mercator: https://epsg.io/3857
+    .. _ETRS89: https://epsg.io/4258
 
     *Atkreipkite dėmesį, kad LKS94 koordinačių sistemoje geometrinės ašys
     neatitinka matematinių ašių ir yra sukeistos vietomis. Įprastai šiaurė ir y
     ašis yra viršuje, tačiau LKS94 atveju šiaurėje yra x ašis.*
+
+        Ašinio meridiano projekcija yra abscisių (x) ašis. Šios ašies
+        teigiamoji kryptis nukreipta į šiaurę. Ordinačių (y) ašies teigiamoji
+        kryptis nukreipta į rytus.
+
+        -- https://www.e-tar.lt/portal/lt/legalAct/TAR.6D575923F94A
 
     Prieš publikuojant duomenis, galite pasitikrinti, ar koordinačių ašys
     pateikiamos teisinga tvarka, naudotami taško atvaizdavimo įrankį.
