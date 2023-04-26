@@ -82,8 +82,8 @@ Visi duomenų lauko žodžiai rašomi mažosiomis raidėmis, atskiriami pabrauki
 Duomenų lauko pavadinimas turi prasidėti mažąja raide.
 
 
-ref tipo laukai
-===============
+Ryšiai tarp modelių
+===================
 
 :data:`ref` tipo laukai rašomi be `id` ar `_id` galūnės, kadangi jis yra
 perteklinis.
@@ -92,8 +92,20 @@ perteklinis.
 objektą. Konkretus identifikatorius yra rezervuotas pavadinimas ir
 duomenų struktūros apraše nenurodomas.
 
-Pavyzdžiui vietoje `savininkas_id`, kurio tipas yra `ref`, reikėŧų rašyti
-`savininkas`.
+Pavyzdžiui vietoje `country_id`, kurio tipas yra `ref`, reikėŧų rašyti
+`country`.
+
+== ========== ===== ========
+m  property   type  ref     
+== ========== ===== ========
+Country                     
+------------- ----- --------
+\  name\@lt   text          
+City                        
+------------- ----- --------
+\  name\@lt   text              
+\  country    ref   Country 
+== ========== ===== ========
 
 Tais atvejais, kai duomenys yra denormalizuoti, duomenų lauko
 pavadinimas užrašomas su tašku, nurodant duomenų lauką iš siejamo
