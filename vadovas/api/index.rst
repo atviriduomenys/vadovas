@@ -443,13 +443,31 @@ Rezervuotų laukų sąrašas pateiktas skyriuje :ref:`rezervuoti-pavadinimai`.
 Ryšiai tarp objektų
 *******************
 
-Tais atvejais, kai duomenyse pateikiamas kito objekto identifikatorius,
-naudojama tokia forma:
+Plačiau apie ryšius tarp objektų struktūros apraše skaitykite :ref:`ryšiai`.
+
+Duomenų laukai, kurių :data:`property.type` yra :data:`ref <type.ref>` įgauna objekto,
+į kurį rodoma formą. Tarkime, jei turime tokį struktūros aprašą:
+
+== == == == ================== ========= =========== =====
+d  r  b  m  property           type      ref         level
+== == == == ================== ========= =========== =====
+datasets/gov/example/countries
+------------------------------ --------- ----------- -----
+\        Country                                     4
+-- -- -- --------------------- --------- ----------- -----
+\           name               string                4
+\        City                                        4
+-- -- -- --------------------- --------- ----------- -----
+\           name               string                4
+\           country            ref       Country     4
+== == == == ================== ========= =========== =====
+
+Tada `City.country` įgaus `Country` objekto pavidalą:
 
 .. code-block:: json
 
     {
-        "_type": "City",
+        "_type": "datasets/gov/example/countries/City",
         "_id": "78035ad0-8f59-4d59-8867-60ea856ba26f",
         "name": "Vilnius",
         "country": {
@@ -499,6 +517,125 @@ Tie patys duomenys CSV formatu būtų pateikti taip::
     Vilnius,3c65deaa-8ef8-46d9-8b00-38b22bb91f95
 
 
+3 ir žemesnis brandos lygis
+===========================
+
+Atkreipkite dėmesį, kad ryšiai tarp objektų, taip, kaip aprašyta aukščiau,
+veikia tik tuo atveju, jei :data:`ref <type.ref>` duomenų lauko brandos lygis
+(:data:`level`) yra didesnis nei 3.
+
+Jei :data:`ref <type.ref>` duomenų lauko brandos lygis yra 3 ar žemesnis, tada
+jungimui naudojamas jungiamo modelio pirminis raktas (:data:`model.ref`) arba
+nepirminis raktas nurodytas prie pačio :data:`ref <type.ref>` lauko (žiūrėti
+:ref:`ref-fkey`). Jei nenurodytas nei :data:`model.ref`, nei :ref:`kitas laukas
+<ref-fkey>`, tada jungimas daromas per `_id` lauką, tačiau netikrinama ar toks
+`_id` egzistuoja jungiamame modelyje.
+
+Pavyzdžiui, jei turime tokį struktūros aprašą:
+
+== == == == ================== ========= =========== =====
+d  r  b  m  property           type      ref         level
+== == == == ================== ========= =========== =====
+datasets/gov/example/countries
+------------------------------ --------- ----------- -----
+\        Country                         code        4
+-- -- -- --------------------- --------- ----------- -----
+\           code               string                4
+\           name               string                4
+\        City                                        4
+-- -- -- --------------------- --------- ----------- -----
+\           name               string                4
+\           country            ref       Country     3
+== == == == ================== ========= =========== =====
+
+Tada, `City.country` jungimas su `Country` galimas tik per `code`, o ne per
+`_id`, kadangi `City.country` yra 3 brandos lygio, kas nurodo, kad jingimas
+daromas ne per pirminį raktą.
+
+Šiuo atveju, `City` objektas atrodys taip:
+
+.. code-block:: json
+
+    {
+        "_type": "datasets/gov/example/countries/City",
+        "_id": "78035ad0-8f59-4d59-8867-60ea856ba26f",
+        "name": "Vilnius",
+        "country": {
+            "code": "lt"
+        }
+    }
+
+Analogiškai, jei `Country` modelis neturi :data;`model.ref`, tada jungimas
+daromas, per `Country` lauką, kuris nurodytas `City.country`
+:data:`property.ref` stulpeyje, pavyzdžiui:
+
+== == == == ================== ========= ================ =====
+d  r  b  m  property           type      ref              level
+== == == == ================== ========= ================ =====
+datasets/gov/example/countries                           
+------------------------------ --------- ---------------- -----
+\        Country                                          4
+-- -- -- --------------------- --------- ---------------- -----
+\           code               string                     4
+\           name               string                     4
+\        City                                             4
+-- -- -- --------------------- --------- ---------------- -----
+\           name               string                     4
+\           country            ref       Country[code]    3
+== == == == ================== ========= ================ =====
+
+Šiuo atveju, `City` objektas atrodys lygiai taip pat, kaip anksčiau:
+
+.. code-block:: json
+
+    {
+        "_type": "datasets/gov/example/countries/City",
+        "_id": "78035ad0-8f59-4d59-8867-60ea856ba26f",
+        "name": "Vilnius",
+        "country": {
+            "code": "lt"
+        }
+    }
+
+Kadangi prie `City.country` nurodyta, kad jungimas daromas per `code`
+(`Country[code]`).
+
+Jei nenurodytas ne modelio su kuriuo daromas jungimas priminis raktas, nei prie
+lauko nurodyta, per kurį modelio lauką daromas jungimas, tada jungimas daromas
+per `_id`, netikrinant ar toks `_id` egzistuoja ar ne. Pavyzdžiui:
+
+== == == == ================== ========= ========= =====
+d  r  b  m  property           type      ref       level
+== == == == ================== ========= ========= =====
+datasets/gov/example/countries                    
+------------------------------ --------- --------- -----
+\        Country                                   4
+-- -- -- --------------------- --------- --------- -----
+\           code               string              4
+\           name               string              4
+\        City                                      4
+-- -- -- --------------------- --------- --------- -----
+\           name               string              4
+\           country            ref       Country   3
+== == == == ================== ========= ========= =====
+
+Šiuo atveju, `City` objektas atrodys taip:
+
+.. code-block:: json
+
+    {
+        "_type": "datasets/gov/example/countries/City",
+        "_id": "78035ad0-8f59-4d59-8867-60ea856ba26f",
+        "name": "Vilnius",
+        "country": {
+            "_id": "f23bb52b-bb55-4072-92b8-a8d9d77c9849"
+        }
+    }
+
+Tačiau `Country` objektas su `_id` `f23bb52b-bb55-4072-92b8-a8d9d77c9849` gali
+ir neegzistuoti, joks tikrinimas nedaromas.
+
+
 .. _autorizacija:
 
 Autorizacija
@@ -521,35 +658,48 @@ Autorizacijos raktas gaunamas taip:
 
 .. code-block:: sh
 
-    http -a $client:$secret -f /auth/token \
-        grant_type=client_credentials \
-        scope="$scopes" \
+    SERVER=https://put.data.gov.lt
+    CLIENT=myclient
+    SECRET=mysecret
+    SCOPES="
+    spinta_set_meta_fields
+    spinta_getone
+    spinta_getall
+    spinta_search
+    spinta_changes
+    spinta_datasets_gov_myorg_insert
+    spinta_datasets_gov_myorg_upsert
+    spinta_datasets_gov_myorg_update
+    spinta_datasets_gov_myorg_patch
+    spinta_datasets_gov_myorg_delete
+    spinta_datasets_gov_myorg_wipe
+    "
+    TOKEN=$(
+        http \
+            -a $CLIENT:$SECRET \
+            -f $SERVER/auth/token \
+            grant_type=client_credentials \
+            scope="$SCOPES" \
         | jq -r .access_token
+    )
+    AUTH="Authorization: Bearer $TOKEN"
+    echo $AUTH
 
-Pavyzdyje `$scopes` kintamasis yra tarpo simboliais atskirtų leidimu sąrašas.
+    http "$SERVER/" "$AUTH"
+
+Pavyzdyje `$SCOPES` kintamasis yra tarpo simboliais atskirtų leidimu sąrašas.
 Leidimų pavadinimai formuojami taip:
 
 .. code-block:: sh
 
-    spinta:$ns/:$action
-    spinta:$model/:$action
-    spinta:$model.$property/:$action
+    spinta_$ns_$action
+    spinta_$model_$action
+    spinta_$model_$property_$action
 
 `$action` reikšmės aprašytos skyriuje :ref:`actions`.
 
-Gautasis autorizacijos raktas `$token`, vykdant užklausas turi būti paduodamas
-per HTTP `Authorization` antraštę tokiu būdu:
-
-.. code-block:: sh
-
-    Authorization:Bearer $token
-
-Toliau pavyzdžiuose ši autorizacijos antraštė bus priskirta kintamajam $auth
-tokiu būdu:
-
-.. code-block:: sh
-
-    auth="Authorization:Bearer $token"
+Kiekvienas klientas gali gauti skirtingą `$SCEOPES` leidimų sąrašą ir jei
+prašysite daugiau leidimų, nei jūsų klientui yra suteikta, gausite klaidą.
 
 
 .. _actions:

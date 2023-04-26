@@ -545,7 +545,8 @@ Išoriniai raktai iš dalies yra panašūs į sudėtinius tipus, kadangi laukas,
 kuris rodo į kitą objektą, yra traktuojamas, kaip kitas objektas.
 
 
-.. describe:: ref
+.. data:: ref
+   :canonical: type.ref
 
     Ryšys su modeliu. Šis tipas naudojamas norint pažymėti, kad lauko
     reikšmė yra :data:`property.ref` stulpelyje nurodyto modelio objektas.
@@ -586,8 +587,10 @@ kuris rodo į kitą objektą, yra traktuojamas, kaip kitas objektas.
 
         {"id": "69c98b0f-9e4e-424b-9575-9f601d79b68e"}
 
-    Čia `id` yra :data:`model.ref` arba kitas laukas, per kurį daromas
-    jungimas.
+    Čia `id` yra :data:`model.ref` arba :ref:`kitas laukas <ref-fkey>`, per
+    kurį daromas jungimas. Jei nenurodytas nei :data:`model.ref`, nei
+    :ref:`kitas laukas <ref-fkey>`, tada jungimas daromas per `_id`, tačiau
+    netikrinama ar toks `_id` egzistuoja jungiamame modelyje.
 
 .. describe:: backref
 

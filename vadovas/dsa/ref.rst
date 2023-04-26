@@ -98,6 +98,8 @@ duomenų tipas turi sutapti su `Country.code` duomenų tipu, kuris yra `string`.
         formuojamas sudėtinis raktas.
 
 
+.. _ref-fkey:
+
 Jungimas per nepirminį raktą
 ============================
 
