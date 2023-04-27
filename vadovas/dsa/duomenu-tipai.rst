@@ -425,7 +425,7 @@ Erdviniai duomenys
 Valiuta
 =======
 
-.. describe:: currency
+.. describe:: money
 
     Valiuta. Saugomas valiutos kiekis, nurodant tiek sumą, tiek valiutos
     kodą naudojant `ISO 4217`_ kodus.
@@ -436,30 +436,37 @@ Valiuta
 
     Pavyzdys:
 
-    ==  ==  ==  ==  ==============  ========  ===  ==============
-    d   r   b   m   property        type      ref  source        
-    ==  ==  ==  ==  ==============  ========  ===  ==============
-    example                                                      
-    ------------------------------  --------  ---  --------------
-    \           Product                            PRODUCT       
-    --  --  --  ------------------  --------  ---  --------------
-    \               price           currency  EUR  PRICE         
-    ==  ==  ==  ==  ==============  ========  ===  ==============
+    ==  ==  ==  ==  ========  =====  ===  =======
+    d   r   b   m   property  type   ref  source 
+    ==  ==  ==  ==  ========  =====  ===  =======
+    example                                      
+    ------------------------  -----  ---  -------
+    \           Product                   PRODUCT
+    --  --  --  ------------  -----  ---  -------
+    \               price     money  EUR  PRICE  
+    ==  ==  ==  ==  ========  =====  ===  =======
 
     Jei valiutos suma ir pavadinimas saugomi atskirai, tuomet valiutą galima
     aprašyti taip:
 
-    ==  ==  ==  ==  ===============  ========  ===  ==============
-    d   r   b   m   property         type      ref  source        
-    ==  ==  ==  ==  ===============  ========  ===  ==============
-    example                                                       
-    -------------------------------  --------  ---  --------------
-    \           Product                             PRODUCT       
-    --  --  --  -------------------  --------  ---  --------------
-    \               price            currency       
-    \               price._value                    PRICE
-    \               price._currency                 CURRENCY_CODE
-    ==  ==  ==  ==  ===============  ========  ===  ==============
+    ==  ==  ==  ==  ========  =====  ===  =============  =======================
+    d   r   b   m   property  type   ref  source         prepare                
+    ==  ==  ==  ==  ========  =====  ===  =============  =======================
+    example                                                                     
+    ------------------------  -----  ---  -------------  -----------------------
+    \           Product                   PRODUCT                               
+    --  --  --  ------------  -----  ---  -------------  -----------------------
+    \               amount                PRICE                                 
+    \               currency              CURRENCY_CODE                         
+    \               price     money                      money(amount, currency)
+    ==  ==  ==  ==  ========  =====  ===  =============  =======================
+
+    Šio tipo duomenys pateikiami viena iš šių formų::
+
+        123
+        123.45
+        123 EUR
+        123.45 EUR
 
 
 Failai
