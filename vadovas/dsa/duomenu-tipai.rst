@@ -38,6 +38,30 @@ Duomenų tipai
 
     :data:`property.ref` stulpelyje, nurodomi :ref:`matavimo-vienetai`.
 
+    **Brandos lygis**
+
+    :1:
+        - Duomenys pateikti skirtingais vienetais, pavyzdžui dalis duomenų
+          pateikti metrais, dalis kilometrais ir dalis milimetrais.
+
+        - Amžius pateiktas atskirai, nurodant metus, menesius ir dienas. Šiuo
+          atveju brandos lygis yra 1, kadangi neaišku, kiek yra dienų metuose
+          ir mėnesiuose, kadangi skirtingi metai ir skirtingi mėnesiai turi
+          skirtingą dienų skaičių. Tokiais atvejais duomenis reikia pateikti
+          dienomis.
+
+    :2:
+        - Duomenys pateikti išskaidant vieną reikšmę į kelias reikšmes,
+          skirtingais vienetais. Duomenys turėtu būti pateikti mažiausiu
+          deltaumu, viename duomenų lauke. Pavyzdžiui atstumas pateiktas
+          atskirais duomenų laukais, kur viename nurodomas atstumas
+          kilometrais, kitame metrais, trečiame milimetrais. Šiuo atveju,
+          duomenys turėtu būti pateikiami milimetrais.
+
+    :3:
+        - Duomenys yra kiekybiniai, tačiau :data:`ref` stulpelyje nenurodyti
+          vienetai.
+
 .. describe:: number
 
     Realusis skaičius, apvalinamas naudojant `slankiojo kablelio aritmetiką`__,
