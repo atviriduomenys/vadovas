@@ -445,7 +445,7 @@ Ryšiai tarp objektų
 
 Plačiau apie ryšius tarp objektų struktūros apraše skaitykite :ref:`ryšiai`.
 
-Duomenų laukai, kurių :data:`property.type` yra :data:`ref <type.ref>` įgauna objekto,
+Duomenų laukai, kurių :data:`property.type` yra :data:`ref <types.ref>` įgauna objekto,
 į kurį rodoma formą. Tarkime, jei turime tokį struktūros aprašą:
 
 == == == == ================== ========= =========== =====
@@ -521,12 +521,12 @@ Tie patys duomenys CSV formatu būtų pateikti taip::
 ===========================
 
 Atkreipkite dėmesį, kad ryšiai tarp objektų, taip, kaip aprašyta aukščiau,
-veikia tik tuo atveju, jei :data:`ref <type.ref>` duomenų lauko brandos lygis
+veikia tik tuo atveju, jei :data:`ref <types.ref>` duomenų lauko brandos lygis
 (:data:`level`) yra didesnis nei 3.
 
-Jei :data:`ref <type.ref>` duomenų lauko brandos lygis yra 3 ar žemesnis, tada
+Jei :data:`ref <types.ref>` duomenų lauko brandos lygis yra 3 ar žemesnis, tada
 jungimui naudojamas jungiamo modelio pirminis raktas (:data:`model.ref`) arba
-nepirminis raktas nurodytas prie pačio :data:`ref <type.ref>` lauko (žiūrėti
+nepirminis raktas nurodytas prie pačio :data:`ref <types.ref>` lauko (žiūrėti
 :ref:`ref-fkey`). Jei nenurodytas nei :data:`model.ref`, nei :ref:`kitas laukas
 <ref-fkey>`, tada jungimas daromas per `_id` lauką, tačiau netikrinama ar toks
 `_id` egzistuoja jungiamame modelyje.

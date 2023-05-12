@@ -5,19 +5,21 @@
 Duomenų tipai
 #############
 
-.. describe:: absent
+.. data:: absent
+   :canonical: types.absent
 
     Žymi :term:`savybę <savybė>`, kuri buvo ištrinta ir nebenaudojama. Žiūrėti
     :ref:`struktūros-keitimas`.
 
-.. describe:: boolean
+.. data:: boolean
+   :canonical: types.boolean
 
     Loginė reikšmė.
 
     **Brandos lygis**
 
     :1:
-        - Duomyse nėra vientisumo, kartais `true` pateikta kaip `1`, kartais
+        - Duomenyse nėra vientisumo, kartais `true` pateikta kaip `1`, kartais
           akip `taip`, arba `yes`.
 
     :2:
@@ -28,7 +30,8 @@ Duomenų tipai
           pasirinkto duomenų saugojimo formato. Pavyzdžiui JSON formatu
           `boolean` tipas išreiškiamas kaip `true` ir `false`.
 
-.. describe:: integer
+.. data:: integer
+   :canonical: types.integer
 
     Sveikas skaičius.
 
@@ -62,7 +65,8 @@ Duomenų tipai
         - Duomenys yra kiekybiniai, tačiau :data:`ref` stulpelyje nenurodyti
           vienetai.
 
-.. describe:: number
+.. data:: number
+   :canonical: types.number
 
     Realusis skaičius, apvalinamas naudojant `slankiojo kablelio aritmetiką`__,
     kur sveikoji skaičiaus dalis gali būti šešių skaitmenų dydžio.
@@ -73,7 +77,8 @@ Duomenų tipai
 
     Sveikoji dalis atskiriama `.` simbolių.
 
-.. describe:: binary
+.. data:: binary
+   :canonical: types.binary
 
     Dvejetainiai duomenys. Bendras baitų skaičius turi būti ne didesnis nei 1G.
 
@@ -86,7 +91,8 @@ Tekstiniai duomenys
 Tekstiniai duomenys skirstomi į du skirtingus tipus `string` ir `text`.
 
 
-.. describe:: string
+.. data:: string
+   :canonical: types.string
 
     Simbolių eilutė. Neriboto dydžio, tačiau fiziškai simbolių eilutė turėtu
     būti ne didesnė, nei 1G.
@@ -99,7 +105,8 @@ Tekstiniai duomenys skirstomi į du skirtingus tipus `string` ir `text`.
     kalba.
 
 
-.. describe:: text
+.. data:: text
+   :canonical: types.text
 
     Natūraliaja žmonių kalba užrašytas tekstas.
 
@@ -153,7 +160,8 @@ Tekstiniai duomenys skirstomi į du skirtingus tipus `string` ir `text`.
 Data ir laikas
 ==============
 
-.. describe:: datetime
+.. data:: datetime
+   :canonical: types.datetime
 
     Data ir laikas atitinkantis `ISO 8601`_.
 
@@ -220,7 +228,8 @@ Data ir laikas
           duomenų tikslumas.
 
 
-.. describe:: date
+.. data:: date
+   :canonical: types.date
 
     Tas pats kas `datetime` tik dienos tikslumu. Šio tipo reikšmės taip pat
     turi atitikti `ISO 8601`_::
@@ -241,7 +250,8 @@ Data ir laikas
     D        Dienos
     =======  ================
 
-.. describe:: time
+.. data:: time
+   :canonical: types.time
 
     Dienos laikas, be konkrečios datos. Šio tipo reikšmės, kaip ir kiti
     su laiku sisję tipai turi atitikti `ISO 8601`_::
@@ -263,7 +273,8 @@ Data ir laikas
     N        Nanosekundžės
     =======  ================
 
-.. describe:: temporal
+.. data:: temporal
+   :canonical: types.temporal
 
     Apibrėžtis laike.
 
@@ -280,7 +291,8 @@ Data ir laikas
 Erdviniai duomenys
 ==================
 
-.. describe:: geometry
+.. data:: geometry
+   :canonical: types.geometry
 
     Erdviniai duomenys. Duomenys pateikiami WKT_ formatu, naudojant EPSG_
     duomenų bazės parametrus, skirtingoms projekcijoms išreikšti.
@@ -434,7 +446,8 @@ Erdviniai duomenys
 
 
 
-.. describe:: spatial
+.. data:: spatial
+   :canonical: types.spatial
 
     Apibrėžtis erdvėje.
 
@@ -449,7 +462,8 @@ Erdviniai duomenys
 Valiuta
 =======
 
-.. describe:: money
+.. data:: money
+   :canonical: types.money
 
     Valiuta. Saugomas valiutos kiekis, nurodant tiek sumą, tiek valiutos
     kodą naudojant `ISO 4217`_ kodus.
@@ -496,7 +510,8 @@ Valiuta
 Failai
 ======
 
-.. describe:: file
+.. data:: file
+   :canonical: types.file
 
     Šis duomenų tipas yra sudėtinis, susidedantis iš tokių duomenų:
 
@@ -559,7 +574,8 @@ Failai
     ==  ==  ==  ==  ==============  ======  ==============  =======  =======
 
 
-.. describe:: image
+.. data:: image
+   :canonical: types.image
 
     Paveiksliukas. `image` tipas turi tokias pačias savybes kaip `file`
     tipas.
@@ -577,7 +593,7 @@ kuris rodo į kitą objektą, yra traktuojamas, kaip kitas objektas.
 
 
 .. data:: ref
-   :canonical: type.ref
+   :canonical: types.ref
 
     Ryšys su modeliu. Šis tipas naudojamas norint pažymėti, kad lauko
     reikšmė yra :data:`property.ref` stulpelyje nurodyto modelio objektas.
@@ -623,7 +639,8 @@ kuris rodo į kitą objektą, yra traktuojamas, kaip kitas objektas.
     :ref:`kitas laukas <ref-fkey>`, tada jungimas daromas per `_id`, tačiau
     netikrinama ar toks `_id` egzistuoja jungiamame modelyje.
 
-.. describe:: backref
+.. data:: backref
+   :canonical: types.backref
 
     Atgalinis ryšys su modeliu.
 
@@ -634,7 +651,8 @@ kuris rodo į kitą objektą, yra traktuojamas, kaip kitas objektas.
 
     Taip pat žiūrėkite :ref:`atgalinis-ryšys`.
 
-.. describe:: generic
+.. data:: generic
+   :canonical: types.generic
 
     Dinaminis ryšys su modeliu.
 
@@ -659,7 +677,8 @@ kuris rodo į kitą objektą, yra traktuojamas, kaip kitas objektas.
 Sudėtiniai tipai
 ================
 
-.. describe:: object
+.. data:: object
+   :canonical: types.object
 
     Kompozicinis tipas.
 
@@ -670,7 +689,8 @@ Sudėtiniai tipai
     Sudarant duomenų modelį, rekomenduojama laikytis plokščios struktūros ir
     komponavimą įgyvendinti siejant modelius per `ref` ar `generic` tipus.
 
-.. describe:: array
+.. data:: array
+   :canonical: types.array
 
     Masyvas.
 
@@ -688,7 +708,8 @@ Sudėtiniai tipai
 Kiti tipai
 ==========
 
-.. describe:: url
+.. data:: url
+   :canonical: types.url
 
     Unikali resurso vieta (URL) (angl. *Uniform Resource
     Locator*).
@@ -698,12 +719,13 @@ Kiti tipai
     https://en.wikipedia.org/wiki/Uniform_Resource_Locator
 
 
-.. describe:: uri
+.. data:: uri
+   :canonical: types.uri
 
     Unikalus resurso identifikatorius (URI) (angl. *Uniform Resource
     Identifier*).
 
     Šis tipas naudojamas tais atvejais, kai pateikiamas išorinio resurso
-    identifikatorius.
+    identifikatorius, RDF duomenų modelyje tai yra subjeto identifikatorius.
 
     https://en.wikipedia.org/wiki/Uniform_Resource_Identifier
