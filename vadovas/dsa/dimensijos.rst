@@ -700,6 +700,38 @@ Rekomenduojama naudoti LOV_ prefiksus.
 Aprašyti prefiksai gali būti naudojami :data:`model.uri` ir :data:`property.uri`
 stulpeliuose tokiu būdu: `prefix:name`.
 
+Pavyzdys:
+
+== == == == ============ ======== ========= ====================================================
+d  r  b  m  property     type     ref       uri                                                 
+== == == == ============ ======== ========= ====================================================
+dataset1                                                                                        
+------------------------ -------- --------- ----------------------------------------------------
+\                        prefix   spinta    \https://github.com/atviriduomenys/manifest/issues/
+\                                 manifest  \https://github.com/atviriduomenys/spinta/issues/
+\                                 vadovas   \https://atviriduomenys.readthedocs.io/
+\                                 dct       \http://purl.org/dc/dcmitype/
+dataset2                                                                                        
+------------------------ -------- --------- ----------------------------------------------------
+\                        prefix   dcat      \http://www.w3.org/ns/dcat#
+\                                 dct       \http://purl.org/dc/terms/
+\                                 dctype    \http://purl.org/dc/dcmitype/
+\                                 foaf      \http://xmlns.com/foaf/0.1/
+\                                 owl       \http://www.w3.org/2002/07/owl#
+\                                 prov      \http://www.w3.org/ns/prov#
+\                                 rdf       \http://www.w3.org/1999/02/22-rdf-syntax-ns#
+\                                 rdfs      \http://www.w3.org/2000/01/rdf-schema#
+\                                 sdo       \http://schema.org/
+\                                 skos      \http://www.w3.org/2004/02/skos/core#
+\                                 vcard     \http://www.w3.org/2006/vcard/ns#
+\                                 xsd       \http://www.w3.org/2001/XMLSchema#
+== == == == ============ ======== ========= ====================================================
+
+Prefiksai turi būti apibrėžti duomenų rinkinio kontekste, kadangi skirtingi
+duomenų rinkiniai gali naudoti skirtingus prefiksus, tiems pateims URI.
+Pavyzdžiui abiejusoe rinkinyje pavyzdyje aukščiau, `dct` ir `dctype` rodo į tą
+patį URI.
+
 
 .. _enum:
 
@@ -946,6 +978,7 @@ Parametrų generavimui galima naudoti tokias formules:
         Sveikų skaičių generavimas nuo 0 iki `stop`, `stop` neįeina.
 
     .. function:: range(start, stop)
+       :noindex:
 
         Sveikų skaičių generavimas nuo `start` iki `stop`, `stop` neįeina.
 
@@ -1043,7 +1076,7 @@ kontekste.
         open
             Komentaras gali būti publikuojamas viešai.
 
-    .. uri:: comment.uri
+    .. data:: comment.uri
 
         Viena ar kelios kableliu atskirtos šaltinio nuorodos, kuri pateikta
         daugiau informacijos apie tai, kas komentuojama. Taip pat gali būti
