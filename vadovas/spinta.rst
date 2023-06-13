@@ -21,10 +21,10 @@ __ https://github.com/atviriduomenys/spinta/issues/new
 
 
 Diegimas
-========
+********
 
 Techniniai reikalavimai
------------------------
+=======================
 
 Techniniai reikalavimai gali skirtis, priklausomai nuo to, kokiu tikslu
 naudojama Spinta priemonė. Jei naudojama tik duomenų atvėrimui, o ne
@@ -94,7 +94,7 @@ __ https://www.python.org/downloads/
 .. _install-debian-ubuntu:
 
 Debian/Ubuntu
--------------
+=============
 
 Pirmiausia, prieš atliekant diegimą, reikėtų pasirinkti kokiame failų
 sistemos kataloge diegsite priemones. Rekomenduojame diegti į `/opt/spinta`
@@ -138,7 +138,7 @@ variantų:
 .. _install-debian-pyenv:
 
 Naujesnės Python versijos diegimas naudojant pyenv
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------------------
 
 Pirmiausia mums reikia įdiegti pyenv_ ir visus šiai priemones ir Python
 kompiliavimui reikalingus paketus:
@@ -177,7 +177,7 @@ kurioje diegsime reikalingus Python paketus:
 .. _install-debian-ppa:
 
 Naujesnės Python versijos diegimas naudojant PPA
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------------------
 
 Naujausios Python versijos diegimas naudojant PPA_ daromas taip:
 
@@ -207,7 +207,7 @@ kurioje diegsime reikalingus Python paketus:
 .. _install-debian-python-packages:
 
 Python paketų diegimas
-~~~~~~~~~~~~~~~~~~~~~~
+----------------------
 
 Kai jau turite tinkamą Python_ versiją ir esate susikūrė izoliuotą Python
 aplinką, Spinta galima įdiegti taip:
@@ -246,7 +246,7 @@ Tai padarius, galite patikrinti ar komanda `spinta` veikia:
 
 
 Windows
--------
+=======
 
 Tiesioginio Windows palaikymo nėra, tačiau Spinta galima įdiegti ir naudoti
 per Windows Subsystem for Linux (WSL). Informaciją apie tai, kaip įsidiegti
@@ -261,8 +261,9 @@ Renkantis Linux distribuciją iš Microsoft Store rekomenduojame rinktis Ubuntu_
 Įsidiegus ir pasileidus Ubuntu per WSL, toliau sekite
 :ref:`install-debian-ubuntu` instrukcijas.
 
+
 Galimos problemos ir jų sprendimai
-``````````````````````````````````
+==================================
 
 Jei įvykdžius sekančią komandą:
 
@@ -307,7 +308,7 @@ pabandykite laikinai sustabdyti antivirusinę programą.
 
 
 Atnaujinimas
-============
+************
 
 Norint atnaujinti Spinta paketą, reikia atlikti tokius žingsnius:
 
@@ -327,7 +328,7 @@ Norint atnaujinti Spinta paketą, reikia atlikti tokius žingsnius:
 .. _spinta-configuravimas:
 
 Konfigūravimas
-==============
+**************
 
 Įdiegus Spinta jokia papildoma konfigūracija nereikalinga, kadangi visus
 reikalingus parametrus galima perduoti per komandinės eilutės argumentus,
@@ -337,9 +338,13 @@ pavyzdžiui:
 
     $ spinta inspect -r sql sqlite:///sqlite.db -o sdsa.xlsx
 
-Tačiau, norint išvengti jautrių duomenų perdavimo per komandinę eilutę ir
-pageidaujant, kad duomenų bazės prisijugnimo parametrai nebūtų įrašomi į
-struktūros aprašą, dalį parametrų galima iškelti į konfigūracijos failą:
+
+config.yml
+==========
+
+Norint išvengti jautrių duomenų perdavimo per komandinę eilutę ir pageidaujant,
+kad duomenų bazės prisijugnimo parametrai nebūtų įrašomi į struktūros aprašą,
+dalį parametrų galima iškelti į konfigūracijos failą:
 
 .. code-block:: yaml
     :caption: config.yml
@@ -358,11 +363,10 @@ mydb` nurodo pavadinimą iš `backends` sąrašo:
     $ spinta -o config=config.yml inspect -r sql mydb -o sdsa.xlsx
 
 
-
 .. _šdsa-generavimas:
 
 ŠDSA generavimas
-================
+****************
 
 Spinta leidžia automatiškai generuoti :term:`DSA` lentelę iš duomenų
 šaltinio.
@@ -471,7 +475,7 @@ Analogiškai :term:`DSA` lentelės generuojamos ir visiems kitiems
 
 
 CSV
----
+===
 
 .. note::
 
@@ -508,37 +512,16 @@ programą. Tačiau tą patį galite padaryti ir skaičiuoklės pagalba, redaguod
 .. _DB Browser for SQLite: https://sqlitebrowser.org/
 
 
-SQL DDL dump
-------------
+SQL
+===
 
-.. warning::
-
-    Kol kas šis funkcionalumas nėra pilnai įgyvendintas. Spinta gali sugeneruoti
-    :term:`DSA` tik lentelėms.
-
-Jei tam tikras resursas reikalauja formulių panaudojimo, tada formulę galite
-nurodyti `-f` argumento pagalba. Pavyzdžiui, jei neturite prieigos prie
-pačios duomenų bazės, bet turite prieigą, prie duomenų bazės SQL DDL skripto,
-o skriptas yra užkoduotas `UTF-16` koduote. Tada :term:`DSA` lentelė bus
-generuojama taip:
+Jei norite struktūros aprašą nuskaityti iš vienos konkrečios duomenų bazės
+schemos, tada galite naudoti `-f` parametrą, kuris leidžia nurodyti papildomus
+parametrus:
 
 .. code-block:: sh
 
-    $ spinta inspect -r sqldump dump.sql -f 'file(encoding: "utf-16")'
-    d | r | b | m | property | type   | ref | source              | prepare
-    dataset                  |        |     |                     |
-      | sql                  | sql    |     | sqlite:///sqlite.db | file(encoding: "utf-16")
-                             |        |     |                     |
-      |   |   | Country      |        |     | COUNTRY             |
-      |   |   |   | name     | string |     | NAME                |
-
-Šiuo atveju, `dump.sql` failas atrodytų taip:
-
-.. code-block:: sql
-
-    CREATE TABLE COUNTRY (
-        NAME TEXT
-    );
+    $ spinta inspect -r sql sqlite:///sqlite.db -f "connect(schema: 'MYSCHEMA')" -o sdsa.xlsx
 
 
 SQLite
@@ -687,7 +670,7 @@ __ https://cx-oracle.readthedocs.io/en/latest/index.html
 
 
 ŠDSA atnaujinimas
-=================
+*****************
 
 Po to, kai yra sugeneruojamas pradinis ŠDSA ir papildomas trūkstamais
 duomenimis, dažniausiai po tam tikro laiko, šaltinio duomenų struktūra
@@ -707,7 +690,7 @@ Tai galima padaryti tokiu būdu:
 .. _šdsa-testavimas:
 
 ŠDSA testavimas prieš publikuojant
-==================================
+**********************************
 
 Kai jau yra parengtas ŠDSA variantas iš kurio galima atverti duomenis
 pirmiausia reikia patikrinti are ŠDSA yra be klaidų. Tai galima padaryti šios
@@ -736,7 +719,7 @@ naršyklėje galėsite peržiūrėti kaip atrodo duomenys.
 .. _šdsa-vertimas-į-adsa:
 
 ŠDSA vertimas į ADSA
-====================
+********************
 
 ŠDSA yra toks duomenų struktūros aprašas, kuris yra susietas su duomenų
 šaltiniu, yra užpildytas :data:`source` stulpelis.
@@ -755,7 +738,7 @@ stulpelių duomenys, o taip pat pašalinamos visos eilutės, kurių
 .. _automatinis-atvėrimas:
 
 Duomenų publikavimas į Saugyklą
-===============================
+*******************************
 
 Prieš publikuojant duomenis į :ref:`Saugyklą <saugykla>`, Saugykloje turi būti
 įkeltas :ref:`duomenų struktūros aprašas <dsa>`. Saugykla gali priimti tik
