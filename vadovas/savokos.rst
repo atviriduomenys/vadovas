@@ -556,6 +556,15 @@ Sąvokos
 
         .. _rdfs:Property: https://www.w3.org/TR/rdf-schema/#ch_property
 
+    subjektas
+        `Subjektas`_ lietuvių kalboje vadinamas veiksniu, duomenų kontekste
+        įvardija objektą apie kurį eina kalba.
+        
+        Tarkime saknyje „Namas turi stogą“ subjektas yra Namas, todėl, kad
+        kalba eina apie namą.
+
+        .. _Subjektas: https://en.wikipedia.org/wiki/Semantic_triple#Subject,_predicate_and_object 
+
     objektas
         Vienas duomenų įrašas sudarytas iš savybių ir savybėms priskirtų
         reikšmių. Informacinis objektas turi turėti unikalų identifikatorių.

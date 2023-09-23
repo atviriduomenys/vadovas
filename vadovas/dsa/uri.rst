@@ -136,3 +136,80 @@ generuojamas tokie RDF duomenys:
         <datasets/example/geo/City/id> 1 ;
         <datasets/example/geo/City/name> "Vilnius"@lt ;
         <datasets/example/geo/City/country> <datasets/example/geo/Country/eb09946c-26e1-4698-a298-7bb1e468b165> .
+
+
+Subjekto URI
+------------
+
+Pagal nutylėjimą :term:`subjekto <subjektas>` URI yra automatiškai generuojamas
+ir atrodo taip::
+
+    https://get.data.gov.lt/datasets/example/geo/Country/eb09946c-26e1-4698-a298-7bb1e468b165
+
+Tačiau naudojant kontroliuojamus žodynus, galima nurodyti kitą identifikatorių
+tokiu būdu:
+
+
+== =========== ========= ==========
+m  property    type      ref       
+== =========== ========= ==========
+Country                  uri
+-------------- --------- ----------
+\  id          integer             
+\  uri         uri                 
+\  name\@lt    text                
+== =========== ========= ==========
+
+Jei :data:`model.ref` nurodome :data:`uri` duomenų lauko tipą, tai reiškia, kad
+formuojant duomenis RDF formatu naudojame ne generuotą subjekto URI, o
+naudojame `uri` lauko reikšmę.
+
+Jei `uri` reikšmė bus `https://sws.geonames.org/597427/`, tada gautume tokius
+RDF duomenis:
+
+.. code-block:: ttl
+
+    @base <https://get.data.gov.lt/example/> .
+
+    <https://sws.geonames.org/597427/>
+        a <Country> ;
+        <Country/id> 1 ;
+        <Country/name> "Lietuva"@lt .
+
+Analogiškai, jei :data:`ref` tipo laukas rodo į modelį, kurio :data:`model.ref`
+rodo į :data:`uri` tipo lauką, tada :data:`ref` lauko reikšmė taip pat įgyja ne
+gnenruotą URI, o URI iš duomenų.
+
+Pratęsiant tą patį pavyzdį:
+
+== =========== ========= ==========
+m  property    type      ref       
+== =========== ========= ==========
+Country                  uri
+-------------- --------- ----------
+\  id          integer             
+\  uri         uri                 
+\  name\@lt    text                
+City                     id  
+-------------- --------- ----------
+\  id          integer             
+\  name\@lt    text                
+\  country     ref       Country
+== =========== ========= ==========
+
+Gautumo tokius duomenis:
+
+.. code-block:: ttl
+
+    @base <https://get.data.gov.lt/example/> .
+
+    <https://sws.geonames.org/597427/>
+        a <Country> ;
+        <Country/id> 1 ;
+        <Country/name> "Lietuva"@lt .
+
+    <City/b54c21f6-08b8-4bdd-b785-be1cb2e93a98>
+        a <City> ;
+        <City/id> 1 ;
+        <City/name> "Vilnius"@lt ;
+        <City/country> <https://sws.geonames.org/597427/> .
