@@ -149,20 +149,28 @@ ir atrodo taip::
 Tačiau naudojant kontroliuojamus žodynus, galima nurodyti kitą identifikatorių
 tokiu būdu:
 
+== =========== ========= ========== =============
+m  property    type      ref        uri          
+== =========== ========= ========== =============
+Country                  id         locn:Location
+-------------- --------- ---------- -------------
+\  id          integer                           
+\  uri         uri                  locn:Location
+\  name\@lt    text                              
+== =========== ========= ========== =============
 
-== =========== ========= ==========
-m  property    type      ref       
-== =========== ========= ==========
-Country                  uri
--------------- --------- ----------
-\  id          integer             
-\  uri         uri                 
-\  name\@lt    text                
-== =========== ========= ==========
+Jei :data:`property.uri` sutampa su :data:`model.uri` ir :data:`property.type`
+yra :data:`uri`, tada formuojant duomenis RDF formatu naudojame ne generuotą
+subjekto URI, o naudojame lauko reikšmę, kurio :data:`property.uri` sutampa su
+:data:`model.uri`.
 
-Jei :data:`model.ref` nurodome :data:`uri` duomenų lauko tipą, tai reiškia, kad
-formuojant duomenis RDF formatu naudojame ne generuotą subjekto URI, o
-naudojame `uri` lauko reikšmę.
+Gali būti ne daugiau kaip vienas :data:`property.uri` su :data:`property.type`
+:data:`uri`, kuris sutampa su :data:`model.uri`.
+
+Jei yra keli :data:`uri` tipo laukai, kurie identifikuoja tą patį subjektą,
+tada kitiems atvejams reikia naudoti ne :data:`model.uri`, o `owl:sameAs`_.
+
+.. _owl:sameAs: https://www.w3.org/TR/owl-ref/#sameAs-def
 
 Jei `uri` reikšmė bus `https://sws.geonames.org/597427/`, tada gautume tokius
 RDF duomenis:
@@ -170,46 +178,50 @@ RDF duomenis:
 .. code-block:: ttl
 
     @base <https://get.data.gov.lt/example/> .
+    @prefix locn: <http://www.w3.org/ns/locn#> .
 
     <https://sws.geonames.org/597427/>
-        a <Country> ;
+        a locn:Location ;
         <Country/id> 1 ;
         <Country/name> "Lietuva"@lt .
 
-Analogiškai, jei :data:`ref` tipo laukas rodo į modelį, kurio :data:`model.ref`
-rodo į :data:`uri` tipo lauką, tada :data:`ref` lauko reikšmė taip pat įgyja ne
-gnenruotą URI, o URI iš duomenų.
+Atkreipkite dėmesį, kad pats `uri` laukas nėra įtrautkas į RDF duomenis.
+
+Analogiškai, jei :data:`ref` tipo laukas rodo į modelį, kurio :data:`model.uri`
+sutampa su :data:`property.uri` kuris yra :data:`ref` tipo, tada :data:`ref`
+lauko reikšmė taip pat įgyja ne gnenruotą URI, o URI iš duomenų.
 
 Pratęsiant tą patį pavyzdį:
 
-== =========== ========= ==========
-m  property    type      ref       
-== =========== ========= ==========
-Country                  uri
--------------- --------- ----------
-\  id          integer             
-\  uri         uri                 
-\  name\@lt    text                
-City                     id  
--------------- --------- ----------
-\  id          integer             
-\  name\@lt    text                
-\  country     ref       Country
-== =========== ========= ==========
+== =========== ========= ========== =============
+m  property    type      ref        uri          
+== =========== ========= ========== =============
+Country                  id         locn:Location
+-------------- --------- ---------- -------------
+\  id          integer                           
+\  uri         uri                  locn:Location
+\  name\@lt    text                              
+City                     id         locn:Location
+-------------- --------- ---------- -------------
+\  id          integer                           
+\  name\@lt    text                              
+\  country     ref       Country    locn:Location
+== =========== ========= ========== =============
 
 Gautumo tokius duomenis:
 
 .. code-block:: ttl
 
     @base <https://get.data.gov.lt/example/> .
+    @prefix locn: <http://www.w3.org/ns/locn#> .
 
     <https://sws.geonames.org/597427/>
-        a <Country> ;
+        a locn:Location ;
         <Country/id> 1 ;
         <Country/name> "Lietuva"@lt .
 
     <City/b54c21f6-08b8-4bdd-b785-be1cb2e93a98>
-        a <City> ;
+        a locn:Location ;
         <City/id> 1 ;
         <City/name> "Vilnius"@lt ;
         <City/country> <https://sws.geonames.org/597427/> .
