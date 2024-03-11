@@ -25,6 +25,7 @@ duomenims (:term:`ADSA`) ir dar neatvertiems duomenims (:term:`ŠDSA`).
 .. toctree::
     :maxdepth: 2
 
+    modelis
     formatas
     dimensijos
     duomenu-tipai
