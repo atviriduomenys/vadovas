@@ -71,19 +71,22 @@ nei vieno dimensijos stulpelio.
 
     **Duomenų rinkinys**
 
-    Kodinis duomenų rinkinio pavadinimas. Atitinka `dcat:Dataset`_ prasmę.
+    Kodinis duomenų rinkinio pavadinimas. Atitinka `dcat:Resource`_ prasmę.
     Žiūrėti :ref:`dataset`.
 
-    .. _dcat:Dataset: https://www.w3.org/TR/vocab-dcat-2/#Class:Dataset
+    .. _dcat:Resource: https://www.w3.org/TR/vocab-dcat-2/#Class:Resource
 
 .. data:: resource
 
     **Duomenų šaltinis**
 
-    Kodinis duomenų šaltinio pavadinimas. Atitinka `dcat:Distribution`_ prasmę.
-    Žiūrėti :ref:`duomenų-šaltinis`.
+    Kodinis duomenų šaltinio pavadinimas. Atitinka `rml:logicalSource`_, kuris
+    gali sutapti su `dcat:Distribution`_ arba `dcat:DataService`_. Žiūrėti
+    :ref:`duomenų-šaltinis`.
 
+    .. _rml:logicalSource: https://rml.io/specs/rml/#logical-source
     .. _dcat:Distribution: https://www.w3.org/TR/vocab-dcat-2/#Class:Distribution
+    .. _dcat:DataService: https://www.w3.org/TR/vocab-dcat-2/#Class:DataService
 
 .. data:: base
 
@@ -98,18 +101,20 @@ nei vieno dimensijos stulpelio.
 
     **Modelis (lentelė)**
 
-    Kodinis modelio pavadinimas. Atitinka `rdfs:Class`_ prasmę. Žiūrėti
-    :ref:`duomenų-modelis`.
+    Kodinis modelio pavadinimas. Atitinka `r2rml:SubjectMap`_ ir yra siejamas
+    su `rdfs:Class`_. Žiūrėti :ref:`duomenų-modelis`.
 
+    .. _r2rml:SubjectMap: https://www.w3.org/TR/r2rml/#subject-map
     .. _rdfs:Class: https://www.w3.org/TR/rdf-schema/#ch_class
 
 .. data:: property
 
     **Savybė (stulpelis)**
 
-    Kodinis savybės pavadinimas. Atitinka `rdfs:Property`_ prasmę. Žiūrėti
-    :ref:`savybė`.
+    Kodinis savybės pavadinimas. Atitinka `r2rml:PredicateObjectMap`_ ir yra
+    siejamas su `rdfs:Property`_. Žiūrėti :ref:`savybė`.
 
+    .. _r2rml:PredicateObjectMap: https://www.w3.org/TR/r2rml/#predicate-object-map
     .. _rdfs:Property: https://www.w3.org/TR/rdf-schema/#ch_property
 
 
