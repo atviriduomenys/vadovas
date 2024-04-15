@@ -221,8 +221,6 @@ tuomet, 11-oje eilutėje `property.ref` užtektu nurodyti tik `Country`.
 Jungimas atgaliniu ryšiu
 ========================
 
-.. note:: Tokio tipo jungimas kol kas dar nėra įgyvendintas.
-
 Jungiant modelius atgaliniu ryšiu kuriamas išvestinis arba virtualus laukas,
 kuriame analogiškai kaip ir paprasto ryšio atveju, apjungiami du modeliai,
 tik šiuo atveju kuriamas daug su vienas tipo ryšys.
@@ -260,7 +258,7 @@ d  d  r  b  m  property           type      ref              level
 -- -- -- -- --------------------- --------- ---------------- -----
 3              id                 integer                    4
 4              name               string                     4
-5              cities             backref   City             4
+5              cities[]           backref   City             4
 6           City                            id               4
 -- -- -- -- --------------------- --------- ---------------- -----
 7              id                 integer                    4
@@ -333,7 +331,7 @@ d  d  r  b  m  property           type      ref     prepare                 leve
 -- -- -- -- --------------------- --------- ------- ----------------------- -----
 3              id                 integer                                   4
 4              name               string                                    4
-5              cities             backref   City                            4
+5              cities[]           backref   City                            4
 6           City                            id                              4
 -- -- -- -- --------------------- --------- ------- ----------------------- -----
 7              id                 integer                                   4
