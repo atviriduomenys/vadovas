@@ -24,16 +24,16 @@ Duomenų struktūros apraše pateikiama pilna duomenų laukų išklotinė.
 Duomenų laukai yra skirstomi į modelius. **Modelio** ir **savybės** tiksli
 prasmė priklauso nuo aprašomo duomenų šaltinio:
 
-========  =======  =========
+========  =======  ===================
 Šaltinis  Modelis  Savybė
 ========  =======  =========
 SQL       Lentelė  Stulpelis
 CSV       Lentelė  Stulpelis
 XLSX      Lentelė  Stulpelis
 JSON      Masyvas  Atributas
-XML       Masyvas  Atributas
+XML       Masyvas  Atributas/Elementas
 RDF       Klasė    Savybė
-========  =======  =========
+========  =======  ===================
 
 Duomenų struktūros apraše galima aprašyti įvairių duomenų šaltinių turinį
 vieningu sutartiniu būdu.
