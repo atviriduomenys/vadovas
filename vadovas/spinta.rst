@@ -682,7 +682,7 @@ Iš XML formatu turimų duomenų :term:`DSA` generuojamas naudojant komandą `in
 
 .. code-block:: sh
 
-    $ spinta inspect -r xml data.xml -o data_xml.xlsx
+    $ spinta inspect -r xml data.xml -o sdsa.xlsx
 
 Šiuo atveju, jei `XML` struktūra bus ši:
 
