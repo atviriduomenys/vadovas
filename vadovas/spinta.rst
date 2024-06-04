@@ -673,7 +673,7 @@ XML
 ===
 
 Jei naudojamas XML duomenų šaltinis, :term:`DSA` struktūrą galima sugeneruoti dviem būdais:
-iš `XML` formatu turimų duomenų arba iš `XSD` schemos.
+iš XML formatu turimų duomenų arba iš XSD schemos.
 
 XML failas
 ----------
@@ -684,11 +684,11 @@ Iš XML formatu turimų duomenų :term:`DSA` generuojamas naudojant komandą `in
 
     $ spinta inspect -r xml data.xml -o sdsa.xlsx
 
-Šiuo atveju, jei `XML` struktūra bus ši:
+Šiuo atveju, jei XML struktūra bus ši:
 
 .. code-block:: xml
 
-    <city>
+    <city code="KNS">
         <name>
             Kaunas
         </name>
@@ -701,40 +701,44 @@ Tai sugeneruotas :term:`DSA` atrodys taip:
 
 .. code-block:: sh
 
-    id | d | r | b | m | property     | type    | ref | source     | prepare | level | access | uri | title | description
-       | dataset                      |         |     |            |         |       |        |     |       |
-       |   | resource                 | xml     |     | data.xml   |         |       |        |     |       |
-       |                              |         |     |            |         |       |        |     |       |
-       |   |   |   | City             |         |     | /city      |         |       |        |     |       |
-       |   |   |   |   | name[]       | string  |     | name       |         |       |        |     |       |
-       |   |   |   |   | population[] | integer |     | population |         |       |        |     |       |
+id | d | r | b | m | property   | type                    | ref | source       | prepare | level | access | uri | title | description
+   | dataset                    |                         |     |              |         |       |        |     |       |
+   |   | resource               | xml                     |     | data.xml     |         |       |        |     |       |
+   |                            |                         |     |              |         |       |        |     |       |
+   |   |   |   | City           |                         |     | /cities/city |         |       |        |     |       |
+   |   |   |   |   | code       | string required unique  |     | @code        |         |       |        |     |       |
+   |   |   |   |   | name       | string required unique  |     | name         |         |       |        |     |       |
+   |   |   |   |   | population | integer required unique |     | population   |         |       |        |     |       |
+
 
 XSD schema
 ----------
 
-`XSD` schema aprašo XML duomenų struktūrą. Iš jos galima sugeneruoti :term:`DSA`, skirtą aprašyti `XML` duomenų šaltinį.
+XSD schema aprašo XML duomenų struktūrą. Iš jos galima sugeneruoti :term:`DSA`, skirtą aprašyti XML duomenų šaltinį.
 
-:term:`DSA` iš `XSD` schemos generuojamas naudojant `spinta copy` komandą:
+:term:`DSA` iš XSD schemos generuojamas naudojant `spinta copy` komandą:
 
 .. code-block:: sh
 
   $ spinta copy schema.xsd -o sdsa.xslx
 
-Šiuo atveju, aukščiau pavaizduotą :term:`DSA`, sugeneruotą iš `XML`, galima sugeneruoti iš tokios `XSD` schemos:
+Šiuo atveju, aukščiau pavaizduotą :term:`DSA`, sugeneruotą iš XML, galima sugeneruoti iš tokios XSD schemos:
 
 .. code-block:: xml
 
     <element name="city">
+        <attribute name="code"></attribute>
         <element name="name" type="string"></element>
         <element name="population" type="int"></element>
     </element>
 
 
-Jei yra poreikis, šitaip :term:`DSA` failą galima paruošti ir visai direktorijai:
+Jei yra poreikis, šitaip :term:`DSA` failą galima paruošti ir visam katalogui:
 
 .. code-block:: sh
 
   $ spinta copy xsd_failai/* -o sdsa.xslx
+
 
 ŠDSA atnaujinimas
 *****************
