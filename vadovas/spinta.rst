@@ -307,6 +307,123 @@ Tokių atveju įsitikinkite ar ugniasienė leidžia kreiptis į išore ir
 pabandykite laikinai sustabdyti antivirusinę programą.
 
 
+Testavimas
+**********
+
+Prieš darant naujų versijų atnaujinimus, reikomenduojama išsitestuoti ar naujos
+versijos veikia gerai. Testavimą geriausia atlikti atskiroje, izoliuotoje
+testavimo aplinkoje, kad nesugadinti duomenų failų.
+
+Prieš išleidžiant stabilias versijas, Spinta paketas išleidžiamas su `rcX`
+žyme, kur raidės `rc` reiškia leidimo kandidatai (angl. *release candidate*), o
+`X` kandidato numeris.
+
+Leidimo kandidatai nėra įdiegiami automatiškai, todėl diegimą reikia atlikti
+naudojant `--pre` argumentą.
+
+Žemiau pateikiama pilna instrukcija, kaip parengti izoliuotą aplinką testavimui
+ir kaip įsidiegti naujas versijas testavimo aplinkoje.
+
+Atkreipkite dėmesį, kad visos komandos turi būti vykdomos vienoje terminalo
+sesijoje, kadangi yra naudojami kintamieji tokie kaip `BASEDIR`, kurie galioja
+tik vienoje aktyvioje terminalo sesijoje. Jei pradedate dirbti su nauja sesija,
+nepamirškite iš naujo deklaruoti kintamuosius.
+
+1. Pirmiausiai deklaruojame kintamuosius, kuriuos naudosime kitose komandose.
+
+   Pakeiskite `0.1.64` versijos numerį į tą, kurį norite testuoti.
+
+   ::
+
+        BASEDIR=$PWD/test/0.1.64
+        export SPINTA_CONFIG=$BASEDIR/config.yml
+
+   Šių kintamųjų pagalba, nurodome atskirą katalogą, skirtą konkrečios versijos
+   testavimui, visi duomenų ir konfigūracijos failai bus saugomi `BASEDIR`
+   kantamojo apibrėžtame kataloge.
+
+2. Toliau sukuriame katalogą, kuriame bus saugomi visi konkrečios versijos
+   failai.
+
+   ::
+
+        mkdir -p $BASEDIR
+
+3. Sukuriame konfigūracijos failą, skirtą konkrečios versijos testavimui.
+
+   Jei naudojate savo konfigūracinė failą galite jį nurodyti `<
+   ~/.config/spinta/config.yml`, taip, kaip parodyta pavyzdyje. Jei savo
+   konfigūracijos failo nenaudojate, tada reikėtu ištrinti šią dalį.
+
+   Konfigūracijos failą galite sukurti šios komandos pagalba:
+
+   ::
+
+        cat > $BASEDIR/config.yml < ~/.config/spinta/config.yml <<EOF
+
+        # Test environment overrides
+        config_path: $BASEDIR/config
+        data_path: $BASEDIR/data
+
+        keymaps:
+          default:
+            type: sqlalchemy
+            dsn: sqlite:///$BASEDIR/data/keymap.db
+
+        accesslog:
+          type: file
+          file: $BASEDIR/accesslog.json
+        EOF
+
+   Atkreipkite dėmesį, kad konfigūracijos failo tekste naudojas `BASEDIR`
+   kintamasis. Jei konfigūracijos failą kursite teksto redaktoriaus pagalba,
+   nepamiršite pakeisti `$BASEDIR` į katalogą, kuriame testuojate versiją.
+
+   Ar failas sukurtas teisinga galite peržiūrėti taip::
+
+        cat $BASEDIR/config.yml
+
+4. Nusikopijuokite savo konfigūracijos ir duomenų failus į įzoliuotą naujos
+   versijos testavimo katalogą. Tokiu būdu, testavimo metu, jūsų esami failai
+   nebus sugadinti.
+
+   ::
+
+        cp -avi ~/.config/spinta $BASEDIR/config
+        cp -avi ~/.local/share/spinta $BASEDIR/data
+
+5. Susikurkite izoliuotą Spinta paketo aplinką ir įdiektie norimą Spintos
+   paketo versiją:
+
+   ::
+
+        python -m venv $BASEDIR/venv
+        source $BASEDIR/venv/bin/activate
+        pip install --upgrade --pre spinta
+        spinta --version
+
+   `--pre` argumentas nurodo, kad atnaujinimas turi būti daromas iki naujausios
+   versijos, kuri dar nėra stabili. Be šio argumento, bus atnaujinama tik iki
+   naujausios stabilios versijos.
+
+   Jei norite ištestuoti naujausią stabilią versiją, tada `--pre` argumento
+   nereikia.
+
+   Norint įdiegti konkrečią versiją, versijos numeris nurodomas taip::
+
+        pip install spinta==0.1.55
+
+6. Galiausiai, galite leisti įprastas komans, tik duomenų kėlimą reikėtu daryti
+   į put-test.data.gov.lt Saugyklos testinę aplinką.
+
+7. Įsitikinus, kad nauja versija veikia, galite ją atsinaujinti ir savo
+   gamybinėje aplinkoje. Tačiau, prieš tai reikia deaktyvuoti testinę aplinką:
+
+   ::
+
+        deactivate
+
+
 Atnaujinimas
 ************
 
