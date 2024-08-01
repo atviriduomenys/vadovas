@@ -1429,219 +1429,109 @@ Plano patvirtinimas organizacijos vardu
 | *68 pav. Plano patvirtinimo organizacijos vardu langas*
 
 
-Ataskaitos
+.. _statistika:
+
+Statistika
 **********
 
-- Ataskaitoje **Atvirų duomenų rinkinių naudojimo intensyvumo detalūs duomenys** pateikiami duomenys apie *duomenų rinkinių* panaudojimą nurodytu laikotarpiu;
+Statistika pasiekiama iš filtrų šoninės juostos. Kiekvienas filtas, kuris turi
+statistikos peržiūros langą yra pažymėtas statistikos ženkleliu:
 
-- Ataskaitoje **Atvirų duomenų rinkinių naudojimo intensyvumo detalūs duomenys (failams)** pateikiami duomenys apie *duomenų rinkinių rinkmenų* panaudojimą nurodytu laikotarpiu.
+.. image:: /static/katalogas/statistikos_nuorodos.png
 
+Paspaudę nuorodą pateksite į statistikos langą, kuriame matysite statistinius
+duomenis sugrūpuotus pagal pasirinktą filtro pavadinimą.
 
-Ataskaitų kūrimas
-=================
+Pavyzdžiui pasirinkus „Rinkinio būsena“ matysite statistiką, pagal rinkinio
+būseną.
 
-\> **Suformuoti ataskaitą:**
 
-1. Pagrindiniame meniu išskleiskite punktą **„Ataskaitos“** ir paspauskite ant norimo ataskaitos tipo.
+.. _statistiniai-rodikliai:
 
-2. Pasirinktos ataskaitos lange spauskite **[Formuoti]**.
+Statistiniai rodikliai
+======================
 
-| |69pav|
-| *69 pav. Ataskaitos formavimo langas*
+.. image:: /static/katalogas/statistiniai_rodikliai.png
 
-3. Užpildykite reikiamus laukus
+Kiekviename statistikos lange atliekamas grūpavimas pagal pasirinktą filtro
+kriterijų. Kiekvienai grupei yra išskaičiuojamas vienas iš pasirinktų rodiklių.
 
-4. Formos apačioje spauskite **[Formuoti].**
+Kiekviename statistiko lange yra pateikiami šie statistiniai rodikliai:
 
-*Suformuota ataskaita bus pateikta ekrane.*
+Atsisiuntimų (užklausų) skaičius
+    Nurodoma, kiek buvo atlikta atsisiuntimo užklausų. Kiekvienas duomenų
+    atsisiuntimo atvejis yra fiksuojamas kaip atskira atsisiuntimo užklausa.
 
+    Reikia atkreipti dėmesį, kad atsisiuntimu laikoma tiek vieno didelės
+    apimties duomenų failo atsisiuntimas, tiek vieno objekto duomenų gavimas
+    per API.
 
-\> **Atsisiųsti suformuotą rezultatą kaip Excel dokumentą:**
+    Atsisiuntimai per API yra fiksuojami tik tuo atveju, jei duomenys siunčiami
+    per :ref:`Saugyklos API <saugykla>`. Duomenų atsisiuntimai per išorinių
+    sistemų API, duomenų kataloge nefiksuojami.
 
-1. Suformuotos ataskaitos lango viršuje spauskite **[Atsisiųsti XLSX]**.
+Atsisiuntimų (objektų) skaičius
+    Nurodo `objektų <objektas_>`_ kieki, kuris buvo perduotas vienos
+    atsisiuntimo užklausos metu.
 
+    Vienos atsisiuntimo užklausos metu gali būti perduota kelių milijonų arba
+    vieno objekto duomenys. Todėl, kad būtų aiškesni perduodamų duomenų
+    kiekiai, atskirai fiksuojama, kiek objektų buvo perduoda atsisiunčiant
+    duomenis.
 
-\> **Performuoti tokio paties tipo ataskaitą:**
+    Ši statistika yra fiksuojama tik duomenis perduodamiems per :ref:`Saugyklą
+    <saugykla>`.
 
-1. Spauskite **[Formuoti]**.
+Objektų skaičius
+    Nurodo visą `objektų <objektas_>`_ skaičių, kuris yra duomenų rinkinyje.
 
-   *Formuojant ataskaitą nurodyti kriterijai yra pateikiami lango viršuje.*
+    Objektų atsisiuntimo statistikoje nurodomas atsisiuntimo kiekis, tai
+    reiškia, kad vieno duomenų rinkinio objektai gali būti atsisiunčiami daug
+    kartų, todėl kiekvienas atsisiuntimo atvejis yra sumuojamas. Be to, vieno
+    duomenų rinkinio objektai gali būti atsisiunčiame ne pilna apimtimi,
+    pavyzdžiui taikant filtrus arba puslapiavimą.
 
+    Objektų skaičius, nurodo ne atsisiuntimus, o bendrą duomenų rinkinio
+    objektų skaičių. Tai padeda geriau suprasti duomenų apimtis. Kadangi vieni
+    duomenų rinkiniai gali būti labai nedideli, turinys vos kelis objektus, o
+    kiti gali būti labai dideli, turintys milijonus objektų.
 
-Paruoštų ataskaitų valdymas
-===========================
+Savybių (duomenų laukų) skaičius
+    Kiekvienas duomenų rinkinys duomenis teikia pagal tam tikrą duomenų
+    struktūrą, kurią sudaro lentelių ir stulpelių sąrašas. Šis rodiklis nurodo
+    bendrą stulpelių arba duomenų laukų skaičių duomenų rinkinyje.
 
-\> **Rikiuoti stulpelį abėcėlės arba atvirkštine tvarka:**
+    Šis rodiklis padeda geriau suprasti duomenų struktūros dydžius. Kai kurie
+    duomenų rinkiniai gali turėti vieną lentelė ir kelis stulpelius, kiti gali
+    turėti dešimtis lentelių ir šimtus stulpelių.
 
-- Spauskite stulpelio pavadinimą.
+Esybių (modelių) skaičius
+    Analogiškas rodiklis, kaip ir Savybių, tačiau rodo bendrą lentelių skaičių.
 
+Duomenų šaltinių (distribucijų) skaičius
+    Nurodo kiek duomenų šaltinių turi kiekvienas duomenų rinkinys.
 
-\> **Filtruoti stulpelį:**
+Duomenų rinkinių skaičius
+    Nurodo duomenų rinkinių skaičių, šis rodiklis įprastai rodomas ir prie
+    kiekvieno filtro reikšmės, skliausteliuose.
 
-- *Tekstiniams* laukams įveskite savo paiešką į tekstinį lauką po stulpelio pavadinimu.
+Poreikių skaičius
+    Nurodo bendrą poreikių skaičių pateiktai duomenų rinkiniams patenkantiems į
+    pasirinktą statistinę grupę.
 
-- *Skaitiniams* laukams įveskite skaitines reikšmes į laukus „Nuo“ ir/arba „Iki“ po stulpelio pavadinimu.
+    Šis rodiklis nurodo duomenų paklausą arba pastebėtų klaidų kiekį duomenų
+    rinkiniuose.
 
-- *Datoms* įveskite arba pasirinkite datas kalendoriuose arba įveskite jas laukuose „Nuo“ ir/arba „Iki“ po stulpelio pavadinimu.
+Projektų skaičius
+    Rinkiniams priskirtų panaudojimo atvejų skaičius.
 
+    Šis rodiklis nurodo kiek yra naudojami duomenų rinkiniai.
 
-\> **Tvarkyti ataskaitos stulpelių eiliškumą:**
+Brandos lygis (vidurkis)
+    Nurodo vidutinį pasirinktos grupės duomenų rinkinių `brandos lygį <brandos
+    lygis_>`_.
 
-- Nutempkite pasirinktą stulpelį iki reikiamos pozicijos.
-
-
-\> **Keisti suformuotos ataskaitos stulpelius vietomis:**
-
-- Pasirinktą stulpelį nutempkite iki reikiamos pozicijos.
-
-
-Ataskaita „Atvirų duomenų rinkinių naudojimo intensyvumo detalūs duomenys“
-==========================================================================
-
-|image88|
-| *70 pav. Ataskaitos „Atvirų duomenų rinkinių naudojimo intensyvumo detalūs duomenys“ formavimo forma*
-
-Ataskaitos laukai ( \* – privalomi ):
-
-- **Ministrų valdymo sritys**: iš sąrašo pasirinkite ministerijų pavadinimus, galite pasirinkti daugiau nei vieną.
-
-- **Organizacijos:** pasirinkite iš sąrašo arba įveskite pavadinimus organizacijų, kurių duomenų rinkinius norima įtraukti į ataskaitą.
-
-- **Savivaldybė:** pasirinkite iš sąrašo visas savivaldybes, su kuriomis susiję duomenų rinkiniai.
-
-- **Kategorijos:** pasirinkite iš sąrašo arba įveskite (jei įvestis atitinka kurį nors sąrašo elementą) visas kategorijas sričių, su kuriomis susiję duomenų rinkiniai turi būti įtraukti į ataskaitą.
-
-- **Data nuo:** pasirinkite iš kalendoriaus arba įveskite **laikotarpio, kuris įtraukiamas į ataskaitą,** pradžios datą.
-
-- **Data iki \* :** pasirinkite iš kalendoriaus arba įveskite **laikotarpio, kuris įtraukiamas į ataskaitą, pabaigos datą.**
-
-- **Būsena:** pasirinkite iš sąrašo visas duomenų rinkinių, įtraukiamų į ataskaitą, būsenas.
-
-*Suformavus ataskaitą, duomenys pateikiami ataskaitos lange.*
-
-| |image89|
-| *71 pav. Ataskaitos „Atvirų duomenų rinkinių naudojimo intensyvumo detalūs duomenys“ langas*
-
-Suformuotos ataskaitos lange pateikiami šie įtraukto duomenų rinkinio laukai:
-
-- **Eil. nr.**: eilės numeris ataskaitoje.
-
-- **Organizacijos pavadinimas:** savininkės organizacijos pavadinimas.
-
-- **Duomenų rinkinio pavadinimas:** įtraukto duomenų rinkinio pavadinimas.
-
-- **Savivaldybė:** priskirtos savivaldybės pavadinimas.
-
-- **Ministrų valdymo sritys:** priskirtos ministerijos pavadinimas.
-
-- **Kategorijos:** priskirtos kategorijos.
-
-- **Peržiūrų skaičius:** duomenų rinkinio peržiūrų skaičius. (Skaitinis)
-
-- **Parsisiuntimų skaičius per Portalą:** duomenų rinkinio parsisiuntimų per portalą skaičius. (Skaitinis)
-
-- **Parsisiuntimų skaičius per API:** duomenų rinkinio parsisiuntimų per API skaičius. (Skaitinis)
-
-- **Duomenų rinkinio failai:** duomenų rinkinio failų skaičius. (Skaitinis)
-
-- **Įkėlimo data:** duomenų rinkinio įkėlimo į Portalą data. (Data)
-
-- **Atnaujinimo data:** duomenų rinkinio atnaujinimo data. (Data)
-
-- **Brandos lygis:** brandos lygio skaitmuo.
-
-- **Būsena:** „Inventorintas“, „Suvesti duomenys“, „Užpildyti metaduomenys“, „Įvertintas finansavimas“, arba „Įvertinti prioritetai“.
-
-
-
-\> **Atidaryti ataskaitos šablono keitimo langą:**
-
-1. Paspauskite ant bet kurio stulpelio pavadinimo dešiniuoju pelės klavišu.
-
-| |image90|
-| *72 pav. Ataskaitos „Atvirų duomenų rinkinių naudojimo intensyvumo detalūs duomenys“ šablono keitimo lango fragmentas*
-
-Lange pateikti stulpelių pavadinimai bei jų rodymo ataskaitoje būsena.
-
-- Jei stulpelio būsenos reikšmė yra pažymėta varnele **„**\ |image91|\ **“**, stulpelis rodomas ataskaitoje.
-
-- Jei stulpelio būsenos reikšmė yra tuščia (**„**\ |image92|\ **“**).
-
-
-\> **Keisti stulpelio būseną:**
-
-- Paspauskite būsenos ikoną: varnelę „\ |image93|\ “ arba tuščią lauką „\ |image94|\ “.
-
-
-\> **Uždaryti šablono keitimo langą:**
-
-- Spauskite **[Uždaryti]**.
-
-*Uždarant langą bus išsaugotos naujausios reikšmės.*
-
-
-\> **Atstatyti pradines visų būsenų reikšmes:**
-
-- Spauskite **[Atstatyti]**.
-
-*Šablono keitimo langas bus uždarytas ir reikšmės bus atstatytos į pradines.*
-
-
-Ataskaita „Atvirų duomenų rinkinių naudojimo intensyvumo detalūs duomenys (failams)“
-====================================================================================
-
-| |image95|
-| *73 pav. Ataskaitos „Atvirų duomenų rinkinių naudojimo intensyvumo detalūs duomenys (failams)“ sudarymo forma*
-
-Ataskaitos laukai (\* – privalomi):
-
-- **Ministrų valdymo sritys:** iš sąrašo pasirinkite iki keleto ministerijų, su kuriomis susiję rinkiniai;
-
-- **Organizacijos:** iš sąrašo pasirinkite arba įveskite organizacijas, kurių rinkinius norite įtraukti į ataskaitą.
-
-- **Savivaldybė:** įveskite arba pasirinkti iš sąrašo savivaldybes, su kuriomis susiję duomenų rinkiniai. *Parenkamų savivaldybių skaičius nėra ribojamas.*
-
-- **Kategorijos:** pasirinkti iš sąrašo, arba įvesti (jei įvestis atitinka kurį nors sąrašo elementą) kategorijas sričių, su kuriomis susiję duomenų rinkiniai turi būti įtraukti į ataskaitą. *Kategorijų skaičius neribojamas, laukas neprivalomas.*
-
-- **Data nuo \* :** pasirinkite iš kalendoriaus arba įveskite ataskaitos laikotarpio pradžios datą.
-
-- **Data iki \* :** pasirinkite iš kalendoriaus arba įveskite ataskaitos laikotarpio pabaigos datą.
-
-- **Formatas** failų, įtraukiamų į ataskaitą, formatas, pasirenkamas iš sąrašo. *Pasirenkamų formatų skaičius neribojamas. Laukas neprivalomas.*
-
-*Suformavus ataskaitą, duomenys pateikiami ataskaitos lange:*
-
-| |image96|
-| *74 pav. Ataskaitos „Atvirų duomenų rinkinių naudojimo intensyvumo detalūs duomenys (failams)“ langas*
-
-Žemiau pateikiami į ataskaitą įtraukto duomenų rinkinio laukai:
-
-- **Eil. nr.:** duomenų rinkinio eilės numeris ataskaitoje.
-
-- **Organizacijos pavadinimas:** savininkės organizacijos pavadinimas.
-
-- **Duomenų rinkinio pavadinimas:** duomenų rinkinio pavadinimas.
-
-- **Savivaldybė:** duomenų rinkinio pilnas savivaldybės pavadinimas. *Jei nėra priskirta, laukas tuščias.*
-
-- **Ministrų valdymo sritys:** priskirtos ministerijos pavadinimas. *Jei nėra priskirta, laukas tuščias.*
-
-- **Kategorijos:** Portale priskirtos kategorijos pavadinimas.
-
-- **Peržiūrų skaičius:** duomenų rinkinio peržiūrų Portale skaičius.
-
-- **Parsisiuntimų skaičius per Portalą:** įtraukto duomenų rinkinio parsisiuntimų per Portalą skaičius.
-
-- **Parsisiuntimų skaičius per API:** įtraukto duomenų rinkinio parsisiuntimų per API skaičius.
-
-- **Įkėlimo data:** įtraukto duomenų rinkinio įkėlimo į Portalą data.
-
-- **Atnaujinimo data:** įtraukto duomenų rinkinio atnaujinimo data.
-
-- **Formatai:** duomenų rinkinio formatas arba formatai. *Jei formatas nepriskirtas, laukas tuščias.*
-
-| |image97|
-| *75 pav. Ataskaitos „Atvirų duomenų rinkinių naudojimo intensyvumo detalūs duomenys“ šablono keitimo lango fragmentas*
+    Šis rodiklis nurodo duomenų kokybę.
 
 
 .. _partner-api:
@@ -1935,3 +1825,7 @@ Slaptažodis privalo būti saugus. (Daugiau: `Sąvokos <#naudojami-terminai-ir-s
 .. |image99| image:: /static/katalogas/okot/image91.png
 .. |77pav| image:: /static/katalogas/okot/77pav.png
 .. |78pav| image:: /static/katalogas/okot/78pav.png
+
+
+.. _objektas: https://ivpk.github.io/dsa/modelis.html#objektas
+.. _brandos lygis: https://ivpk.github.io/dsa/branda.html
