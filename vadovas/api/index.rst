@@ -1117,15 +1117,30 @@ Norinti gauti vieno modelio objektų skaičių galima panaudoti `count()` funkci
 
 .. _query-batches:
 
-Duomenų skaitymas paketais
-==========================
+Puslapiavimas
+=============
 
-Norint gauti visus tam tikro modelio duomenis, ne visus iš karto, o tam tikro
-dydžio paketais, galima duomenų skaitymą atlikti taip:
+Jei duomenų nepavyksta atsisiųsti vienu kartu dėl per didelės duomenų apimties,
+reikia naudoti puslapiavimą ir duomenis siųstis mažesniais paketais.
+
+Šiuo metu, puslapiavimas pagal nutylėjimą yra išjungtas, tačiau ateityje
+didelės apimties duomenų rinkiniams puslapiavimas gali būti įjungtas
+privalomai. Šiuo metu, jei duomenų yra labai daug ir jų siuntimas užtrunka per
+ilgai, pavyzdžiui ilgiau nei 30 minučių, tada siuntimas gali būti nutrauktas.
+Norint gauti visus duomenis, reikia naudoti puslapiavimą.
+
+Jei norite nuolat turėti pačius naujausius duomenis, nereikia kiekvieną kartą
+siųstis visų duomenų, o vietoj to naudoti :ref:`op-changes` API, kuris leidžia
+gauti tik naujausius pasikeitimus duomenyse.
+
+Kad įjungti puslapiavimą, pirmiausiai reikia nurodyti puslapio dydį `limit()`
+funkcijos pagalba, pavyzdžiui:
 
 .. code-block:: sh
 
-    http GET /datasets/gov/dc/geo/Continent?sort(_id)&limit(1)&_id>"36cec98e-7237-43a5-ad2a-58cf29d65e96"
+    http GET /datasets/gov/dc/geo/Continent?limit(10000)
+
+Gausite tokį atsakymą:
 
 .. code-block:: http
 
@@ -1134,6 +1149,9 @@ dydžio paketais, galima duomenų skaitymą atlikti taip:
 
     {
         "_type": "datasets/gov/dc/geo/Continent",
+        "_page" {
+            "next": "WyJhYmRkMTI0NS1iYmY5LTQwODUtOTM2Ni1mMTFjMGY3MzdjMWQiXQ=="
+        },
         "_data": [
             {
                 "_id": "abdd1245-bbf9-4085-9366-f11c0f737c1d",
@@ -1144,33 +1162,27 @@ dydžio paketais, galima duomenų skaitymą atlikti taip:
         ]
     }
 
-Šiame pavyzdyje užklausoje naudojami tokie parametrai:
+Norint gauti sekantį puslapį, reikia pateikti sekančio puslapio raktą `page()`
+funkcijai. Sekančio puslapio raktas pateikiamas kartu su duomenimis
+`_page.next` duomenų lauke:
 
-`sort(_id)`
-    Rūšiuojame duomenis pagal `_id` lauko reikšmes.
+.. code-block:: sh
 
-`limit(1)`
-    Ribojame grąžinamų objektų skaičių iki 10, tai reiškia, kad mūsų paketo
-    dydis bus 10 objektų.
+    http GET /datasets/gov/dc/geo/Continent?limit(10000)&page("WyJhYmRkMTI0NS1iYmY5LTQwODUtOTM2Ni1mMTFjMGY3MzdjMWQiXQ==")
 
-    .. todo: NotImplemented
+Įvykdžius šią užklausą, gausite sekantį puslapį, o su sekančio puslapio
+duomenimis, tolesnio puslapio raktą.
 
-    Gražinamų duomenų kiekį galima riboti ne tik įrašų skaičiumi, tačiau ir
-    duomenų kiekiu, nurodant `limit("1M")`, kur `1M` reiškia gražinamų duomenų
-    kiekį megabaitais.
+Tokiu būdu duomenis galite gauti mažesniais paketais, nurodant norimą puslapio
+dydį.
 
-`_id>"36cec98e-7237-43a5-ad2a-58cf29d65e96"`
-    Atrenkame tik tuos duomenis, kurie yra didesni už nurodytą reikšmę, šiuo
-    atveju reikšmė yra `36cec98e-7237-43a5-ad2a-58cf29d65e96`.
+Koks turėtu būti puslapio dydis, priklauso nuo duomenų struktūros, kuriuose
+bandoma atsisiųsti. Jei struktūra labai didelė ir vieno objekto duomenų apimtis
+yra labai didelė, tada puslapio dydis turėtu būti mažesnis. Jei vieno objekto
+apimtis yra labai nedidelė, tada puslapio dydis gali būti didesnis.
 
-Kadangi `_id` yra unikalus, todėl šis laukas, gali būti naudojamas, kaip
-kursorius, skaitant duomenis paketais. Nuskaičius kiekvieną paketą, norint
-gauti sekantį, reikia pakeisti `_id>"?"` klaustuku pažymėtą vietą, paskutinio
-paketo objekto `_id` reikšme`.
+Daugeliu atveju turėtu tikti puslapio dydis tarp 1000 ir 10000.
 
-Norint iš karto žinoti, kiek viso bus paketų, galim pirmiausiai :ref:`užklausti
-kiek viso yra objektų <query-count>` ir gautą skaičių padalinti iš paketo
-dydžio.
 
 
 Rašymo veiksmai
