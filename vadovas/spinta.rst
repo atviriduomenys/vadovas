@@ -818,14 +818,14 @@ Tai sugeneruotas :term:`DSA` atrodys taip:
 
 .. code-block:: sh
 
-id | d | r | b | m | property   | type                    | ref | source       | prepare | level | access | uri | title | description
-   | dataset                    |                         |     |              |         |       |        |     |       |
-   |   | resource               | xml                     |     | data.xml     |         |       |        |     |       |
-   |                            |                         |     |              |         |       |        |     |       |
-   |   |   |   | City           |                         |     | /cities/city |         |       |        |     |       |
-   |   |   |   |   | code       | string required unique  |     | @code        |         |       |        |     |       |
-   |   |   |   |   | name       | string required unique  |     | name         |         |       |        |     |       |
-   |   |   |   |   | population | integer required unique |     | population   |         |       |        |     |       |
+    id | d | r | b | m | property   | type                    | ref | source       | prepare | level | access | uri | title | description
+       | dataset                    |                         |     |              |         |       |        |     |       |
+       |   | resource               | xml                     |     | data.xml     |         |       |        |     |       |
+       |                            |                         |     |              |         |       |        |     |       |
+       |   |   |   | City           |                         |     | /cities/city |         |       |        |     |       |
+       |   |   |   |   | code       | string required unique  |     | @code        |         |       |        |     |       |
+       |   |   |   |   | name       | string required unique  |     | name         |         |       |        |     |       |
+       |   |   |   |   | population | integer required unique |     | population   |         |       |        |     |       |
 
 
 XSD schema
