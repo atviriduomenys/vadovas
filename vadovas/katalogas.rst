@@ -1367,7 +1367,7 @@ Modelio bazė naudojama objekto identifikatoriams susieti, kai keli skirtingi du
 
 Pirminis raktas
 ===========
-model.property reikšmė, kurios pagalba model objektai siejami su base objektais. Jei susiejimas pagal vieną model.property yra neįmanomas, galima nurodyti kelis model.property pavadinimus atskirtus kableliu.
+`model.property <https://ivpk.github.io/dsa/draft/dimensijos.html#model.property>`_ reikšmė, kurios pagalba model objektai siejami su base objektais. Jei susiejimas pagal vieną `model.property <https://ivpk.github.io/dsa/draft/dimensijos.html#model.property>`_ yra neįmanomas, galima nurodyti kelis `model.property <https://ivpk.github.io/dsa/draft/dimensijos.html#model.property>`_ pavadinimus atskirtus kableliu.
 
 |image101|
 *91 pav. Duomenų modelio formos modelio bazės pirminio rakto stulpelis.*
