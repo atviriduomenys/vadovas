@@ -1276,6 +1276,293 @@ Sąraše galite pasirinkti reikiamą pastabą, kad atvertumėte jos peržiūros 
 *Naujos pastabos pateikiamos, kai vyr. koordinatorius atmeta iš naujo nacionaliniam planui pateiktą organizacijos duomenų rinkinį.*
 
 
+Duomenų modelio forma
+***************
+
+1. Duomenų rinkinio lange pasirinkite **[Struktūra]**.
+
+|image113|
+*79 pav. Duomenų rinkinio struktūros lango fragmentas.*
+
+2. Duomenų rinkinių struktūros lange spauskite **[Naujas modelis]**.
+
+3. Užpildykite formą (\*: privalomi laukai):
+
+Kodinis pavadinimas*
+===========
+Duomenų modelio kodinis pavadinimas. Užrašomas vienaskaitos forma iš didžiosios raidės, jei pavadinimas iš kelių žodžių, žodžiai atskiriami didžiąja raide.
+
+|image116|
+*80 pav. Duomenų modelio formos kodinio pavadinimo stulpelis.*
+
+Duomenų šaltinis
+===========
+Modelio duomenų šaltinis, vieta ar pavadinimas fiziniame duomenų modelyje.
+
+|image93|
+*81 pav. Duomenų modelio formos duomenų šaltinio stulpelis.*
+
+Duomenų filtras
+===========
+Formulė skirta duomenų filtravimui ir paruošimui.
+
+|image94|
+*82 pav. Duomenų modelio formos duomenų filtro stulpelis.*
+
+Klasė
+===========
+Sąsaja su `OWL <https://www.w3.org/TR/owl2-overview/>`_, `RDFS <https://www.w3.org/TR/rdf-schema/>`_ ontologijomis ar `SKOS <https://www.w3.org/TR/skos-primer/>`_ kontroliuojamais žodynais.
+
+|image95|
+*83 pav. Duomenų modelio formos klasės stulpelis.*
+
+Brandos lygis
+===========
+Modelio brandos lygis, nusakantis pačio modelio brandos lygį, pavyzdžiui ar nurodytas pirminis raktas, ar modelio pavadinimas atitinka kodiniams pavadinimams keliamus reikalavimus.
+
+|image96|
+*84 pav. Duomenų modelio formos brandos lygio stulpelis.*
+
+Būsena
+===========
+Metaduomenų statusas nurodomas pagal EU Publications Office kontroliuojamą žodyną `Distribution status <http://publications.europa.eu/resource/authority/distribution-status>`_ ir EU Publications Office kontroliuojamą žodyną `Dataset status <http://publications.europa.eu/resource/authority/dataset-status>`_.
+
+|image97|
+*85 pav. Duomenų modelio formos būsenos stulpelis.*
+
+Metaduomenų matomumas
+===========
+Duomenų rinkinio metaduomenų matomumas ir prieinamumas.
+
+|image102|
+*86 pav. Duomenų modelio formos metaduomenų matomumo stulpelis.*
+
+Europos teisės akto identifikatorius (ELI)
+===========
+Modelį (esybę / objektą) teisiniuose šaltiniuose įteisinančio resurso nuoroda pagal `ELI <https://eur-lex.europa.eu/eli-register/about.html>`_.
+
+|image117|
+*87 pav. Duomenų modelio formos ELI stulpelis.*
+
+Pavadinimas
+===========
+Trumpas modelio pavadinimas. Pirmas žodis iš didžiosios raidės, pavadinimo gale taško nereikia.
+
+|image98|
+*88 pav. Duomenų modelio formos pavadinimo stulpelis.*
+
+Aprašymas
+===========
+Modelio aprašymas.
+
+|image99|
+*89 pav. Duomenų modelio formos aprašymo stulpelis.*
+
+Modelio bazė
+===========
+Modelio bazė naudojama objekto identifikatoriams susieti, kai keli skirtingi duomenų modeliai aprašo tą pačią realaus pasaulio esybę.
+
+|image100|
+*90 pav. Duomenų modelio formos modelio bazės stulpelis.*
+
+Pirminis raktas
+===========
+`model.property <https://ivpk.github.io/dsa/draft/dimensijos.html#model.property>`_ reikšmė, kurios pagalba model objektai siejami su base objektais. Jei susiejimas pagal vieną `model.property <https://ivpk.github.io/dsa/draft/dimensijos.html#model.property>`_ yra neįmanomas, galima nurodyti kelis `model.property <https://ivpk.github.io/dsa/draft/dimensijos.html#model.property>`_ pavadinimus atskirtus kableliu.
+
+|image101|
+*91 pav. Duomenų modelio formos modelio bazės pirminio rakto stulpelis.*
+
+4. Įsitikinkite, kad įvedėte teisingus duomenis ir spauskite **[Sukurti]**.
+
+Duomenų lauko forma
+***************
+
+1. Duomenų rinkinio lange pasirinkite **[Struktūra]**.
+
+2. Duomenų rinkinių struktūros lange pasirinkite modelį.
+
+|image114|
+*92 pav. Duomenų modelio struktūros lango fragmentas.*
+
+3. Duomenų modelio struktūros lange pasirinkite **[Naujas duomenų laukas]**.
+
+4. Užpildykite formą (\*: privalomi laukai):
+
+Kodinis pavadinimas*
+===========
+Duomenų lauko kodinis pavadinimas. Galimi simboliai: lotyniškos mažosios raidės, skaičiai ir apatinio pabraukimo (`_`) simbolis.
+
+|image104|
+*93 pav. Duomenų lauko formos kodinio pavadinimo stulpelis.*
+
+Tipas
+===========
+Loginis duomenų tipas. Loginis duomenų tipas yra toks tipas, kurį tikitės gauti publikuojant duomenis per API. Loginis tipas gali skirtis nuo duomenų šaltinio tipo.
+
+|image105|
+*94 pav. Duomenų lauko formos duomenų tipo stulpelis.*
+
+Tipo parametrai
+===========
+Duomenų lauko tipo parametrai.
+
+|image106|
+*95 pav. Duomenų lauko formos duomenų lauko tipo parametrų stulpelis.*
+
+Ryšys
+===========
+Nurodo matavimo vienetus, laiko ar vietos tikslumą, klasifikatorių arba ryšį su papildomais modeliais.
+
+|image107|
+*96 pav. Duomenų lauko formos ryšio stulpelis.*
+
+Duomenų šaltinis
+===========
+Duomenų lauko pavadinimas šaltinyje.
+
+|image108|
+*97 pav. Duomenų lauko formos duomenų šaltinio stulpelis.*
+
+Duomenų transformacija
+===========
+Formulė skirta duomenų tikrinimui ir transformavimui arba statinės reikšmės pateikimui.
+
+|image109|
+*98 pav. Duomenų lauko formos duomenų transformacijos stulpelis.*
+
+Klasė
+===========
+Sąsaja su išoriniu žodynu.
+
+|image95|
+*99 pav. Duomenų lauko formos klasės stulpelis.*
+
+Brandos lygis
+===========
+Duomenų lauko brandos lygis.
+
+|image96|
+*100 pav. Duomenų lauko formos brandos lygio stulpelis.*
+
+Būsena
+===========
+Metaduomenų statusas nurodomas pagal EU Publications Office kontroliuojamą žodyną `Distribution status <http://publications.europa.eu/resource/authority/distribution-status>`_ ir EU Publications Office kontroliuojamą žodyną `Dataset status <http://publications.europa.eu/resource/authority/dataset-status>`_.
+
+|image97|
+*101 pav. Duomenų lauko formos metaduomenų būsenos stulpelis.*
+
+Metaduomenų matomumas
+===========
+Duomenų rinkinio metaduomenų matomumas ir prieinamumas.
+
+|image102|
+*102 pav. Duomenų lauko formos metaduomenų matomumo stulpelis.*
+
+Prieigos lygis
+===========
+Nurodo prieigos prie duomenų lygį.
+
+|image110|
+*103 pav. Duomenų lauko formos prieigos lygio stulpelis.*
+
+Europos teisės akto identifikatorius (ELI)
+===========
+Modelį (esybę / objektą) teisiniuose šaltiniuose įteisinančio resurso nuoroda pagal `ELI <https://eur-lex.europa.eu/eli-register/about.html>`_.
+
+|image117|
+*104 pav. Duomenų lauko formos ELI stulpelis.*
+
+Pavadinimas
+===========
+Duomenų lauko pavadinimas. Šis pavadinimas yra skirtas skaityti žmonėms ir bus rodomas duomenų laukų sąrašuose ir antraštėse.
+
+|image118|
+*105 pav. Duomenų modelio formos modelio bazės pirminio rakto stulpelis.*
+
+Aprašymas
+===========
+Duomenų lauko aprašymas.
+
+|image119|
+*106 pav. Duomenų modelio formos modelio bazės pirminio rakto stulpelis.*
+
+5. Įsitikinkite, kad įvedėte teisingus duomenis ir spauskite **[Sukurti]**.
+
+Duomenų reikšmės forma
+***************
+
+1. Duomenų rinkinio lange pasirinkite **[Struktūra]**.
+
+2. Duomenų rinkinių struktūros lange pasirinkite modelį.
+
+3. Duomenų modelio struktūros lange pasirinkite duomenų lauką.
+
+|image115|
+*107 pav. Duomenų lauko struktūros lango fragmentas.*
+
+4. Duomenų lauko struktūros lange pasirinkite **[Nauja reikšmė]**.
+
+5. Užpildykite formą (\*: privalomi laukai):
+
+Reikšmė*
+===========
+Fiksuotos reikšmės vertė.
+
+|image111|
+*108 pav. Duomenų modelio formos kodinio pavadinimo stulpelis.*
+
+Reikšmė šaltinyje
+===========
+Pateikiama originali reikšmė, taip kaip ji saugoma duomenų šaltinyje. Pateiktos reikšmės turi būti unikalios ir negali kartotis.
+
+|image112|
+*109 pav. Duomenų modelio formos duomenų šaltinio stulpelis.*
+
+Prieigos lygmuo
+===========
+Nurodo prieigos prie duomenų lygį.
+
+|image94|
+*110 pav. Duomenų modelio formos duomenų filtro stulpelis.*
+
+Būsena
+===========
+Metaduomenų statusas nurodomas pagal EU Publications Office kontroliuojamą žodyną `Distribution status <http://publications.europa.eu/resource/authority/distribution-status>`_ ir EU Publications Office kontroliuojamą žodyną `Dataset status <http://publications.europa.eu/resource/authority/dataset-status>`_.
+
+|image95|
+*111 pav. Duomenų modelio formos klasės stulpelis.*
+
+Metaduomenų matomumas
+===========
+Duomenų rinkinio metaduomenų matomumas ir prieinamumas.
+
+|image102|
+*112 pav. Duomenų modelio formos brandos lygio stulpelis.*
+
+Europos teisės akto identifikatorius (ELI)
+===========
+Modelį (esybę / objektą) teisiniuose šaltiniuose įteisinančio resurso nuoroda pagal `ELI <https://eur-lex.europa.eu/eli-register/about.html>`_.
+
+|image117|
+*113 pav. Duomenų modelio formos brandos lygio stulpelis.*
+
+Pavadinimas
+===========
+Fiksuotos reikšmės pavadinimas.
+
+|image120|
+*114 pav. Duomenų modelio formos brandos lygio stulpelis.*
+
+Aprašymas
+===========
+Fiksuotos reikšmės aprašymas.
+
+|image121|
+*115 pav. Duomenų modelio formos brandos lygio stulpelis.*
+
+6. Įsitikinkite, kad įvedėte teisingus duomenis ir spauskite **[Sukurti]**.
+
+
 Atvėrimo planas
 ***************
 
@@ -1815,14 +2102,34 @@ Slaptažodis privalo būti saugus. (Daugiau: `Sąvokos <#naudojami-terminai-ir-s
 .. |image89| image:: /static/katalogas/okot/image84.png
 .. |image90| image:: /static/katalogas/okot/image85.png
 .. |image91| image:: /static/katalogas/okot/image86.png
-.. |image92| image:: /static/katalogas/okot/image87.png
-.. |image93| image:: /static/katalogas/okot/image86.png
-.. |image94| image:: /static/katalogas/okot/image87.png
-.. |image95| image:: /static/katalogas/okot/image88.png
-.. |image96| image:: /static/katalogas/okot/image89.png
-.. |image97| image:: /static/katalogas/okot/image85.png
-.. |image98| image:: /static/katalogas/okot/image90.png
-.. |image99| image:: /static/katalogas/okot/image91.png
+.. |image93| image:: /static/katalogas/okot/image93.png
+.. |image94| image:: /static/katalogas/okot/image94.png
+.. |image95| image:: /static/katalogas/okot/image95.png
+.. |image96| image:: /static/katalogas/okot/image96.png
+.. |image97| image:: /static/katalogas/okot/image97.png
+.. |image98| image:: /static/katalogas/okot/image98.png
+.. |image99| image:: /static/katalogas/okot/image99.png
+.. |image100| image:: /static/katalogas/okot/image100.png
+.. |image101| image:: /static/katalogas/okot/image101.png
+.. |image102| image:: /static/katalogas/okot/image102.png
+.. |image104| image:: /static/katalogas/okot/image104.png
+.. |image105| image:: /static/katalogas/okot/image105.png
+.. |image106| image:: /static/katalogas/okot/image106.png
+.. |image107| image:: /static/katalogas/okot/image107.png
+.. |image108| image:: /static/katalogas/okot/image108.png
+.. |image109| image:: /static/katalogas/okot/image109.png
+.. |image110| image:: /static/katalogas/okot/image110.png
+.. |image111| image:: /static/katalogas/okot/image111.png
+.. |image112| image:: /static/katalogas/okot/image112.png
+.. |image113| image:: /static/katalogas/okot/image113.png
+.. |image114| image:: /static/katalogas/okot/image114.png
+.. |image115| image:: /static/katalogas/okot/image115.png
+.. |image116| image:: /static/katalogas/okot/image116.png
+.. |image117| image:: /static/katalogas/okot/image117.png
+.. |image118| image:: /static/katalogas/okot/image118.png
+.. |image119| image:: /static/katalogas/okot/image119.png
+.. |image120| image:: /static/katalogas/okot/image120.png
+.. |image121| image:: /static/katalogas/okot/image121.png
 .. |77pav| image:: /static/katalogas/okot/77pav.png
 .. |78pav| image:: /static/katalogas/okot/78pav.png
 
