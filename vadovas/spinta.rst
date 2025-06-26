@@ -799,7 +799,7 @@ Iš XML formatu turimų duomenų :term:`DSA` generuojamas naudojant komandą `in
 
 .. code-block:: sh
 
-    $ spinta inspect -r xml data.xml -o sdsa.xlsx
+    $ spinta inspect -r dask/xml data.xml -o sdsa.xlsx
 
 Šiuo atveju, jei XML struktūra bus ši:
 
@@ -820,7 +820,7 @@ Tai sugeneruotas :term:`DSA` atrodys taip:
 
     id | d | r | b | m | property   | type                    | ref | source       | prepare | level | access | uri | title | description
        | dataset                    |                         |     |              |         |       |        |     |       |
-       |   | resource               | xml                     |     | data.xml     |         |       |        |     |       |
+       |   | resource               | dask/xml                |     | data.xml     |         |       |        |     |       |
        |                            |                         |     |              |         |       |        |     |       |
        |   |   |   | City           |                         |     | /cities/city |         |       |        |     |       |
        |   |   |   |   | code       | string required unique  |     | @code        |         |       |        |     |       |
