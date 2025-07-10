@@ -1277,7 +1277,7 @@ Sąraše galite pasirinkti reikiamą pastabą, kad atvertumėte jos peržiūros 
 
 
 Duomenų modelio forma
-***************
+*********************
 
 1. Duomenų rinkinio lange pasirinkite **[Struktūra]**.
 
@@ -1289,56 +1289,56 @@ Duomenų modelio forma
 3. Užpildykite formą (\*: privalomi laukai):
 
 Kodinis pavadinimas*
-===========
+====================
 Duomenų modelio kodinis pavadinimas. Užrašomas vienaskaitos forma iš didžiosios raidės, jei pavadinimas iš kelių žodžių, žodžiai atskiriami didžiąja raide.
 
 |image116|
 *80 pav. Duomenų modelio formos kodinio pavadinimo stulpelis.*
 
 Duomenų šaltinis
-===========
+================
 Modelio duomenų šaltinis, vieta ar pavadinimas fiziniame duomenų modelyje.
 
 |image93|
 *81 pav. Duomenų modelio formos duomenų šaltinio stulpelis.*
 
 Duomenų filtras
-===========
+===============
 Formulė skirta duomenų filtravimui ir paruošimui.
 
 |image94|
 *82 pav. Duomenų modelio formos duomenų filtro stulpelis.*
 
 Klasė
-===========
+=====
 Sąsaja su `OWL <https://www.w3.org/TR/owl2-overview/>`_, `RDFS <https://www.w3.org/TR/rdf-schema/>`_ ontologijomis ar `SKOS <https://www.w3.org/TR/skos-primer/>`_ kontroliuojamais žodynais.
 
 |image95|
 *83 pav. Duomenų modelio formos klasės stulpelis.*
 
 Brandos lygis
-===========
+=============
 Modelio brandos lygis, nusakantis pačio modelio brandos lygį, pavyzdžiui ar nurodytas pirminis raktas, ar modelio pavadinimas atitinka kodiniams pavadinimams keliamus reikalavimus.
 
 |image96|
 *84 pav. Duomenų modelio formos brandos lygio stulpelis.*
 
 Būsena
-===========
+======
 Metaduomenų statusas nurodomas pagal EU Publications Office kontroliuojamą žodyną `Distribution status <http://publications.europa.eu/resource/authority/distribution-status>`_ ir EU Publications Office kontroliuojamą žodyną `Dataset status <http://publications.europa.eu/resource/authority/dataset-status>`_.
 
 |image97|
 *85 pav. Duomenų modelio formos būsenos stulpelis.*
 
 Metaduomenų matomumas
-===========
+=====================
 Duomenų rinkinio metaduomenų matomumas ir prieinamumas.
 
 |image102|
 *86 pav. Duomenų modelio formos metaduomenų matomumo stulpelis.*
 
 Europos teisės akto identifikatorius (ELI)
-===========
+==========================================
 Modelį (esybę / objektą) teisiniuose šaltiniuose įteisinančio resurso nuoroda pagal `ELI <https://eur-lex.europa.eu/eli-register/about.html>`_.
 
 |image117|
@@ -1352,21 +1352,21 @@ Trumpas modelio pavadinimas. Pirmas žodis iš didžiosios raidės, pavadinimo g
 *88 pav. Duomenų modelio formos pavadinimo stulpelis.*
 
 Aprašymas
-===========
+=========
 Modelio aprašymas.
 
 |image99|
 *89 pav. Duomenų modelio formos aprašymo stulpelis.*
 
 Modelio bazė
-===========
+============
 Modelio bazė naudojama objekto identifikatoriams susieti, kai keli skirtingi duomenų modeliai aprašo tą pačią realaus pasaulio esybę.
 
 |image100|
 *90 pav. Duomenų modelio formos modelio bazės stulpelis.*
 
 Pirminis raktas
-===========
+===============
 `model.property <https://ivpk.github.io/dsa/draft/dimensijos.html#model.property>`_ reikšmė, kurios pagalba model objektai siejami su base objektais. Jei susiejimas pagal vieną `model.property <https://ivpk.github.io/dsa/draft/dimensijos.html#model.property>`_ yra neįmanomas, galima nurodyti kelis `model.property <https://ivpk.github.io/dsa/draft/dimensijos.html#model.property>`_ pavadinimus atskirtus kableliu.
 
 |image101|
@@ -1375,7 +1375,7 @@ Pirminis raktas
 4. Įsitikinkite, kad įvedėte teisingus duomenis ir spauskite **[Sukurti]**.
 
 Duomenų lauko forma
-***************
+*******************
 
 1. Duomenų rinkinio lange pasirinkite **[Struktūra]**.
 
@@ -1389,84 +1389,84 @@ Duomenų lauko forma
 4. Užpildykite formą (\*: privalomi laukai):
 
 Kodinis pavadinimas*
-===========
+====================
 Duomenų lauko kodinis pavadinimas. Galimi simboliai: lotyniškos mažosios raidės, skaičiai ir apatinio pabraukimo (`_`) simbolis.
 
 |image104|
 *93 pav. Duomenų lauko formos kodinio pavadinimo stulpelis.*
 
 Tipas
-===========
+=====
 Loginis duomenų tipas. Loginis duomenų tipas yra toks tipas, kurį tikitės gauti publikuojant duomenis per API. Loginis tipas gali skirtis nuo duomenų šaltinio tipo.
 
 |image105|
 *94 pav. Duomenų lauko formos duomenų tipo stulpelis.*
 
 Tipo parametrai
-===========
+===============
 Duomenų lauko tipo parametrai.
 
 |image106|
 *95 pav. Duomenų lauko formos duomenų lauko tipo parametrų stulpelis.*
 
 Ryšys
-===========
+=====
 Nurodo matavimo vienetus, laiko ar vietos tikslumą, klasifikatorių arba ryšį su papildomais modeliais.
 
 |image107|
 *96 pav. Duomenų lauko formos ryšio stulpelis.*
 
 Duomenų šaltinis
-===========
+================
 Duomenų lauko pavadinimas šaltinyje.
 
 |image108|
 *97 pav. Duomenų lauko formos duomenų šaltinio stulpelis.*
 
 Duomenų transformacija
-===========
+======================
 Formulė skirta duomenų tikrinimui ir transformavimui arba statinės reikšmės pateikimui.
 
 |image109|
 *98 pav. Duomenų lauko formos duomenų transformacijos stulpelis.*
 
 Klasė
-===========
+=====
 Sąsaja su išoriniu žodynu.
 
 |image95|
 *99 pav. Duomenų lauko formos klasės stulpelis.*
 
 Brandos lygis
-===========
+=============
 Duomenų lauko brandos lygis.
 
 |image96|
 *100 pav. Duomenų lauko formos brandos lygio stulpelis.*
 
 Būsena
-===========
+======
 Metaduomenų statusas nurodomas pagal EU Publications Office kontroliuojamą žodyną `Distribution status <http://publications.europa.eu/resource/authority/distribution-status>`_ ir EU Publications Office kontroliuojamą žodyną `Dataset status <http://publications.europa.eu/resource/authority/dataset-status>`_.
 
 |image97|
 *101 pav. Duomenų lauko formos metaduomenų būsenos stulpelis.*
 
 Metaduomenų matomumas
-===========
+=====================
 Duomenų rinkinio metaduomenų matomumas ir prieinamumas.
 
 |image102|
 *102 pav. Duomenų lauko formos metaduomenų matomumo stulpelis.*
 
 Prieigos lygis
-===========
+==============
 Nurodo prieigos prie duomenų lygį.
 
 |image110|
 *103 pav. Duomenų lauko formos prieigos lygio stulpelis.*
 
 Europos teisės akto identifikatorius (ELI)
-===========
+==========================================
 Modelį (esybę / objektą) teisiniuose šaltiniuose įteisinančio resurso nuoroda pagal `ELI <https://eur-lex.europa.eu/eli-register/about.html>`_.
 
 |image117|
@@ -1480,7 +1480,7 @@ Duomenų lauko pavadinimas. Šis pavadinimas yra skirtas skaityti žmonėms ir b
 *105 pav. Duomenų modelio formos modelio bazės pirminio rakto stulpelis.*
 
 Aprašymas
-===========
+=========
 Duomenų lauko aprašymas.
 
 |image119|
@@ -1489,7 +1489,7 @@ Duomenų lauko aprašymas.
 5. Įsitikinkite, kad įvedėte teisingus duomenis ir spauskite **[Sukurti]**.
 
 Duomenų reikšmės forma
-***************
+**********************
 
 1. Duomenų rinkinio lange pasirinkite **[Struktūra]**.
 
@@ -1505,42 +1505,42 @@ Duomenų reikšmės forma
 5. Užpildykite formą (\*: privalomi laukai):
 
 Reikšmė*
-===========
+========
 Fiksuotos reikšmės vertė.
 
 |image111|
 *108 pav. Duomenų modelio formos kodinio pavadinimo stulpelis.*
 
 Reikšmė šaltinyje
-===========
+=================
 Pateikiama originali reikšmė, taip kaip ji saugoma duomenų šaltinyje. Pateiktos reikšmės turi būti unikalios ir negali kartotis.
 
 |image112|
 *109 pav. Duomenų modelio formos duomenų šaltinio stulpelis.*
 
 Prieigos lygmuo
-===========
+===============
 Nurodo prieigos prie duomenų lygį.
 
 |image94|
 *110 pav. Duomenų modelio formos duomenų filtro stulpelis.*
 
 Būsena
-===========
+======
 Metaduomenų statusas nurodomas pagal EU Publications Office kontroliuojamą žodyną `Distribution status <http://publications.europa.eu/resource/authority/distribution-status>`_ ir EU Publications Office kontroliuojamą žodyną `Dataset status <http://publications.europa.eu/resource/authority/dataset-status>`_.
 
 |image95|
 *111 pav. Duomenų modelio formos klasės stulpelis.*
 
 Metaduomenų matomumas
-===========
+=====================
 Duomenų rinkinio metaduomenų matomumas ir prieinamumas.
 
 |image102|
 *112 pav. Duomenų modelio formos brandos lygio stulpelis.*
 
 Europos teisės akto identifikatorius (ELI)
-===========
+==========================================
 Modelį (esybę / objektą) teisiniuose šaltiniuose įteisinančio resurso nuoroda pagal `ELI <https://eur-lex.europa.eu/eli-register/about.html>`_.
 
 |image117|
@@ -1554,7 +1554,7 @@ Fiksuotos reikšmės pavadinimas.
 *114 pav. Duomenų modelio formos brandos lygio stulpelis.*
 
 Aprašymas
-===========
+=========
 Fiksuotos reikšmės aprašymas.
 
 |image121|
@@ -2042,17 +2042,22 @@ Agento sąrašo forma
 Formoje vaizduojami šie laukai:
 
 - **Būsena** – Rodomi du elementai:
+
   - Spalvotas rutuliukas, žymintis paskutinės sinchronizacijos rezultatą:
+
     - **Žalia** – Sinchronizacija pavyko.
     - **Raudona** – Sinchronizacija nepavyko.
     - **Juoda** – Sinchronizacija dar nevykdyta.
+
   - Indikatorius, ar Agentas įjungtas (tik įjungti Agentai gali sinchronizuotis).
+
 - **Kodinis pavadinimas** – Unikalus sistemoje pavadinimas (organizacijos mastu).
 - **Pavadinimas** – Vartotojui matomas pavadinimas; iš jo generuojamas kodinis pavadinimas.
 - **Sukurtas** – Agento sukūrimo data.
 - **Užklausa** – Paskutinės sinchronizacijos data.
 - **Duomenų paslauga** – Agentui sukuriama atskira paslauga su jai priskirtais duomenų rinkiniais.
 - **Veiksmai**:
+
   - **Žurnalas** – Agento išsami informacija.
   - **Redaguoti** – Agento redagavimo forma.
   - **Pašalinti** – Agento pašalinimas.

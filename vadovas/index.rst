@@ -44,6 +44,7 @@ Dokumentacija sudaryta iš šių esminių dalių:
     katalogas
     api/index
     spinta
+    agentas
 
 .. toctree::
     :caption: Žinynas

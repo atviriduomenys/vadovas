@@ -6,7 +6,7 @@ Open data manual
 This a repository containing source files for atviriduomenys.readthedocs.io_
 manual.
 
-.. _atviriduomenys.readthedocs.io: https://atviriduomenys.readthedocs.io/dsa/duomenu-tipai.html
+.. _atviriduomenys.readthedocs.io: https://atviriduomenys.readthedocs.io
 
 The manual is in Lithuanian language and is intended for Lithuanian open data
 users.
