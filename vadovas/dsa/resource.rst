@@ -76,7 +76,19 @@ SQL
 
 .. describe:: resource.type
 
-    Galimos reikšmės: `sql`.
+    Galimos reikšmės:
+
+    .. describe:: sql
+
+        Bendras tipas, paremtas dažniausiai palaikomomis SQL užklausomis. Rekomenduojama naudoti konkretų palaikomą dialektą,
+        nes jie siūlo specializuotas užklausas, kurios pagerina našumą ir suteikia daugiau funkcionalumo.
+
+    .. describe:: sql/sqlite
+    .. describe:: sql/postgresql
+    .. describe:: sql/mysql
+    .. describe:: sql/mariadb
+    .. describe:: sql/oracle
+    .. describe:: sql/mssql
 
 .. describe:: resource.prepare
 
@@ -104,7 +116,16 @@ CSV
 
 .. describe:: resource.type
 
-    Galimos reikšmės: `csv`, `tsv`.
+    Galimos reikšmės:
+
+    .. describe:: csv
+
+        `dask/csv` trumpinys, paliktas suderinamumui su senesniais aprašais. Rekomenduojama nurodyti konkrečią
+        implementaciją, nes ateityje šis tipas gali būti pašalintas arba nebepalaikomas.
+
+    .. describe:: dask/csv
+
+        Tipas, paremtas `dask` implementacija, skirta `CSV` formato palaikymui.
 
 .. describe:: resource.source
 
@@ -135,7 +156,16 @@ JSON
 
 .. describe:: resource.type
 
-    Galimos reikšmės: `json`, `jsonl`.
+    Galimos reikšmės:
+
+    .. describe:: json
+
+        `dask/json` trumpinys, paliktas suderinamumui su senesniais aprašais. Rekomenduojama nurodyti konkrečią
+        implementaciją, nes ateityje šis tipas gali būti pašalintas arba nebepalaikomas.
+
+    .. describe:: dask/json
+
+        Tipas, paremtas `dask` implementacija, skirta `JSON` formato palaikymui.
 
 .. describe:: resource.source
 
@@ -162,7 +192,16 @@ XML
 
 .. describe:: resource.type
 
-    Galimos reikšmės: `xml`, `html`.
+    Galimos reikšmės:
+
+    .. describe:: xml
+
+        `dask/xml` trumpinys, paliktas suderinamumui su senesniais aprašais. Rekomenduojama nurodyti konkrečią
+        implementaciją, nes ateityje šis tipas gali būti pašalintas arba nebepalaikomas.
+
+    .. describe:: dask/xml
+
+        Tipas, paremtas `dask` implementacija, skirta `XML` formato palaikymui.
 
 .. describe:: resource.source
 
