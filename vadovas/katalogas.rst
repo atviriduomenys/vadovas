@@ -1728,7 +1728,7 @@ Sutartys
 ========
 
 Šiame puslapyje galima sukurti ir pasirašyti pasirinkto panaudojimo atvejo sutartis.
-Taip pat, automatiškai sukurt sutarties dokumentus, juos peržiūrėti, atsisiųsti, pasirašyti
+Taip pat, automatiškai sukurti sutarties dokumentus, juos peržiūrėti, atsisiųsti, pasirašyti
 ir įkelti.
 
 **Pastaba:** Sutartys yra sudaromos atskirai su kiekviena pasirinktų duomenų
