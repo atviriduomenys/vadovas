@@ -1728,11 +1728,12 @@ Sutartys
 ========
 
 Šiame puslapyje galima sukurti ir pasirašyti pasirinkto panaudojimo atvejo sutartis.
-Taip pat, generuoti sutarties dokumentus, juos peržiūrėti, atsisiųsti, pasirašyti ir įkelti.
+Taip pat, automatiškai sukurt sutarties dokumentus, juos peržiūrėti, atsisiųsti, pasirašyti
+ir įkelti.
 
-**Pastaba:** Sutartis yra sudaromos atskirai su kiekviena pasirinktų duomenų
+**Pastaba:** Sutartys yra sudaromos atskirai su kiekviena pasirinktų duomenų
 šaltinių organizacija. *Pavyzdžiui:* pasirinkus tris duomenų rinkinius iš tos
-pačios organizacijos bus sugeneruota viena sutartis.
+pačios organizacijos bus sukurta viena sutartis.
 
 
 Sutarčių sąrašo peržiūra
@@ -1746,10 +1747,10 @@ sutarties duomenis teikiančią organizaciją, sutarties būseną ir paskutinį 
 
 Sutarčių būsenų paaiškinimai:
 
-- **Pateikta** – Sutartis sukurta. Sutarties (PDF) dokumentas dar nesukurtas. Sukurti sutarties
+- **Pateikta** – Sutartis sukurta. Sutarties *PDF* dokumentas dar nesukurtas. Sukurti sutarties
   dokumentą galima :ref:`sutarties peržiūros puslapyje <sutarties-perziura>`.
   Sukūrus sutarties dokumentą, sutarties būsena taps **Suformuota**.
-- **Suformuota** – Sutarties (PDF) dokumentas sukurtas, bet nepasirašytas. Pasirašyti
+- **Suformuota** – Sutarties *PDF* dokumentas sukurtas, bet nepasirašytas. Pasirašyti
   sutarties dokumentą galima :ref:`sutarties peržiūros puslapyje <sutarties-perziura>`.
   Pasirašius - sutarties būsena taps **Inicijuota**.
 - **Inicijuota** – Sutarties dokumentas pasirašytas duomenų gavėjo. Kai sutartį pasirašys
@@ -1760,10 +1761,10 @@ Sutarčių būsenų paaiškinimai:
 - **Nutraukta** – Sutartis nutraukta. Duomenų gauti nebegalima.
 
 
-Sutarties generavimas
----------------------
+Sutarties kūrimas
+-----------------
 
-Generuoti sutartis (sutarties įrašus, kuriems vėliau bus galima generuoti sutarties
+Kurti sutartis (sutarties įrašus, kuriems vėliau bus galima kurti sutarties
 dokumentus) galima paspaudus mygtuką "Generuoti sutartis" dešiniajame viršutiniame kampe.
 
 Sutartys bus sukurtos kiekvienai organizacijai atskirai. Atsidariusioje formoje bus galima
@@ -1774,33 +1775,40 @@ pasirinkti norimus leidimus iš kiekvieno organizacijos duomenų rinkinio.
 Detali sutarties peržiūra
 -------------------------
 
-Peržiūrėti detalesnę sutarties informaciją galima sutarties peržūros puslapyje. Į jį patekti galima
+Peržiūrėti detalesnę sutarties informaciją galima sutarties peržiūros puslapyje. Į jį patekti galima
 spaudžiant "Peržiūrėti" sutarčių sąrašo formoje, norimos sutarties eilutėje.
 
-Sutarties peržiūros puslapyje galima matyti platesnę informaciją apie sutartį: sutarties identifikatorių,
-panaudojimo atvejį, teikėjo ir gavėjo organizacijas, būseną, pasirinktus leidimus, paskutinę
-sinchronizacijos datą ir visus įkeltus ar sugeneruotus sutarties dokumentus. Visus sutarties dokumentus
-taip pat galima ir parsisiųsti.
+Sutarties peržiūros puslapyje galima matyti platesnę informaciją apie sutartį:
+
+- sutarties identifikatorių
+- panaudojimo atvejį
+- teikėjo ir gavėjo organizacijas
+- būseną
+- pasirinktus leidimus
+- paskutinę sinchronizacijos datą
+- visus įkeltus ar sukurtus sutarties dokumentus
+
+Visus sutarties dokumentus taip pat galima ir parsisiųsti.
 
 | |image_panaudojimoatvejai_sutartys_2|
 | *Detaili sutarties peržiūra*
 
 Sutarties dokumentai gali būti:
 
-- Sutarties generavime naudojamų duomenų ODRL JSON failas.
-- Sugeneruotas sutarties PDF failas.
-- Duomenų gavėjo pasirašytas sutarties ADOC failas.
-- Duomenų gavėjo ir duomenų teikėjo pasirašytas sutarties ADOC failas.
+- Sutarties kūrime naudojamų duomenų *ODRL JSON* failas.
+- Sukurtos sutarties *PDF* failas.
+- Duomenų gavėjo pasirašytas sutarties *ADOC* failas.
+- Duomenų gavėjo ir duomenų teikėjo pasirašytas sutarties *ADOC* failas.
 
 
-Sutarties generavimas ir pasirašytos sutarties įkėlimas
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Sutarties dokumento kūrimas ir pasirašytos sutarties įkėlimas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Generuoti arba įkelti pasirašytą sutartį galima spaudžiant mygtuką dešiniajame viršutiniame kampe.
+Kurti arba įkelti pasirašytą sutartį galima spaudžiant mygtuką dešiniajame viršutiniame kampe.
 
 Mygtuko veiksmas priklauso nuo sutarties būsenos:
 
-- Sutarties būsena **Pateikta** – galima generuoti sutarties PDF dokumentą.
+- Sutarties būsena **Pateikta** – galima kurti sutarties *PDF* dokumentą.
 - Sutarties būsena **Suformuota** – sutartį pasirašyti gali duomenų gavėjas.
 - Sutarties būsena **Inicijuota** – sutartį pasirašyti gali duomenų teikėjas.
 
