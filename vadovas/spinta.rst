@@ -455,6 +455,7 @@ pavyzdžiui:
 
     $ spinta inspect -r sql sqlite:///sqlite.db -o sdsa.xlsx
 
+.. _spinta_configuration_with_data_source:
 
 config.yml
 ==========
