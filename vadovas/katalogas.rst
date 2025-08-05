@@ -773,6 +773,30 @@ IRS rinkinių sąraše galima peržiūrėti tokią bendrą informaciją:
 *Sąrašas pildomas automatiškai, importuojant rinkinius iš atitinkamų portalų.*
 
 
+Duomenų išteklio rūšies forma
+**********************
+
+1. Organizacijos lange pasirinkite meniu punktą **[Duomenų rinkiniai]**.
+
+2. Duomenų išteklių sąrašo lange spauskite **[+ Pridėti duomenų išteklį]**.
+
+    *Paspaudus mygtuką pridėti duomenų rinkinį, atidaroma kortelė „1.Duomenų ištekliaus rūšies forma“.*
+
+    | |image122|
+    | *116 pav. Duomenų ištekliaus rūšies forma
+
+3. Užpildykite formą
+
+(\*: privalomi laukai):
+
+   - **Duomenų ištekliaus rūšis*:**;
+
+	 *Žymimas raudonai tol, kol užpildomas;*
+
+4. Įsitikinkite, kad įvedėte teisingus duomenis ir spauskite **[Toliau]**.
+
+5. Tęskite duomenų ištekliaus informacijos suvedimą. Siūlome kuriant naują išteklių informaciją įvesti nuosekliai.
+
 Duomenų rinkinio forma
 **********************
 
@@ -2227,6 +2251,7 @@ Slaptažodis privalo būti saugus. (Daugiau: `Sąvokos <#naudojami-terminai-ir-s
 .. |image119| image:: /static/katalogas/okot/image119.png
 .. |image120| image:: /static/katalogas/okot/image120.png
 .. |image121| image:: /static/katalogas/okot/image121.png
+.. |image122| image:: /static/katalogas/okot/image122.png
 .. |77pav| image:: /static/katalogas/okot/77pav.png
 .. |78pav| image:: /static/katalogas/okot/78pav.png
 .. |image_panaudojimoatvejai_sutartys_1| image:: /static/katalogas/okot/image_panaudojimoatvejai_sutartys_1.png
