@@ -1728,7 +1728,7 @@ Sutartys
 ========
 
 Šiame puslapyje galima sukurti ir pasirašyti pasirinkto panaudojimo atvejo sutartis.
-Taip pat, automatiškai sukurt sutarties dokumentus, juos peržiūrėti, atsisiųsti, pasirašyti
+Taip pat, automatiškai sukurti sutarties dokumentus, juos peržiūrėti, atsisiųsti, pasirašyti
 ir įkelti.
 
 **Pastaba:** Sutartys yra sudaromos atskirai su kiekviena pasirinktų duomenų
@@ -2104,126 +2104,6 @@ Slaptažodis privalo būti saugus. (Daugiau: `Sąvokos <#naudojami-terminai-ir-s
 6. Spauskite **[Keisti]**, kad išsaugotumėte naują slaptažodį.
 
 7. Sekantį kartą jungiantis prie sistemos, prisijunkite naudodami naująjį slaptažodį.
-
-
-.. _synchronization:
-
-Sinchronizacija su Agentu
-*************************
-
-.. _synchronization-agent-registration:
-
-Agento registracija kataloge
-============================
-
-Norint vykdyti Agento sinchronizaciją su Atvirų duomenų katalogu, visų pirma reikia užregistruoti Agentą kataloge.
-
-Registracija vykdoma naudotojui priskirtos organizacijos puslapyje. Jį galima pasiekti užvedus pelės žymeklį ant prisijungusio vartotojo vardo ir paspaudus **[Mano organizacijos rinkiniai]**.
-
-| |image122|
-| *116 pav. Nuoroda į organizaciją*
-
-Atsidarius organizacijos puslapį, pasirinkite skirtuką **[Agentai]**.
-
-| |image123|
-| *117 pav. Agentų skirtukas*
-
-Čia matysite registruotų Agentų sąrašą. Jei Agentų dar nėra, bus rodoma atitinkama informacija.
-
-| |image124|
-| *118 pav. Agentų sąrašas*
-
-Agento sąrašo forma
--------------------
-
-Formoje vaizduojami šie laukai:
-
-- **Būsena** – Rodomi du elementai:
-
-  - Spalvotas rutuliukas, žymintis paskutinės sinchronizacijos rezultatą:
-
-    - **Žalia** – Sinchronizacija pavyko.
-    - **Raudona** – Sinchronizacija nepavyko.
-    - **Juoda** – Sinchronizacija dar nevykdyta.
-
-  - Indikatorius, ar Agentas įjungtas (tik įjungti Agentai gali sinchronizuotis).
-
-- **Kodinis pavadinimas** – Unikalus sistemoje pavadinimas (organizacijos mastu).
-- **Pavadinimas** – Vartotojui matomas pavadinimas; iš jo generuojamas kodinis pavadinimas.
-- **Sukurtas** – Agento sukūrimo data.
-- **Užklausa** – Paskutinės sinchronizacijos data.
-- **Duomenų paslauga** – Agentui sukuriama atskira paslauga su jai priskirtais duomenų rinkiniais.
-- **Veiksmai**:
-
-  - **Žurnalas** – Agento išsami informacija.
-  - **Redaguoti** – Agento redagavimo forma.
-  - **Pašalinti** – Agento pašalinimas.
-
-Agento kūrimo ir redagavimo formos
-----------------------------------
-
-Agento kūrimas inicijuojamas paspaudus **[Pridėti Agentą]** dešiniajame viršutiniame kampe.
-
-Redaguoti esamą Agentą galima pasirinkus **[Redaguoti]** prie norimo įrašo sąraše.
-
-Forma turi šiuos pagrindinius laukus:
-
-- **Pavadinimas** – Vartotojui matomas pavadinimas. Naudojamas ir kodinio pavadinimo generavimui.
-- **Rūšis** – Nurodo, ar Agentas naudoja „Spintos“ ar kitą implementaciją:
-
-  - **Spinta** – Kartu pateikiamos šios konfigūracijos:
-
-    - `credentials.cfg <https://atviriduomenys.readthedocs.io/spinta.html#duomenu-publikavimas-i-saugykla>`_
-    - `config.yml <https://atviriduomenys.readthedocs.io/spinta.html?#config-yml>`_
-  - **Kita** – Suteikiamas API raktas, o konfigūracija yra jau sprendimo įgyvendintojo atsakomybė.
-- **Agentas įjungtas** – Nurodo, ar Agentas aktyvus.
-- **Atviri duomenys publikuojami Saugykloje** – Ar leidžiama publikuoti atvirus duomenis.
-- **Atvirų duomenų publikavimo nuoroda** – Reikšmė nurodoma tik jei pažymėtas prieš tai minėtas požymis. Numatytasis adresas: https://get.data.gov.lt
-
-.. note::
-    Atlikus kūrimą, atvaizduojamos konfigūracijos ir slaptas prisijungimo raktas, kurį po Agento sukūrimo atvaizduojame tik vieną kartą.
-
-
-| |image125|
-| *119 pav. Agento kūrimo ir redagavimo forma*
-
-Detali Agento peržiūros forma
------------------------------
-
-Formoje rodomi šie laukai:
-
-- **Sukurtas** – Agento sukūrimo data.
-- **Pavadinimas** – Vartotojui matomas pavadinimas.
-- **Kodinis pavadinimas** – Unikalus identifikatorius.
-- **Servisas** – Sukuriama duomenų paslauga, susieta su Agentu.
-- **Būsena** – Ar Agentas įjungtas.
-- **Rūšis** – Naudojama implementacija („Spinta“ arba kita).
-- **Paskutinės sinchronizacijos rezultatas** – Ar sinchronizacija pavyko, ar ne.
-- **Paskutinės sinchronizacijos data** – Jei atlikta, rodoma data ir laikas.
-- **Publikuojami atviri duomenys** – Ar atviri duomenys publikuojami.
-- **Atvirų duomenų servisas** – Nuoroda, kur duomenys bus publikuojami. Numatytas adresas: https://get.data.gov.lt
-
-| |image126|
-| *120 pav. Agento peržiūros forma*
-
-Taip pat, priklausomai nuo pasirinktos Agento **rūšies**, atitinkamai atvaizduojami su Agento konfigūracija susiję duomenys:
-
-- **„Spinta“** – Rodomos dvi konfigūracijos:
-
-  - Konfigūracija prisijungimui prie Atvirų duomenų katalogo.
-  - Konfigūracija prisijungimui prie duomenų šaltinio (iš Agento pusės).
-
-| |image127|
-| *121 pav. Spintos implementacijos konfigūracija*
-
-- **„Kita“** – Rodomas API raktas, skirtas prisijungimui prie Katalogo. Prisijungimo prie duomenų šaltinio ir Katalogo konfigūraciją įgyvendina konkretus sprendimo tiekėjas.
-
-| |image128|
-| *122 pav. API rakto atvaizdavimas*
-
-.. note::
-    Tiek **secret** reikšmė **credentials.cfg** failo konfigūracijoje, tiek **API rakto** reikšmė atvaizduojama tik vieną kartą, sukūrus agentą, todėl svarbu nepamiršti jas išsisaugoti.
-
 
 ====
 
