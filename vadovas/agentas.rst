@@ -477,6 +477,40 @@ Papildomai, priklausomai nuo pasirinktos **rūšies**, rodoma specifinė Agento 
     | |image_formos_ir_laukai_6|
     | *pav. Konfigūracija pasirinkus „Kita“*
 
+Užklausų vykdomų per Agentą lentelė
+-----------------------------------
+
+Dar žemiau galima rasti visų užklausų, kurios į Katalogą yra vykdomos per Agentą, lentelę. Lentelėje matoma:
+
+- **Data ir laikas** – užklausos atlikimo data ir laikas. Data ir laikas taip pat yra nuoroda į detalesnę užklausos informaciją.
+- **Tipas** - atliktos užklausos tipas ("GET", "POST", "PUT", "DELETE", "PATCH").
+- **Adresas** - adresas, i kurį buvo atlikta užklausa.
+- **Rezultatas** - atliktos užklausos rezultatas ("Sėkminga" arba "Nesėkminga").
+- **Klaidos pranešimas** - jei atliekant užklausą įvyko klaida, matoma nuoroda į detalesnę užklausos informaciją.
+
+| |image_uzklausu_istorija_lentele|
+| *123 pav. Užklausų istorijos lentelė*
+
+Detali užklausos istorijos peržiūros forma
+------------------------------------------
+
+Formoje rodomi šie laukai:
+
+- **Data ir laikas** - užklausos atlikimo data ir laikas.
+- **Agentas** - agentas, per kurį buvo atlikta užklausa į katalogą.
+- **Užklausos API adresas** - adresas, kuriuo buvo atlikta užklausa.
+- **HTTP metodas** - HTTP metodas, kuris buvo naudojamas atliekant užklausą ("GET", "POST", "PUT", "DELETE", "PATCH").
+- **Rezultatas** - atliktos užklausos rezultatas ("Sėkminga" arba "Nesėkminga").
+- **Statusas (HTTP)** - būsena kuri buvo pasiekta atliekant užklausą. Išsamiau paaiškina, kodėl rezultatas sėkmingas arba nesėkmingas.
+
+| |image_uzklausu_detali_istorija_1|
+| *124 pav. Užklausos peržiūros forma*
+
+Taip pat, jei atliekant užklausą buvo susidurta su klaida, klaidą galima matyti žemiau.
+
+| |image_uzklausu_detali_istorija_2|
+| *125 pav. Užklausos klaida*
+
 
 Duomenų gavimas
 ***************
@@ -531,3 +565,12 @@ Klaidos ir jų paaiškinimai
 
 .. |image_formos_ir_laukai_6| image:: /static/katalogas/okot/image_formos_ir_laukai_6.png
    :alt: Konfigūracija pasirinkus rūšį „Kita“
+
+.. |image_uzklausu_istorija_lentele| image:: /static/katalogas/okot/image_uzklausu_istorija_lentele.png
+   :alt: Agento užklausų istorijos lentelė
+
+.. |image_uzklausu_detali_istorija_1| image:: /static/katalogas/okot/image_uzklausu_detali_istorija_1.png
+   :alt: Detali agento atlikta užklausa
+
+.. |image_uzklausu_detali_istorija_2| image:: /static/katalogas/okot/image_uzklausu_detali_istorija_2.png
+   :alt: Agento užklausų istorijos klaidos
