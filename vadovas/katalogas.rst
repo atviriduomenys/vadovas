@@ -1716,6 +1716,103 @@ Plano patvirtinimas organizacijos vardu
 | *68 pav. Plano patvirtinimo organizacijos vardu langas*
 
 
+.. _panaudojimo_atvejai:
+
+Panaudojimo atvejai
+*******************
+
+
+.. _sutartys:
+
+Sutartys
+========
+
+Šiame puslapyje galima sukurti ir pasirašyti pasirinkto panaudojimo atvejo sutartis.
+Taip pat, automatiškai sukurt sutarties dokumentus, juos peržiūrėti, atsisiųsti, pasirašyti
+ir įkelti.
+
+**Pastaba:** Sutartys yra sudaromos atskirai su kiekviena pasirinktų duomenų
+šaltinių organizacija. *Pavyzdžiui:* pasirinkus tris duomenų rinkinius iš tos
+pačios organizacijos bus sukurta viena sutartis.
+
+
+Sutarčių sąrašo peržiūra
+------------------------
+
+Sutarčių sąrašo formoje matysite visas sukurtas panaudojimo atvejo sutartis. Taip pat, kiekvienos
+sutarties duomenis teikiančią organizaciją, sutarties būseną ir paskutinį duomenų atnaujinimo laiką.
+
+| |image_panaudojimoatvejai_sutartys_1|
+| *Sutarčių sąrašo peržiūra*
+
+Sutarčių būsenų paaiškinimai:
+
+- **Pateikta** – Sutartis sukurta. Sutarties *PDF* dokumentas dar nesukurtas. Sukurti sutarties
+  dokumentą galima :ref:`sutarties peržiūros puslapyje <sutarties-perziura>`.
+  Sukūrus sutarties dokumentą, sutarties būsena taps **Suformuota**.
+- **Suformuota** – Sutarties *PDF* dokumentas sukurtas, bet nepasirašytas. Pasirašyti
+  sutarties dokumentą galima :ref:`sutarties peržiūros puslapyje <sutarties-perziura>`.
+  Pasirašius - sutarties būsena taps **Inicijuota**.
+- **Inicijuota** – Sutarties dokumentas pasirašytas duomenų gavėjo. Kai sutartį pasirašys
+  duomenų tiekėjas - sutarties būsena taps **Pasirašyta**.
+- **Pasirašyta** – Sutarties dokumentas pasirašytas duomenų gavėjo ir duomenų tiekėjo. Kai sutarties
+  duomenys bus sėkmingai sinchronizuoti su duomenų agentu, sutarties būsena taps **Aktyvi**.
+- **Aktyvi** – Sutartis sėkmingai sinchronizuota su agentu. Galima gauti duomenis.
+- **Nutraukta** – Sutartis nutraukta. Duomenų gauti nebegalima.
+
+
+Sutarties kūrimas
+-----------------
+
+Kurti sutartis (sutarties įrašus, kuriems vėliau bus galima kurti sutarties
+dokumentus) galima paspaudus mygtuką "Generuoti sutartis" dešiniajame viršutiniame kampe.
+
+Sutartys bus sukurtos kiekvienai organizacijai atskirai. Atsidariusioje formoje bus galima
+pasirinkti norimus leidimus iš kiekvieno organizacijos duomenų rinkinio.
+
+.. _sutarties-perziura:
+
+Detali sutarties peržiūra
+-------------------------
+
+Peržiūrėti detalesnę sutarties informaciją galima sutarties peržiūros puslapyje. Į jį patekti galima
+spaudžiant "Peržiūrėti" sutarčių sąrašo formoje, norimos sutarties eilutėje.
+
+Sutarties peržiūros puslapyje galima matyti platesnę informaciją apie sutartį:
+
+- sutarties identifikatorių
+- panaudojimo atvejį
+- teikėjo ir gavėjo organizacijas
+- būseną
+- pasirinktus leidimus
+- paskutinę sinchronizacijos datą
+- visus įkeltus ar sukurtus sutarties dokumentus
+
+Visus sutarties dokumentus taip pat galima ir parsisiųsti.
+
+| |image_panaudojimoatvejai_sutartys_2|
+| *Detali sutarties peržiūra*
+
+Sutarties dokumentai gali būti:
+
+- Sutarties kūrime naudojamų duomenų *ODRL JSON* failas.
+- Sukurtos sutarties *PDF* failas.
+- Duomenų gavėjo pasirašytas sutarties *ADOC* failas.
+- Duomenų gavėjo ir duomenų teikėjo pasirašytas sutarties *ADOC* failas.
+
+
+Sutarties dokumento kūrimas ir pasirašytos sutarties įkėlimas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Kurti arba įkelti pasirašytą sutartį galima spaudžiant mygtuką dešiniajame viršutiniame kampe.
+
+Mygtuko veiksmas priklauso nuo sutarties būsenos:
+
+- Sutarties būsena **Pateikta** – galima kurti sutarties *PDF* dokumentą.
+- Sutarties būsena **Suformuota** – sutartį pasirašyti gali duomenų gavėjas.
+- Sutarties būsena **Inicijuota** – sutartį pasirašyti gali duomenų teikėjas.
+
+
 .. _statistika:
 
 Statistika
@@ -2259,6 +2356,8 @@ Taip pat, priklausomai nuo pasirinktos Agento **rūšies**, atitinkamai atvaizdu
 .. |image128| image:: /static/katalogas/okot/image128.png
 .. |77pav| image:: /static/katalogas/okot/77pav.png
 .. |78pav| image:: /static/katalogas/okot/78pav.png
+.. |image_panaudojimoatvejai_sutartys_1| image:: /static/katalogas/okot/image_panaudojimoatvejai_sutartys_1.png
+.. |image_panaudojimoatvejai_sutartys_2| image:: /static/katalogas/okot/image_panaudojimoatvejai_sutartys_2.png
 
 
 .. _objektas: https://ivpk.github.io/dsa/modelis.html#objektas
