@@ -2227,13 +2227,6 @@ Slaptažodis privalo būti saugus. (Daugiau: `Sąvokos <#naudojami-terminai-ir-s
 .. |image119| image:: /static/katalogas/okot/image119.png
 .. |image120| image:: /static/katalogas/okot/image120.png
 .. |image121| image:: /static/katalogas/okot/image121.png
-.. |image122| image:: /static/katalogas/okot/image122.png
-.. |image123| image:: /static/katalogas/okot/image123.png
-.. |image124| image:: /static/katalogas/okot/image124.png
-.. |image125| image:: /static/katalogas/okot/image125.png
-.. |image126| image:: /static/katalogas/okot/image126.png
-.. |image127| image:: /static/katalogas/okot/image127.png
-.. |image128| image:: /static/katalogas/okot/image128.png
 .. |77pav| image:: /static/katalogas/okot/77pav.png
 .. |78pav| image:: /static/katalogas/okot/78pav.png
 .. |image_panaudojimoatvejai_sutartys_1| image:: /static/katalogas/okot/image_panaudojimoatvejai_sutartys_1.png

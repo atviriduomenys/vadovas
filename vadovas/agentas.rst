@@ -491,10 +491,14 @@ Dar žemiau galima rasti visų užklausų, kurios į Katalogą yra vykdomos per 
 | |image_uzklausu_istorija_lentele|
 | *123 pav. Užklausų istorijos lentelė*
 
-Detali užklausos istorijos peržiūros forma
-------------------------------------------
 
-Formoje rodomi šie laukai:
+Užklausos peržiūros forma
+=========================
+
+Ši forma naudojama norint peržiūrėti detalią informaciją apie užklausą, atliktą per Agentą.
+
+Paaiškinimai apie laukų reikšmes
+--------------------------------
 
 - **Data ir laikas** - užklausos atlikimo data ir laikas.
 - **Agentas** - agentas, per kurį buvo atlikta užklausa į katalogą.
@@ -506,7 +510,10 @@ Formoje rodomi šie laukai:
 | |image_uzklausu_detali_istorija_1|
 | *124 pav. Užklausos peržiūros forma*
 
-Taip pat, jei atliekant užklausą buvo susidurta su klaida, klaidą galima matyti žemiau.
+Klaidos atliekant užklausą
+--------------------------
+
+Jei atliekant užklausą buvo susidurta su klaida, klaidą galima matyti žemiau.
 
 | |image_uzklausu_detali_istorija_2|
 | *125 pav. Užklausos klaida*
