@@ -36,22 +36,22 @@ Registracija vykdoma organizacijos, kuriai priklauso naudotojas, puslapyje. Nor�
 #. Viršutiniame dešiniajame kampe užveskite pelę ant savo naudotojo vardo.
 
     | |image_sinchronizacija_1|
-    | *1 pav. Navigacijos juosta – vartotojo skirtukas*
+    | *pav. Navigacijos juosta – vartotojo skirtukas*
 
 #. Pasirinkite **„Mano organizacijos rinkiniai“**.
 
     | |image_sinchronizacija_2|
-    | *2 pav. Nuoroda į organizacijos erdvę*
+    | *pav. Nuoroda į organizacijos erdvę*
 
 #. Atverkite skirtuką **„Agentai“**.
 
     | |image_sinchronizacija_3|
-    | *3 pav. Agentų skirtukas*
+    | *pav. Agentų skirtukas*
 
 #. Spustelėkite **„Pridėti Agentą“**.
 
     | |image_sinchronizacija_4|
-    | *4 pav. Agento pridėjimo mygtukas*
+    | *pav. Agento pridėjimo mygtukas*
 
 #. Užpildykite formą ir spauskite **„Sukurti“**.
 
@@ -482,14 +482,19 @@ Užklausų vykdomų per Agentą lentelė
 
 Dar žemiau galima rasti visų užklausų, kurios į Katalogą yra vykdomos per Agentą, lentelę. Lentelėje matoma:
 
-- **Data ir laikas** – užklausos atlikimo data ir laikas. Data ir laikas taip pat yra nuoroda į detalesnę užklausos informaciją.
-- **Tipas** - atliktos užklausos tipas ("GET", "POST", "PUT", "DELETE", "PATCH").
-- **Adresas** - adresas, i kurį buvo atlikta užklausa.
-- **Rezultatas** - atliktos užklausos rezultatas ("Sėkminga" arba "Nesėkminga").
-- **Klaidos pranešimas** - jei atliekant užklausą įvyko klaida, matoma nuoroda į detalesnę užklausos informaciją.
+**Data ir laikas**
+    Užklausos atlikimo data ir laikas. Data ir laikas taip pat yra nuoroda į detalesnę užklausos informaciją.
+**Tipas**
+    Atliktos užklausos tipas ("GET", "POST", "PUT", "DELETE", "PATCH").
+**Adresas**
+    Adresas, i kurį buvo atlikta užklausa.
+**Rezultatas**
+    Atliktos užklausos rezultatas ("Sėkminga" arba "Nesėkminga").
+**Klaidos pranešimas**
+    Jei atliekant užklausą įvyko klaida, matoma nuoroda į detalesnę užklausos informaciją.
 
 | |image_uzklausu_istorija_lentele|
-| *123 pav. Užklausų istorijos lentelė*
+| *pav. Užklausų istorijos lentelė*
 
 
 Užklausos peržiūros forma
@@ -500,15 +505,21 @@ Užklausos peržiūros forma
 Paaiškinimai apie laukų reikšmes
 --------------------------------
 
-- **Data ir laikas** - užklausos atlikimo data ir laikas.
-- **Agentas** - agentas, per kurį buvo atlikta užklausa į katalogą.
-- **Užklausos API adresas** - adresas, kuriuo buvo atlikta užklausa.
-- **HTTP metodas** - HTTP metodas, kuris buvo naudojamas atliekant užklausą ("GET", "POST", "PUT", "DELETE", "PATCH").
-- **Rezultatas** - atliktos užklausos rezultatas ("Sėkminga" arba "Nesėkminga").
-- **Statusas (HTTP)** - būsena kuri buvo pasiekta atliekant užklausą. Išsamiau paaiškina, kodėl rezultatas sėkmingas arba nesėkmingas.
+**Data ir laikas**
+    Užklausos atlikimo data ir laikas.
+**Agentas**
+    Agentas, per kurį buvo atlikta užklausa į katalogą.
+**Užklausos API adresas**
+    Adresas, kuriuo buvo atlikta užklausa.
+**HTTP metodas**
+    HTTP metodas, kuris buvo naudojamas atliekant užklausą ("GET", "POST", "PUT", "DELETE", "PATCH").
+**Rezultatas**
+    Atliktos užklausos rezultatas ("Sėkminga" arba "Nesėkminga").
+**Statusas (HTTP)**
+    Būsena kuri buvo pasiekta atliekant užklausą. Išsamiau paaiškina, kodėl rezultatas sėkmingas arba nesėkmingas.
 
 | |image_uzklausu_detali_istorija_1|
-| *124 pav. Užklausos peržiūros forma*
+| *pav. Užklausos peržiūros forma*
 
 Klaidos atliekant užklausą
 --------------------------
@@ -516,7 +527,7 @@ Klaidos atliekant užklausą
 Jei atliekant užklausą buvo susidurta su klaida, klaidą galima matyti žemiau.
 
 | |image_uzklausu_detali_istorija_2|
-| *125 pav. Užklausos klaida*
+| *pav. Užklausos klaida*
 
 
 Duomenų gavimas
