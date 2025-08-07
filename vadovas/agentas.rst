@@ -510,7 +510,7 @@ Paaiškinimai apie laukų reikšmes
 **Agentas**
     Agentas, per kurį buvo atlikta užklausa į katalogą.
 **Užklausos API adresas**
-    Adresas, kuriuo buvo atlikta užklausa.
+    Adresas, į kurį buvo atlikta užklausa.
 **HTTP metodas**
     HTTP metodas, kuris buvo naudojamas atliekant užklausą ("GET", "POST", "PUT", "DELETE", "PATCH").
 **Rezultatas**
