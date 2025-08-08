@@ -776,13 +776,13 @@ IRS rinkinių sąraše galima peržiūrėti tokią bendrą informaciją:
 Duomenų išteklio rūšies forma
 **********************
 
-1. Organizacijos lange pasirinkite meniu punktą **[Duomenų rinkiniai]**.
+1. Organizacijos lange pasirinkite meniu punktą **[Duomenų ištekliai]**.
 
-2. Duomenų išteklių sąrašo lange spauskite **[+ Pridėti duomenų išteklį]**.
+2. Duomenų išteklių sąrašo lange spauskite **[+ Pridėti duomenų išteklių]**.
 
-    *Paspaudus mygtuką pridėti duomenų rinkinį, atidaroma kortelė „1.Duomenų ištekliaus rūšies forma“.*
+    *Paspaudus mygtuką pridėti duomenų išteklių, atidaroma kortelė „1.Duomenų ištekliaus rūšies forma“.*
 
-    | |image122|
+    | |image123|
     | *116 pav. Duomenų ištekliaus rūšies forma
 
 3. Užpildykite formą
@@ -2251,7 +2251,7 @@ Slaptažodis privalo būti saugus. (Daugiau: `Sąvokos <#naudojami-terminai-ir-s
 .. |image119| image:: /static/katalogas/okot/image119.png
 .. |image120| image:: /static/katalogas/okot/image120.png
 .. |image121| image:: /static/katalogas/okot/image121.png
-.. |image122| image:: /static/katalogas/okot/image122.png
+.. |image123| image:: /static/katalogas/okot/image123.png
 .. |77pav| image:: /static/katalogas/okot/77pav.png
 .. |78pav| image:: /static/katalogas/okot/78pav.png
 .. |image_panaudojimoatvejai_sutartys_1| image:: /static/katalogas/okot/image_panaudojimoatvejai_sutartys_1.png
