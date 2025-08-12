@@ -1832,10 +1832,25 @@ Kurti arba įkelti pasirašytą sutartį galima spaudžiant mygtuką dešiniajam
 
 Mygtuko veiksmas priklauso nuo sutarties būsenos:
 
-- Sutarties būsena **Pateikta** – galima kurti sutarties *PDF* dokumentą.
+- Sutarties būsena **Pateikta** – galima generuoti sutarties *PDF* dokumentą.
 - Sutarties būsena **Suformuota** – sutartį pasirašyti gali duomenų gavėjas.
 - Sutarties būsena **Inicijuota** – sutartį pasirašyti gali duomenų teikėjas.
 
+Sutarties *PDF* failo generavimas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Prieš generuojant sutartį (paspaudus *„Generuoti sutartį“*), atvaizduojama forma su šablono pasirinkimu,
+bei papildoma informacija, kuri gali būti įtraukta į sutarties turinį, pavyzdžiui: papildomos sąlygos.
+Šioje formoje paspaudus mygtuką generuoti - bus sugeneruoti trys failai:
+- Pati sutartis PDF formatu
+- Sutarties kūrime naudojamų duomenų *ODRL JSON* failas.
+- Kopija šablono kuris buvo pasirinktas generavimui. (*MD*)
+
+Sutarties *PDF* failo generavimo šablonai (*MD*)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Kiekviena organizacija gali turėti savo sutarčių šabloną arba naudoti numatytąjį. 
+Šablonų administravimą atlieką sistemos administratorius.
 
 .. _statistika:
 
