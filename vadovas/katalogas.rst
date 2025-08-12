@@ -1841,7 +1841,7 @@ Sutarties *PDF* failo generavimas
 
 Prieš generuojant sutartį (paspaudus *„Generuoti sutartį“*), atvaizduojama forma su šablono pasirinkimu,
 bei papildoma informacija, kuri gali būti įtraukta į sutarties turinį, pavyzdžiui: papildomos sąlygos.
-Šioje fomroje paspaudus mygtuka generuoti - bus sugeneruoti trys failai:
+Šioje formoje paspaudus mygtuką generuoti - bus sugeneruoti trys failai:
 - Pati sutartis PDF formatu
 - Sutarties kūrime naudojamų duomenų *ODRL JSON* failas.
 - Kopija šablono kuris buvo pasirinktas generavimui. (*MD*)
