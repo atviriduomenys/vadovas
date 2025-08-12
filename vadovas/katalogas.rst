@@ -1849,7 +1849,7 @@ bei papildoma informacija, kuri gali būti įtraukta į sutarties turinį, pavyz
 Sutarties *PDF* failo generavimo šablonai (*MD*)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Kiekviena organizacija gali turėti savo sutarčių šabloną arba naudoti numatytaji. 
+Kiekviena organizacija gali turėti savo sutarčių šabloną arba naudoti numatytąjį. 
 Šablonų administravimą atlieką sistemos administratorius.
 
 .. _statistika:
