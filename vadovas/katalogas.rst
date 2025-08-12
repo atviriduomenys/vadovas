@@ -1837,7 +1837,7 @@ Mygtuko veiksmas priklauso nuo sutarties būsenos:
 - Sutarties būsena **Inicijuota** – sutartį pasirašyti gali duomenų teikėjas.
 
 Sutarties *PDF* failo generavimas
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Prieš generuojant sutartį (paspaudus *„Generuoti sutartį“*), atvaizduojama forma su šablono pasirinkimu,
 bei papildoma informacija, kuri gali būti įtraukta į sutarties turinį, pavyzdžiui: papildomos sąlygos.
