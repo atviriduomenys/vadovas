@@ -1839,7 +1839,7 @@ Mygtuko veiksmas priklauso nuo sutarties būsenos:
 Sutarties *PDF* failo generavimas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Prieš generuojanti sutartį (paspaudus generuoti sutartį), atvaizduojama forma su šablono parsirinkimu,
+Prieš generuojant sutartį (paspaudus *„Generuoti sutartį“*), atvaizduojama forma su šablono pasirinkimu,
 bei papildomai informacijai kuri gali bus įtraukta į sutarties turinį, tokia kaip papildomos sąlygos ir pan.
 Šioje fomroje paspaudus mygtuka generuoti - bus sugeneruoti trys failai:
 - Pati sutartis PDF formatu
