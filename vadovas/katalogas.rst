@@ -729,6 +729,14 @@ Duomenų rinkinio importavimas
 3. Įkelkite failą iš kompiuterio sekdami įkėlimo lango nuorodas.
 
 
+Vaikiniai duomenų rinkiniai (sąryšiai)
+======================================
+
+Kiekvienas duomenų rinkinys gali, bet neprivalo turėti hierarchinius ryšius su kitais duomenų rinkiniais ar ištekliais
+(turėti tėvinį išteklį arba/ir vaikinių išteklių) apribotus iki 10 lygių gylio. Saryšį galima nustatyti kuriant naują
+išteklių. Pamatyti visus vaikinius išteklius galima per skirtuką "Ištekliai", esantį duomenų rinkinio/išteklio formoje.
+
+
 IRS rinkiniai
 =============
 
