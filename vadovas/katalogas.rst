@@ -980,135 +980,6 @@ Duomenų ištekliaus struktūros lange pateikiama pagrindinė informacija:
 | |image50|
 | *60 pav. „Šalinti failą“ patvirtinimo pranešimas*
 
-
-Prioritetai
-===========
-
-*Pastaba: šiuo metu pildyti šios skilties laukų nėra privaloma.*
-
-   *Prioritetai naudojami sudarant organizacijos metų planus.*
-
-   *Atsižvelgus į suteikiamą finansavimą, apskaičiuojama, kuriems rinkiniams suteikiama pirmenybė.*
-
-- *prioritetus galima įvesti tik suinventorintiems rinkiniams.*
-
-- *prioritetus galima redaguoti tol, kol rinkinys nėra įtrauktas į metinį rinkinių atvėrimo planą.*
-
-1. Pasirinkto suinventorinto duomenų rinkinio lango viršuje meniu spauskite **[3. Prioritetai]**
-
-2. Pažymėkite visus tinkamus laukus:
-
-| |39pav|
-| *61 pav. Prioritetų kortelės pirmasis fragmentas*
-
-3. Jei galioja: pažymėkite lauką **„Duomenų rinkinys yra atvertas mašininiu būdu ...“**.
-
-	*Pasirinkimas suteikia maksimalų prioritetą, 100 balų.*
-
-	*Pasirinkus daugiau laukų pasirinkti nebegalima.*
-
-4. Kitais atvejais, atskirai pažymėkite tinkamus laukus iš sąrašo.
-
-| |40pav|
-| *62 pav. Prioritetų kortelės fragmentas „Duomenų vertė“*
-
-
-Laukas **1. Duomenų vertė (20 balų)**
-
-Duomenų poreikis pagal duomenų tvarkytojo vertinimą. Pažymėkite, kokiems tikslams duomenys gali būti panaudojami.
-
-|tickbox_empty| ... rinkinyje yra naudojami duomenys priskirti prioritetiniam rekomenduojamam atvertinų duomenų sąrašui.
-
-	*Poreikių pasirinkimai suskirstyti trimis laukais.*
-
-	*Kiekvienas iš jų turi po maksimalią prioritetų taškų sumą.*
-
-
-Laukas **Duomenų atvėrimo poreikis (50 balų)**
-
-- Pažymima, kokiems poreikiams buvo pateiktos naudotojų užklausos: kokiems pasirinkimams iš sąrašo portalo naudotojai pateikė poreikį atverti duomenų rinkinį.
-
-| |41pav|
-| *63 pav. Prioritetų kortelės fragmentas: „Duomenų poreikis“*
-
-Sužymėkite atitinkamus pasirinkimus:
-
-- Moksliniams tyrimams, studijoms
-
-- Naujų paslaugų, produktų sukūrimui;
-
-- Pilietinės visuomenės, demokratinių procesų skatinimu;
-
-- Visuomenės informavimui;
-
-- Socialinių ar aplinkosauginių problemų sprendimui;
-
-Lauke **„Duomenų atvėrimo sudėtingumas“** taip pat galima pažymėti šiuos pasirinkimus:
-
-Duomenų rinkinyje yra asmens duomenų
-
-Duomenų rinkinyje esantys duomenys turės būti transformuojami arba papildomi susijusiais duomenimis.
-
-| |image53|
-| *64 pav. Prioritetų kortelės antras fragmentas*
-
-Į tekstinį lauką pagal poreikį įveskite duomenų rinkinyje naudojamų duomenų bazės laukų skaičių.
-
-Lauko numatyta reikšmė „0“ (jei prioritetų pasirinkimai pildomi kiekviename lauke atskirai).
-
-- pasirinkite, ar duomenys bus publikuoti automatizuotai nuskaitomu formatu, jei taip, kokiu formatu(-ais):
-
-`CSV XML HDF5 JSON RDF`
-
-Kiekvienas iš formatų taip pat suteikia reitingą duomenų rinkiniui, remiantis Tim Berners-Lee modeliu:
-
-- 1 - priskiriama `PDF` ir analogiškiems formatams;
-
-- 2 - priskiriamos `XLSX` ir analogiškiems formatams;
-
-- 3 - priskiriamos `CSV` ir analogiškiems formatams;
-
-- 4 - priskiriamos `JSON` ir analogiškiems formatams;
-
-- 5 - priskiriamos `RDF` ir analogiškiems formatams, kai duomenys yra susieti su kitais duomenų rinkiniais.
-
-| |image54|
-| *65 pav. Prioritetų kortelės paskutinis fragmentas*
-
-5. Pasirinkite visus reikiamus laukus
-
-6. Spauskite mygtuką **[Saugoti]** ir sistema išsaugos kortelės laukų informaciją.
-
-7. Tęskite kitų kortelių suvedimą.
-
-
-Finansai
-========
-
-*Pastaba: šiuo metu pildyti šios skilties laukų nėra privaloma.*
-
-*Duomenų rinkinių finansiniai duomenys įvedami siekiant apskaičiuoti reikalingą atverti sumą visiems metų plano rinkiniams. Daugiau:* \ `Darbas su metiniais planais <#_Darbas_su_metiniais>`__\ *.*
-
-*Finansinius duomenis galima įvesti tik suinventorintiems rinkiniams su nustatytais prioritetais.*
-
-*Duomenų rinkinio finansinius duomenis galima redaguoti tol, kol rinkinys nėra įtrauktas į metinį planą.*
-
-*Įvertinus rinkinio finansavimą, jį galima įtraukti į metinį planą.*
-
-2. Pasirinkto duomenų rinkinio lango meniu spauskite **[4. Finansiniai duomenys]**.
-
-| |image55|
-| *66 pav. Finansinių duomenų kortelės langas*
-
-3. Lauke **„Reikalingi finansiniai ištekliai duomenų atvėrimui (EUR)“** įveskite sumą, reikalingą atverti duomenis.
-
-	*Rašykite natūraliaisiais skaičiais, be kablelių ir taškų.*
-
-   *Įvesta suma – viena iš sąlygų, pagal kurias vertinamas bendras rinkinio prioritetas metinių planų sąraše. Pirmenybė teikiama pigesniems rinkiniams.*
-
-4. Jei norite, išsaugokite pakeitimus ir tęskite kitų kortelių suvedimą.
-
-
 Metaduomenys
 ============
 
@@ -2236,7 +2107,6 @@ Slaptažodis privalo būti saugus. (Daugiau: `Sąvokos <#naudojami-terminai-ir-s
 
 .. |image1| image:: /static/katalogas/okot/image1.png
 .. |image2| image:: /static/katalogas/okot/image2.png
-.. |image4| image:: /static/katalogas/okot/image4.png
 .. |image5| image:: /static/katalogas/okot/image5.png
 .. |image6| image:: /static/katalogas/okot/image6.png
 .. |image7| image:: /static/katalogas/okot/image7.png
@@ -2249,28 +2119,7 @@ Slaptažodis privalo būti saugus. (Daugiau: `Sąvokos <#naudojami-terminai-ir-s
 .. |image14| image:: /static/katalogas/okot/image14.png
 .. |image15| image:: /static/katalogas/okot/image15.png
 .. |image16| image:: /static/katalogas/okot/image16.png
-.. |image17| image:: /static/katalogas/okot/image17.png
-.. |image18| image:: /static/katalogas/okot/image18.png
-.. |image19| image:: /static/katalogas/okot/image19.png
-.. |image20| image:: /static/katalogas/okot/image20.png
-.. |17pav_x| image:: /static/katalogas/okot/17pav_x.png
-.. |18pav| image:: /static/katalogas/okot/image22.png
-.. |image22| image:: /static/katalogas/okot/image23.png
-.. |image23| image:: /static/katalogas/okot/image24.png
-.. |image24| image:: /static/katalogas/okot/image25.png
-.. |image25| image:: /static/katalogas/okot/image25.png
-.. |image26| image:: /static/katalogas/okot/image25.png
-.. |image27| image:: /static/katalogas/okot/image25.png
-.. |image28| image:: /static/katalogas/okot/image25.png
-.. |sn2| image:: /static/katalogas/okot/image25.png
-.. |image29| image:: /static/katalogas/okot/image26.png
-.. |image30| image:: /static/katalogas/okot/image27.png
-.. |image31| image:: /static/katalogas/okot/image28.png
-.. |image32| image:: /static/katalogas/okot/image29.png
-.. |image33| image:: /static/katalogas/okot/image30.png
-.. |image34| image:: /static/katalogas/okot/image31.png
-.. |image35| image:: /static/katalogas/okot/image32.png
-.. |image36| image:: /static/katalogas/okot/image33.png
+.. |18pav| image:: /static/katalogas/okot/18pav.png
 .. |image37| image:: /static/katalogas/okot/image34.png
 .. |image38| image:: /static/katalogas/okot/image35.png
 .. |image39| image:: /static/katalogas/okot/image36.png
@@ -2279,22 +2128,10 @@ Slaptažodis privalo būti saugus. (Daugiau: `Sąvokos <#naudojami-terminai-ir-s
 .. |poreikist| image:: /static/katalogas/okot/image39.png
 .. |poreik| image:: /static/katalogas/okot/image40.png
 .. |image41| image:: /static/katalogas/okot/image41.png
-.. |image42| image:: /static/katalogas/okot/image42.png
-.. |image43| image:: /static/katalogas/okot/image43.png
-.. |image44| image:: /static/katalogas/okot/image44.png
-.. |image45| image:: /static/katalogas/okot/image45.png
 .. |34pav| image:: /static/katalogas/okot/image46.png
 .. |image47| image:: /static/katalogas/okot/image47.png
-.. |image48| image:: /static/katalogas/okot/image48.png
 .. |image49| image:: /static/katalogas/okot/image49.png
 .. |image50| image:: /static/katalogas/okot/image50.png
-.. |39pav| image:: /static/katalogas/okot/39pav.png
-.. |40pav| image:: /static/katalogas/okot/40pav.png
-.. |41pav| image:: /static/katalogas/okot/41pav.png
-.. |tickbox_empty| image:: /static/katalogas/okot/tickbox_empty.wmf
-.. |image53| image:: /static/katalogas/okot/image53.png
-.. |image54| image:: /static/katalogas/okot/image54.png
-.. |image55| image:: /static/katalogas/okot/image55.png
 .. |image56| image:: /static/katalogas/okot/image56.png
 .. |image57| image:: /static/katalogas/okot/image57.png
 .. |image58| image:: /static/katalogas/okot/image58.png
@@ -2304,8 +2141,6 @@ Slaptažodis privalo būti saugus. (Daugiau: `Sąvokos <#naudojami-terminai-ir-s
 .. |image62| image:: /static/katalogas/okot/image62.png
 .. |image63| image:: /static/katalogas/okot/image63.png
 .. |image64| image:: /static/katalogas/okot/image64.png
-.. |image65| image:: /static/katalogas/okot/image65.png
-.. |image71| image:: /static/katalogas/okot/image66.png
 .. |image72| image:: /static/katalogas/okot/image67.png
 .. |image73| image:: /static/katalogas/okot/image68.png
 .. |past01| image:: /static/katalogas/okot/image69.png
@@ -2321,11 +2156,6 @@ Slaptažodis privalo būti saugus. (Daugiau: `Sąvokos <#naudojami-terminai-ir-s
 .. |image84| image:: /static/katalogas/okot/image79.png
 .. |image85| image:: /static/katalogas/okot/image80.png
 .. |image86| image:: /static/katalogas/okot/image81.png
-.. |69pav| image:: /static/katalogas/okot/image82.png
-.. |image88| image:: /static/katalogas/okot/image83.png
-.. |image89| image:: /static/katalogas/okot/image84.png
-.. |image90| image:: /static/katalogas/okot/image85.png
-.. |image91| image:: /static/katalogas/okot/image86.png
 .. |image93| image:: /static/katalogas/okot/image93.png
 .. |image94| image:: /static/katalogas/okot/image94.png
 .. |image95| image:: /static/katalogas/okot/image95.png
