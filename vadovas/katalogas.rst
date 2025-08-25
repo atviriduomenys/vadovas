@@ -311,7 +311,7 @@ Pagrindinis naudotojo meniu
 \> **Suskleisti meniu:** Nuveskite pelytę nuo paskyros vardo ir pavardės.
 
 
-Duomenų rinkinių tvarkytojai / koordinatoriai
+Duomenų išteklių tvarkytojai / koordinatoriai
 ****************************
 
 *Šis skyrius skirtas tik Koordinatoriams.*
@@ -844,7 +844,7 @@ Duomenų ištekliaus rūšies forma
 
 5. Tęskite duomenų ištekliaus informacijos suvedimą. Siūlome kuriant naują išteklių informaciją įvesti nuosekliai.
 
-Duomenų ištekliaus forma
+Duomenų rinkinio forma
 **********************
 
 1. Užpildykite kortelę (\*: privalomi laukai):
