@@ -111,7 +111,7 @@ koordinatoriaus skyrimo raštą.*
 
 *Spauskite **[Tęsti]**:*
 
-| |prisijungti_VIISP_tęsti|
+| |prisijungti_VIISP_testi|
 | *6 pav. Nukreipimas į prisijungimą (registraciją) per El. valdžios vartus*
 
 Jeigu koordinatoriumi yra skiriamas:
@@ -323,12 +323,12 @@ Duomenų rinkinių tvarkytojai / koordinatoriai
 
 2. Pasirinkite „Tvarkytojai“:
 
-| |meniu_ištekliai|
+| |meniu_istekliai|
 | *21 pav. Organizacijos tvarkytojų pasirinkimas*
 
 Pateksite į tvarkytojų administravimo puslapį:
 
-| |tvarkytojų_kontrolė|
+| |tvarkytoju_kontrole|
 | *22 pav. Tvarkytojų administravimo funkcionalumai*
 
 Tvarkytojų peržiūros duomenys:
@@ -345,7 +345,7 @@ Tvarkytojų peržiūros duomenys:
 
 1. Spauskite **[Pridėti narį]**, užpildykite pridėjimo formą ir išsaugokite pakeitimus:
 
-| |pridėti_tvarkytoją|
+| |prideti_tvarkytoja|
 | *23 pav. Tvarkytojų / koordinatorių pridėjimo forma*
 
 ====
@@ -676,11 +676,11 @@ Savo organizacijos duomenų išteklių sąrašo peržiūra
 
 - **Duomenų ištekliaus tipas**;
 
-- **Peržiūros:** piktograma **[**\ |peržiūros|\ **]**, vaizduojanti kiek peržiūrų sulaukė duomenų išteklius;
+- **Peržiūros:** piktograma **[**\ |perziuros|\ **]**, vaizduojanti kiek peržiūrų sulaukė duomenų išteklius;
 
 - **„Patinka“:** piktograma **[**\ |patinka|\ **]**, vaizduojanti kiek paspaudimų „Patinka“ sulaukė duomenų išteklius;
 
-- **Parsisiuntimo mygtukas:** piktogtama **[**\ |parsisiųsti|\ **]**, vaizduojanti kiek kartų duomenų išteklius buvo parsisiųstas;
+- **Parsisiuntimo mygtukas:** piktogtama **[**\ |parsisiusti|\ **]**, vaizduojanti kiek kartų duomenų išteklius buvo parsisiųstas;
 
 ====
 
@@ -749,12 +749,12 @@ išteklių. Pamatyti visus vaikinius išteklius galima per skirtuką "Ištekliai
 
 2. Pasirinkite **„Susieti su duomenų ištekliumi“**:
 
-| |susieti_išteklius|
+| |susieti_isteklius|
 | *35 pav. Išteklių sąryšio sukūrimo mygtukas*
 
 3. Užpildykite susiejimo formos laukus (priklausomai nuo ištekliaus tipo, galimos sąsajos skirsis) ir spauskite **[Pridėti]**:
 
-| |susieti_išteklius_pvz|
+| |susieti_isteklius_pvz|
 | *36 pav. Informacinės sistemos susiejimo su duomenų rinkiniu forma*
 
 *Norint susieti duomenų išteklius sukuriant naują duomenų išteklių, reikalinga atlikti šiuos žingsnius:*
@@ -763,12 +763,12 @@ išteklių. Pamatyti visus vaikinius išteklius galima per skirtuką "Ištekliai
 
 2. Paspauskite kortelę **[Ištekliai]**:
 
-| |ištekliai_kortelė|
+| |istekliai_kortele|
 | *37 pav. Kortelė „Ištekliai“*
 
 3. Paspauskite **[Pridėti vaikinį duomenų išteklių]**:
 
-| |pridėti_vaikinį_išteklių|
+| |prideti_vaikini_istekliu|
 | *38 pav. Mygtukas „Pridėti vaikinį duomenų išteklių“*
 
 4. Būsite nukreipti į naujo duomenų ištekliaus kūrimo puslapį. Sukūrus išteklių jis bus priskirtas kaip vaikinis išteklius.
@@ -860,7 +860,7 @@ Duomenų ištekliaus forma
 
 	 *Numatytas teigiamas pasirinkimas;*
 
-   | |ar_viešinamas|
+   | |ar_viesinamas|
    | *44 pav. Formos fragmentas - duomenų ištekliaus viešinimo pasirinkimas.*
 
    - **Pavadinimas*:** pateikiamas pilnas duomenų rinkinio pavadinimas.;
@@ -875,7 +875,7 @@ Duomenų ištekliaus forma
 
    - **Aprašymas*:** pilnas duomenų rinkinio aprašymas;
 
-   | |rink_aprašymas|
+   | |rink_aprasymas|
    | *47 pav. Formos fragmentas - duomenų ištekliaus aprašymas.*
 
    - **Failai:** dokumentai apie duomenų išteklių;
@@ -885,7 +885,7 @@ Duomenų ištekliaus forma
 
    - **Žymės:** iš sąrašo pasirenkami raktažodžiai arba žymos;
 
-   | |rink_žymės|
+   | |rink_zymes|
    | *49 pav. Formos fragmentas - žymės.*
 
    - **Prieigos nuoroda:** tinklalapis, kuriame galima susipažinti su duomenų ištekliu, jo pateiktimi ir (arba) papildoma informacija;
@@ -900,12 +900,12 @@ Duomenų ištekliaus forma
 
    - **Atnaujinimo dažnumas*:** duomenų atnaujinimo dažnumas;
 
-   | |rink_atnaujinimo_dažnumas|
+   | |rink_atnaujinimo_daznumas|
    | *52 pav. Formos fragmentas - atnaujinimo dažnumas.*
 
    - **Prieigos teisės*:** atviri, apsaugoti ar uždari duomenys;
 
-   | |rink_prieigos_teisės|
+   | |rink_prieigos_teises|
    | *53 pav. Formos fragmentas - prieigos teisės.*
 
    - **Kontaktinis asmuo ar organizacija:** skirta pastabų siuntimui;
@@ -915,7 +915,7 @@ Duomenų ištekliaus forma
 
    - **Tėvinis išteklius:* pasirenkamas išteklius, kuris gali būti duomenų rinkinio tėvinis išteklius;
 
-   | |rink_tėvinis_išteklius|
+   | |rink_tevinis|
    | *55 pav. Formos fragmentas - tėvinis išteklius.*
 
 4. Įsitikinkite, kad įvedėte teisingus duomenis ir spauskite **[Sukurti]**.
@@ -938,7 +938,7 @@ Struktūra
 
 1. Duomenų rinkinio lange spauskite kortelę **„Struktūra“**.
 
-   | |struktūra|
+   | |struktura|
    | *58 pav. Struktūros kortelė*
 
 2. Duomenų rinkinio struktūros lange matomi funkcionalumai:
@@ -2189,45 +2189,45 @@ Slaptažodis privalo būti saugus. (Daugiau: `Sąvokos <#naudojami-terminai-ir-s
 .. |78pav| image:: /static/katalogas/okot/78pav.png
 .. |image_panaudojimoatvejai_sutartys_1| image:: /static/katalogas/okot/image_panaudojimoatvejai_sutartys_1.png
 .. |image_panaudojimoatvejai_sutartys_2| image:: /static/katalogas/okot/image_panaudojimoatvejai_sutartys_2.png
-.. |ar_viešinamas| image:: /static/katalogas/okot/ar_viešinamas.png
-.. |ištekliai_kortelė| image:: /static/katalogas/okot/ištekliai_kortelė.png
+.. |ar_viesinamas| image:: /static/katalogas/okot/ar_viesinamas.png
+.. |istekliai_kortele| image:: /static/katalogas/okot/istekliai_kortele.png
 .. |mano_poreikiai| image:: /static/katalogas/okot/mano_poreikiai.png
 .. |meniu| image:: /static/katalogas/okot/meniu.png
-.. |meniu_ištekliai| image:: /static/katalogas/okot/meniu_ištekliai.png
+.. |meniu_istekliai| image:: /static/katalogas/okot/meniu_istekliai.png
 .. |organizacijos_informacija| image:: /static/katalogas/okot/organizacijos_informacija.png
-.. |parsisiųsti| image:: /static/katalogas/okot/parsisiųsti.png
+.. |parsisiusti| image:: /static/katalogas/okot/parsisiusti.png
 .. |patinka| image:: /static/katalogas/okot/patinka.png
-.. |peržiūros| image:: /static/katalogas/okot/peržiūros.png
+.. |perziuros| image:: /static/katalogas/okot/perziuros.png
 .. |poreikiai| image:: /static/katalogas/okot/poreikiai.png
-.. |pridėti_tvarkytoją| image:: /static/katalogas/okot/pridėti_tvarkytoją.png
-.. |pridėti_vaikinį_išteklių| image:: /static/katalogas/okot/pridėti_vaikinį_išteklių.png
+.. |prideti_tvarkytoja| image:: /static/katalogas/okot/prideti_tvarkytoja.png
+.. |prideti_vaikini_istekliu| image:: /static/katalogas/okot/prideti_vaikini_istekliu.png
 .. |prisijungti| image:: /static/katalogas/okot/prisijungti.png
 .. |prisijungti_VIISP| image:: /static/katalogas/okot/prisijungti_VIISP.png
-.. |prisijungti_VIISP_tęsti| image:: /static/katalogas/okot/prisijungti_VIISP_tęsti.png
+.. |prisijungti_VIISP_testi| image:: /static/katalogas/okot/prisijungti_VIISP_testi.png
 .. |redagavimo_kalba| image:: /static/katalogas/okot/redagavimo_kalba.png
 .. |redaguoti_mygtukas| image:: /static/katalogas/okot/redaguoti_mygtukas.png
 .. |redaguoti_org| image:: /static/katalogas/okot/redaguoti_org.png
 .. |registracijos_puslapis| image:: /static/katalogas/okot/registracijos_puslapis.png
 .. |registruotis| image:: /static/katalogas/okot/registruotis.png
 .. |rikiavimas| image:: /static/katalogas/okot/rikiavimas.png
-.. |rink_aprašymas| image:: /static/katalogas/okot/rink_aprašymas.png
-.. |rink_atnaujinimo_dažumas| image:: /static/katalogas/okot/rink_atnaujinimo_dažumas.png
+.. |rink_aprasymas| image:: /static/katalogas/okot/rink_aprasymas.png
+.. |rink_atnaujinimo_daznumas| image:: /static/katalogas/okot/rink_atnaujinimo_daznumas.png
 .. |rink_failai| image:: /static/katalogas/okot/rink_failai.png
 .. |rink_katalogas| image:: /static/katalogas/okot/rink_katalogas.png
 .. |rink_kodinis_pavadinimas| image:: /static/katalogas/okot/rink_kodinis_pavadinimas.png
 .. |rink_kontaktinis_asmuo| image:: /static/katalogas/okot/rink_kontaktinis_asmuo.png
 .. |rink_pavadinimas| image:: /static/katalogas/okot/rink_pavadinimas.png
 .. |rink_prieigos_nuoroda| image:: /static/katalogas/okot/rink_prieigos_nuoroda.png
-.. |rink_prieigos_teisės| image:: /static/katalogas/okot/rink_prieigos_teisės.png
-.. |rink_tėvinis| image:: /static/katalogas/okot/rink_tėvinis.png
-.. |rink_žymės| image:: /static/katalogas/okot/rink_žymės.png
-.. |struktūra| image:: /static/katalogas/okot/struktūra.png
-.. |susieti_išteklius| image:: /static/katalogas/okot/susieti_išteklius.png
-.. |susieti_išteklius_pvz| image:: /static/katalogas/okot/susieti_išteklius_pvz.png
+.. |rink_prieigos_teises| image:: /static/katalogas/okot/rink_prieigos_teises.png
+.. |rink_tevinis| image:: /static/katalogas/okot/rink_tevinis.png
+.. |rink_zymes| image:: /static/katalogas/okot/rink_zymes.png
+.. |struktura| image:: /static/katalogas/okot/struktura.png
+.. |susieti_isteklius| image:: /static/katalogas/okot/susieti_isteklius.png
+.. |susieti_isteklius_pvz| image:: /static/katalogas/okot/susieti_isteklius_pvz.png
 .. |tvarkytojai| image:: /static/katalogas/okot/tvarkytojai.png
 .. |tvarkytojo_naikinimas| image:: /static/katalogas/okot/tvarkytojo_naikinimas.png
 .. |tvarkytojo_redagavimas| image:: /static/katalogas/okot/tvarkytojo_redagavimas.png
-.. |tvarkytojų_kontrolė| image:: /static/katalogas/okot/tvarkytojų_kontrolė.png
+.. |tvarkytoju_kontrole| image:: /static/katalogas/okot/tvarkytoju_kontrole.png
 
 
 .. _objektas: https://ivpk.github.io/dsa/modelis.html#objektas
