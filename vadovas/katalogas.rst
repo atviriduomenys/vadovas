@@ -781,29 +781,42 @@ IRS rinkinių sąraše galima peržiūrėti tokią bendrą informaciją:
 *Sąrašas pildomas automatiškai, importuojant rinkinius iš atitinkamų portalų.*
 
 
-Duomenų išteklio rūšies forma
-**********************
+Duomenų ištekliai
+*****************
+
+Duomenų ištekliai kuriami dviem žingsniais: duomenų ištekliaus rūšies pasirinkimu ir duomenų ištekliaus įvedimu.
+
+Duomenų ištekliaus rūšies forma
+===============================
 
 1. Organizacijos lange pasirinkite meniu punktą **[Duomenų ištekliai]**.
 
 2. Duomenų išteklių sąrašo lange spauskite **[+ Pridėti duomenų išteklių]**.
 
-    *Paspaudus mygtuką pridėti duomenų išteklių, atidaroma kortelė „1.Duomenų ištekliaus rūšies forma“.*
+    *Paspaudus mygtuką pridėti duomenų išteklių, atidaroma „Duomenų ištekliaus rūšies forma“.*
 
     | |image123|
     | *116 pav. Duomenų ištekliaus rūšies forma
 
-3. Užpildykite formą
-
-(\*: privalomi laukai):
-
-   - **Duomenų ištekliaus rūšis*:**;
-
-	 *Žymimas raudonai tol, kol užpildomas;*
+3. Pasirinkite norimą duomenų ištekliaus rūšį.
 
 4. Įsitikinkite, kad įvedėte teisingus duomenis ir spauskite **[Toliau]**.
 
-5. Tęskite duomenų ištekliaus informacijos suvedimą. Siūlome kuriant naują išteklių informaciją įvesti nuosekliai.
+
+Duomenų ištekliaus forma
+========================
+
+5. Paspaudus **[Toliau]**, bus atidaryta „Duomenų ištekliaus forma“.
+
+    | |image124|
+    | *Duomenų ištekliaus forma, duomenų ištekliaus rūšį pasirinkus „Duomenų rinkinys“
+
+6. Užpildykite formą.
+
+    **Pastaba:** priklausomai nuo pasirinktos duomenų ištekliaus rūšies, šios formos laukai gali skirtis.
+
+7. Įsitikinkite, kad įvedėte teisingus duomenis ir spauskite **[Sukurti]**.
+
 
 Duomenų rinkinio forma
 **********************
@@ -2275,6 +2288,7 @@ Slaptažodis privalo būti saugus. (Daugiau: `Sąvokos <#naudojami-terminai-ir-s
 .. |image120| image:: /static/katalogas/okot/image120.png
 .. |image121| image:: /static/katalogas/okot/image121.png
 .. |image123| image:: /static/katalogas/okot/image123.png
+.. |image124| image:: /static/katalogas/okot/image124.png
 .. |77pav| image:: /static/katalogas/okot/77pav.png
 .. |78pav| image:: /static/katalogas/okot/78pav.png
 .. |image_panaudojimoatvejai_sutartys_1| image:: /static/katalogas/okot/image_panaudojimoatvejai_sutartys_1.png
