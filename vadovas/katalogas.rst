@@ -352,7 +352,7 @@ Tvarkytojų peržiūros duomenys:
 
 \> **Redaguoti paskyras:**
 
-1. Sąrašo eilutėje, kurioje yra norimas redaguoti tvarktojas / koordinatorius spauskite **[Redaguoti]**:
+1. Sąrašo eilutėje, kurioje yra norimas redaguoti tvarkytojas / koordinatorius spauskite **[Redaguoti]**:
 
 | |tvarkytojo_redagavimas|
 | *24 pav. Organizacijos tvarkytojo / koordinatoriaus redagavimo langas*
