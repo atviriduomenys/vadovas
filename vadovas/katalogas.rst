@@ -2255,6 +2255,7 @@ Slaptažodis privalo būti saugus. (Daugiau: `Sąvokos <#naudojami-terminai-ir-s
 .. |tvarkytojai| image:: /static/katalogas/okot/tvarkytojai.png
 .. |tvarkytojo_naikinimas| image:: /static/katalogas/okot/tvarkytojo_naikinimas.png
 .. |tvarkytojo_redagavimas| image:: /static/katalogas/okot/tvarkytojo_redagavimas.png
+.. |tvarkytoju_kontrole| image:: /static/katalogas/okot/tvarkytoju_kontrole.png
 .. |susijes_dok| image:: /static/katalogas/okot/susijes_dok.png
 .. |teises_aprasymas| image:: /static/katalogas/okot/teises_aprasymas.png
 .. |dok_failai| image:: /static/katalogas/okot/dok_failai.png
