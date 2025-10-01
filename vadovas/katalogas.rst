@@ -860,13 +860,6 @@ Duomenų rinkinio forma
 
 1. Užpildykite kortelę (\*: privalomi laukai):
 
-   - **Pasirinkite turinio redagavimo kalbą** ;
-
-	 *Numatytoji - lietuvių;*
-
-   | |redagavimo_kalba|
-   | *43 pav. Formos fragmentas - turinio redagavimo kalba.*
-
    - **Duomenų išteklius viešinamas**;
 
 	 *Numatytas teigiamas pasirinkimas;*
@@ -2232,7 +2225,6 @@ Slaptažodis privalo būti saugus. (Daugiau: `Sąvokos <#naudojami-terminai-ir-s
 .. |prisijungti| image:: /static/katalogas/okot/prisijungti.png
 .. |prisijungti_VIISP| image:: /static/katalogas/okot/prisijungti_VIISP.png
 .. |prisijungti_VIISP_testi| image:: /static/katalogas/okot/prisijungti_VIISP_testi.png
-.. |redagavimo_kalba| image:: /static/katalogas/okot/redagavimo_kalba.png
 .. |redaguoti_mygtukas| image:: /static/katalogas/okot/redaguoti_mygtukas.png
 .. |redaguoti_org| image:: /static/katalogas/okot/redaguoti_org.png
 .. |registracijos_puslapis| image:: /static/katalogas/okot/registracijos_puslapis.png
