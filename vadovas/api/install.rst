@@ -332,6 +332,33 @@ PostgreSQL duomenų bazėje.
 
     env/bin/spinta bootstrap
 
+Keymap
+******
+
+Keymap naudojamas susieti išorinius identifikatorius su vidiniais identifikatoriais. Gali būti konfigūruojama.
+Pagal numatytuosius nustatymus naudojama SQLite, kaip parodyta aukščiau pateiktame konfigūracijos pavyzdyje,
+tačiau galima pakeisti į kitą, pvz - greitesnę ar stabilesnę saugyklą. Čia pateikiamas pilnas galimų variantų sąrašas:
+
+- SQLite duomenų bazė su SQLAlchemy backend'u, konfigūruojama taip:
+
+  .. code-block:: yaml
+
+      keymaps:
+        default:
+          type: sqlalchemy
+          dsn: sqlite:////path/to/keymap.db
+
+- Redis **persistent** saugykla su Redis, konfigūruojama taip:
+
+  .. code-block:: yaml
+
+      keymaps:
+        default:
+          type: redis
+          dsn: redis://redis-address:6379/1
+
+Redis Docker paleidimo konfigūracija pateikta projekto docker-compose.yml faile (root kataloge).
+**SVARBU! Redis turi būti butinai leidžiamas persitent režimu (appendonly yes parametras)**
 
 Web serverio diegimas ir konfigūravimas
 ***************************************
