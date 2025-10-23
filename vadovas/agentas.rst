@@ -11,65 +11,53 @@ Sinchronizacija
 ***************
 
 **Sinchronizacija** – tai procesas, kurio metu sulyginama tiek duomenų struktūra, tiek patys duomenys tarp duomenų
-šaltinio ir atvirų duomenų Kataloge saugomos informacijos.
+šaltinio ir duomenų Kataloge saugomos informacijos.
 
 
 Pasiruošimas
 ============
 
-Prieš pradedant sinchronizaciją, reikia paruošti:
+Prieš pradedant sinchronizaciją, reikia:
 
-- **Atvirų duomenų Katalogą** – įregistruoti Agentą
-- **Agentą** – sukonfigūruoti prisijungimą prie Katalogo
+    - :ref:`Užregistruoti Agentą Kataloge <agent_registration_in_catalog>`
+    - :ref:`Sukonfigūruoti Agentą <agent_configuration>`
 
-Šie žingsniai užtikrins, kad sinchronizacija vyktų sklandžiai.
 
+.. _agent_registration_in_catalog:
 
 Agento registracija Kataloge
 ----------------------------
 
-Pirmasis žingsnis – **Agentų sąsajos registracija atvirų duomenų Kataloge**.
+**Agentų sąsajos registracija duomenų Kataloge**.
 
 Registracija vykdoma organizacijos, kuriai priklauso naudotojas, puslapyje. Norėdami tai atlikti:
 
-#. Prisijunkite prie atvirų duomenų Katalogo.
+#. Prisijunkite prie duomenų Katalogo.
 #. Viršutiniame dešiniajame kampe užveskite pelę ant savo naudotojo vardo.
 
-    | |image_sinchronizacija_1|
+    | |image_navigation_bar|
     | *pav. Navigacijos juosta – vartotojo skirtukas*
 
-#. Pasirinkite **„Mano organizacijos rinkiniai“**.
+#. Sąraše pasirinkite **„Mano organizacijos duomenų ištekliai“**.
 
-    | |image_sinchronizacija_2|
-    | *pav. Nuoroda į organizacijos erdvę*
+    | |image_organization_resources|
+    | *pav. Nuoroda į organizacijos duomenų išteklius*
 
 #. Atverkite skirtuką **„Agentai“**.
 
-    | |image_sinchronizacija_3|
+    | |image_agent_tab|
     | *pav. Agentų skirtukas*
 
-#. Spustelėkite **„Pridėti Agentą“**.
+#. Spauskite **„Pridėti Agentą“**.
 
-    | |image_sinchronizacija_4|
-    | *pav. Agento pridėjimo mygtukas*
+    | |image_agent_create|
+    | *pav. Agento pridėjimas*
 
-#. Užpildykite formą ir spauskite **„Sukurti“**.
+#. Užpildykite formos laukus ir spauskite **„Sukurti“**.
 
-    - :ref:`Nuoroda į formos laukus su paaiškinimais <agent_create_edit_form>`
+    - :ref:`Agento pildymo forma ir jos laukai <agent_create_edit_form>`
 
-#. **Iš karto po sukūrimo** puslapyje bus parodyti prisijungimo duomenys (arba slaptas raktas).
-   **Išsisaugokite juos**, nes jie rodomi tik vieną kartą.
-
-   Jų turinys priklauso nuo pasirinktos :ref:`Agento rūšies<agent_create_edit_form_field_kind>`:
-
-    - **Spinta** — pateikiamos dvi konfigūracijos:
-
-        - :ref:`Prisijungimas prie Katalogo<configuration_credentials_cfg>`
-        - :ref:`Prisijungimas prie duomenų šaltinio<configuration_config_yml>`
-
-    - **Kita** — pateikiamas tik *OAuth 2.0* kliento **secret** raktas. Likusi konfigūracija – tiekėjo atsakomybė
-
-        - :ref:`Slapto rakto konfigūracija<configuration_secret_key>`
+#. Atlikus registraciją, pateikiami prisijungimo duomenys. Galimos dvi prisijungimo konfigūracijos, jos priklauso nuo pasirinktos :ref:`Agento rūšies<agent_create_edit_form_field_kind>`.
 
 
 .. _agent_configuration:
@@ -77,84 +65,247 @@ Registracija vykdoma organizacijos, kuriai priklauso naudotojas, puslapyje. Nor�
 Agento konfigūracija
 --------------------
 
-Prisijungimo konfigūraciją įdėkite į failą `credentials.cfg`.
+Agentą reikia konfigūruoti, kad būtų galima pasiekti:
 
-- Jei faile jau yra įrašų – pridėkite naują įrašo bloką apačioje.
-- Sistema automatiškai parinks tinkamą konfigūraciją pagal kontekstą.
-
-Daugiau informacijos apie šį failą: :ref:`Konfigūracija<configuration>`
+    a) **Duomenų Šaltinį**
+    b) **Duomenų Katalogą**
 
 
-Vykdymas
---------
+Lokalaus/Agento DSA failo nustatymas
+====================================
 
-Norint pradėti sinchronizaciją, turi būti paruošta:
+Norint vykdyti sinchronizaciją, Agentui reikia nurodyti vietą, kur bus saugomas DSA failas.
+Pagal šį failą, lyginant jį su duomenų šaltiniu ir katalogu (atskiri proceso etapai), bus atliekami duomenų atnaujinimai
+arba siunčiami pranešimai apie pasikeitusią duomenų struktūrą (į Katalogą).
 
-- Agento „Spinta“ implementacija (žr. :ref:`Spinta<spinta>`)
-- Struktūros aprašo failas, pvz., `data.csv`
+Šio failo vietą failinėje sistemoje galima nustatyti `config.yml` faile.
 
-Sinchronizacijos komanda:
+.. note::
 
-.. code-block:: console
+    Vietinio failo nustatymo `config.yml` konfigūracijoje pavyzdys:
 
-    spinta sync <failo_pavadinimas>
+    .. code-block:: yaml
 
-Kur:
+        manifest: default
+        manifests:
+          default:
+            type: csv
+            path: /Users/john_doe/manifest.csv
+            backend: default
+            keymap: default
+            mode: external
 
-- **<failo_pavadinimas>** — kelias iki struktūros aprašo failo, kurį norite sinchronizuoti su duomenų portalu.
+    **Pavyzdyje:**
+
+        - `manifests.default.path` — nurodoma vietinio failo vieta failinėje sistemoje, kur įdiegtas Agentas (Spinta).
+    
+
+Agento prisijungimas prie Duomenų Šaltinio
+==========================================
+
+Norint prijungti agentą prie duomenų šaltinio, reikia papildomai sukonfigūruoti `config.yml` failą. Tikslui pasiekti reikia nustatyti:
+
+    - **Duomenų šaltinio tipą**
+    - **Duomenų šaltinio nuorodą** (pvz.: duomenų bazės prisijungimo URL)
+
+.. note::
+
+    Failo `config.yml` pavyzdys konfigūruojant prisijungimą į PostgreSQL duomenų bazę:
+
+    .. code-block:: yaml
+
+        backends:
+          default:
+            type: sql
+            dsn: postgresql://django:django@localhost:9432/django
+
+    **Pavyzdyje:**
+
+        - `backends.default.type` nurodomas duomenų šaltinio tipas.
+        - `backends.default.dsn` nurodoma duomenų šaltinio nuoroda.
+
+
+Agento prisijungimas prie Duomenų Katalogo
+==========================================
+
+Ši konfigūracija sugeneruojama automatiškai ir vartotojui reikia tik ją perkelti į `credentials.cfg` failą.
+
+.. note::
+
+    Failo `credentials.cfg` pavyzdys:
+
+    .. code-block:: ini
+
+        [default]
+        server = https://example-server.com
+        resource_server = https://example-resource-server.com
+        organization = <kliento-organizacija>
+        organization_type = <kliento-organizacijos-tipas>
+        client_id = <kliento-identifikatorius>
+        client = <klientas>
+        secret = <kliento-paslaptis>
+        scopes =
+            uapi:/datasets/gov/vssa/dcat/Dataset/:getall
+            uapi:/datasets/gov/vssa/dcat/Dataset/:create
+            uapi:/datasets/gov/vssa/dcat/Dsa/:getone
+            uapi:/datasets/gov/vssa/dcat/Dsa/:create
+            uapi:/datasets/gov/vssa/dcat/Dsa/:patch
+            uapi:/datasets/gov/vssa/dcat/Distribution/:getall
+            uapi:/datasets/gov/vssa/dcat/Distribution/:create
+            uapi:/datasets/gov/vssa/dcat/Agreement/:patch
+
+    **server**
+
+        Autorizacijos serverio adresas (URL), kuris išduoda prieigos žetoną (angl. *access token*) ir valdo *OAuth 2.0* klientus.
+
+    **resource_server**
+
+        Nurodomas duomenų Katalogo adresas (URL), su kuriuo vyks sinchronizacija.
+
+    **organization**
+
+        Organizacijos, kuriai priklauso klientas, pavadinimas.
+
+    **organization_type**
+
+        Organizacijos, kuriai priklauso klientas, tipas (Valstybinė įstaiga, Verslo organizacija, Nepelno ir nevalstybinė organizacija).
+
+    **client_id**
+
+        Nurodomas *OAuth 2.0* kliento identifikatorius.
+
+    **client**
+
+        Nurodomas *OAuth 2.0* kliento pavadinimas, automatiškai sukuriamas pagal Kataloge nurodytą pavadinimą ir naudojamas autorizacijos procese.
+
+    **secret**
+
+        Pagrindinis slaptasis raktas naudojamas *OAuth 2.0* klientui. Naudojamas gauti prieigos žetoną iš autorizacijos serverio. Galioja neribotą laiką.
+
+    **scopes**
+
+        Prašomi leidimai, kurie yra siunčiami į autorizacijos serverį.
+        Jei šie leidimai nesutampa su leidimais, suteiktais *OAuth 2.0* klientui, prieigos žetonas neveiks ir
+        pokyčių atlikti nepavyks.
+        Todėl konfigūracijoje palikite tik būtinus leidimus. Papildomų ar  nenumatytų leidimų įtraukti nereikėtų.
+        Esant poreikiui, galite palikti tik dalį jų.
 
 
 Procesas
-========
+********
 
-Įvykdžius komandą `spinta sync`, vykdomi šie veiksmai:
+Sinchronizacija yra procesas, kurio metu norima įsitikinti, kad duomenų struktūra tarp trijų skirtingų vietų, kuriose ji saugoma, yra nepakitusi.
 
-- Sistema patikrina, ar toks duomenų rinkinys jau egzistuoja Kataloge.
-    - **Jei egzistuoja** – gausite klaidą. Šiuo metu esamų rinkinių atnaujinimas dar neįgyvendintas.
-    - **Jei neegzistuoja** – sukuriamas naujas rinkinys ir jo struktūra įkeliama į Katalogą.
+Struktūra yra saugoma:
+
+    - **Duomenų šaltinyje** (pvz.: Duomenų bazė)
+    - **Agente, lokaliame faile**
+    - **Duomenų Kataloge** (dažniausiu atveju — https://data.gov.lt/)
+
+Procesas vykdomas trimis etapais. Išsamesnė informacija apie kiekvieną etapą pateikta atitinkamuose skyriuose:
+
+    - :ref:`Katalogas -> Agentas <sync_stage_catalog_to_agent>`
+    - :ref:`Duomenų Šaltinis -> Agentas <sync_stage_data_source_to_agent>`
+    - :ref:`Agentas -> Katalogas <sync_stage_agent_to_catalog>`
+
+.. attention::
+
+    **Norint pradėti sinchronizaciją, Agentui reikia įvykdyti komandą:** `spinta sync`
 
 
-Klaidos ir jų paaiškinimai
-==========================
+.. _sync_stage_catalog_to_agent:
 
-Sinchronizacijos metu galite susidurti su šiomis klaidomis:
+Sinchronizacija: Katalogas -> Agentas
+=====================================
+
+Šio etapo metu yra atsisiunčiami duomenų rinkiniai iš Katalogo, susieti su pasirinktu Agentu.
+
+Šie duomenų rinkiniai apjungiami į vieną struktūros aprašą, ir pradedamas kiekvienos eilutės palyginimas tarp atsisiųsto
+failo iš Katalogo ir Agento vietinėje failinėje sistemoje esančio duomenų struktūros failo.
+
+**Pakeitimai atliekami pagal tokią atvejų matricą:**
+
+.. list-table:: Atvejų apžvalga
+   :header-rows: 1
+
+   * - Atvejo Nr.
+     - Katalogas
+     - Agentas
+     - Veiksmas
+   * - 1
+     - Sutampa
+     - Sutampa
+     - Niekas neatliekama
+   * - 2
+     - Nesutampa
+     - Nesutampa
+     - Agento ŠDSA perrašomas iš Katalogo
+   * - 3
+     - Yra
+     - Nėra
+     - Agento ŠDSA papildomas Katalogo informacija
+   * - 4
+     - Nėra
+     - Yra
+     - Niekas neatliekama
+
+.. admonition:: Pavyzdys
+
+    Kataloge turint tokį duomenų struktūros aprašą:
+
+    .. code-block:: ini
+
+        id                                   | dataset | resource   | base | model   | property | type      | ref     | source                                                   | source.type | prepare | origin | count | level | status    | visibility | access | uri  | eli | title             | description
+        b67a8e27-106c-47a6-a85e-a355c8bd9761 | vssa    |            |      |         |          |           |         | https://example.com                                      |             |         |        |       |       | open      |            |        |      |     | VSSA              | vssa
+        e23139cb-3c6b-40fd-8fba-1d68e5701733 |         | geography  |      |         |          | dask/csv  |         | https://get.data.gov.lt/datasets/org/vssa/geography/:ns  |             |         |        |       | 4     |           |            |        |      |     | Geography         | geography
+                                             |         |            |      |         |          |           |         |                                                          |             |         |        |       |       |           |            |        |      |     |                   |
+        25568d69-1456-485c-9fca-8124d41a5295 |         |            |      | Country |          |           |         |                                                          |             |         |        |       | 4     | completed | package    | open   |      |     | Country           | country
+        6faa42c1-7ad6-43be-a266-ccab35dd0bc9 |         |            |      |         |          | id        | integer | property_id                                              |             |         |        |       | 4     |           |            |        |      |     | Identifier        | identifier
+        407270ca-f9bd-4c81-8c64-108b24bfafbe |         |            |      |         |          | size      | integer | property_size                                            |             |         |        |       | 4     |           |            |        |      |     | Size              | size
 
 
-`ManifestFileNotProvided`:
-    Komandoje `spinta sync` nebuvo nurodytas DSA failas.
+    O Agente turint tokį duomenų struktūros aprašą:
 
-    Failą būtina pateikti taip: `spinta sync <kelias_iki_failo>`.
+    .. code-block:: ini
+
+        id                                   | dataset | resource   | base | model   | property | type      | ref     | source                                                   | source.type | prepare | origin | count | level | status    | visibility | access | uri  | eli | title             | description
+        b67a8e27-106c-47a6-a85e-a355c8bd9761 | lrs     |            |      |         |          |           |         | https://example.com                                      |             |         |        |       |       | open      |            |        |      |     | LRS               | lrs
+        e23139cb-3c6b-40fd-8fba-1d68e5701733 |         | law        |      |         |          | dask/csv  |         | https://get.data.gov.lt/datasets/org/vssa/geography/:ns  |             |         |        |       | 4     |           |            |        |      |     | Law               | example
+                                             |         |            |      |         |          |           |         |                                                          |             |         |        |       |       |           |            |        |      |     |                   |
+        25568d69-1456-485c-9fca-8124d41a5295 |         |            |      | Person  |          |           |         |                                                          |             |         |        |       | 4     | completed | package    | open   |      |     | Person            | person
+        6faa42c1-7ad6-43be-a266-ccab35dd0bc9 |         |            |      |         |          | uuid      | string  | property_id                                              |             |         |        |       | 4     |           |            |        |      |     | Unique Identifier | unique identifier
+
+    Galutinis struktūros aprašo rezultatas (Agente) atrodys taip:
+
+    .. code-block:: ini
+
+        id                                   | dataset | resource   | base | model   | property | type      | ref     | source                                                   | source.type | prepare | origin | count | level | status    | visibility | access | uri  | eli | title             | description
+        b67a8e27-106c-47a6-a85e-a355c8bd9761 | vssa    |            |      |         |          |           |         | https://example.com                                      |             |         |        |       |       | open      |            |        |      |     | VSSA              | vssa
+        e23139cb-3c6b-40fd-8fba-1d68e5701733 |         | geography  |      |         |          | dask/csv  |         | https://get.data.gov.lt/datasets/org/vssa/geography/:ns  |             |         |        |       | 4     |           |            |        |      |     | Geography         | geography
+                                             |         |            |      |         |          |           |         |                                                          |             |         |        |       |       |           |            |        |      |     |                   |
+        25568d69-1456-485c-9fca-8124d41a5295 |         |            |      | Country |          |           |         |                                                          |             |         |        |       | 4     | completed | package    | open   |      |     | Country           | country
+        6faa42c1-7ad6-43be-a266-ccab35dd0bc9 |         |            |      |         |          | id        | integer | property_id                                              |             |         |        |       | 4     |           |            |        |      |     | Identifier        | identifier
+        407270ca-f9bd-4c81-8c64-108b24bfafbe |         |            |      |         |          | size      | integer | property_size                                            |             |         |        |       | 4     |           |            |        |      |     | Size              | size
 
 
-`NotImplementedFeature`:
-    Funkcionalumas dar nėra įgyvendintas.
+.. _sync_stage_data_source_to_agent:
 
-    **Atributai:**
+Sinchronizacija: Duomenų Šaltinis -> Agentas
+============================================
 
-    - **feature** — Funkcionalumas, kuris nėra įgyvendintas.
+.. warning::
 
-`UnexpectedAPIResponse`:
-    Katalogas grąžino netikėtą HTTP atsakymą.
+    **Funkcionalumas vystomas**
 
-    **Atributai:**
 
-    - **operation** — bandytas veiksmas.
+.. _sync_stage_agent_to_catalog:
 
-    - **expected_status_code** — tikėtasis HTTP būsenos kodas/kodai.
+Sinchronizacija: Agentas -> Katalogas
+=====================================
 
-    - **response_status_code** — gautas HTTP būsenos kodas.
+.. warning::
 
-    - **response_data** — Katalogo atsakymas (**Python** programavimo kalbos *dict* formatu).
-
-`UnexpectedAPIResponseData`:
-    Katalogas grąžino teisingą HTTP kodą, bet atsakyme trūksta reikalingų duomenų.
-
-    **Atributai:**
-
-    - **operation** — bandytas veiksmas.
-
-    - **context** — nurodo, kokio lauko pritrūko atsakyme.
-
+    **Funkcionalumas vystomas**
 
 Kliento administravimas
 ***********************
@@ -221,86 +372,6 @@ Užklausoje nenurodyti atributai nebus pakeisti. Sėkmingos užklausos atveju bu
     }
 
 
-.. _configuration:
-
-Konfigūracija
-*************
-
-
-Agento prisijungimas prie Katalogo (Spinta konfigūracija)
-=========================================================
-
-
-Spinta
-------
-
-Sukūrus Agentą Kataloge, sugeneruojama konfigūracija. Šią konfigūraciją reikia įdėti į Agento `credentials.cfg` failą.
-Kadangi faile gali būti keli įrašai, šį bloką įdėkite kaip atskirą konfigūracijos įrašą.
-
-Toliau pateikiamas *Spinta* konfigūracijos failo įrašo pavyzdys:
-
-.. code-block:: ini
-
-    [default]
-    server = http://example-server.com
-    resource_server = http://example-resource-server.com
-    client_id = <kliento_identifikatorius>
-    client = agentas
-    secret = <kliento_paslaptis>
-    scopes =
-        spinta_datasets_gov_vssa_dataset_getall
-        spinta_datasets_gov_vssa_dataset_insert
-        spinta_datasets_gov_vssa_dataset_dsa_getone
-        spinta_datasets_gov_vssa_dataset_dsa_insert
-        spinta_datasets_gov_vssa_dataset_dsa_update
-        spinta_datasets_gov_vssa_distribution_getall
-        spinta_datasets_gov_vssa_distribution_insert
-
-**server**
-
-    Nurodomas autorizacijos serverio adresas (URL), kuris išduoda prieigos žetoną (angl. access token) ir valdo
-    *OAuth 2.0* klientus.
-
-**resource_server**
-
-    Nurodomas atvirų duomenų Katalogo adresas (URL), kur saugomi duomenys.
-
-**client_id**
-
-    Nurodomas *OAuth 2.0* kliento identifikatorius.
-
-**client**
-
-    Nurodomas *OAuth 2.0* kliento pavadinimas, automatiškai sukuriamas pagal Kataloge nurodytą pavadinimą ir naudojamas
-    autorizacijos procese.
-
-**secret**
-
-    Pagrindinis slaptasis raktas naudojamas *OAuth 2.0* klientui. Galioja neribotą laiką.
-
-**scopes**
-
-    Prašomi leidimai, kurie yra siunčiami į autorizacijos serverį.
-    Jei šie leidimai nesutampa su leidimais, suteiktais *OAuth 2.0* klientui, prieigos žetonas neveiks ir
-    pokyčių atlikti nepavyks.
-    Todėl konfigūracijoje palikite tik būtinus leidimus, papildomų, nenumatytų leidimų įtraukti nereikėtų.
-    Esant poreikiui, galite palikti tik dalį jų.
-
-
-Kita
-----
-
-Pasirinkus šią rūšį, konfigūracija, leidžianti pasiekti Katalogą, yra sprendimo įgyvendintojo atsakomybė. Sistemoje
-pateiktas raktas yra *OAuth 2.0* kliento slaptasis raktas.
-
-
-Agento prisijungimas prie duomenų šaltinio
-==========================================
-
-Norint iš Agento prisijungti prie duomenų šaltinio, naudokite
-:ref:`šią dokumentaciją<spinta_configuration_with_data_source>`.
-
-
 Formos, jų laukai ir paaiškinimai
 *********************************
 
@@ -328,7 +399,7 @@ Formos laukai ir jų paaiškinimai
 .. _agent_create_edit_form_field_kind:
 
 **Rūšis**
-    Nurodo, kokia implementacija naudojama Agento veikimui:
+    Nurodo, kokia paslauga naudojama Agento veikimui:
 
     - **Spinta** – sugeneruojamos dvi konfigūracijos:
 
@@ -343,7 +414,7 @@ Formos laukai ir jų paaiškinimai
 **Atviri duomenys publikuojami Saugykloje**
     Pažymėjus šį lauką, leidžiama publikuoti atvirus duomenis per Agentą.
 
-**Atvirų duomenų publikavimo nuoroda**
+**Duomenų publikavimo nuoroda**
     Nurodoma tik tada, kai pažymėtas ankstesnis laukas dėl duomenų publikavimo.
 
 .. note::
@@ -456,7 +527,7 @@ Papildomai, priklausomai nuo pasirinktos **rūšies**, rodoma specifinė Agento 
 
     .. _configuration_credentials_cfg:
 
-    - Prisijungimui prie Atvirų duomenų Katalogo.
+    - Prisijungimui prie Katalogo.
 
         | |image_formos_ir_laukai_4|
         | *pav. Konfigūracija pasirinkus „Spinta“: Agentas -> Katalogas*
@@ -554,17 +625,17 @@ Klaidos ir jų paaiškinimai
     reikia pridėti trūkstamą `key` reikšmę. Skaityti :ref:`agent-CRUD-update`.
 
 
-.. |image_sinchronizacija_1| image:: /static/katalogas/okot/image_sinchronizacija_1.png
+.. |image_navigation_bar| image:: /static/katalogas/okot/image_navigation_bar.png
    :alt: Navigacijos juosta
 
-.. |image_sinchronizacija_2| image:: /static/katalogas/okot/image_sinchronizacija_2.png
-   :alt: Nuoroda į organizacijos erdvę
+.. |image_organization_resources| image:: /static/katalogas/okot/image_organization_resources.png
+   :alt: Nuoroda į organizacijos duomenų išteklius
 
-.. |image_sinchronizacija_3| image:: /static/katalogas/okot/image_sinchronizacija_3.png
+.. |image_agent_tab| image:: /static/katalogas/okot/image_agent_tab.png
    :alt: Agentų skirtukas
 
-.. |image_sinchronizacija_4| image:: /static/katalogas/okot/image_sinchronizacija_4.png
-   :alt: Agento pridėjimo mygtukas
+.. |image_agent_create| image:: /static/katalogas/okot/image_agent_add.png
+   :alt: Agento pridėjimas
 
 .. |image_formos_ir_laukai_1| image:: /static/katalogas/okot/image_formos_ir_laukai_1.png
    :alt: Agento kūrimo/redagavimo forma
