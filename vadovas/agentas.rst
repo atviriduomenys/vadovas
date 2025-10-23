@@ -11,7 +11,7 @@ Sinchronizacija
 ***************
 
 **Sinchronizacija** – tai procesas, kurio metu sulyginama tiek duomenų struktūra, tiek patys duomenys tarp duomenų
-šaltinio ir atvirų duomenų Kataloge saugomos informacijos.
+šaltinio ir duomenų Kataloge saugomos informacijos.
 
 
 Pasiruošimas
@@ -19,10 +19,8 @@ Pasiruošimas
 
 Prieš pradedant sinchronizaciją, reikia:
 
-- **Užregistruoti Agentą Kataloge**
-    - :ref:`Instrukcijos <agent_registration_in_catalog>`
-- **Sukonfigūruoti Agentą**
-    - :ref:`Instrukcijos <agent_configuration>`
+    - :ref:`Užregistruoti Agentą Kataloge <agent_registration_in_catalog>`
+    - :ref:`Sukonfigūruoti Agentą <agent_configuration>`
 
 
 .. _agent_registration_in_catalog:
@@ -30,11 +28,11 @@ Prieš pradedant sinchronizaciją, reikia:
 Agento registracija Kataloge
 ----------------------------
 
-**Agentų sąsajos registracija atvirų duomenų Kataloge**.
+**Agentų sąsajos registracija duomenų Kataloge**.
 
 Registracija vykdoma organizacijos, kuriai priklauso naudotojas, puslapyje. Norėdami tai atlikti:
 
-#. Prisijunkite prie atvirų duomenų Katalogo.
+#. Prisijunkite prie duomenų Katalogo.
 #. Viršutiniame dešiniajame kampe užveskite pelę ant savo naudotojo vardo.
 
     | |image_navigation_bar|
@@ -59,7 +57,7 @@ Registracija vykdoma organizacijos, kuriai priklauso naudotojas, puslapyje. Nor�
 
     - :ref:`Agento pildymo forma ir jos laukai <agent_create_edit_form>`
 
-#. Tai atlikus atvaizduojami duomenys prisijungimui. Galimos dvi prisijungimo konfigūracijos, jos priklauso nuo pasirinktos :ref:`Agento rūšies<agent_create_edit_form_field_kind>`.
+#. Atlikus registraciją, pateikiami prisijungimo duomenys. Galimos dvi prisijungimo konfigūracijos, jos priklauso nuo pasirinktos :ref:`Agento rūšies<agent_create_edit_form_field_kind>`.
 
 
 .. _agent_configuration:
@@ -68,22 +66,23 @@ Agento konfigūracija
 --------------------
 
 Agentą reikia konfigūruoti, kad būtų galima pasiekti:
-    a) Duomenų Šaltinį
-    b) Atvirų Duomenų Katalogą
+
+    a) **Duomenų Šaltinį**
+    b) **Duomenų Katalogą**
 
 
 Lokalaus/Agento DSA failo nustatymas
 ====================================
 
 Norint vykdyti sinchronizaciją, Agentui reikia nurodyti vietą, kur bus saugomas DSA failas.
-Pagal šį failą, lyginant jį su duomenų šaltiniu ir katalogu (tai atskiri procesai), bus atliekami duomenų atnaujinimai
-arba siunčiami pranešimai apie pasikeitusią duomenų struktūrą.
+Pagal šį failą, lyginant jį su duomenų šaltiniu ir katalogu (atskiri proceso etapai), bus atliekami duomenų atnaujinimai
+arba siunčiami pranešimai apie pasikeitusią duomenų struktūrą (į Katalogą).
 
 Šio failo vietą failinėje sistemoje galima nustatyti `config.yml` faile.
 
 .. note::
 
-    Failo `config.yml` pavyzdys, vietinio failo vietos nustatymas:
+    Vietinio failo nustatymo `config.yml` konfigūracijoje pavyzdys:
 
     .. code-block:: yaml
 
@@ -104,10 +103,10 @@ arba siunčiami pranešimai apie pasikeitusią duomenų struktūrą.
 Agento prisijungimas prie Duomenų Šaltinio
 ==========================================
 
-Norint prisijungti prie duomenų šaltinio, atitinkamai reikia susikonfigūruoti `config.yml` failą. Tam reikia nustatyti:
+Norint prijungti agentą prie duomenų šaltinio, reikia papildomai sukonfigūruoti `config.yml` failą. Tikslui pasiekti reikia nustatyti:
 
-- Duomenų šaltinio tipą
-- Duomenų šaltinio nuorodą (pvz.: duomenų bazės prisijungimo URL)
+    - **Duomenų šaltinio tipą**
+    - **Duomenų šaltinio nuorodą** (pvz.: duomenų bazės prisijungimo URL)
 
 .. note::
 
@@ -129,7 +128,7 @@ Norint prisijungti prie duomenų šaltinio, atitinkamai reikia susikonfigūruoti
 Agento prisijungimas prie Duomenų Katalogo
 ==========================================
 
-Ši konfigūracija sugeneruojama automatiškai ir vartotojui tereikia ją perkelti į `credentials.cfg` failą.
+Ši konfigūracija sugeneruojama automatiškai ir vartotojui reikia tik ją perkelti į `credentials.cfg` failą.
 
 .. note::
 
@@ -199,24 +198,27 @@ Sinchronizacija yra procesas, kurio metu norima įsitikinti, kad duomenų strukt
 
 Struktūra yra saugoma:
 
-    - Duomenų šaltinyje (pvz.: Duomenų bazė).
-    - Agente, lokaliame faile.
-    - Duomenų Kataloge (dažniausiu atveju — https://data.gov.lt/)
+    - **Duomenų šaltinyje** (pvz.: Duomenų bazė)
+    - **Agente, lokaliame faile**
+    - **Duomenų Kataloge** (dažniausiu atveju — https://data.gov.lt/)
 
-Šis procesas vykdomas per tris žingsnius, kurie plačiau aprašyti toliau:
+Procesas vykdomas trimis etapais. Išsamesnė informacija apie kiekvieną etapą pateikta atitinkamuose skyriuose:
 
-    - Katalogas -> Agentas;
-    - Duomenų Šaltinis -> Agentas;
-    - Agentas -> Katalogas.
+    - :ref:`Katalogas -> Agentas <sync_stage_catalog_to_agent>`
+    - :ref:`Duomenų Šaltinis -> Agentas <sync_stage_data_source_to_agent>`
+    - :ref:`Agentas -> Katalogas <sync_stage_agent_to_catalog>`
 
 .. attention::
 
     **Norint pradėti sinchronizaciją, Agentui reikia įvykdyti komandą:** `spinta sync`
 
+
+.. _sync_stage_catalog_to_agent:
+
 Sinchronizacija: Katalogas -> Agentas
 =====================================
 
-Šio žingsnio metu yra atsisiunčiami duomenų rinkiniai iš Katalogo, susieti su pasirinktu Agentu.
+Šio etapo metu yra atsisiunčiami duomenų rinkiniai iš Katalogo, susieti su pasirinktu Agentu.
 
 Šie duomenų rinkiniai apjungiami į vieną struktūros aprašą, ir pradedamas kiekvienos eilutės palyginimas tarp atsisiųsto
 failo iš Katalogo ir Agento vietinėje failinėje sistemoje esančio duomenų struktūros failo.
@@ -286,12 +288,17 @@ failo iš Katalogo ir Agento vietinėje failinėje sistemoje esančio duomenų s
         407270ca-f9bd-4c81-8c64-108b24bfafbe |         |            |      |         |          | size      | integer | property_size                                            |             |         |        |       | 4     |           |            |        |      |     | Size              | size
 
 
+.. _sync_stage_data_source_to_agent:
+
 Sinchronizacija: Duomenų Šaltinis -> Agentas
 ============================================
 
 .. warning::
 
     **Funkcionalumas vystomas**
+
+
+.. _sync_stage_agent_to_catalog:
 
 Sinchronizacija: Agentas -> Katalogas
 =====================================
@@ -407,7 +414,7 @@ Formos laukai ir jų paaiškinimai
 **Atviri duomenys publikuojami Saugykloje**
     Pažymėjus šį lauką, leidžiama publikuoti atvirus duomenis per Agentą.
 
-**Atvirų duomenų publikavimo nuoroda**
+**Duomenų publikavimo nuoroda**
     Nurodoma tik tada, kai pažymėtas ankstesnis laukas dėl duomenų publikavimo.
 
 .. note::
