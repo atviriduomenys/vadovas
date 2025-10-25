@@ -3,7 +3,7 @@
 Open data manual
 ################
 
-This a repository containing source files for atviriduomenys.readthedocs.io_
+This is a repository containing source files for atviriduomenys.readthedocs.io_
 manual.
 
 .. _atviriduomenys.readthedocs.io: https://atviriduomenys.readthedocs.io
@@ -16,3 +16,10 @@ reStructuredText_ markup language.
 
 .. _Sphinx: https://www.sphinx-doc.org/en/master/
 .. _reStructuredText: https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html
+
+Contibuting
+===========
+
+If you want to contribute, you  can use DocuMatt_ tool, for previewing documentation if GitHub provided preview functionality is not enouth.
+
+.. _DocuMatt: https://snippets.documatt.com/
