@@ -408,6 +408,25 @@ Formos laukai ir jų paaiškinimai
 
     - **Kita** – suteikiamas prieigos raktas. Likusi dalis priklauso sprendimo tiekėjui.
 
+**Duomenų paslauga**
+    Nurodo, kuriai duomenų paslaugai Agentas bus priskirtas. Jei nenurodyta, duomenų paslauga bus sukurta automatiškai.
+
+**Aplinka**
+    Nurodo, kurioje aplinkoje bus diegiamas Agentas. Galimos reikšmės:
+
+    - **Vystymo** – Agentas bus diegiamas vystymo aplinkoje.
+    - **Testavimo** – Agentas bus diegiamas testavimo aplinkoje.
+    - **Gamybinė** – Agentas bus diegiamas gamybinėje aplinkoje.
+
+**Agento adresas**
+    Nurodo Agento pasiekimą per URL arba IP adresą. Jei yra nurodytas vartų adresas, tada agento adresas yra vidinis adresas, kurį mato API vartai. Jei API vartai nenurodyti, tada yra nurodomas išorinis agento adresas.
+
+**Autorizacijos serverio adresas**
+    Nurodo autorizacijos serverio adresą, kuris bus naudojamas metaduomenų sinchronizacijai arba duomenų apsikeitimui.
+
+**API vartų serverio adresas**
+    Nurodo API vartų serverio adresą, kuris bus naudojamas metaduomenų sinchronizacijai arba duomenų apsikeitimui.
+
 **Agentas įjungtas**
     Nurodo, ar Agentas šiuo metu aktyvus.
 
@@ -451,6 +470,9 @@ Rodomi laukai ir jų reikšmės
 **Pavadinimas**
     Vartotojui matomas pavadinimas. Naudojamas kodiniam pavadinimui generuoti.
 
+**Aplinka**
+    Nurodo, kurioje aplinkoje Agentas bus diegiamas.
+
 **Sukurtas**
     Agento sukūrimo data.
 
@@ -458,7 +480,7 @@ Rodomi laukai ir jų reikšmės
     Paskutinės sinchronizacijos arba bandymo data.
 
 **Duomenų paslauga**
-    Kiekvienam Agentui automatiškai sukuriama susijusi duomenų paslauga, kuriai priskirti duomenų rinkiniai.
+    Kiekvienam Agentui automatiškai sukuriama susijusi duomenų paslauga arba nurodyta kuriant/redaguojant Agentą.
 
 **Veiksmai**
     Prie kiekvieno Agento pateikiami šie veiksmai:
@@ -486,11 +508,14 @@ Paaiškinimai apie laukų reikšmes
 **Pavadinimas**
     Vartotojui matomas pavadinimas.
 
+**Duomenų paslauga**
+    Duomenų paslauga, automatiškai sukuriama ir susiejama su Agentu arba nurodyta kuriant/redaguojant Agentą.
+
 **Kodinis pavadinimas**
     Unikalus identifikatorius, generuojamas sistemoje.
 
-**Servisas**
-    Duomenų paslauga, automatiškai sukuriama ir susiejama su Agentu.
+**Aplinka**
+    Aplinka, kurioje Agentas bus diegiamas.
 
 **Būsena**
     Nurodoma, ar Agentas įjungtas.
@@ -500,6 +525,9 @@ Paaiškinimai apie laukų reikšmes
 
     - **Spinta** – naudojama „Spintos“ sinchronizavimo logika.
     - **Kita** – nestandartinė implementacija, įgyvendinta sprendimo tiekėjo.
+
+**Agento adresas**
+    Agento pasiekimas per URL arba IP adresą.
 
 **Paskutinės sinchronizacijos rezultatas**
 
