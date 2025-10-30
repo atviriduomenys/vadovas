@@ -382,6 +382,8 @@ Organizacijos rekvizitai
 
 2. Spauskite **[Redaguoti organizaciją]**.
 
+*Pastaba: Šį veiksmą gali atlikti tik koordinatorius, organizacijos vardu prisijungęs per VIISP.*
+
 | |organizacijos_informacija|
 | *26 pav. Organizacijos redagavimo langas*
 
@@ -854,6 +856,19 @@ Duomenų ištekliaus rūšies forma
 
 7. Įsitikinkite, kad įvedėte teisingus duomenis ir spauskite **[Sukurti]**.
 
+Panaudojimo atvejai
+===================
+
+
+| |duomenu_isteklio_panaudojimo_atvejai|
+| Duomenų ištekliaus panaudojimo atvejų sąrašas
+
+Čia matomi visi* panaudojimo atvejai, kurie gauna duomenis iš šio ištekliaus.
+Mygtukas [*Pridėti panaudojimo atvejį*] matomas tik tuo atveju, jeigu turite panaudojimo atvejų, į kurį turite teisę įtraukti šį išteklių.
+Pašalinti galite tik tuos atvejus, kurie neturi sugeneruotų sutarčių.
+Plačiau :ref:`panaudojimo_atvejo_istekliai`
+
+*- Kuriuos turite teisę peržiūrėti. Apie teises skaitykite čia :ref:`panaudojimo_atvejo_perziura`
 
 Duomenų rinkinio forma
 **********************
@@ -1724,6 +1739,73 @@ Plano patvirtinimas organizacijos vardu
 Panaudojimo atvejai
 *******************
 
+.. _panaudojimo_atveju_sarasas:
+
+Panaudojimo atvejų sąrašas
+==========================
+
+Šiame sąraše galite matyti visus panaudojimo atvejus, kurie atitinka bent vieną iš šių kriterijų:
+
+- Yra vieši ir patvirtinti
+- Yra sukurti Jūsų vardu (Panaudojimo atvejo iniciatorius yra Fizinis asmuo)
+- Panaudojimo atvejo duomenų gavėjas yra organzacija, kurią jūs atstovaujate
+- Panaudojimo atvejo duomenų teikėjų sąraše yra organizacija, kurią jūs atstovaujate.
+
+| |panaudojimo_atveju_sarasas|
+| *Panaudojimo atvejų sąrašas*
+
+.. _panaudojimo_atvejo_kurimas:
+
+Panaudojimo atvejo kūrimas
+==========================
+
+
+| |panaudojimo_atvejo_forma|
+| *Panaudojimo atvejo kūrimo forma*
+
+Panaudojimo atvejus kurti gali visi prisijungę naudotojai. 
+
+**Pastaba**: Laukas *[Panaudojimo atvejo iniciatorius]* matomas tik naudotojui, prisijungusiam per VIISP, kaip įgaliotam organizacijos atstovui, turinčiam teises sudaryti sutartis.
+Kitu atveju panaudojimo atveju organizacijos pasirinkti ir sudaryti sutarčių nebus galima.
+
+.. _panaudojimo_atvejo_perziura:
+
+Panaudojimo atvejo peržiūra
+===========================
+
+
+| |panaudojimo_atvejo_perziura|
+| *Panaudojimo atvejo langas*
+
+Panaudojimo atvejį galima peržiūrėti tik jeigu jis matomas viešai ir yra patvirtintas, 
+arba jeigu esate panaudojimo atvejo duomenų gavėjo arba teikėjo organizacijos atstovas.
+
+.. _panaudojimo_atvejo_redagavimas:
+
+Panaudojimo atvejo redagavimas
+==============================
+
+Panaudojimo atvejį redaguoti gali tik duomenų gavėjo organizacijos atstovas, organizacijos vardu prisijungęs per VIISP,
+turintis sutarčių pasirašymo teises.
+Keisti panaudojimo atvejo iniciatoriaus po panaudojimo atvejo sukūrimo - negalima.
+Negalima redaguoti panaudojimo atvejo, kuris turi sugeneruotų sutarčių.
+
+.. _panaudojimo_atvejo_istekliai:
+
+Panaudojimo atvejo duomenų ištekliai
+====================================
+
+| |panaudojimo_atvejo_duomenu_istekliai|
+| Panaudojimo atvejo duomenų išteklių sąrašas
+
+Šiame lange matomi visi duomenų ištekliai, iš kurių gaunami duomenys pagal pateiktą panaudojimo atvejį.
+Pridėti ir pašalinti duomenų išteklių prie/iš panaudojimo atvejo gali tik:
+
+- jo kūrėjas, jeigu panaudojimo atvejo iniciatorius Fizinis asmuo.
+- organizacijos atstovas, jeigu panaudojimo atvejo iniciatorius organizacija.
+
+Sugeneravus sutartis, pridėti ir pašalinti išteklių nebegalima.
+
 
 .. _sutartys:
 
@@ -1735,7 +1817,7 @@ Taip pat, automatiškai sukurti sutarties dokumentus, juos peržiūrėti, atsisi
 ir įkelti.
 
 **Pastaba:** Sutartys yra sudaromos atskirai su kiekviena pasirinktų duomenų
-šaltinių organizacija. *Pavyzdžiui:* pasirinkus tris duomenų rinkinius iš tos
+išteklių organizacija. *Pavyzdžiui:* pasirinkus tris duomenų rinkinius iš tos
 pačios organizacijos bus sukurta viena sutartis.
 
 
@@ -1744,6 +1826,7 @@ Sutarčių sąrašo peržiūra
 
 Sutarčių sąrašo formoje matysite visas sukurtas panaudojimo atvejo sutartis. Taip pat, kiekvienos
 sutarties duomenis teikiančią organizaciją, sutarties būseną ir paskutinį duomenų atnaujinimo laiką.
+Sutartis peržiūrėti gali tik teikiančios ir gaunančios organizacijos atstovai. Teikiančios organizacijos atstovas mato tik savo sutartis.
 
 | |image_panaudojimoatvejai_sutartys_1|
 | *Sutarčių sąrašo peržiūra*
@@ -1769,6 +1852,8 @@ Sutarties kūrimas
 
 Kurti sutartis (sutarties įrašus, kuriems vėliau bus galima kurti sutarties
 dokumentus) galima paspaudus mygtuką "Generuoti sutartis" dešiniajame viršutiniame kampe.
+Šį veiksmą gali atlikti tik gavėjo organizacijos atstovas, organizacijos vardu prisijungęs per VIISP,
+bei turintis sutarčių pasirašymo teises.
 
 Sutartys bus sukurtos kiekvienai organizacijai atskirai. Atsidariusioje formoje bus galima
 pasirinkti norimus leidimus iš kiekvieno organizacijos duomenų rinkinio.
@@ -1808,6 +1893,8 @@ Sutarties dokumento kūrimas ir pasirašytos sutarties įkėlimas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Kurti arba įkelti pasirašytą sutartį galima spaudžiant mygtuką dešiniajame viršutiniame kampe.
+Šį veiksmą gali atlikti tik gavėjo ir teikėjo organizacijos atstovai, organizacijos vardu prisijungę per VIISP
+ir turintys sutarčių pasirašymo teises.
 
 Mygtuko veiksmas priklauso nuo sutarties būsenos:
 
@@ -1818,6 +1905,8 @@ Mygtuko veiksmas priklauso nuo sutarties būsenos:
 Sutarties *PDF* failo generavimas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Šį veiksmą atlikti gali tik gavėjo organizacijos atstovas, organizacijos vardu prisijungęs per VIISP,
+turintis sutarčių pasirašymo teises.
 Prieš generuojant sutartį (paspaudus *„Generuoti sutartį“*), atvaizduojama forma su šablono pasirinkimu,
 bei papildoma informacija, kuri gali būti įtraukta į sutarties turinį, pavyzdžiui: papildomos sąlygos.
 Šioje formoje paspaudus mygtuką generuoti - bus sugeneruoti trys failai:
@@ -1830,6 +1919,15 @@ Sutarties *PDF* failo generavimo šablonai (*MD*)
 
 Kiekviena organizacija gali turėti savo sutarčių šabloną arba naudoti numatytąjį. 
 Šablonų administravimą atlieką sistemos administratorius.
+
+
+.. _klientai:
+
+Klientai
+========
+
+Klientus peržiūrėti gali tik gavėjo organizacijos atstovai.
+Klientus redaguoti gali tik gavėjo organizacijos atstovai, organizacijos vardu prisijungę per VIISP.
 
 .. _statistika:
 
@@ -2252,7 +2350,11 @@ Slaptažodis privalo būti saugus. (Daugiau: `Sąvokos <#naudojami-terminai-ir-s
 .. |teises_aprasymas| image:: /static/katalogas/okot/teises_aprasymas.png
 .. |dok_failai| image:: /static/katalogas/okot/dok_failai.png
 .. |dok_nuoroda| image:: /static/katalogas/okot/dok_nuoroda.png
-
+.. |panaudojimo_atvejo_forma| image:: /static/katalogas/okot/panaudojimo_atvejo_forma.png
+.. |panaudojimo_atveju_sarasas| image:: /static/katalogas/okot/panaudojimo_atveju_sarasas.png
+.. |panaudojimo_atvejo_perziura| image:: /static/katalogas/okot/panaudojimo_atvejo_perziura.png
+.. |duomenu_isteklio_panaudojimo_atvejai| image:: /static/katalogas/okot/duomenu_isteklio_panaudojimo_atvejai.png
+.. |panaudojimo_atvejo_duomenu_istekliai| image:: /static/katalogas/okot/panaudojimo_atvejo_duomenu_istekliai.png
 
 .. _objektas: https://ivpk.github.io/dsa/modelis.html#objektas
 .. _brandos lygis: https://ivpk.github.io/dsa/branda.html
