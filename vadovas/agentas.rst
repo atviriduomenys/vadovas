@@ -307,6 +307,73 @@ Sinchronizacija: Agentas -> Katalogas
 
     **Funkcionalumas vystomas**
 
+Viešųjų raktų sukėlimas ir konfigūravimas
+=========================================
+
+`Spinta` automatiškai įkelia visus galimus viešuosius raktus JWT žetonų tikrinimui. Raktai parenkami iš šių šaltinių prioritetų tvarka:
+
+1. **Konfigūracijoje nustatyti raktai** (`token_validation_key`)
+   Jei `token_validation_key` yra nurodytas, visi jame esantys raktai bus naudojami. Galima nurodyti vieną raktą arba kelis raktus sąraše `keys`.
+
+2. **Vietinis raktas** (`<config_path>/keys/public.json`)
+   Jei konfigūracijoje nėra raktų, naudojamas raktas iš lokalaus failo `public.json`.
+
+3. **URL atsisiunčiami raktai** (`token_validation_keys_download_url`)
+   Jei nei konfigūracijoje, nei vietiniame faile nėra raktų, galima nurodyti OAuth serverio URL, iš kurio raktai bus atsisiųsti. Atsisiųsti raktai paprastai saugomi lokaliame faile (`downloaded_public_keys_file`) tolimesniam naudojimui.
+
+Konfigūracijos parametrai
+-------------------------
+
+.. code-block:: yaml
+
+
+    token_validation_key:  > # vienas raktas arba raktų sąrašas
+      {
+        "keys": [
+          {
+            "kid": "rotation-1",
+            "kty": "RSA",
+            "alg": "RS512",
+            "use": "sig",
+            "n": "oAXjeXtZxiEUI7EcG6uITGCuUHmMQxMdTuSkQMaijmX0R1xSN-sQOgrunTqzldGWYhn4CQXmE34TgoZs2l6pZKNEyzap5IstPAUTFfHamyLka-xBwVRpCJaM_ZY9dEhzn9NUB-mx1ud9_clhmlef0SRQ1E5N_oU9wA_Hgd6hdnRzzTDJzmueF_03fEEf27fd69qzPZerOO7E9ytHJm0RpTF-50MGDL9pJaomAry_m0cw66DRd8rwqE-MiSg1xo02YWYIbaNA13K7jO33lW3iqgLdmtiBvX7qoNhEXC5H_umLvd5hgETGVemFcdFgL0Xnj85uk3puiVMsYXqmzHNxdw",
+            "e": "AQAB"
+          },
+          {
+            "kty": "RSA",
+            "n": "l9oSzRInpwJLwsFEs80JQlPyf0k-AqvOef2H-1JpNeaivltEzA_hSX6SSEAm7vciOVOuxBJ0iGr7s0_wY0fKEJ4aFiYHR46zpHT_o0iZxrLwIKJugqDEE96mEPK-o5gVRqs-QJXDmaHzAkVntQRMP6GzKHy5Q6ZZQJWwKg_eTSGnGph34T7PUfSNF50G7qflqmWBiVW7qaNFKbgmB_7be-WZ9mbMVwSMMQwo_aahJqI1ZndKXgYGoEabwgSuJOQrAQbvVOyOHTj0ku-FNo8kb9dVeqi0F1qCvs6SAhCzk7qT215xalWIpX8BI1ZFnCv--6VMqIKEgTtjaaDh3V25SQ",
+            "e": "AQAB"
+          }
+        ]
+      }
+    token_validation_keys_download_url: https://<auth-serverio-adresas> # URL, iš kurio galima atsisiųsti viešuosius raktus
+    downloaded_public_keys_file: "custom-well-knows.json"         # vietinis failas atsisiųstiems raktams saugoti. Jei nenurodyta - "downloaded-well-knows.json" bus naudojamas.
+
+`token_validation_keys_download_url` negali būti naudojamas kartu su `token_validation_key`, nes abu atlieka tą pačią funkciją. Skirtumas tas, kad `token_validation_keys_download_url` yra dinamiškesnis ir palaiko raktų rotaciją.
+
+Naujus raktus galima parsisiųsti su komanda:
+
+    spinta key download
+
+Dėmesio
+--------
+
+Jei naudojamas `token_validation_keys_download_url` ir reikalingas raktų rotavimas, papildomai reikia sukonfigūruoti CRON,
+kuris periodiškai vykdytų komandą `spinta key download` (priklausomai nuo naudojamo auth serverio raktų rotacijos dažnio).
+
+Pavyzdys CRON konfigūracijos:
+
+.. code-block:: sh
+
+    # Redaguokite crontab:
+    crontab -e
+
+    # Pridėkite šią eilutę:
+    0 3 * * 1 /usr/bin/env bash -c 'cd /path/to/spinta/project && spinta key download >> /var/log/auth.log 2>&1'
+
+Šiame pavyzdyje raktai bus atnaujinami iš auth serverio **kas savaitę pirmadienį 03:00 val.**
+Sau tinkama periodiškumą galima nustatyti pagal https://crontab.guru/
+
+
 Kliento administravimas
 ***********************
 
