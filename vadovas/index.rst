@@ -1,7 +1,7 @@
 .. default-role:: literal
 
-Duomenų atvėrimo vadovas
-########################
+Duomenų valdymo vadovas
+#######################
 
 Šis išsamus duomenų atvėrimo vadovas skirtas organizacijoms atveriančioms
 duomenis ir atvertų duomenų naudotojams.
