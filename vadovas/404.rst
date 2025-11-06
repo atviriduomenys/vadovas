@@ -1,0 +1,20 @@
+404
+===
+
+.. raw:: html
+
+   <script>
+     // jei kelias jau turi versiją (pvz., /latest/), nieko nedarom
+     if (!/\/(latest|stable)\//.test(location.pathname)) {
+       var target = '/latest' + location.pathname + location.search + location.hash;
+       location.replace(target);
+     }
+   </script>
+
+   <noscript>
+     Šis puslapis perkeltas. Jei nenukreipia automatiškai, eikite į
+     <a id="redir" href="#">/latest/…</a>.
+     <script>
+       document.getElementById('redir').href = '/latest' + location.pathname + location.search + location.hash;
+     </script>
+   </noscript>
