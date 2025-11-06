@@ -1,0 +1,7 @@
+[
+  {
+    "from_url": "/",
+    "to_url": "/latest/",
+    "type": "prefix"
+  }
+]
