@@ -76,7 +76,7 @@ Informacinės sistemos tvarkytojas
 .. _registracija-portale:
 
 Registracija portale
-*****************************
+********************
 
 Šis skyrius persikėlė: :ref:`čia <katalogas-registracija>`.
 
@@ -84,7 +84,7 @@ Registracija portale
 .. _prisijungimas-prie-sistemos:
 
 Prisijungimas prie sistemos
-===========================
+***************************
 
 1. Naršyklėje atidarykite puslapį https://data.gov.lt/login:
 
@@ -98,7 +98,7 @@ Prisijungimas prie sistemos
 .. _pagrindinis-puslapis:
 
 Pagrindinis puslapis
-*****************
+********************
 
 *Pagrindinis puslapis matomas prisijungus prie sistemos ir leidžia pasiekti aplinkos atributus:*
 
