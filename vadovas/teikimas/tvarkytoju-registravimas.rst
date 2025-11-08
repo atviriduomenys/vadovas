@@ -3,7 +3,7 @@
 .. _tvarkytoju-registravimas:
 
 Tvarkytojų registravimas
-************************
+########################
 
 Koordinatorius gali užregistruoti savo organizacijai kitus koordinatorius ir tvarkytojus.
 
