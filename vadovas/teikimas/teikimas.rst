@@ -6,7 +6,7 @@ Duomenų teikėjams
 =================
 
 VSSA pateikia sistemą, skirtą įgalinti Valstybines įstaigas dalintis duomenimis tarp savęs
-vieningu UDTS formatu.
+vieningu `UDTS<https://ivpk.github.io/uapi/>`_ formatu.
 
 Duomenų dalijimasis tarp Valstybės įstaigų UDTS formatu naudojantis Katalogu ir agentu:
 
@@ -55,11 +55,9 @@ Valstybės skaitmeninių sprendimų agentūra (VSSA)
     /atverimas/registracija
     /teikimas/is-registravimas
     /teikimas/tvarkytoju-registravimas
-
     /teikimas/agentas
-    /teikimas/agento_konfiguravimas
 
-    /atverimas/inventorizacija
-    /atverimas/struktura
 
-    /teikimas/sutartys
+    TODO
+    agento užregistravimas su autentifikacijos serveriu?
+    OpenAPI schemų nusiuntimas į Vartus
