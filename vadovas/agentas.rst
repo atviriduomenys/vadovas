@@ -19,11 +19,11 @@ Pasiruošimas
 
 Prieš pradedant sinchronizaciją, reikia:
 
-    - :ref:`Užregistruoti Agentą Kataloge <agent_registration_in_catalog>`
-    - :ref:`Sukonfigūruoti Agentą <agent_configuration>`
+    - :ref:`Užregistruoti Agentą Kataloge <agento-registracija-kataloge>`
+    - :ref:`Sukonfigūruoti Agentą <agento-konfiguracija>`
 
 
-.. _agent_registration_in_catalog:
+.. _agento-registracija-kataloge:
 
 Agento registracija Kataloge
 ----------------------------
@@ -60,7 +60,7 @@ Registracija vykdoma organizacijos, kuriai priklauso naudotojas, puslapyje. Nor�
 #. Atlikus registraciją, pateikiami prisijungimo duomenys. Galimos dvi prisijungimo konfigūracijos, jos priklauso nuo pasirinktos :ref:`Agento rūšies<agent_create_edit_form_field_kind>`.
 
 
-.. _agent_configuration:
+.. _agento-konfiguracija:
 
 Agento konfigūracija
 --------------------
@@ -103,7 +103,7 @@ arba siunčiami pranešimai apie pasikeitusią duomenų struktūrą (į Katalog�
 Agento prisijungimas prie Duomenų Šaltinio
 ==========================================
 
-Norint prijungti agentą prie duomenų šaltinio, reikia papildomai sukonfigūruoti `config.yml` failą. Tikslui pasiekti reikia nustatyti:
+Norint prijungti agentą prie duomenų šaltinio, reikia papildomai sukonfigūruoti `config.yml` failą. Tam reikia nustatyti:
 
     - **Duomenų šaltinio tipą**
     - **Duomenų šaltinio nuorodą** (pvz.: duomenų bazės prisijungimo URL)
@@ -204,7 +204,7 @@ Struktūra yra saugoma:
 
 Procesas vykdomas trimis etapais. Išsamesnė informacija apie kiekvieną etapą pateikta atitinkamuose skyriuose:
 
-    - :ref:`Katalogas -> Agentas <sync_stage_catalog_to_agent>`
+    - :ref:`Katalogas -> Agentas <sinchronizacija-katalogas-agentas>`
     - :ref:`Duomenų Šaltinis -> Agentas <sync_stage_data_source_to_agent>`
     - :ref:`Agentas -> Katalogas <sync_stage_agent_to_catalog>`
 
@@ -213,7 +213,7 @@ Procesas vykdomas trimis etapais. Išsamesnė informacija apie kiekvieną etapą
     **Norint pradėti sinchronizaciją, Agentui reikia įvykdyti komandą:** `spinta sync`
 
 
-.. _sync_stage_catalog_to_agent:
+.. _sinchronizacija-katalogas-agentas:
 
 Sinchronizacija: Katalogas -> Agentas
 =====================================

@@ -14,7 +14,7 @@ pasileisti ir savo infrastruktūroje.
 
 Čia rasite informaciją, kaip galite paleisti Saugyklą savo infrastruktūroje.
 
-Saugykla veikia :ref:`Spinta` priemonės pagalba. :ref:`Spinta` gali veikit kaip
+Saugykla veikia :ref:`Spinta<spinta>` priemonės pagalba. :ref:`Spinta<spinta>` gali veikti kaip
 komandinės eilutės įrankis, tačiau taip pat gali veikti ir duomenų publikavimo
 režimu.
 
@@ -170,12 +170,12 @@ Aktyvų naudotoją ir katalogą galite pasikeisti taip:
     sudo -Hsu spinta
     cd
 
-Saugykla veikia Spinta_ priemonės pagalba, kuriai reikia Python. Rekomenduojama
+Saugykla veikia :ref:`Spinta<spinta>` priemonės pagalba, kuriai reikia Python. Rekomenduojama
 visus Python paketus diegti taip vadinamoje izoliuotoje Python aplinkoje, kurią
 galima susikurti taip (nepamirškite nurodyti jūsų naudojamos Python versijos
 numerį, kuris gali skirtis):
 
-- Jei Python diegėte su venv_:
+- Jei Python diegėte su *venv*:
 
     .. code-block:: sh
 
@@ -206,7 +206,7 @@ patikrinti taip:
 
     env/bin/spinta config config
 
-Konfigūracijos failas vieta gali būti keičiama komandinės eilutės:
+Konfigūracijos failo vieta gali būti keičiama komandinės eilutės:
 
 .. code-block:: sh
 
