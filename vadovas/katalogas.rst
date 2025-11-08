@@ -78,7 +78,7 @@ Informacinės sistemos tvarkytojas
 Registracija portale
 *****************************
 
-Šis skyrius persikėlė: :ref:`čia <katalogas-koordinatoriaus-registracija>`.
+Šis skyrius persikėlė: :ref:`čia <katalogas-registracija>`.
 
 
 .. _prisijungimas-prie-sistemos:
