@@ -1,5 +1,3 @@
-
-...
 .. default-role:: literal
 
 .. _duomenu_teikimas:
@@ -7,31 +5,13 @@
 Duomenų teikėjams
 =================
 
-Duomenų keitimuisi tarp Valstybės institucijų reikalingi šie žingsniai:
+VSSA pateikia sistemą, skirtą įgalinti Valstybines įstaigas dalintis duomenimis tarp savęs
+vieningu UDTS formatu.
 
+Duomenų dalijimasis tarp Valstybės įstaigų UDTS formatu naudojantis Katalogu ir agentu:
 
+.. image:: /static/procesai.svg
 
-
-
-1. Paskirti atvirų duomenų koordinatorių ir `užsiregistruoti Portale`__.
-
-   __ https://data.gov.lt/opening/learningmaterial/10
-
-2. Sudaryti :ref:`duomenų rinkinių sąrašą <inventorizacija>`
-   ir publikuoti jį :term:`Portale <ADK>`.
-
-3. Parengti :ref:`duomenų struktūros aprašus <detali-inventorizacija>` ir
-   paskelbti juos :term:`Portale <ADK>`.
-
-4. Įsidiegti :ref:`duomenų teikimo agentą <teikimas-agentas>` savo infrastruktūroje.
-
-5. :ref:`Sukonfiguruoti duomenų teikimo agentą <agento-konfiguravimas>`.
-
-Visas duomenų atvėrimo procesas duomenų teikėjams yra kiek įmanoma
-supaprastintas ir iš esmės susivedantis į duomenų rinkinių sąrašo ir struktūros
-aprašų parengimą. Visos kitos techninės duomenų nuskaitymo, transformavimo,
-atvėrimo ir publikavimo veiklos yra arba automatizuotos arba jas atlieka
-paskirtos atsakingos įstaigos.
 
 Duomenų teikėjams, teikiant duomenis pagalbą teikia:
 

@@ -1,5 +1,3 @@
-
-...
 .. default-role:: literal
 
 .. _informacines-sistemos-registravimas:

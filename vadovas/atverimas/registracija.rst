@@ -9,15 +9,15 @@ Koordinatoriaus registravimas
 .. image:: /static/zingsnis_1.png
 
 Kiekviena duomenis atverianti įstaiga pirmiausia turi paskirti vieną žmogų
-atsakingą už duomenų atvėrimo koordinavimą. Šis žmogus bus atsakingas už
-įstaigos duomenų atvėrimo organizavimą, atsakys į duomenų naudotojų
-paklausimus pateiktus per atvirų duomenų portalą, išsiaiškins kokius duomenis
+atsakingą už duomenų teikimo ir atvėrimo koordinavimą. Šis žmogus bus atsakingas už
+įstaigos duomenų teikimo ir atvėrimo organizavimą, atsakys į duomenų naudotojų
+paklausimus pateiktus per duomenų portalą, išsiaiškins kokius duomenis
 įstaiga valdo ir kas atsakingas už jų priežiūrą.
 
-Koordinatorius darbui su atvirais duomenimis gali pasitelkti tvarkytojus,
+Koordinatorius darbui su metaduomenimis gali pasitelkti tvarkytojus,
 kurie būtų atsakingi už atskirų duomenų rinkinių tvarkymą.
 
-Atvirų duomenų koordinatorius neprivalo turėti techninių duomenų valdymo
+Koordinatorius neprivalo turėti techninių duomenų valdymo
 kompetencijų, tačiau tokių kompetencijų turėjimas būtų privalumas.
 
 Koordinatoriaus paskyrimas įteisinamas į atvirų duomenų portalą pateikianti
