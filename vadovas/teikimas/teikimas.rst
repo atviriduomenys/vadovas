@@ -53,7 +53,7 @@ Valstybės skaitmeninių sprendimų agentūra (VSSA)
     :maxdepth: 2
 
     /atverimas/registracija
-    /katalogas/informacines-sistemos-registravimas
+    /teikimas/is-registravimas
     /teikimas/tvarkytoju-registravimas
 
     /teikimas/agentas
