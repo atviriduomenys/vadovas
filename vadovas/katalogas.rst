@@ -4,11 +4,9 @@
 Katalogas
 #########
 
-Organizacijos koordinatorių ir tvarkytojų aplinka yra skirta:
+Katalogas yra įrankis, skirtas duomenų valdytojams bei atvėrėjams įkelti ir
+tvarkyti duomenų rinkinių aprašus, o duomenų gavėjams - juos peržiūrėti ir iniciuojti duomenų gavimą.
 
-- duomenų rinkinių įkėlimui, įvertinimui ir atvėrimui;
-
-- ataskaitų sudarymui.
 
 .. _terminai-ir-savokos:
 
@@ -59,6 +57,17 @@ El. Vartai
 
 Įstaiga
     Organizacija / institucija, vykdanti nustatytas veiklas
+
+Informacinė sistema - Valstybinės įstaigos informacinė sistema, skirta teikti duomenis ar informacines paslaugas kitoms
+    įstaigoms ar gyventojams.
+
+Atvirų duomenų tvarkytojas
+    Įstaigos atstovas, atsakingas už atvirų duomenų atvėrimą, jų aprašymą Kataloge,
+    publikavimą į Saugyklą ar kitais būdais
+
+Informacinės sistemos tvarkytojas
+    Įstaigos atstovas, atsakingas už duomenų inventorizaciją, aprašymą Kataloge,
+    paruošimą duomenų gavėjams, sutarčių su duomenų gavėjais derinimą.
 
 |image2| Sąrašo rūšiavimas
     Sąrašą galima rikiuoti pagal bet kurį iš stulpelių: spauskite pasirinkto stulpelio pavadinimą arba |image2|.
@@ -1261,7 +1270,7 @@ nurodant šią informaciją:
 
 ====
 
-.. _prasymai-gauti-duomenis:
+.. _distribucijos_prasymai-gauti-duomenis:
 
 Prašymai gauti duomenis
 =======================
@@ -1474,7 +1483,7 @@ Duomenų lauko forma
 
 4. Užpildykite formą (\*: privalomi laukai):
 
-.. _kodinis-pavadinimas:
+.. _duomenu-lauko-kodinis-pavadinimas:
 
 Kodinis pavadinimas*
 ====================
@@ -1510,7 +1519,7 @@ Nurodo matavimo vienetus, laiko ar vietos tikslumą, klasifikatorių arba ryšį
 |image107|
 *98 pav. Duomenų lauko formos ryšio stulpelis.*
 
-.. _duomenu-saltinis:
+.. _duomenu-lauko-duomenu-saltinis:
 
 Duomenų šaltinis
 ================
@@ -1528,7 +1537,7 @@ Formulė skirta duomenų tikrinimui ir transformavimui arba statinės reikšmės
 |image109|
 *100 pav. Duomenų lauko formos duomenų transformacijos stulpelis.*
 
-.. _klase:
+.. _duomenu-lauko-klase:
 
 Klasė
 =====
@@ -1537,7 +1546,7 @@ Sąsaja su išoriniu žodynu.
 |image95|
 *101 pav. Duomenų lauko formos klasės stulpelis.*
 
-.. _brandos-lygis:
+.. _duomenu-lauko-brandos-lygis:
 
 Brandos lygis
 =============
@@ -1546,7 +1555,7 @@ Duomenų lauko brandos lygis.
 |image96|
 *102 pav. Duomenų lauko formos brandos lygio stulpelis.*
 
-.. _busena:
+.. _duomenu-lauko-busena:
 
 Būsena
 ======

@@ -44,7 +44,7 @@ Debian/Ubuntu aplinkai. Diegimą galima atlikti ir kitose Linux distribucijose,
 tačiau tam tikros vietos nurodytos šioje dokumentacijoje turėtu būti
 priderintos taip, kad veiktų kitoje distribucijoje.
 
-Saugykla yra sukurta naudojant Python programavimo kalbą, reikalinga Python 3.9
+Saugykla yra sukurta naudojant Python programavimo kalbą, reikalinga Python 3.10
 ar naujesnė versija. Naujose Saugyklos versija reikalavimas Python versijai
 gali keistis.
 
@@ -113,10 +113,10 @@ Daugelis Linux distribucijų ateina su įdiegta Python versija, tačiau reikia
 
     python3 --version
 
-Jei Python versija yra 3.9 ar naujesnė, tada galite pereiti prie sekančio
+Jei Python versija yra 3.10 ar naujesnė, tada galite pereiti prie sekančio
 žingsnio.
 
-Jei versija yra žemesnė nei 3.9, tuomet reikės įsidiegti naujesnę Python
+Jei versija yra žemesnė nei 3.10, tuomet reikės įsidiegti naujesnę Python
 versiją. Tai galite padaryti naudodami pyenv_ (dėl pačio pyenv_ diegimo
 skaitykite `pyenv dokumentacijoje`_):
 
