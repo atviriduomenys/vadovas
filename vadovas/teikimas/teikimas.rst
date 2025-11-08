@@ -54,9 +54,12 @@ Valstybės skaitmeninių sprendimų agentūra (VSSA)
 
     /atverimas/registracija
     /katalogas/informacines-sistemos-registravimas
-    
-    /atverimas/inventorizacija
-    /atverimas/struktura
+    /teikimas/tvarkytoju-registravimas
+
     /teikimas/agentas
     /teikimas/agento_konfiguravimas
+
+    /atverimas/inventorizacija
+    /atverimas/struktura
+
     /teikimas/sutartys
