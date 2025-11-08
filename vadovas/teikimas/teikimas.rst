@@ -7,8 +7,11 @@
 Duomenų teikėjams
 =================
 
-Labai apibendrintai, kiekviena įstaiga, teikianti duomenis turi atlikti šiuos
-žingsnius:
+Duomenų keitimuisi tarp Valstybės institucijų reikalingi šie žingsniai:
+
+
+
+
 
 1. Paskirti atvirų duomenų koordinatorių ir `užsiregistruoti Portale`__.
 
