@@ -1,6 +1,6 @@
 .. default-role:: literal
 
-.. _duomenu_teikimas:
+.. _duomenu-teikimas:
 
 Duomenų teikėjams
 =================
@@ -13,22 +13,18 @@ Duomenų dalijimasis tarp Valstybės įstaigų UDTS formatu naudojantis Katalogu
 .. image:: /static/procesai.svg
 
 
-Duomenų teikėjams, teikiant duomenis pagalbą teikia:
+Duomenų teikėjams ir gavėjams pagalbą teikia:
 
 Valstybės skaitmeninių sprendimų agentūra (VSSA)
-    - Prižiūri visą šalies valstybinių įstaigų duomenų teikimo procesą ir konsultuoja duomenų
-      teikėjus visais klausimais susijusiais su duomenų teikimu.
+    - Prižiūri visą šalies Valstybinių įstaigų dalijimosi duomenimis procesą ir konsultuoja duomenų
+      teikėjus bei gavėjus visais klausimais susijusiais su duomenų teikimu ir gavimu.
 
     - Prižiūri duomenų :term:`Katalogą <ADK>`, kuriame vienoje vietoje
-      skelbiami Valstybės įstaigų teikiami duomenys.
-
-    - Prižiūri atvirų :ref:`duomenų publikavimo Saugyklą <saugykla>`, kurioje
-      duomenys publikuojami laikantis geriausių duomenų teikimo praktikų,
-      suteikiama galimybė duomenis publikuoti aukščiausiu brandos lygiu.
+      skelbiami metaduomenys apie Valstybinių įstaigų teikiamus duomenys.
 
     - Kuria ir palaiko :ref:`technines priemones <spinta>` leidžiančias duomenis
       atverti automatizuotu būdu. Šios priemonės yra laisvai ir nemokamai
-      teikiamos visiems duomenų teikėjams atveriantiems duomenis.
+      teikiamos visiems duomenų teikėjams.
 
     - Vykdo :ref:`standartų, protokolų ir techninių dokumentacijų priežiūrą
       <dsa>`, kad duomenų teikimo procese dalyvaujančios šalys ir naudojami
@@ -38,11 +34,27 @@ Valstybės skaitmeninių sprendimų agentūra (VSSA)
       duomenų teikimą, tiek naudotojams apie duomenų naudojimą.
 
 
+.. _duomenu-teikimo-zingsniai:
+
+1. Pasiruošimas teikti duomenis
+
+.. image:: /static/pasiruosimas-teikti-duomenis.drawio.svg
+
+2. Susitarimas teikti/gauti duomenis
+
+.. image:: /static/susitarimas-teikti-gauti-duomenis.svg
+
+3. Duomenų teikimas/gavimas
+
+.. image:: /static/duomenu-teikimas.drawio.svg
+
 .. toctree::
     :caption: Duomenų teikėjams
     :maxdepth: 2
 
     /atverimas/registracija
+    /katalogas/informacines-sistemos-registravimas
+    
     /atverimas/inventorizacija
     /atverimas/struktura
     /teikimas/agentas
