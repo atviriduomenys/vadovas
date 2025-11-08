@@ -30,4 +30,4 @@ publikuoja atvirus duomenis ir nori, kad jie būtų randami Lietuvos ir Europos
 atvirų duomenų portaluose.
 
 Turint įstaigos vadovo pasirašytą raštą, paskirtasis koordinatorius
-:ref:`registruojasi atvirų duomenų portale<katalogas-koordinatoriaus-registracija>`.
+:ref:`registruojasi atvirų duomenų portale<katalogas-registracija>`.
