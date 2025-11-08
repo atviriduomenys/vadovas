@@ -6,7 +6,7 @@ Agentas
 =======
 
 Duomenų teikimo agentas yra programinė įranga, diegiama duomenų teikėjo infrastruktūroje,
-ir teikianti duomenis `UDTS<https://ivpk.github.io/uapi/>`_ formatu.
+ir teikianti duomenis `UDTS <https://ivpk.github.io/uapi/>`_ formatu.
 
 Šioje dokumentacijoje aprašomas VSSA vystomo agento, pavadinimu *spinta* diegimas ir konfigūravimas, bet teikėjas
 gali naudoti ir savo programinę įrangą, kuri palaiko UDTS formatą ir įgyvendina metaduomenų sincronizacijos,
