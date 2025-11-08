@@ -84,7 +84,7 @@ HDD
 
 Duomenų atvėrimo priemonė Spinta yra sukurta naudojant Python_ technologiją.
 Todėl prieš diegiant, jūsų naudojamoje aplinkoje turi būti `įdiegta`__ Python
-3.9 arba naujesnė versija.
+3.10 arba naujesnė versija.
 
 .. _Python: https://www.python.org/
 
@@ -118,7 +118,7 @@ reikalinga Python versiją, tai galite pažiūrėti taip:
 
     $ python3 --version
 
-Jei turite 3.9 ar naujesnę versiją, tuomet galite pereiti prie
+Jei turite 3.10 ar naujesnę versiją, tuomet galite pereiti prie
 :ref:`install-debian-python-packages` žingsnio.
 
 Naujesnę Python versiją galite įsidiegti pasirinkdami vieną iš dviejų galimų
@@ -297,11 +297,11 @@ Panaši situacija gali pasitaikyti ir vykdant:
 
 Šios komandos vykdymo metu galite gauti tokią klaidą::
 
-    Downloading Python-3.9.5.tar.xz...
-    -> https://www.python.org/ftp/python/3.9.5/Python-3.9.5.tar.xz
-    error: failed to download Python-3.9.5.tar.xz
+    Downloading Python-3.10.1.tar.xz...
+    -> https://www.python.org/ftp/python/3.10.1/Python-3.10.1.tar.xz
+    error: failed to download Python-3.10.1.tar.xz
 
-    BUILD FAILED (Ubuntu 20.04 using python-build 2.0.0)
+    BUILD FAILED (Ubuntu 24.04 using python-build 2.0.0)
 
 Tokių atveju įsitikinkite ar ugniasienė leidžia kreiptis į išore ir
 pabandykite laikinai sustabdyti antivirusinę programą.

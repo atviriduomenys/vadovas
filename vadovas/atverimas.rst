@@ -2,9 +2,9 @@
 
 .. _atvėrimas:
 
-#################
-Duomenų teikėjams
-#################
+##################
+Duomenų atvėrėjams
+##################
 
 Labai apibendrintai, kiekviena įstaiga atverianti duomenis turi atlikti šiuos
 žingsnius:
@@ -34,7 +34,7 @@ paskirtos atsakingos įstaigos.
 
 Duomenų teikėjams, atveriant duomenis pagalbą teikia šios įstaigos:
 
-Informacinės visuomenės plėtros komitetas (IVPK)
+Valstybės skaitmeninių sprendimų agentūra (VSSA)
     - Prižiūri visą šalies duomenų atvėrimo procesą ir konsultuoja duomenų
       teikėjus visais klausimais susijusiais su duomenų atvėrimu.
 
@@ -57,7 +57,7 @@ Informacinės visuomenės plėtros komitetas (IVPK)
     - Rengia mokymus ir mokomąją medžiagą tiek atvirų duomenų teikėjams apie
       duomenų atvėrimą, tiek naudotojams apie atvertų duomenų naudojimą.
 
-Vyriausybės įgaliota institucija (Statistikos departamentas)
+Vyriausybės įgaliota institucija (Valstybės duomenų agentūra)
     - Teikia duomenų atvėrimo paslaugą, naudojant automatizuotas duomenų
       atvėrimo priemones.
 
