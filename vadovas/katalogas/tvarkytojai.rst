@@ -3,7 +3,7 @@
 .. _katalogas-tvarkytojai:
 
 Duomenų išteklių tvarkytojai / koordinatoriai
-*********************************************
+#############################################
 
 *Šis skyrius skirtas tik Koordinatoriams.*
 

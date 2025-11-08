@@ -1,6 +1,6 @@
 .. default-role:: literal
 
-.. _informacines-sistemos-registravimas:
+.. _katalogas-informacines-sistemos-registravimas:
 
 ###################################
 Informacinės sistemos registravimas
