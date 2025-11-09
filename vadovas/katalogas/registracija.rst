@@ -3,7 +3,7 @@
 .. _katalogas-registracija:
 
 Registracija portale
-*****************************
+####################
 
 *Šiuo būdu turi būti prisiregistravę visi naudotojai, po to galima registruotis kaip institucijos atstovas.*
 
@@ -30,7 +30,7 @@ Registracija portale
 .. _kordinatoriaus-registravimas:
 
 Koordinatoriaus registravimas
-*****************************
+#############################
 
 *Portale reikia registruoti savo instituciją ir vieną atstovaujantį
 duomenų valdymo įgaliotinį (koordinatorių).*
@@ -67,7 +67,7 @@ Jeigu koordinatoriumi yra skiriamas:
 .. _registrascija-pasirinkus-viesasis-sektorius:
 
 Registracija pasirinkus „Viešasis sektorius“
-============================================
+********************************************
 
 1. Paspauskite „Viešasis sektorius“.
 
@@ -92,7 +92,7 @@ Registracija pasirinkus „Viešasis sektorius“
 .. _registracija-pasirinkus-gyventojas:
 
 Registracija pasirinkus „Gyventojas“
-====================================
+************************************
 
 El.valdžios vartų puslapyje:
 
@@ -112,7 +112,7 @@ El.valdžios vartų puslapyje:
 .. _identifikavus-tapatybe:
 
 Identifikavus tapatybę
-======================
+**********************
 
 *Tiek registruojantis kaip „Gyventojas“, tiek kaip „Viešasis sektorius“, po tapatybės nustatymo būsite
 nukreipti į puslapį „E. paslaugos“ arba į langą „Duomenų teikimas į Atvirų duomenų portalą“.*

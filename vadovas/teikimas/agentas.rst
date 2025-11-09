@@ -3,7 +3,7 @@
 .. _teikimas-agentas:
 
 Agentas
-=======
+#######
 
 Duomenų teikimo agentas yra programinė įranga, diegiama duomenų teikėjo infrastruktūroje,
 ir teikianti duomenis `UDTS <https://ivpk.github.io/uapi/>`_ formatu.
