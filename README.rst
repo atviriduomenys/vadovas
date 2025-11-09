@@ -20,6 +20,6 @@ reStructuredText_ markup language.
 Contibuting
 ===========
 
-If you want to contribute, you  can use DocuMatt_ tool, for previewing documentation if GitHub provided preview functionality is not enouth.
+If you want to contribute, you  can use DocuMatt_ tool, for previewing documentation if GitHub provided preview functionality is not enough.
 
 .. _DocuMatt: https://snippets.documatt.com/
