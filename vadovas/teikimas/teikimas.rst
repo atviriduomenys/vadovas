@@ -55,7 +55,6 @@ Valstybės skaitmeninių sprendimų agentūra (VSSA)
     :maxdepth: 2
 
 
-
     /atverimas/registracija
     /teikimas/is-registravimas
     /teikimas/tvarkytoju-registravimas
@@ -63,8 +62,6 @@ Valstybės skaitmeninių sprendimų agentūra (VSSA)
     /teikimas/duomenu-rinkinio-registravimas
 
 TODO: Pabaigti Agento dalį
-
-TODO: Pabaigti Duomenų rinkinio registravimo dalį
 
 TODO: Metaduomenų nuskaitymas - skyrelis ŠDSA generavimas
 

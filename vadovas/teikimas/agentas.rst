@@ -19,6 +19,7 @@ Katalogo diegimo ir konfigūravimo žingsniai:
 
 2. :ref:`Agento diegimas<saugykla-diegimas>` organizacijos infrastruktūroje. Šioje instrukcijoje reikia
    praleisti "PostgreSQL diegimas" dalį, nes agentas turės jungtis prie jūsų, jau esamų, šaltinių.
-   Taip pat nereikia leisti `bootstrap` komandos, kadangi ji skirta
+   Taip pat nereikia leisti `bootstrap` komandos, kadangi ji skirta Saugyklai.
+
 3. Agento konfigūravimas duomenų teikimui pagal Kataloge suteiktus duomenis
 

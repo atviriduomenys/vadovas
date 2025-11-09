@@ -28,37 +28,7 @@ Prieš pradedant sinchronizaciją, reikia:
 Agento registracija Kataloge
 ----------------------------
 
-**Agentų sąsajos registracija duomenų Kataloge**.
-
-Registracija vykdoma organizacijos, kuriai priklauso naudotojas, puslapyje. Norėdami tai atlikti:
-
-#. Prisijunkite prie duomenų Katalogo.
-#. Viršutiniame dešiniajame kampe užveskite pelę ant savo naudotojo vardo.
-
-    | |image_navigation_bar|
-    | *pav. Navigacijos juosta – vartotojo skirtukas*
-
-#. Sąraše pasirinkite **„Mano organizacijos duomenų ištekliai“**.
-
-    | |image_organization_resources|
-    | *pav. Nuoroda į organizacijos duomenų išteklius*
-
-#. Atverkite skirtuką **„Agentai“**.
-
-    | |image_agent_tab|
-    | *pav. Agentų skirtukas*
-
-#. Spauskite **„Pridėti Agentą“**.
-
-    | |image_agent_create|
-    | *pav. Agento pridėjimas*
-
-#. Užpildykite formos laukus ir spauskite **„Sukurti“**.
-
-    - :ref:`Agento pildymo forma ir jos laukai <agent_create_edit_form>`
-
-#. Atlikus registraciją, pateikiami prisijungimo duomenys. Galimos dvi prisijungimo konfigūracijos, jos priklauso nuo pasirinktos :ref:`Agento rūšies<agent_create_edit_form_field_kind>`.
-
+Agento registracija Kataloge aprašyta :ref:`čia <katalogas-agento-registracija>`
 
 .. _agento-konfiguracija:
 
