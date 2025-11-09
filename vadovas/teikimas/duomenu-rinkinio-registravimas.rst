@@ -13,4 +13,4 @@ reikia užregistruoti duomenų rinkinius.
 
 Duomenų rinkinys regisruojamas konkrečiai informacinei sistemai.
 
-Kaip užregistruoti duomenų rinkinį, :ref:`rasite čia<
+Kaip užregistruoti duomenų rinkinį, :ref:`rasite čia<katalogas-duomenu-rinkinio-registravimas>`.

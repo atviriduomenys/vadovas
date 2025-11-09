@@ -48,11 +48,13 @@ Valstybės skaitmeninių sprendimų agentūra (VSSA)
 
 .. image:: /static/duomenu-teikimas.drawio.svg
 
+    **Pasiruošimas duomenų teikimui**
+
 .. toctree::
     :caption: Duomenų teikėjams
     :maxdepth: 2
 
-    **Pasiruošimas**
+
 
     /atverimas/registracija
     /teikimas/is-registravimas
@@ -78,17 +80,17 @@ TODO: Sutarčių šablonų sukūrimas
 
 **Susitarimas teikti/gauti duomenis:**
 
-TODO pakoreguoti BPMN, kad prasidėtų nuo Gavėjo (Panaudos atevejo sudarymas)
+TODO pakoreguoti BPMN, kad prasidėtų nuo Gavėjo (Panaudos atvejo sudarymas)
 
-TODO Panaudos atvejo sudarymas
+TODO Panaudos atvejo sudarymas (Duomenų naudotojo meniu)
 
-TODO Sutarties inicijavimas ir derinimas
+TODO Sutarties inicijavimas ir derinimas (iš abiejų šalių pusės)
 
 TODO Sutarties pasirašymas (gavėjo ir teikėjo)
 
 TODO Agento sukonfigūravimas duomenims teikti pagal sutartį
 
-TODO klientų sukonfigūravimas ir scopes suteikimas jiems
+TODO klientų sukonfigūravimas ir scopes suteikimas jiems (Duomenų naudotojo meniu)
 
 **Duomenų teikimas/gavimas**
 

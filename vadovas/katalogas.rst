@@ -78,7 +78,7 @@ Informacinės sistemos tvarkytojas
 Registracija portale
 ********************
 
-Šis skyrius persikėlė: :ref:`čia <katalogas-registracija>`.
+Šis skyrius persikėlė :ref:`čia <katalogas-registracija>`.
 
 
 .. _prisijungimas-prie-sistemos:
@@ -156,7 +156,7 @@ Pagrindinis naudotojo meniu
 Duomenų išteklių tvarkytojai / koordinatoriai
 *********************************************
 
-Šis skyrius persikėlė: :ref:`čia <katalogas-tvarkytojai>`.
+Šis skyrius persikėlė :ref:`čia <katalogas-tvarkytojai>`.
 
 .. _organizacijos-rekvizitai:
 
@@ -410,21 +410,21 @@ Duomenys į Portalą keliami dviem būdais:
 
 1. Kuriant naują duomenų rinkinį;
 
-   Plačiau: \ `Naujo duomenų rinkinio sukūrimas ir inventorinimas <#naujo-duomenu-rinkinio>`__;
+   Plačiau: \ `Naujo duomenų rinkinio sukūrimas ir inventorinimas <naujo-duomenu-rinkinio>`__;
 2. Importuoti pagal šabloną užpildytą Excel failą;
 
-   Plačiau: \ `Duomenų šablono atsisiuntimas <#duomenų-šablono-atsisiuntimas>`__.
+   Plačiau: \ `Duomenų šablono atsisiuntimas <duomenų-šablono-atsisiuntimas>`__.
 
 
 \> **Importavus duomenų rinkinį:**
 
 1. Koreguokite informaciją.
 
-   Plačiau: \ `Duomenų distribucijos tvarkymas <#_Duomenų_distribucijos_tvarkymas>`__\;
+   Plačiau: \ `Duomenų distribucijos tvarkymas <_Duomenų_distribucijos_tvarkymas>`__\;
 
 2. Pereikite prie veiksmų su rinkiniu.
 
-   Plačiau: `Duomenų rinkinio struktūros sukūrimas <#_Duomenų_rinkinio_struktūros>`__.
+   Plačiau: `Duomenų rinkinio struktūros sukūrimas <_Duomenų_rinkinio_struktūros>`__.
 
 
 \> **Išsaugoti įvestą informaciją:**
@@ -684,90 +684,8 @@ Plačiau :ref:`panaudojimo_atvejo_istekliai`
 Duomenų rinkinio forma
 **********************
 
-1. Užpildykite kortelę (\*: privalomi laukai):
+Šis skyrius persikėlė :ref:`čia <katalogas-duomenu-rinkinio-forma>`.
 
-   - **Duomenų išteklius viešinamas**;
-
-	 *Numatytas teigiamas pasirinkimas;*
-
-   | |ar_viesinamas|
-   | *44 pav. Formos fragmentas - duomenų ištekliaus viešinimo pasirinkimas.*
-
-   - **Pavadinimas*:** pateikiamas pilnas duomenų rinkinio pavadinimas.;
-
-   | |rink_pavadinimas|
-   | *45 pav. Formos fragmentas - duomenų ištekliaus pavadinimas.*
-
-   - **Kodinis pavadinimas:** duomenų ištekliaus identifikatorius.;
-
-   | |rink_kodinis_pavadinimas|
-   | *46 pav. Formos fragmentas - duomenų ištekliaus kodinis pavadinimas.*
-
-   - **Aprašymas*:** pilnas duomenų rinkinio aprašymas;
-
-   | |rink_aprasymas|
-   | *47 pav. Formos fragmentas - duomenų ištekliaus aprašymas.*
-
-   - **Dokumentacija:** dokumentai apie duomenų išteklių;
-
-   | |dok_failai|
-   | *48 pav. Formos fragmentas - dokumentai apie duomenų išteklių.*
-
-   - **Dokumentacija:** puslapiai apie duomenų išteklių;
-
-   | |dok_nuoroda|
-   | *49 pav. Formos fragmentas - puslapis apie duomenų išteklių.*
-
-
-   - **Žymės:** iš sąrašo pasirenkami raktažodžiai arba žymos;
-
-   | |rink_zymes|
-   | *50 pav. Formos fragmentas - žymės.*
-
-   - **Prieigos nuoroda:** tinklalapis, kuriame galima susipažinti su duomenų ištekliu, jo pateiktimi ir (arba) papildoma informacija;
-
-   | |rink_prieigos_nuoroda|
-   | *51 pav. Formos fragmentas - prieigos nuoroda.*
-
-   - **Katalogas:** katalogas, kurio turinys domina šio katalogo kontekste;
-
-   | |rink_katalogas|
-   | *52 pav. Formos fragmentas - katalogas.*
-
-   - **Atnaujinimo dažnumas*:** duomenų atnaujinimo dažnumas;
-
-   | |rink_atnaujinimo_daznumas|
-   | *53 pav. Formos fragmentas - atnaujinimo dažnumas.*
-
-   - **Prieigos teisės*:** atviri, apsaugoti ar uždari duomenys;
-
-   | |rink_prieigos_teises|
-   | *54 pav. Formos fragmentas - prieigos teisės.*
-
-   - **Kontaktinis asmuo ar organizacija:** skirta pastabų siuntimui;
-
-   | |rink_kontaktinis_asmuo|
-   | *55 pav. Formos fragmentas - kontaktinis asmuo ar organizacija.*
-
-   - **Tėvinis išteklius:* pasirenkamas išteklius, kuris gali būti duomenų rinkinio tėvinis išteklius;
-
-   | |rink_tevinis|
-   | *56 pav. Formos fragmentas - tėvinis išteklius.*
-
-   - **Teisės - Aprašymas:** - Teisių deklaracijų aprašymas.
-
-   | |teises_aprasymas|
-   | *57 pav. Formos fragmentas - teisės - aprašymas.*
-
-   - **Teisės - Susijęs dokumentas:** - Teisių deklaracijos nuoroda.
-
-   | |susijes_dok|
-   | *58 pav. Formos fragmentas - teisės - susijęs dokumentas.*
-
-4. Įsitikinkite, kad įvedėte teisingus duomenis ir spauskite **[Sukurti]**.
-
-   | |34pav|
-   | *59 pav. Sėkmingai išsaugotos duomenų rinkinio formos pranešimas.*
 
 .. _struktura:
 

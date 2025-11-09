@@ -3,6 +3,8 @@
 .. _duomenu_gavimas:
 
 Duomenų gavimas
-===============
+
+
+
  - atviri duomenys
  - Valstybės informacinių sistemų duomenys
