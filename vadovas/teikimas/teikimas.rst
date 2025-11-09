@@ -60,48 +60,48 @@ Valstybės skaitmeninių sprendimų agentūra (VSSA)
     /teikimas/agentas
     /teikimas/duomenu-rinkinio-registravimas
 
-    TODO: Pabaigti Agento dalį
+TODO: Pabaigti Agento dalį
 
-    TODO: Pabaigti Duomenų rinkinio registravimo dalį
+TODO: Pabaigti Duomenų rinkinio registravimo dalį
 
-    TODO: Metaduomenų nuskaitymas - skyrelis ŠDSA generavimas
+TODO: Metaduomenų nuskaitymas - skyrelis ŠDSA generavimas
 
-    TODO: Metaduomenų importavimas į Katalogą
+TODO: Metaduomenų importavimas į Katalogą
 
-    TODO: Metaduomenų pildymas/koregavimas Kataloge
+TODO: Metaduomenų pildymas/koregavimas Kataloge
 
-    TODO: (galbūt aprašyti ir github variantą)
+TODO: (galbūt aprašyti ir github variantą)
 
-    TODO: Metaduomenų įkėlimas į agentą (kol nėra sinchronizacijos - rankiniu būdu)
+TODO: Metaduomenų įkėlimas į agentą (kol nėra sinchronizacijos - rankiniu būdu)
 
-    TODO: Sutarčių šablonų sukūrimas
+TODO: Sutarčių šablonų sukūrimas
 
-    **Susitarimas teikti/gauti duomenis:**
+**Susitarimas teikti/gauti duomenis:**
 
-    TODO pakoreguoti BPMN, kad prasidėtų nuo Gavėjo (Panaudos atevejo sudarymas)
+TODO pakoreguoti BPMN, kad prasidėtų nuo Gavėjo (Panaudos atevejo sudarymas)
 
-    TODO Panaudos atvejo sudarymas
+TODO Panaudos atvejo sudarymas
 
-    TODO Sutarties inicijavimas ir derinimas
+TODO Sutarties inicijavimas ir derinimas
 
-    TODO Sutarties pasirašymas (gavėjo ir teikėjo)
+TODO Sutarties pasirašymas (gavėjo ir teikėjo)
 
-    TODO Agento sukonfigūravimas duomenims teikti pagal sutartį
+TODO Agento sukonfigūravimas duomenims teikti pagal sutartį
 
-    TODO klientų sukonfigūravimas ir scopes suteikimas jiems
+TODO klientų sukonfigūravimas ir scopes suteikimas jiems
 
-    **Duomenų teikimas/gavimas**
+**Duomenų teikimas/gavimas**
 
-    TODO pašalinti iš BPMN trečią Lane (autentifikavimas)
+TODO pašalinti iš BPMN trečią Lane (autentifikavimas)
 
-    TODO Kliento autentifikavimasis
+TODO Kliento autentifikavimasis
 
-    TODO Užklausos formavimas ir siuntimas
+TODO Užklausos formavimas ir siuntimas
 
-    TODO Rezultatų gavimas ir interpretavimas
+TODO Rezultatų gavimas ir interpretavimas
 
 
 
-    TODO
-    agento užregistravimas su autentifikacijos serveriu? (gal Agento konfigūracijos dalyje)
-    OpenAPI schemų nusiuntimas į Vartus?
+TODO
+agento užregistravimas su autentifikacijos serveriu? (gal Agento konfigūracijos dalyje)
+OpenAPI schemų nusiuntimas į Vartus?
