@@ -323,8 +323,15 @@ Kliento atnaujinimas
 Kliento atnaujinimas atliekamas PATCH užklausa adresu `spinta_url/auth/clients/{client_id}`,
 siunčiant vieną ar kelis atributus, kuriuos norima pakeisti.
 
-Užklausai reikalingas `auth_clients` leidimas (scope). Be jo, galima keisti tik kliento,
-su kuriuo atliekama užklausa, slaptažodį.
+Užklausos leidimai:
+
+=============================  ============================================= ===============================
+Leidimas                       Atributai, kuriuos galima keisti              Klientai, kuriuos galima keisti
+=============================  ============================================= ===============================
+`auth_clients`                 `client_name`, `secret`, `scopes`, `backends` Visus klientus
+`client_backends_update_self`  `backends`, `secret`                          Tik savo klientą
+Be leidimų                     `secret`                                      Tik savo klientą
+=============================  ============================================= ===============================
 
 Užklausa su pilnais duomenimis:
 
@@ -332,6 +339,7 @@ Užklausa su pilnais duomenimis:
 
     {
         "client_name": "New Client Name",
+        "secret": "New Secret",
         "scopes": [
             "spinta_getone",
         ],
@@ -344,6 +352,9 @@ Užklausa su pilnais duomenimis:
 
 client_name:
     Kliento pavadinimas, išduodamas kliento registravimo autentifikacijos servise metu.
+
+secret:
+    Nauja kliento secret reikšmė.
 
 scopes:
     Leidimai.
