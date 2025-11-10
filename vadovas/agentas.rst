@@ -354,7 +354,7 @@ client_name:
     Kliento pavadinimas, išduodamas kliento registravimo autentifikacijos servise metu.
 
 secret:
-    Nauja kliento secret reikšmė.
+    Naujas kliento slaptažodis.
 
 scopes:
     Leidimai.
