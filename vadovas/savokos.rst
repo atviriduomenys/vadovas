@@ -67,9 +67,9 @@ Sąvokos
             pačiam valstybės valdomam subjektui arba bendrosios kompetencijos
             teismui.
 
-    Europos sveikumo karkasas
+    Europos sąveikumo karkasas
         `Rekomendacijų rinkinys`__ apie tai, kaip užtikrinti didesnį skaitmeninį
-        sveikumą tarp Europos šalių.
+        sąveikumą tarp Europos šalių.
 
         __ https://eur-lex.europa.eu/resource.html?uri=cellar:2c2f2554-0faf-11e7-8a35-01aa75ed71a1.0017.02/DOC_3&format=PDF
 
@@ -656,3 +656,8 @@ Sąvokos
     IVPK
         `Informacinės visuomenės plėtros komitetas
         <https://ivpk.lrv.lt/lt/atviri-duomenys-1>`_.
+
+    VSSA
+        `Valstybės skaitmeninių sprendimų agentūra
+        <https://vssa.lrv.lt/>`_.
+

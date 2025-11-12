@@ -14,7 +14,7 @@ pasileisti ir savo infrastruktūroje.
 
 Čia rasite informaciją, kaip galite paleisti Saugyklą savo infrastruktūroje.
 
-Saugykla veikia :ref:`Spinta` priemonės pagalba. :ref:`Spinta` gali veikit kaip
+Saugykla veikia :ref:`Spinta<spinta>` priemonės pagalba. :ref:`Spinta<spinta>` gali veikti kaip
 komandinės eilutės įrankis, tačiau taip pat gali veikti ir duomenų publikavimo
 režimu.
 
@@ -44,7 +44,7 @@ Debian/Ubuntu aplinkai. Diegimą galima atlikti ir kitose Linux distribucijose,
 tačiau tam tikros vietos nurodytos šioje dokumentacijoje turėtu būti
 priderintos taip, kad veiktų kitoje distribucijoje.
 
-Saugykla yra sukurta naudojant Python programavimo kalbą, reikalinga Python 3.9
+Saugykla yra sukurta naudojant Python programavimo kalbą, reikalinga Python 3.10
 ar naujesnė versija. Naujose Saugyklos versija reikalavimas Python versijai
 gali keistis.
 
@@ -113,10 +113,10 @@ Daugelis Linux distribucijų ateina su įdiegta Python versija, tačiau reikia
 
     python3 --version
 
-Jei Python versija yra 3.9 ar naujesnė, tada galite pereiti prie sekančio
+Jei Python versija yra 3.10 ar naujesnė, tada galite pereiti prie sekančio
 žingsnio.
 
-Jei versija yra žemesnė nei 3.9, tuomet reikės įsidiegti naujesnę Python
+Jei versija yra žemesnė nei 3.10, tuomet reikės įsidiegti naujesnę Python
 versiją. Tai galite padaryti naudodami pyenv_ (dėl pačio pyenv_ diegimo
 skaitykite `pyenv dokumentacijoje`_):
 
@@ -136,9 +136,9 @@ skaitykite `pyenv dokumentacijoje`_):
     git clone https://github.com/pyenv/pyenv.git
     export PYENV_ROOT=/opt/pyenv
     /opt/pyenv/bin/pyenv install --list | grep -v - | tail
-    /opt/pyenv/bin/pyenv install 3.10.7  # Naudokite naujausią versiją
+    /opt/pyenv/bin/pyenv install 3.14.0  # Naudokite naujausią versiją
 
-Naujausia Python versija bus įdiegta į `/opt/pyenv/versions/3.10.7/bin/python`.
+Naujausia Python versija bus įdiegta į `/opt/pyenv/versions/3.14.0/bin/python`.
 
 
 Analogiškai, galite naudotis distribucijos teikiamais paketais, Ubuntu atveju
@@ -151,9 +151,9 @@ galite daryti taip:
     sudo apt install software-properties-common
     sudo add-apt-repository ppa:deadsnakes/ppa
     sudo apt update
-    sudo apt install python3.10 python3.10-venv
+    sudo apt install python3.14 python3.14-venv
 
-Naujausia python versija bus pasiekiama `python3.10` komandos pagalba.
+Naujausia python versija bus pasiekiama `python3.14` komandos pagalba.
 
 
 Spinta diegimas
@@ -170,22 +170,22 @@ Aktyvų naudotoją ir katalogą galite pasikeisti taip:
     sudo -Hsu spinta
     cd
 
-Saugykla veikia Spinta_ priemonės pagalba, kuriai reikia Python. Rekomenduojama
+Saugykla veikia :ref:`Spinta<spinta>` priemonės pagalba, kuriai reikia Python. Rekomenduojama
 visus Python paketus diegti taip vadinamoje izoliuotoje Python aplinkoje, kurią
 galima susikurti taip (nepamirškite nurodyti jūsų naudojamos Python versijos
 numerį, kuris gali skirtis):
 
-- Jei Python diegėte su venv_:
+- Jei Python diegėte su *venv*:
 
     .. code-block:: sh
 
-        /opt/pyenv/versions/3.10.7/bin/python -m venv env
+        /opt/pyenv/versions/3.14.0/bin/python -m venv env
 
 - Jei Python diegėte distribucijos priemonėmis:
 
     .. code-block:: sh
 
-        python3.10 -m venv env
+        python3.14 -m venv env
 
 Toliau spintą įdiegsite taip:
 
@@ -193,6 +193,13 @@ Toliau spintą įdiegsite taip:
 
     env/bin/pip install spinta
     env/bin/spinta --version
+
+Įdiegus spintą, rekomenduojama susidiegti spintos naudojamas bibliotekas su tomis versijomis,
+su kuriomis spinta buvo išleista. Tai padaryti galima taip:
+
+.. code-block:: sh
+
+    env/bin/pip install --require-hashes -r https://raw.githubusercontent.com/atviriduomenys/spinta/refs/heads/master/requirements/spinta-latest.txt
 
 
 Saugyklos konfigūravimas
@@ -206,7 +213,7 @@ patikrinti taip:
 
     env/bin/spinta config config
 
-Konfigūracijos failas vieta gali būti keičiama komandinės eilutės:
+Konfigūracijos failo vieta gali būti keičiama komandinės eilutės:
 
 .. code-block:: sh
 
@@ -478,13 +485,21 @@ Gunicorn ar Nginx parametrus rasite minėtų projektų dokumentacijoje.
 Spintos naujinimas
 ******************
 
-Norint atnaujinti Spinta versiją, jums reikia įvykdyti tokias komanas:
+Norint atnaujinti Spinta versiją, jums reikia įvykdyti tokias komandas:
 
 .. code-block:: sh
 
     sudo -Hsu spinta
     cd
     env/bin/pip install --upgrade spinta
+
+
+Įdiegus spintą, rekomenduojama susidiegti spintos naudojamas bibliotekas su tomis versijomis,
+su kuriomis spinta buvo išleista. Tai padaryti galima taip:
+
+.. code-block:: sh
+
+    env/bin/pip install --require-hashes -r https://raw.githubusercontent.com/atviriduomenys/spinta/refs/heads/master/requirements/spinta-latest.txt
 
 
 Struktūros aprašo naujinimas
