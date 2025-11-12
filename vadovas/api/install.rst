@@ -228,6 +228,10 @@ Pats konfigūracijos failas `config.yml` turėtu atrodyti panašiai taip:
     default_auth_client: default
     env: production
     manifest: default
+    token_validation_keys_download_url: https://<auth-serverio-adresas>  # auth serverio viešu raktu
+                                                                             # (well-known) adresas, jei
+                                                                             # naudojate autorizacijos serverį
+                                                                             # (ne spinta), kuris palaiko raktų rotavimą
 
     keymaps:
       default:
@@ -262,7 +266,7 @@ Generuojame kriptografinius autorizacijos raktus:
 
 .. code-block:: sh
 
-    env/bin/spinta genkeys
+    env/bin/spinta key generate
 
 Sukuriame `default_auth_client`, kuriam suteiktos teisės bus naudojamos visiems
 neautorizuotiems klientams:
