@@ -1580,6 +1580,64 @@ Fiksuotos reikšmės aprašymas.
 
 6. Įsitikinkite, kad įvedėte teisingus duomenis ir spauskite **[Sukurti]**.
 
+Duomenų struktūros versijavimas (aktyviai keičiamas)
+****************************************************
+
+1. Duomenų rinkinio lange pasirinkite **[Struktūra]**.
+
+2. Struktūros lange paspauskite **[Publikuoti versiją]**.
+
+|image125|
+*118 pav. Duomenų struktūros lango mygtukai.*
+
+Įsigalioja*
+===========
+
+Duomenų struktūros įsigaliojimo data. Įsigaliojimo data turi būti nutolusi bent per 2 savaites. Atėjus įsigaliojimo datai, duomenų struktūra yra publikuojama ir tampa viešai pasiekiama.
+
+|image126|
+*119 pav. Duomenų struktūros įsigaliojimo data.*
+
+Aprašymas
+=========
+
+Duomenų struktūros aprašymas.
+
+|image127|
+*120 pav. Duomenų struktūros aprašymas.*
+
+Versijos tipas
+==============
+
+Duomenų struktūros versijos tipas. Versijos tipų yra 3 - Pagrindinė, Papildoma ir Pataisa (Major, Minor, Patch). Versijos tipas priskiriamas pagal semantinio versijavimo SemVer principą. SemVer dokumentacija: https://semver.org/
+
+Galimi versijos tipų pasirinkimai priklauso nuo to, kokia versija jau yra išleista. Jei nėra su pagrindinės (Major) versijos tipu išleistos duomenų struktūros, galimas versijos tipo pasirinkimas yra tik Pagrindinė (Major).
+
+|image128|
+*121 pav. Duomenų struktūros versijos tipo pasirinkimas.*
+
+Jei duomenų struktūros versija, turinti versijos tipą pagrindinė (Major) buvo išleista anksčiau, galimi variantai pasipildo papildomos (Minor) ir pataisos (Patch) versijų tipais.
+
+|image129|
+*122 pav. Duomenų struktūros versijos tipo pasirinkimai.*
+
+Priklauso versijai
+==================
+
+Pasirinkus papildomos (Minor) arba pataisos (Patch) versijos tipą, būtina pasirinkti versiją, kuriai nauja versija priklausys.
+
+|image130|
+*123 pav. Duomenų struktūros versijos priklausymas kitai versijai.*
+
+Įtraukiama į versiją
+====================
+
+Kuriant duomenų struktūros versiją, reikia pasirinkti visus laukus, kuriuos norima įtraukti į versiją.
+
+|image131|
+*124 pav. Duomenų struktūros laukų įtraukimas į naują versiją.*
+
+
 
 Atvėrimo planas
 ***************
@@ -1607,7 +1665,7 @@ Metinio plano sudarymas
 2. Atsivėrusiame metinių atvėrimų plane spauskite **[+ Naujas duomenų atvėrimo planas]**:
 
 | |image78|
-| *118 pav. Atvėrimo planų sąrašo langas*
+| *125 pav. Atvėrimo planų sąrašo langas*
 
 Lange pateikiama pagrindinė atvėrimo planų informacija:
 
@@ -1647,12 +1705,12 @@ Metinio plano formavimas ir pateikimas
 2. Atvėrimo planų lange pasirinkite planą, kurį norite formuoti:
 
 | |62pav|
-| *119 pav. Metinio duomenų atvėrimo plano langas*
+| *126 pav. Metinio duomenų atvėrimo plano langas*
 
 Metinio duomenų atvėrimo plano lango viršuje – plano būsena ir reikalingas finansavimas, suma EUR.
 
 | |image81|
-| *120 pav. Metinio duomenų atvėrimo plano lango poskyrių meniu*
+| *127 pav. Metinio duomenų atvėrimo plano lango poskyrių meniu*
 
 *Numatyta lango įjungimo skiltis –*\ **„Duomenų rinkiniai“**\ *.*
 
@@ -1663,7 +1721,7 @@ Metinio duomenų atvėrimo plano lango viršuje – plano būsena ir reikalingas
 4. Atvertame rinkinių įtraukimo lange, pasirinkite, kurie rinkinių poreikiai turi būti įtraukti į metinį planą, pažymėdami žymimąjį laukelį rinkinio kairėje pusėje.
 
 | |image82|
-| *121 pav. Pasirinkto metinio duomenų atvėrimo plano langas*
+| *128 pav. Pasirinkto metinio duomenų atvėrimo plano langas*
 
    Sąraše pateikti tik tie rinkiniai, kurie priskirti Jūsų organizacijai, yra nepriskirti kitam metiniam planui, neturi įkeltų duomenų ir kurių būsena yra **„Įvertintas finansavimas“** arba **„Užpildyti metaduomenys“**.
 
@@ -1702,12 +1760,12 @@ Metinio plano išformavimas
 2. Rinkinių įtraukimo lango apačioje spauskite mygtuką **[Išformuoti planą]**.
 
 | |image83|
-| *122 pav. Metinio plano išformavimo mygtukas*
+| *129 pav. Metinio plano išformavimo mygtukas*
 
 3. Spauskite **[Patvirtinti]**, jei tikrai norite išformuoti planą.
 
 | |image84|
-| *123 pav. Metinio plano išformavimo patvirtinimo langas*
+| *130 pav. Metinio plano išformavimo patvirtinimo langas*
 
 Planas tebeliks matomas planų sąraše ir jį bus galima formuoti iš naujo įtraukiant rinkinius, tačiau jis bus tuščias, o jam buvę priskirti rinkiniai nebebus jam priskirti ir juos bus galima priskirti kitiems metiniams planams.
 
@@ -1724,14 +1782,14 @@ Plano patvirtinimas organizacijos vardu
 3. Plano lange spauskite mygtuką **[Patvirtinti planą organizacijos vardu]**:
 
 | |image85|
-| *124 pav. Metinio plano patvirtinimo organizacijos vardu pavyzdys*
+| *131 pav. Metinio plano patvirtinimo organizacijos vardu pavyzdys*
 
 4. Pasirinkimo patvirtinimo lange spauskite **[Taip]**, kad patvirtintumėte planą organizacijos vardu.
 
    Patvirtinus, plano būsena pasikeis į „Patvirtintas organizacijos“ ir bus matomas vyr. koordinatoriui.
 
 | |image86|
-| *125 pav. Plano patvirtinimo organizacijos vardu langas*
+| *132 pav. Plano patvirtinimo organizacijos vardu langas*
 
 
 .. _panaudojimo_atvejai:
@@ -2304,6 +2362,13 @@ Slaptažodis privalo būti saugus. (Daugiau: `Sąvokos <#naudojami-terminai-ir-s
 .. |image121| image:: /static/katalogas/okot/image121.png
 .. |image123| image:: /static/katalogas/okot/image123.png
 .. |image124| image:: /static/katalogas/okot/image124.png
+.. |image125| image:: /static/katalogas/okot/image125.png
+.. |image126| image:: /static/katalogas/okot/image126.png
+.. |image127| image:: /static/katalogas/okot/image127.png
+.. |image128| image:: /static/katalogas/okot/image128.png
+.. |image129| image:: /static/katalogas/okot/image129.png
+.. |image130| image:: /static/katalogas/okot/image130.png
+.. |image131| image:: /static/katalogas/okot/image131.png
 .. |77pav| image:: /static/katalogas/okot/77pav.png
 .. |78pav| image:: /static/katalogas/okot/78pav.png
 .. |image_panaudojimoatvejai_sutartys_1| image:: /static/katalogas/okot/image_panaudojimoatvejai_sutartys_1.png
