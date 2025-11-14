@@ -1609,7 +1609,7 @@ Duomenų struktūros aprašymas.
 Versijos tipas
 ==============
 
-Duomenų struktūros versijos tipas. Versijos tipų yra 3 - Pagrindinė, Papildoma ir Pataisa (Major, Minor, Patch). Versijos tipas priskiriamas pagal semantinio versijavimo SemVer principą. SemVer dokumentacija: https://semver.org/
+Duomenų struktūros versijos tipas. Versijos tipų yra 3 - Pagrindinė, Papildoma ir Pataisa (Major, Minor, Patch). Versijos tipas priskiriamas pagal semantinio versijavimo SemVer principą. SemVer dokumentacija: https://semver.org/.
 
 Galimi versijos tipų pasirinkimai priklauso nuo to, kokia versija jau yra išleista. Jei nėra su pagrindinės (Major) versijos tipu išleistos duomenų struktūros, galimas versijos tipo pasirinkimas yra tik Pagrindinė (Major).
 
@@ -1624,7 +1624,7 @@ Jei duomenų struktūros versija, turinti versijos tipą pagrindinė (Major) buv
 Priklauso versijai
 ==================
 
-Pasirinkus papildomos (Minor) arba pataisos (Patch) versijos tipą, būtina pasirinkti versiją, kuriai nauja versija priklausys.
+Pasirinkus papildomos (Minor) arba pataisos (Patch) versijos tipą, būtina pasirinkti versiją, kuri bus naujos versijos tėvinė versija.
 
 |image130|
 *123 pav. Duomenų struktūros versijos priklausymas kitai versijai.*
