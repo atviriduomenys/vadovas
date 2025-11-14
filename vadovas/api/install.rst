@@ -14,7 +14,7 @@ pasileisti ir savo infrastruktūroje.
 
 Čia rasite informaciją, kaip galite paleisti Saugyklą savo infrastruktūroje.
 
-Saugykla veikia :ref:`Spinta` priemonės pagalba. :ref:`Spinta` gali veikit kaip
+Saugykla veikia :ref:`Spinta<spinta>` priemonės pagalba. :ref:`Spinta<spinta>` gali veikti kaip
 komandinės eilutės įrankis, tačiau taip pat gali veikti ir duomenų publikavimo
 režimu.
 
@@ -44,7 +44,7 @@ Debian/Ubuntu aplinkai. Diegimą galima atlikti ir kitose Linux distribucijose,
 tačiau tam tikros vietos nurodytos šioje dokumentacijoje turėtu būti
 priderintos taip, kad veiktų kitoje distribucijoje.
 
-Saugykla yra sukurta naudojant Python programavimo kalbą, reikalinga Python 3.9
+Saugykla yra sukurta naudojant Python programavimo kalbą, reikalinga Python 3.10
 ar naujesnė versija. Naujose Saugyklos versija reikalavimas Python versijai
 gali keistis.
 
@@ -113,10 +113,10 @@ Daugelis Linux distribucijų ateina su įdiegta Python versija, tačiau reikia
 
     python3 --version
 
-Jei Python versija yra 3.9 ar naujesnė, tada galite pereiti prie sekančio
+Jei Python versija yra 3.10 ar naujesnė, tada galite pereiti prie sekančio
 žingsnio.
 
-Jei versija yra žemesnė nei 3.9, tuomet reikės įsidiegti naujesnę Python
+Jei versija yra žemesnė nei 3.10, tuomet reikės įsidiegti naujesnę Python
 versiją. Tai galite padaryti naudodami pyenv_ (dėl pačio pyenv_ diegimo
 skaitykite `pyenv dokumentacijoje`_):
 
@@ -170,12 +170,12 @@ Aktyvų naudotoją ir katalogą galite pasikeisti taip:
     sudo -Hsu spinta
     cd
 
-Saugykla veikia Spinta_ priemonės pagalba, kuriai reikia Python. Rekomenduojama
+Saugykla veikia :ref:`Spinta<spinta>` priemonės pagalba, kuriai reikia Python. Rekomenduojama
 visus Python paketus diegti taip vadinamoje izoliuotoje Python aplinkoje, kurią
 galima susikurti taip (nepamirškite nurodyti jūsų naudojamos Python versijos
 numerį, kuris gali skirtis):
 
-- Jei Python diegėte su venv_:
+- Jei Python diegėte su *venv*:
 
     .. code-block:: sh
 
@@ -206,7 +206,7 @@ patikrinti taip:
 
     env/bin/spinta config config
 
-Konfigūracijos failas vieta gali būti keičiama komandinės eilutės:
+Konfigūracijos failo vieta gali būti keičiama komandinės eilutės:
 
 .. code-block:: sh
 
