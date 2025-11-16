@@ -6,6 +6,11 @@
 Agentas
 #######
 
+Agento diegimas
+***************
+
+.. include:: agentas/diegimas.rst
+
 
 Sinchronizacija
 ***************
