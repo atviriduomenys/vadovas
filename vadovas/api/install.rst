@@ -14,7 +14,7 @@ pasileisti ir savo infrastruktūroje.
 
 Čia rasite informaciją, kaip galite paleisti Saugyklą savo infrastruktūroje.
 
-Saugykla veikia :ref:`Spinta` priemonės pagalba. :ref:`Spinta` gali veikit kaip
+Saugykla veikia :ref:`Spinta` priemonės pagalba. :ref:`Spinta` gali veikti kaip
 komandinės eilutės įrankis, tačiau taip pat gali veikti ir duomenų publikavimo
 režimu.
 
@@ -45,7 +45,7 @@ tačiau tam tikros vietos nurodytos šioje dokumentacijoje turėtu būti
 priderintos taip, kad veiktų kitoje distribucijoje.
 
 Saugykla yra sukurta naudojant Python programavimo kalbą, reikalinga Python 3.9
-ar naujesnė versija. Naujose Saugyklos versija reikalavimas Python versijai
+ar naujesnė versija. Naujose Saugyklos versijose reikalavimas Python versijai
 gali keistis.
 
 Dėl serverio resursų, tokių kaip CPU, RAM ir HDD, reikalingi resursai
@@ -206,7 +206,7 @@ patikrinti taip:
 
     env/bin/spinta config config
 
-Konfigūracijos failas vieta gali būti keičiama komandinės eilutės:
+Konfigūracijos failo vieta gali būti keičiama komandinės eilutės:
 
 .. code-block:: sh
 
@@ -310,7 +310,7 @@ veiks saugykla. Šioje vietoje reikia pateikti ne ŠDSA, o ADSA variantą, t.y.
 struktūros aprašą, kuriame pašalinta viskas, kas nereikalinga atvėrimui
 (žiūrėti :ref:`šdsa-vertimas-į-adsa`).
 
-Galiausiai patikriname configūraciją:
+Galiausiai patikriname konfigūraciją:
 
 .. code-block:: sh
 
@@ -574,5 +574,5 @@ Jei kažkas neveikia, pirmiausiai reikėtų žiūrėti servisų žurnalus, pavyz
     journalctl -u gunicorn -xe
     journalctl -u nginx -xe
 
-Žurnaluose dažniausiai būti pateikta visa informacija, kas suprasti kas ir
+Žurnaluose dažniausiai būna pateikta informacija, leidžianti suprasti kas ir
 kodėl neveikia.
