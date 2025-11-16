@@ -413,7 +413,7 @@ nepamirškite iš naujo deklaruoti kintamuosius.
 
         pip install spinta==0.1.55
 
-6. Galiausiai, galite leisti įprastas komans, tik duomenų kėlimą reikėtu daryti
+6. Galiausiai, galite leisti įprastas komandas, tik duomenų kėlimą reikėtu daryti
    į put-test.data.gov.lt Saugyklos testinę aplinką.
 
 7. Įsitikinus, kad nauja versija veikia, galite ją atsinaujinti ir savo
@@ -709,7 +709,7 @@ diegimui pirmiausia reikės įsidiegti tokius sisteminius paketus:
 
     $ sudo apt install build-essential python3-dev default-libmysqlclient-dev
 
-O data ir pačią `mysqlclient` biblioteką:
+O tada ir pačią `mysqlclient` biblioteką:
 
 .. code-block:: sh
 

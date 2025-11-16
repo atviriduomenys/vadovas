@@ -47,9 +47,40 @@ tiesiogiai priklauso nuo publikuojamų duomenų kiekio ir naudotojų srauto, kur
 naudosis duomenų publikavimo paslauga.
 
 Minimalūs reikalavimai Agentui, be duomenų ir su 5 naudotojais vienu metu
-besinaudojančiais duomenų teikimo paslauga būtų 1 CPU, 512 Mb RAM ir 1G HDD laisvos
-vietos, kuri lieka pilnai įdiegus operacinę sistemą ir visas reikalingas
-priklausomybes.
+besinaudojančiais duomenų teikimo paslauga:
+
+CPU
+    1 CPU, šiuo metu perduodant duomenis nėra naudojamas lygiagretinimas,
+    todėl bus naudojamas tik vienas CPU, ateityje tai gali keistis.
+
+RAM
+    512Mb, duomenys skaitomi srautiniu būdu, todėl nepriklausomai nuo
+    šaltinio dydžio, naudojamas fiksuotas RAM kiekis.
+
+    Vienas Spinta procesas naudoja apie 100Mb RAM.
+
+HDD
+    Priklauso nuo duomenų kiekio.
+
+    Unikalių identifikatorių duomenų įrašams suteikimui, saugomi papildomi duomenys:
+
+    1. Vidinių ir publikuojamų pirminių raktų sąsaja, saugoma
+       `~/.local/share/spinta/keymap.db` Sqlite arba Redis duomenų bazėje. Duomenys
+       atrodo taip::
+
+           bb969358-ce9e-4255-b596-c748f6885332|bf8b4530d8d246dd74ac53a13471bba17941dff7|BINDATA...
+           522a3615-8527-4eb7-8327-977fe4383dcd|c4ea21bb365bbeeaf5f2c654883e56d11e43c44e|BINDATA...
+           9be3e60b-d557-4596-a370-660f3c337772|9842926af7ca0a8cca12604f945414f07b01e13d|BINDATA...
+           60c2f4da-c32a-4fba-a39a-8e85252a77ad|a42c6cf1de3abfdea9b95f34687cbbe92b9a7383|BINDATA...
+           ab2baaa6-508d-4069-9a45-53bce46676ca|8dc00598417d4eb788a77ac6ccef3cb484905d8b|BINDATA...
+
+       Saugomas išorinis raktas, vidinio rakto sha1 ir vidinio rakto reikšmė
+       MsgPack formatu.
+
+       Šios lentelės dydis tiesiogiai proporcingas šaltinio įrašų skaičiui ir
+       šaltinio lentelių pirminių raktų dydžiui.
+
+       Vidutiniškai, 10^6 įrašų telpa į 200Mb.
 
 Pats savaime Agentas su visomis Python priklausomybes diske užima apie 500 Mb
 vietos, tačiau sunaudojamos vietos skaičius gali skirtis, skirtingose
