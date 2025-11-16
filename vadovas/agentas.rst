@@ -6,11 +6,12 @@
 Agentas
 #######
 
-Agento diegimas
-***************
+**Agento diegimas:**
 
-.. include:: agentas/diegimas.rst
+.. toctree::
+    :maxdepth: 1
 
+    /agentas/diegimas
 
 Sinchronizacija
 ***************
