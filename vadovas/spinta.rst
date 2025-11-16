@@ -236,7 +236,7 @@ Tai padarius, galite patikrinti ar komanda `spinta` veikia:
 .. code-block:: sh
 
     $ spinta --version
-    0.1.9
+    0.1.85
 
 Ši komanda turi išvesti, Spinta priemonės versijos numerį.
 
