@@ -416,7 +416,7 @@ nepamirškite iš naujo deklaruoti kintamuosius.
 
    .. code-block:: sh
 
-       pip install --require-hashes -r https://raw.githubusercontent.com/atviriduomenys/spinta/refs/heads/master/requirements/spinta-latest-pre.txt
+       pip install --pre --require-hashes -r https://raw.githubusercontent.com/atviriduomenys/spinta/refs/heads/master/requirements/spinta-latest-pre.txt
 
    `--pre` argumentas nurodo, kad atnaujinimas turi būti daromas iki naujausios
    versijos, kuri dar nėra stabili. Be šio argumento, bus atnaujinama tik iki
