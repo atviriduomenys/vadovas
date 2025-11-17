@@ -260,7 +260,7 @@ Pats konfigūracijos failas `config.yml` turėtu atrodyti panašiai taip:
       file: /opt/spinta/logs/access.log
 
 Jei naudojate daugiau, nei vieną manifestą, ir norite, kad Agentas pasiektų juos visus,
-galima tai naudoti operatoriaus `sync` pagalba:
+galima tai atlikti operatoriaus `sync` pagalba:
 
 .. code-block:: yaml
 
