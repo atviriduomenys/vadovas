@@ -84,7 +84,7 @@ HDD
 
 Duomenų atvėrimo priemonė Spinta yra sukurta naudojant Python_ technologiją.
 Todėl prieš diegiant, jūsų naudojamoje aplinkoje turi būti `įdiegta`__ Python
-3.9 arba naujesnė versija.
+3.10 arba naujesnė versija.
 
 .. _Python: https://www.python.org/
 
@@ -118,7 +118,7 @@ reikalinga Python versiją, tai galite pažiūrėti taip:
 
     $ python3 --version
 
-Jei turite 3.9 ar naujesnę versiją, tuomet galite pereiti prie
+Jei turite 3.10 ar naujesnę versiją, tuomet galite pereiti prie
 :ref:`install-debian-python-packages` žingsnio.
 
 Naujesnę Python versiją galite įsidiegti pasirinkdami vieną iš dviejų galimų
@@ -159,7 +159,7 @@ Naujausios Python versijos diegimas naudojant pyenv_ daromas taip:
 
 .. code-block:: sh
 
-    $ .pyenv/bin/pyenv install 3.10.7
+    $ .pyenv/bin/pyenv install 3.14.0
 
 Jei diegiate Spintą kitoje Linux distribucijoje, reikalingų paketų sąrašą
 galite rasti `pyenv dokumentacijoje`_.
@@ -171,7 +171,7 @@ kurioje diegsime reikalingus Python paketus:
 
 .. code-block:: sh
 
-    $ .pyenv/versions/3.10.7/bin/python -m venv venv
+    $ .pyenv/versions/3.14.0/bin/python -m venv venv
 
 
 .. _install-debian-ppa:
@@ -194,14 +194,14 @@ Ir galiausiai įdiegiame pageidaujamą Python versiją:
 .. code-block:: sh
 
     $ sudo apt update
-    $ sudo apt install python3.10 python3.10-venv
+    $ sudo apt install python3.14 python3.14-venv
 
 Atlikus naujos Python versijos diegimo veiksmus susikuriame izoliuotą aplinką,
 kurioje diegsime reikalingus Python paketus:
 
 .. code-block:: sh
 
-    $ python3.10 -m venv venv
+    $ python3.14 -m venv venv
 
 
 .. _install-debian-python-packages:
@@ -216,6 +216,14 @@ aplinką, Spinta galima įdiegti taip:
 
     $ venv/bin/pip install spinta
 
+
+Įdiegus spintą, rekomenduojama susidiegti spintos naudojamas bibliotekas su tomis versijomis,
+su kuriomis spinta buvo išleista. Tai padaryti galima taip:
+
+.. code-block:: sh
+
+    venv/bin/pip install --require-hashes -r https://raw.githubusercontent.com/atviriduomenys/spinta/refs/heads/master/requirements/spinta-latest.txt
+
 Galiausiai, įdiegus Spinta paketą, reikia aktyvuoti izoliuotą aplinką, kad
 galėtumėte toliau dirbti su Spinta paketo teikiama komanda `spinta`:
 
@@ -228,7 +236,7 @@ Tai padarius, galite patikrinti ar komanda `spinta` veikia:
 .. code-block:: sh
 
     $ spinta --version
-    0.1.9
+    0.1.85
 
 Ši komanda turi išvesti, Spinta priemonės versijos numerį.
 
@@ -297,11 +305,11 @@ Panaši situacija gali pasitaikyti ir vykdant:
 
 Šios komandos vykdymo metu galite gauti tokią klaidą::
 
-    Downloading Python-3.9.5.tar.xz...
-    -> https://www.python.org/ftp/python/3.9.5/Python-3.9.5.tar.xz
-    error: failed to download Python-3.9.5.tar.xz
+    Downloading Python-3.14.0.tar.xz...
+    -> https://www.python.org/ftp/python/3.14.0/Python-3.14.0.tar.xz
+    error: failed to download Python-3.14.0.tar.xz
 
-    BUILD FAILED (Ubuntu 20.04 using python-build 2.0.0)
+    BUILD FAILED (Ubuntu 24.04 using python-build 2.0.0)
 
 Tokių atveju įsitikinkite ar ugniasienė leidžia kreiptis į išore ir
 pabandykite laikinai sustabdyti antivirusinę programą.
@@ -392,7 +400,7 @@ nepamirškite iš naujo deklaruoti kintamuosius.
         cp -avi ~/.config/spinta $BASEDIR/config
         cp -avi ~/.local/share/spinta $BASEDIR/data
 
-5. Susikurkite izoliuotą Spinta paketo aplinką ir įdiektie norimą Spintos
+5. Susikurkite izoliuotą Spinta paketo aplinką ir įdiekite norimą Spintos
    paketo versiją:
 
    ::
@@ -401,6 +409,14 @@ nepamirškite iš naujo deklaruoti kintamuosius.
         source $BASEDIR/venv/bin/activate
         pip install --upgrade --pre spinta
         spinta --version
+
+
+   Įdiegus spintą, rekomenduojama susidiegti spintos naudojamas bibliotekas su tomis versijomis,
+   su kuriomis spinta buvo išleista. Tai padaryti galima taip:
+
+   .. code-block:: sh
+
+       pip install --pre --require-hashes -r https://raw.githubusercontent.com/atviriduomenys/spinta/refs/heads/master/requirements/spinta-latest-pre.txt
 
    `--pre` argumentas nurodo, kad atnaujinimas turi būti daromas iki naujausios
    versijos, kuri dar nėra stabili. Be šio argumento, bus atnaujinama tik iki
@@ -411,7 +427,15 @@ nepamirškite iš naujo deklaruoti kintamuosius.
 
    Norint įdiegti konkrečią versiją, versijos numeris nurodomas taip::
 
-        pip install spinta==0.1.55
+        pip install spinta==0.1.85
+
+   Norint susidiegti konkrečios versijos naudojamas bibliotekas, reikia papildomai paleisi šią komandą:
+
+   .. code-block:: sh
+
+       pip install --require-hashes -r https://raw.githubusercontent.com/atviriduomenys/spinta/refs/heads/master/requirements/spinta-latest-<version>.txt
+
+   Čia vietoje <version> įrašykite norimą versiją (
 
 6. Galiausiai, galite leisti įprastas komans, tik duomenų kėlimą reikėtu daryti
    į put-test.data.gov.lt Saugyklos testinę aplinką.
