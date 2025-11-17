@@ -471,7 +471,7 @@ Gunicorn ar Nginx parametrus rasite minėtų projektų dokumentacijoje.
 Spintos naujinimas
 ******************
 
-Norint atnaujinti Spinta versiją, jums reikia įvykdyti tokias komanas:
+Norint atnaujinti Spinta versiją, jums reikia įvykdyti tokias komandas:
 
 .. code-block:: sh
 
