@@ -82,7 +82,7 @@ HDD
 
        Vidutiniškai, 10^6 įrašų telpa į 200Mb.
 
-Pats savaime Agentas su visomis Python priklausomybes diske užima apie 500 Mb
+Pats savaime Agentas su visomis Python priklausomybes diske užima apie 500 MB
 vietos, tačiau sunaudojamos vietos skaičius gali skirtis, skirtingose
 distribucijose.
 
