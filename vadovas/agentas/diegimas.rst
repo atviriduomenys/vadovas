@@ -203,7 +203,7 @@ versiją, kadangi joje yra naujausi projekto vystymui ir partnerių darbui atlik
 Agento konfigūravimas
 *********************
 
-Spinta yra konfigūruojama konfigūracijos failo pagalba, kurio, pagal nutylėjimą
+Spinta yra konfigūruojama konfigūracijos failo pagalba, kurio, pagal nutylėjimą,
 ieškoma aktyviame kataloge. Kur Spinta ieško konfigūracijos failo, galima
 patikrinti taip:
 
