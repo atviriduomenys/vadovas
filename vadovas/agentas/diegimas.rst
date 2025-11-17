@@ -54,10 +54,10 @@ CPU
     todėl bus naudojamas tik vienas CPU, ateityje tai gali keistis.
 
 RAM
-    512Mb, duomenys skaitomi srautiniu būdu, todėl nepriklausomai nuo
+    512 MB, duomenys skaitomi srautiniu būdu, todėl nepriklausomai nuo
     šaltinio dydžio, naudojamas fiksuotas RAM kiekis.
 
-    Vienas Spinta procesas naudoja apie 100Mb RAM.
+    Vienas Spinta procesas naudoja apie 100 MB RAM.
 
 HDD
     Priklauso nuo duomenų kiekio.
@@ -80,7 +80,7 @@ HDD
        Šios lentelės dydis tiesiogiai proporcingas šaltinio įrašų skaičiui ir
        šaltinio lentelių pirminių raktų dydžiui.
 
-       Vidutiniškai, 10^6 įrašų telpa į 200Mb.
+       Vidutiniškai, 10^6 įrašų telpa į 200 MB.
 
 Pats savaime Agentas su visomis Python priklausomybes diske užima apie 500 MB
 vietos, tačiau sunaudojamos vietos skaičius gali skirtis, skirtingose
