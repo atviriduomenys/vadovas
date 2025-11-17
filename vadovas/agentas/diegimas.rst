@@ -406,7 +406,7 @@ Aktyvuokite servisą:
     sudo systemctl daemon-reload
     sudo systemctl start gunicorn
 
-Patikrinkite are servisas veikia:
+Patikrinkite ar servisas veikia:
 
 .. code-block:: sh
 
