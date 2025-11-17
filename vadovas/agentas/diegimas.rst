@@ -6,7 +6,7 @@
 Agento diegimas
 ###############
 
-Agentas - duomenų teikimo agentas, teikiantis duomenus pagal UDTS standartą.
+Agentas - duomenų teikimo agentas, teikiantis duomenis pagal UDTS standartą.
 
 Čia rasite informaciją, kaip galite paleisti Agentą, veikiantį :ref:`Spinta`
 priemonės pagalba savo infrastruktūroje.
