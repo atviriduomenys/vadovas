@@ -369,9 +369,9 @@ tačiau galima pakeisti į kitą, pvz. - greitesnę ar stabilesnę saugyklą. Č
           dsn: redis://redis-address:6379/1
 
 Redis Docker paleidimo konfigūracija pateikta projekto docker-compose.yml faile (root kataloge).
-**SVARBU! Redis turi būti būtinai leidžiamas persistent režimu (appendonly yes parametras)**
+**SVARBU! Redis turi būti būtinai leidžiamas persistent režimu (`--appendonly yes --appendfsync always`)**
 Yra keli persistent režimai (žr. Redis/Valkey dokumentaciją).
-Numatytasis režimas (appendonly) užtikrina didžiausią duomenų nepraradimo patikimumą,
+Rekomenduojamas režimas (`--appendonly yes --appendfsync always`) užtikrina didžiausią duomenų nepraradimo patikimumą,
 tačiau turi mažiausią greitį, lyginant su kitais režimais.
 
 Web serverio diegimas ir konfigūravimas
