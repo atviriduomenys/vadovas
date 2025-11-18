@@ -393,7 +393,7 @@ Organizacijos rekvizitai
 
 
 | |redaguoti_org|
-| *27 pav. Organizacijos redagavimo forma*
+| *28 pav. Organizacijos redagavimo forma*
 
 Redagavimo lange galima redaguoti laukus:
 
@@ -424,6 +424,84 @@ Redagavimo lange galima redaguoti laukus:
 - **Aprašymas:** aprašymas apie organizaciją;
 
 ====
+
+Organizacijos kontaktai
+*************************
+
+Kontaktų skiltis leidžia tvarkyti organizacijos kontaktinius asmenis ir jų informaciją.
+
+
+Kontaktų sąrašo peržiūra
+=========================
+
+1. Pagrindiniame meniu pasirinkite **„Organizacijos"**.
+
+2. Organizacijų sąraše pasirinkite savo organizaciją.
+
+3. Organizacijos lange pasirinkite skiltį **„Kontaktai"**.
+
+| |organizacijos_kontaktai| 
+| *29 pav. Organizacijos kontaktų skiltis*
+
+- **Kontaktas:** kontaktinio asmens vardas ir pavardė arba organizacijos pavadinimas;
+- **Pareigos organizacijoje:** kontaktinio asmens pareigos organizacijoje;
+- **El. paštas:** kontaktinio asmens ar organizacijos el. pašto adresas;
+- **Telefono numeris:** kontaktinio asmens ar organizacijos telefono numeris;
+- **Tipas:** nurodo, ar kontaktas yra naudotojas, ar organizacija ar neregistruotas naudotojas;
+
+
+Naujų kontaktų kūrimas
+=======================
+*Šis skyrius skirtas tik Koordinatoriams.*
+
+Naujo kontakto sukūrimas
+-------------------------
+
+1. Kontaktų sąraše paspauskite mygtuką **„Pridėti kontaktą"**.
+
+2. Atsidariusiame lange užpildykite kontakto informaciją:
+
+| |organizacijos_kontaktu_forma| 
+| *30 pav. Naujo organizacijos kontakto pridėjimo forma*
+
+Kurdami naują kontaktą turite pasirinkti **vieną iš dviejų variantų**:
+
+**1 variantas. Registruoto asmens ar organizacijos pasirinkimas:**
+
+- **Registruotas kontaktinis asmuo ar organizacija:** iš išskleidžiamojo sąrašo pasirinkite jau sistemoje registruotą naudotoją arba organizaciją.
+
+   Sąraše kontaktai pateikiami grupuojami pagal tipą:
+   
+   - **„Organizacija:"** – organizacijos, kurios yra jūsų organizacijos atstovės;
+   - **„Naudotojai:"** – naudotojai, kurie atstovauja jūsų organizaciją arba jos atstoves organizacijas.
+
+
+   **Pasirinkus registruotą asmenį ar organizaciją:**
+   
+   - **El. paštas** ir **Telefono numeris** automatiškai užpildomi iš pasirinkto asmens ar organizacijos profilio;
+   - Šių laukų redaguoti negalima – jie atnaujinami tik pačiame profilyje;
+   - Jei pasirinktas **naudotojas**, būtina nurodyti jo **Pareigas organizacijoje**;
+   - Jei pasirinkta **organizacija**, pareigų nurodyti negalima.
+
+**2 variantas. Papildomo kontaktinio asmens įvedimas:**
+
+- **Papildomas kontaktinis asmuo:** įveskite neregistruoto kontaktinio asmens vardą ir pavardę;
+
+   *Šis laukas skirtas asmenims, kurie nėra registruoti sistemoje.*
+
+- **Pareigos organizacijoje:** *privalomas laukas* – įveskite asmens pareigas organizacijoje;
+
+- **El. paštas:** *privalomas laukas* – įveskite kontaktinio asmens el. pašto adresą;
+
+   *Pastaba: El. pašto adresas turi būti unikalus organizacijoje – tas pats el. paštas negali būti naudojamas keliems kontaktams.*
+
+- **Telefono numeris:** *privalomas laukas* – įveskite telefono numerį formatu **+3706XXXXXXX** arba **0XXXXXXXX**.
+
+3. Užpildę visus būtinus laukus, paspauskite **„Sukurti"**.
+
+*Sėkmingai sukūrus kontaktą, jis bus pridėtas į organizacijos kontaktų sąrašą ir galės būti priskiriamas duomenų rinkiniams.*
+
+
 
 Prašymai gauti duomenis
 ***********************
@@ -2420,6 +2498,7 @@ Slaptažodis privalo būti saugus. (Daugiau: `Sąvokos <#naudojami-terminai-ir-s
 .. |panaudojimo_atvejo_perziura| image:: /static/katalogas/okot/panaudojimo_atvejo_perziura.png
 .. |duomenu_isteklio_panaudojimo_atvejai| image:: /static/katalogas/okot/duomenu_isteklio_panaudojimo_atvejai.png
 .. |panaudojimo_atvejo_duomenu_istekliai| image:: /static/katalogas/okot/panaudojimo_atvejo_duomenu_istekliai.png
-
+.. |organizacijos_kontaktai| image:: /static/katalogas/okot/organizacijos_kontaktai.png
+.. |organizacijos_kontaktu_forma| image:: /static/katalogas/okot/organizacijos_kontaktu_forma.png
 .. _objektas: https://ivpk.github.io/dsa/modelis.html#objektas
 .. _brandos lygis: https://ivpk.github.io/dsa/branda.html
