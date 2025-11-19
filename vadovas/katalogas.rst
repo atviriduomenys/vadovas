@@ -2032,6 +2032,14 @@ Kurti arba įkelti pasirašytą sutartį galima spaudžiant mygtuką dešiniajam
 Šį veiksmą gali atlikti tik gavėjo ir teikėjo organizacijos atstovai, organizacijos vardu prisijungę per VIISP
 ir turintys sutarčių pasirašymo teises.
 
+Norint įkelti pasirašytą sutartį, failas privalo atitikti šiuos kriterijus:
+ - Failas privalo būti validus, pasirašytas ADOC failas.
+ - ADOC faile privalo būti originali, neradaguota sutartis (PDF), kuri buvo sugeneruota kataloge.
+ - ADOC faile negali būti jokių papildomų priedų ar failų, kurie nėra būtini ADOC failo struktūrai.
+ - Jeigu sutartį kelia duomenų gavėjas, sutartyje privalo būti lygiai vienas parašas.
+ - Jeigu sutartį kelia duomenų teikėjas, sutartyje privalo būti lygiai du parašai.
+ - Abiem atvejais pasirašiusio/-ų asmens/-ų vardas/-ai ir pavardė/-ės privalo sutapti su sutartyje esančiu/-iais vardu/-ais ir pavarde/-ėmis.
+
 Mygtuko veiksmas priklauso nuo sutarties būsenos:
 
 - Sutarties būsena **Pateikta** – galima generuoti sutarties *PDF* dokumentą.
