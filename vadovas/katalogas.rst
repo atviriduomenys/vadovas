@@ -403,7 +403,10 @@ Redagavimo lange galima redaguoti laukus:
 
 - **Kodinis pavadinimas:** kodinis organizacijos pavadinimas;
 
-- **Tipas:** organizacijos tipas;
+- **Tipas:** organizacijos tipas; Šiam laukui taikomi apribojimai:
+
+  - Organizacija, kurios tipas yra *Valstybinė įstaiga* savo tipo keisti negali.
+  - Organizacija, kurios tipas nėra *Valstybinė įstaiga*, negali rinktis tipo *Valstybinė įstaiga*.
 
 - **Valdymo sritis:** organizacijos valdymo sritis;
 
