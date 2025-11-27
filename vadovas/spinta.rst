@@ -217,7 +217,7 @@ reikia ją diegti taip:
 
     venv/bin/pip install --require-hashes -r https://raw.githubusercontent.com/atviriduomenys/spinta/refs/heads/master/requirements/spinta-latest.txt
 
-DVMS partneriams reikia diegti naujausią pre-release versiją, kadangi projektas aktyviai vystomas:
+**DVMS partneriams** reikia diegti naujausią pre-release versiją, kadangi projektas aktyviai vystomas:
 
 .. code-block:: sh
 
