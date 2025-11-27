@@ -35,10 +35,8 @@ CPU
     todėl bus naudojamas tik vienas CPU, ateityje tai gali keistis.
 
 RAM
-    512Mb, duomenys skaitomi srautiniu būdu, todėl nepriklausomai nuo
+    2GB, duomenys skaitomi srautiniu būdu, todėl nepriklausomai nuo
     šaltinio dydžio, naudojamas fiksuotas RAM kiekis.
-
-    Vienas Spinta procesas naudoja apie 100Mb RAM.
 
 HDD
     Priklauso nuo duomenų kiekio.
@@ -79,7 +77,7 @@ HDD
 
        Vidutiniškai, 10^6 įrašų talpa į 200Mb.
 
-    Apytiksliai, vienam milijonui įrašų reikėtų turėti bend 0.5G laisvos
+    Apytiksliai, vienam milijonui įrašų reikėtų turėti bend 5G laisvos
     disko vietos.
 
 Duomenų atvėrimo priemonė Spinta yra sukurta naudojant Python_ technologiją.
