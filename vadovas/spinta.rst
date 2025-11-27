@@ -82,7 +82,7 @@ HDD
 
 Duomenų atvėrimo priemonė Spinta yra sukurta naudojant Python_ technologiją.
 Todėl prieš diegiant, jūsų naudojamoje aplinkoje turi būti `įdiegta`__ Python
-3.10 arba naujesnė versija.
+versija nuo 3.10 iki 3.13.
 
 .. _Python: https://www.python.org/
 
@@ -116,7 +116,7 @@ reikalinga Python versiją, tai galite pažiūrėti taip:
 
     $ python3 --version
 
-Jei turite 3.10 ar naujesnę versiją, tuomet galite pereiti prie
+Jei turite 3.10 - 3.13 versiją, tuomet galite pereiti prie
 :ref:`install-debian-python-packages` žingsnio.
 
 Naujesnę Python versiją galite įsidiegti pasirinkdami vieną iš dviejų galimų
@@ -157,7 +157,7 @@ Naujausios Python versijos diegimas naudojant pyenv_ daromas taip:
 
 .. code-block:: sh
 
-    $ .pyenv/bin/pyenv install 3.13.0
+    $ .pyenv/bin/pyenv install 3.13.9
 
 Jei diegiate Spintą kitoje Linux distribucijoje, reikalingų paketų sąrašą
 galite rasti `pyenv dokumentacijoje`_.
@@ -169,7 +169,7 @@ kurioje diegsime reikalingus Python paketus:
 
 .. code-block:: sh
 
-    $ .pyenv/versions/3.13.0/bin/python -m venv venv
+    $ .pyenv/versions/3.13.9/bin/python -m venv venv
 
 
 .. _install-debian-ppa:
@@ -309,8 +309,8 @@ Panaši situacija gali pasitaikyti ir vykdant:
 
 Šios komandos vykdymo metu galite gauti tokią klaidą::
 
-    Downloading Python-3.13.0.tar.xz...
-    -> https://www.python.org/ftp/python/3.13.0/Python-3.13.0.tar.xz
+    Downloading Python-3.13.9.tar.xz...
+    -> https://www.python.org/ftp/python/3.13.0/Python-3.13.9.tar.xz
     error: failed to download Python-3.13.0.tar.xz
 
     BUILD FAILED (Ubuntu 24.04 using python-build 2.0.0)
