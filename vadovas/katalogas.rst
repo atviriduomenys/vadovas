@@ -1972,30 +1972,125 @@ Sutartis peržiūrėti gali tik teikiančios ir gaunančios organizacijos atstov
 
 Sutarčių būsenų paaiškinimai:
 
-- **Pateikta** – Sutartis sukurta. Sutarties *PDF* dokumentas dar nesukurtas. Sukurti sutarties
+- **Sukurta** – Sutartis sukurta. Sutarties *PDF* dokumentas dar nesukurtas. Sukurti sutarties
   dokumentą galima :ref:`sutarties peržiūros puslapyje <sutarties-perziura>`.
-  Sukūrus sutarties dokumentą, sutarties būsena taps **Suformuota**.
+- **Pateikta** – Duomenų gavėjas pateikė pasiūlymą duomenų teikėjui. Nurodydamas teisinius pagrindus, kuriais bus vadovaujamasi gaunant duomenis,
+  duomenų gavimo tikslą.
+- **Patvirtinta** – Duomenų teikėjas patvirtino pasiūlymą, pateikė savo teisinius pagrindus, sutarties šabloną.
 - **Suformuota** – Sutarties *PDF* dokumentas sukurtas, bet nepasirašytas. Pasirašyti
   sutarties dokumentą galima :ref:`sutarties peržiūros puslapyje <sutarties-perziura>`.
-  Pasirašius - sutarties būsena taps **Inicijuota**.
-- **Inicijuota** – Sutarties dokumentas pasirašytas duomenų gavėjo. Kai sutartį pasirašys
-  duomenų tiekėjas - sutarties būsena taps **Pasirašyta**.
+- **Inicijuota** – Sutarties dokumentas pasirašytas duomenų gavėjo.
 - **Pasirašyta** – Sutarties dokumentas pasirašytas duomenų gavėjo ir duomenų tiekėjo. Kai sutarties
   duomenys bus sėkmingai sinchronizuoti su duomenų agentu, sutarties būsena taps **Aktyvi**.
 - **Aktyvi** – Sutartis sėkmingai sinchronizuota su agentu. Galima gauti duomenis.
 - **Nutraukta** – Sutartis nutraukta. Duomenų gauti nebegalima.
 
 
-Sutarties kūrimas
------------------
+Sutarčių derinimas
+------------------
 
-Kurti sutartis (sutarties įrašus, kuriems vėliau bus galima kurti sutarties
-dokumentus) galima paspaudus mygtuką "Generuoti sutartis" dešiniajame viršutiniame kampe.
-Šį veiksmą gali atlikti tik gavėjo organizacijos atstovas, organizacijos vardu prisijungęs per VIISP,
-bei turintis sutarčių pasirašymo teises.
+Sutartis (sutarties įrašus, kuriems vėliau bus generuojami sutarties dokumentai) galima sukurti paspaudus mygtuką
+„Generuoti sutartis“, esantį dešiniajame viršutiniame sutarčių skirtuko kampe.
+Šį veiksmą gali atlikti tik duomenų gavėjo organizacijos atstovas, prisijungęs organizacijos vardu per VIISP ir
+turintis sutarčių pasirašymo teises.
 
-Sutartys bus sukurtos kiekvienai organizacijai atskirai. Atsidariusioje formoje bus galima
-pasirinkti norimus leidimus iš kiekvieno organizacijos duomenų rinkinio.
+Sutartys sukuriamos kiekvienai organizacijai atskirai. Atsidariusioje formoje galima pasirinkti norimas leidimų sritis
+(scopes) iš kiekvieno duomenų rinkinio, priskirto panaudojimo atvejui.
+
+| |image_scope_selection|
+| *Leidimų sričių pasirinkimas*
+
+Kiekvienam sukurtam įrašui derinimą galima pradėti nuspaudus mygtuką **„Peržiūrėti“**.
+
+Pasiūlymo pateikimas (gavėjo žingsnis)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Pirmuosius veiksmus atlieka duomenų gavėjas. Atsivėrusiame sutarties įrašo puslapyje rodomi įrašo duomenys ir mygtukas
+**„Pateikti pasiūlymą“**.
+
+| |image_submit_proposal|
+| *Pasiūlymo teikimas*
+
+Paspaudus šį mygtuką, vartotojas nukreipiamas į formą, kurioje turi pateikti informaciją iš duomenų gavėjo pusės:
+
+- **Duomenų gavėjo atstovas** - atstovas, kurio parašas bus sutarties dokumente.
+  Reikšmės imamos iš organizacijos skirtuko **„Kontaktai“**.
+
+| |image_submit_proposal_form_assignee|
+| *Pasiūlymo teikimo forma (gavėjas)*
+
+Pateikęs formą ir paspaudęs „Pateikti pasiūlymą“, duomenų gavėjas užbaigia savo derinimo etapą.
+
+Pasiūlymo patvirtinimas (teikėjo žingsnis)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Toliau veiksmus atlieka duomenų teikėjo atstovas. Sutarties puslapyje jis gali peržiūrėti, ką pateikė gavėjas,
+paspausdamas **„Peržiūrėti pateiktą pasiūlymą“**.
+
+| |image_approval|
+| *Pasiūlymo tvirtinimas*
+
+Paspaudus šį mygtuką atsidaro derinimo forma, kur teikėjas mato gavėjo pateiktą informaciją
+(duomenų ištekliai, tikslas, teisinis pagrindas, gavėjo atstovas) ir pildo duomenis iš savo pusės:
+
+- **Sutarties šablonas** - sutarties dokumento šablonas. Teikėjas gali naudoti sistemoje išsaugotą savo šabloną.
+- **Duomenų teikėjo atstovas** - atstovas, kurio parašas bus dokumente. Reikšmės imamos iš teikėjo organizacijos **„Kontaktų“**.
+- **Duomenų teikimo teisinis pagrindas (prievolė)** - teisės aktai, pagal kuriuos teikiami duomenys.
+
+| |image_approval_form_assigner|
+| *Patvirtinimo forma (teikėjas)*
+
+Sutarties formavimas
+~~~~~~~~~~~~~~~~~~~~
+
+Kitą žingsnį – **sutarties dokumento formavimą** – gali atlikti bet kuri iš šalių.
+
+| |image_agreement_form_both_parties|
+| *Sutarties formavimas*
+
+Nuspaudus **„Formuoti sutartį“**, atidaromas langas su bendra, suderinta informacija.
+Čia nieko pildyti nereikia – tik patvirtinti pasirinkus **„Formuoti sutartį“**.
+
+| |image_agreement_forming_form|
+| *Sutarties formavimo forma*
+
+Sistemoje sugeneruojami dokumentai: *Markdown*, *PDF* ir *ODRL-JSON* formatais.
+
+Duomenų gavėjo parašas
+~~~~~~~~~~~~~~~~~~~~~~
+
+| |image_agreement_upload_assignee|
+| *Pasirašytos sutarties įkėlimas (gavėjas)*
+
+Duomenų gavėjo atstovas atsisiunčia PDF failą ir jį pasirašo nurodyto atstovo parašu.
+Gavęs ADOC versiją, įkelia ją per funkciją „Įkelti pasirašytą dokumentą (Gavėjo)“.
+Jei failas neteisingas, sistema pateikia išsamias klaidas.
+
+Duomenų teikėjo parašas
+~~~~~~~~~~~~~~~~~~~~~~~
+
+| |image_agreement_upload_assigner|
+| *Pasirašytos sutarties įkėlimas (Teikėjo)*
+
+Teikėjas atsisiunčia gavėjo įkeltą ADOC failą, jį pasirašo ir įkelia per **„Įkelti pasirašytą dokumentą (Teikėjo)“**.
+Dokumentą turi pasirašyti būtent pasirinktas teikėjo atstovas.
+
+Pastaba dėl kontaktų
+~~~~~~~~~~~~~~~~~~~~
+
+**Svarbu:** Jeigu jau suformavus sutartį bet kuris kontaktas (vardas, pavardė, pareigos ir kt.) būtų pakeistas, sistema informuos apie klaidas.
+Tai todėl, kad sutarties dokumentai generuojami pagal tuo metu galiojusią informaciją ir nėra automatiškai perkurti pasikeitus kontaktams.
+
+Sutarties pasirašymas ir patvirtinimas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Užbaigus abu pasirašymo žingsnius, sutarties būsena tampa **„Pasirašyta“**.
+
+| |image_agreement_signed|
+| *Pasirašytos sutarties puslapis*
+
+Toliau veiksmus atlieka VSSA sistemos administratorius. Jo patvirtinimas suteikia galutinį leidimą gauti ar teikti duomenis.
+
 
 .. _sutarties-perziura:
 
@@ -2511,5 +2606,17 @@ Slaptažodis privalo būti saugus. (Daugiau: `Sąvokos <#naudojami-terminai-ir-s
 .. |panaudojimo_atvejo_duomenu_istekliai| image:: /static/katalogas/okot/panaudojimo_atvejo_duomenu_istekliai.png
 .. |organizacijos_kontaktai| image:: /static/katalogas/okot/organizacijos_kontaktai.png
 .. |organizacijos_kontaktu_forma| image:: /static/katalogas/okot/organizacijos_kontaktu_forma.png
+.. |image_scope_selection| image:: /static/katalogas/okot/image_scope_selection.png
+.. |image_submit_proposal| image:: /static/katalogas/okot/image_submit_proposal.png
+.. |image_submit_proposal_form_assignee| image:: /static/katalogas/okot/image_submit_proposal_form_assignee.png
+.. |image_approval| image:: /static/katalogas/okot/image_approval.png
+.. |image_approval_form_assigner| image:: /static/katalogas/okot/image_approval_form_assigner.png
+.. |image_agreement_form_both_parties| image:: /static/katalogas/okot/image_agreement_form_both_parties.png
+.. |image_agreement_forming_form| image:: /static/katalogas/okot/image_agreement_forming_form.png
+.. |image_agreement_upload_assignee| image:: /static/katalogas/okot/image_agreement_upload_assignee.png
+.. |image_agreement_upload_form| image:: /static/katalogas/okot/image_agreement_upload_form.png
+.. |image_agreement_upload_assigner| image:: /static/katalogas/okot/image_agreement_upload_assigner.png
+.. |image_agreement_signed| image:: /static/katalogas/okot/image_agreement_signed.png
+
 .. _objektas: https://ivpk.github.io/dsa/modelis.html#objektas
 .. _brandos lygis: https://ivpk.github.io/dsa/branda.html
