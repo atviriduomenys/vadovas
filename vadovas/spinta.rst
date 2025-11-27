@@ -224,6 +224,12 @@ su kuriomis spinta buvo išleista. Tai padaryti galima taip:
 
     venv/bin/pip install --require-hashes -r https://raw.githubusercontent.com/atviriduomenys/spinta/refs/heads/master/requirements/spinta-latest.txt
 
+DVMS partneriams reikia diegti naujausią pre-release versiją, kadangi projektas aktyviai vystomas:
+
+.. code-block:: sh
+
+    venv/bin/pip install --require-hashes -r https://raw.githubusercontent.com/atviriduomenys/spinta/refs/heads/master/requirements/spinta-latest-pre.txt
+
 Galiausiai, įdiegus Spinta paketą, reikia aktyvuoti izoliuotą aplinką, kad
 galėtumėte toliau dirbti su Spinta paketo teikiama komanda `spinta`:
 
@@ -429,7 +435,7 @@ nepamirškite iš naujo deklaruoti kintamuosius.
 
         pip install spinta==0.1.85
 
-   Norint susidiegti konkrečios versijos naudojamas bibliotekas, reikia papildomai paleisi šią komandą:
+   Norint susidiegti konkrečios versijos naudojamas bibliotekas, reikia papildomai paleisti šią komandą:
 
    .. code-block:: sh
 
