@@ -159,7 +159,7 @@ Naujausios Python versijos diegimas naudojant pyenv_ daromas taip:
 
 .. code-block:: sh
 
-    $ .pyenv/bin/pyenv install 3.14.0
+    $ .pyenv/bin/pyenv install 3.13.0
 
 Jei diegiate Spintą kitoje Linux distribucijoje, reikalingų paketų sąrašą
 galite rasti `pyenv dokumentacijoje`_.
@@ -171,7 +171,7 @@ kurioje diegsime reikalingus Python paketus:
 
 .. code-block:: sh
 
-    $ .pyenv/versions/3.14.0/bin/python -m venv venv
+    $ .pyenv/versions/3.13.0/bin/python -m venv venv
 
 
 .. _install-debian-ppa:
@@ -194,14 +194,14 @@ Ir galiausiai įdiegiame pageidaujamą Python versiją:
 .. code-block:: sh
 
     $ sudo apt update
-    $ sudo apt install python3.14 python3.14-venv
+    $ sudo apt install python3.13 python3.13-venv
 
 Atlikus naujos Python versijos diegimo veiksmus susikuriame izoliuotą aplinką,
 kurioje diegsime reikalingus Python paketus:
 
 .. code-block:: sh
 
-    $ python3.14 -m venv venv
+    $ python3.13 -m venv venv
 
 
 .. _install-debian-python-packages:
@@ -305,9 +305,9 @@ Panaši situacija gali pasitaikyti ir vykdant:
 
 Šios komandos vykdymo metu galite gauti tokią klaidą::
 
-    Downloading Python-3.14.0.tar.xz...
-    -> https://www.python.org/ftp/python/3.14.0/Python-3.14.0.tar.xz
-    error: failed to download Python-3.14.0.tar.xz
+    Downloading Python-3.13.0.tar.xz...
+    -> https://www.python.org/ftp/python/3.13.0/Python-3.13.0.tar.xz
+    error: failed to download Python-3.13.0.tar.xz
 
     BUILD FAILED (Ubuntu 24.04 using python-build 2.0.0)
 
