@@ -207,16 +207,11 @@ kurioje diegsime reikalingus Python paketus:
 Python paketų diegimas
 ----------------------
 
-Kai jau turite tinkamą Python_ versiją ir esate susikūrė izoliuotą Python
-aplinką, Spinta galima įdiegti taip:
+Kai jau turite tinkamą Python_ versiją ir esate susikūrę izoliuotą Python
+aplinką, galima ėdiegti spintą.
 
-.. code-block:: sh
-
-    $ venv/bin/pip install spinta
-
-
-Įdiegus spintą, rekomenduojama susidiegti spintos naudojamas bibliotekas su tomis versijomis,
-su kuriomis spinta buvo išleista. Tai padaryti galima taip:
+Norint įsidiegti spintą ir jos naudojamas bibliotekas tas, su kuriomis mes testavome ir išleidome,
+reikia ją diegti taip:
 
 .. code-block:: sh
 
@@ -241,6 +236,13 @@ Tai padarius, galite patikrinti ar komanda `spinta` veikia:
 
     $ spinta --version
     0.1.85
+
+arba, jei diegėte pre-release (DVMS projekte):
+
+.. code-block:: sh
+
+    $ spinta --version
+    0.2dev10
 
 Ši komanda turi išvesti, Spinta priemonės versijos numerį.
 
