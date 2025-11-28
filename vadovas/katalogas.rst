@@ -2002,8 +2002,8 @@ Sutartys sukuriamos kiekvienai organizacijai atskirai. Atsidariusioje formoje ga
 
 Kiekvienam sukurtam įrašui derinimą galima pradėti nuspaudus mygtuką **„Peržiūrėti“**.
 
-Pasiūlymo pateikimas (gavėjo žingsnis)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Pasiūlymo pateikimas (duomenų gavėjo žingsnis)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Pirmuosius veiksmus atlieka duomenų gavėjas. Atsivėrusiame sutarties įrašo puslapyje rodomi įrašo duomenys ir mygtukas
 **„Pateikti pasiūlymą“**.
@@ -2021,8 +2021,8 @@ Paspaudus šį mygtuką, vartotojas nukreipiamas į formą, kurioje turi pateikt
 
 Pateikęs formą ir paspaudęs „Pateikti pasiūlymą“, duomenų gavėjas užbaigia savo derinimo etapą.
 
-Pasiūlymo patvirtinimas (teikėjo žingsnis)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Pasiūlymo patvirtinimas (duomenų teikėjo žingsnis)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Toliau veiksmus atlieka duomenų teikėjo atstovas. Sutarties puslapyje jis gali peržiūrėti, ką pateikė gavėjas,
 paspausdamas **„Peržiūrėti pateiktą pasiūlymą“**.
@@ -2079,7 +2079,7 @@ Pastaba dėl kontaktų
 ~~~~~~~~~~~~~~~~~~~~
 
 **Svarbu:** Jeigu jau suformavus sutartį bet kuris kontaktas (vardas, pavardė, pareigos ir kt.) būtų pakeistas, sistema informuos apie klaidas.
-Tai todėl, kad sutarties dokumentai generuojami pagal tuo metu galiojusią informaciją ir nėra automatiškai perkurti pasikeitus kontaktams.
+Taip yra todėl, kad sutarties dokumentai generuojami pagal tuo metu galiojusią informaciją ir nėra automatiškai perkurti atliktus pokyčius kontaktams.
 
 Sutarties pasirašymas ir patvirtinimas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
