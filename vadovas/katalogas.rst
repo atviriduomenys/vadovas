@@ -1927,7 +1927,7 @@ Panaudojimo atvejo redagavimas
 Panaudojimo atvejį redaguoti gali tik duomenų gavėjo organizacijos atstovas, organizacijos vardu prisijungęs per VIISP,
 turintis sutarčių pasirašymo teises.
 Keisti panaudojimo atvejo iniciatoriaus po panaudojimo atvejo sukūrimo - negalima.
-Negalima redaguoti panaudojimo atvejo, kuris turi sugeneruotų sutarčių.
+Negalima redaguoti panaudojimo atvejo, kuris turi susietų sutarčių.
 
 .. _panaudojimo_atvejo_istekliai:
 
@@ -1943,7 +1943,7 @@ Pridėti ir pašalinti duomenų išteklių prie/iš panaudojimo atvejo gali tik:
 - jo kūrėjas, jeigu panaudojimo atvejo iniciatorius Fizinis asmuo.
 - organizacijos atstovas, jeigu panaudojimo atvejo iniciatorius organizacija.
 
-Sugeneravus sutartis, pridėti ir pašalinti išteklių nebegalima.
+Sukūrus sutartis, pridėti ir pašalinti išteklių nebegalima.
 
 
 .. _sutartys:
@@ -1989,8 +1989,8 @@ Sutarčių būsenų paaiškinimai:
 Sutarčių derinimas
 ------------------
 
-Sutartis (sutarties įrašus, kuriems vėliau bus generuojami sutarties dokumentai) galima sukurti paspaudus mygtuką
-„Generuoti sutartis“, esantį dešiniajame viršutiniame sutarčių skirtuko kampe.
+Sutartis (sutarties įrašus, kuriems vėliau bus sukuriami sutarties dokumentai) galima sukurti paspaudus mygtuką
+**„Generuoti sutartis“**, esantį dešiniajame viršutiniame sutarčių skirtuko kampe.
 Šį veiksmą gali atlikti tik duomenų gavėjo organizacijos atstovas, prisijungęs organizacijos vardu per VIISP ir
 turintis sutarčių pasirašymo teises.
 
@@ -2019,7 +2019,7 @@ Paspaudus šį mygtuką, vartotojas nukreipiamas į formą, kurioje turi pateikt
 | |image_submit_proposal_form_assignee|
 | *Pasiūlymo teikimo forma (gavėjas)*
 
-Pateikęs formą ir paspaudęs „Pateikti pasiūlymą“, duomenų gavėjas užbaigia savo derinimo etapą.
+Pateikęs formą ir paspaudęs „Pateikti pasiūlymą“, duomenų gavėjas užbaigia derinimo etapą iš savo pusės.
 
 Pasiūlymo patvirtinimas (duomenų teikėjo žingsnis)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2033,7 +2033,8 @@ paspausdamas **„Peržiūrėti pateiktą pasiūlymą“**.
 Paspaudus šį mygtuką atsidaro derinimo forma, kur teikėjas mato gavėjo pateiktą informaciją
 (duomenų ištekliai, tikslas, teisinis pagrindas, gavėjo atstovas) ir pildo duomenis iš savo pusės:
 
-- **Sutarties šablonas** - sutarties dokumento šablonas. Teikėjas gali naudoti sistemoje išsaugotą savo šabloną.
+- **Sutarties šablonas** - sutarties dokumento šablonas. Teikėjas gali naudoti sistemoje išsaugotą savo šabloną
+  (šiuo metu tai galima atlikti tik susisiekus su sistemos administratoriumi).
 - **Duomenų teikėjo atstovas** - atstovas, kurio parašas bus dokumente. Reikšmės imamos iš teikėjo organizacijos **„Kontaktų“**.
 - **Duomenų teikimo teisinis pagrindas (prievolė)** - teisės aktai, pagal kuriuos teikiami duomenys.
 
@@ -2043,7 +2044,7 @@ Paspaudus šį mygtuką atsidaro derinimo forma, kur teikėjas mato gavėjo pate
 Sutarties formavimas
 ~~~~~~~~~~~~~~~~~~~~
 
-Kitą žingsnį – **sutarties dokumento formavimą** – gali atlikti bet kuri iš šalių.
+Kitą žingsnį – **sutarties dokumento formavimą** – gali atlikti bet kuri iš dviejų, sutartį sudarančių, šalių.
 
 | |image_agreement_form_both_parties|
 | *Sutarties formavimas*
@@ -2054,7 +2055,7 @@ Nuspaudus **„Formuoti sutartį“**, atidaromas langas su bendra, suderinta in
 | |image_agreement_forming_form|
 | *Sutarties formavimo forma*
 
-Sistemoje sugeneruojami dokumentai: *Markdown*, *PDF* ir *ODRL-JSON* formatais.
+Sistemoje sukuriami dokumentai: *Markdown*, *PDF* ir *ODRL-JSON* formatais.
 
 Duomenų gavėjo parašas
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -2062,9 +2063,9 @@ Duomenų gavėjo parašas
 | |image_agreement_upload_assignee|
 | *Pasirašytos sutarties įkėlimas (gavėjas)*
 
-Duomenų gavėjo atstovas atsisiunčia PDF failą ir jį pasirašo nurodyto atstovo parašu.
-Gavęs ADOC versiją, įkelia ją per funkciją „Įkelti pasirašytą dokumentą (Gavėjo)“.
-Jei failas neteisingas, sistema pateikia išsamias klaidas.
+Duomenų gavėjo atstovas puslapio apačioje paspaudęs failo pavadinimą atsisiunčia PDF failą, atskirai jį pasirašo nurodyto atstovo parašu.
+Gavęs ADOC versiją, įkelia ją per funkciją **„Įkelti pasirašytą dokumentą (Gavėjo)“**.
+Jei failas neteisingas, sistema pateikia išsamius klaidų aprašymus.
 
 Duomenų teikėjo parašas
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -2072,14 +2073,15 @@ Duomenų teikėjo parašas
 | |image_agreement_upload_assigner|
 | *Pasirašytos sutarties įkėlimas (Teikėjo)*
 
-Teikėjas atsisiunčia gavėjo įkeltą ADOC failą, jį pasirašo ir įkelia per **„Įkelti pasirašytą dokumentą (Teikėjo)“**.
-Dokumentą turi pasirašyti būtent pasirinktas teikėjo atstovas.
+Teikėjas atsisiunčia gavėjo įkeltą ADOC failą (šiuo metu matomas vienintelis *adoc* formato failas puslapyje) ,
+jį pasirašo ir įkelia per **„Įkelti pasirašytą dokumentą (Teikėjo)“**.
+Dokumentą turi pasirašyti būtent derinimo metu pasirinktas teikėjo atstovas.
 
 Pastaba dėl kontaktų
 ~~~~~~~~~~~~~~~~~~~~
 
 **Svarbu:** Jeigu jau suformavus sutartį bet kuris kontaktas (vardas, pavardė, pareigos ir kt.) būtų pakeistas, sistema informuos apie klaidas.
-Taip yra todėl, kad sutarties dokumentai generuojami pagal tuo metu galiojusią informaciją ir nėra automatiškai perkurti atliktus pokyčius kontaktams.
+Taip yra todėl, kad sutarties dokumentai kuriami pagal tuo metu galiojusią informaciją ir nėra automatiškai perkurti atlikus pokyčius kontaktams.
 
 Sutarties pasirašymas ir patvirtinimas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2090,6 +2092,9 @@ Užbaigus abu pasirašymo žingsnius, sutarties būsena tampa **„Pasirašyta�
 | *Pasirašytos sutarties puslapis*
 
 Toliau veiksmus atlieka VSSA sistemos administratorius. Jo patvirtinimas suteikia galutinį leidimą gauti ar teikti duomenis.
+
+Norint atsisiųsti derinimo metu sudarytą sutartį, tereikia atsisiųsti vėliausiai įkeltą *ADOC* formato failą iš
+sutarties derinimo puslapio.
 
 
 .. _sutarties-perziura:
@@ -2132,7 +2137,7 @@ ir turintys sutarčių pasirašymo teises.
 
 Norint įkelti pasirašytą sutartį, failas privalo atitikti šiuos kriterijus:
  - Failas privalo būti validus, pasirašytas ADOC failas.
- - ADOC faile privalo būti originali, neradaguota sutartis (PDF), kuri buvo sugeneruota kataloge.
+ - ADOC faile privalo būti originali, neradaguota sutartis (PDF), kuri buvo sukurta kataloge.
  - ADOC faile negali būti jokių papildomų priedų ar failų, kurie nėra būtini ADOC failo struktūrai.
  - Jeigu sutartį kelia duomenų gavėjas, sutartyje privalo būti lygiai vienas parašas.
  - Jeigu sutartį kelia duomenų teikėjas, sutartyje privalo būti lygiai du parašai.
@@ -2140,24 +2145,24 @@ Norint įkelti pasirašytą sutartį, failas privalo atitikti šiuos kriterijus:
 
 Mygtuko veiksmas priklauso nuo sutarties būsenos:
 
-- Sutarties būsena **Pateikta** – galima generuoti sutarties *PDF* dokumentą.
+- Sutarties būsena **Pateikta** – galima sukurti sutarties *PDF* failo tipo dokumentą.
 - Sutarties būsena **Suformuota** – sutartį pasirašyti gali duomenų gavėjas.
 - Sutarties būsena **Inicijuota** – sutartį pasirašyti gali duomenų teikėjas.
 
-Sutarties *PDF* failo generavimas
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Sutarties *PDF* failo kūrimas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Šį veiksmą atlikti gali tik gavėjo organizacijos atstovas, organizacijos vardu prisijungęs per VIISP,
 turintis sutarčių pasirašymo teises.
-Prieš generuojant sutartį (paspaudus *„Generuoti sutartį“*), atvaizduojama forma su šablono pasirinkimu,
+Prieš kuriant sutartį (paspaudus *„Generuoti sutartį„*), atvaizduojama forma su šablono pasirinkimu,
 bei papildoma informacija, kuri gali būti įtraukta į sutarties turinį, pavyzdžiui: papildomos sąlygos.
-Šioje formoje paspaudus mygtuką generuoti - bus sugeneruoti trys failai:
+Šioje formoje paspaudus mygtuką „Generuoti„ - bus sugeneruoti trys failai:
 - Pati sutartis PDF formatu
 - Sutarties kūrime naudojamų duomenų *ODRL JSON* failas.
-- Kopija šablono kuris buvo pasirinktas generavimui. (*MD*)
+- Šablono, kuris buvo pasirinktas kūrimui, kopija. (*MD*)
 
-Sutarties *PDF* failo generavimo šablonai (*MD*)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Sutarties *PDF* failo kūrimo šablonai (*MD*)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Kiekviena organizacija gali turėti savo sutarčių šabloną arba naudoti numatytąjį. 
 Šablonų administravimą atlieką sistemos administratorius.
