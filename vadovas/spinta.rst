@@ -146,11 +146,14 @@ kompiliavimui reikalingus paketus:
     $ sudo apt update
     $ sudo apt upgrade
     $ sudo apt install -y \
-         git make build-essential libssl-dev zlib1g-dev \
-         libbz2-dev libreadline-dev libsqlite3-dev wget \
-         curl llvm libncurses5-dev libncursesw5-dev \
-         xz-utils tk-dev libffi-dev liblzma-dev \
-         python-openssl
+        git make build-essential libssl-dev zlib1g-dev \
+        libbz2-dev libreadline-dev libsqlite3-dev wget \
+        curl llvm libncurses5-dev libncursesw5-dev \
+        xz-utils tk-dev libffi-dev liblzma-dev
+    $ sudo git clone https://github.com/pyenv/pyenv.git /opt/pyenv/
+    $ export PYENV_ROOT=/opt/pyenv
+    $ /opt/pyenv/bin/pyenv install --list | grep -v - | tail
+    $ sudo PYENV_ROOT=/opt/pyenv /opt/pyenv/bin/pyenv install 3.13.9
     $ curl https://pyenv.run | bash
 
 Naujausios Python versijos diegimas naudojant pyenv_ daromas taip:
@@ -184,6 +187,7 @@ Pirmiausiai mums reikia įdiegti PPA_ repozitoriumų valdymo priemones:
 .. code-block:: sh
 
     $ sudo apt update
+    $ sudo apt upgrade
     $ sudo apt install software-properties-common
     $ sudo add-apt-repository ppa:deadsnakes/ppa
 
@@ -192,7 +196,7 @@ Ir galiausiai įdiegiame pageidaujamą Python versiją:
 .. code-block:: sh
 
     $ sudo apt update
-    $ sudo apt install python3.13 python3.13-venv
+    $ sudo apt install python3.13 python3.13-venv python3.13-dev build-essential
 
 Atlikus naujos Python versijos diegimo veiksmus susikuriame izoliuotą aplinką,
 kurioje diegsime reikalingus Python paketus:
