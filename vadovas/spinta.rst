@@ -821,6 +821,47 @@ __ https://cx-oracle.readthedocs.io/en/latest/index.html
     $ spinta inspect -r sql oracle+cx_oracle://user:pass@host:port/db -o sdsa.xlsx
 
 
+SAS Datasets
+------------
+Generuojant :term:`DSA` iš SAS Datasets, naudojamas JDBC protokolas. Todėl jums papildomai reikia įdiegti:
+
+- Java 11
+- `SAS Drivers for JDBC`__
+- `JayDeBeApi`__ Python paketą 
+
+__ https://www.sas.com/apps/demosdownloads/setupintro.jsp.
+__ https://pypi.org/project/JayDeBeApi/
+
+Pirmiausiai įsidiegiamą Java 11 versiją. Debian/Ubuntu sistemose tai galima padaryti taip:
+
+.. code-block:: sh
+
+    $ sudo apt update
+    $ sudo apt install openjdk-11-jre
+
+Parsisiunčiame `SAS Driver for JDBC` paketą ir surenkame jame esančius JAR failus į vieną katalogą. Tada juos aprašome `CLASSPATH` aplinkos `kintamajame`__:
+
+__ https://documentation.sas.com/doc/lt/jdbcref/9.4/n0b06dcgstvo22n11rtu017ghbi6.htm
+
+.. code-block:: sh
+
+    $ export CLASSPATH=/opt/jdbc/sas.core.jar:/opt/jdbc/sas.svc.connection.jar:/opt/jdbc/sas.security.sspi.jar:/opt/jdbc/log4j-api.jar:/opt/jdbc/pfl-basic.jar:/opt/jdbc/pfl-tf.jar::/opt/jdbc/glassfish-corba-internal-api.jar:/opt/jdbc/glassfish-corba-omgapi.jar:/opt/jdbc/glassfish-corba-orb.jar:/opt/jdbc/log4j-core.jar:$CLASSPATH:.
+
+Galiausiai instaliuojame `JayDeBeApi`__ Python paketą, kuris leidžia naudoti JDBC protokolu Python aplinkoje:
+
+__ https://pypi.org/project/JayDeBeApi/
+
+.. code-block:: sh
+
+    $ pip install JayDeBeApi
+
+
+Iš SAS Datasets generuojant ŠDSA naudojame tokį DSN šabloną:
+
+.. code-block:: sh
+
+    $ spinta inspect -r sql sas+jdbc://username:password@host:port/?schema=libref -o sdsa.xlsx
+
 XML
 ===
 
