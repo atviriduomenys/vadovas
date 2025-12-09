@@ -1,74 +1,98 @@
 .. default-role:: literal
 
-.. _saugykla-diegimas:
+.. _agentas-diegimas:
 
-##################
-Saugyklos diegimas
-##################
+###############
+Agento diegimas
+###############
 
-Jei dėl tam tikrų priežasčių negalite naudoti valstybinės duomenų publikavimo
-paslaugos pasiekiamos adresu get.data.gov.lt_, tuomet galite Saugyklą
-pasileisti ir savo infrastruktūroje.
+Agentas - duomenų teikimo agentas, teikiantis duomenis pagal UDTS standartą.
 
-.. _get.data.gov.lt: https://get.data.gov.lt/
+Čia rasite informaciją, kaip galite paleisti Agentą, veikiantį :ref:`Spinta`
+priemonės pagalba savo infrastruktūroje.
 
-Čia rasite informaciją, kaip galite paleisti Saugyklą savo infrastruktūroje.
-
-Saugykla veikia :ref:`Spinta` priemonės pagalba. :ref:`Spinta` gali veikti kaip
-komandinės eilutės įrankis, tačiau taip pat gali veikti ir duomenų publikavimo
-režimu.
+:ref:`Spinta` gali veikti kaip komandinės eilutės įrankis, tačiau taip pat
+gali veikti ir duomenų publikavimo režimu.
 
 Duomenų publikavimas gali veikti dviem režimais:
 
 mode: internal
-  Duomenys publikuojami iš Saugyklos vidinės duomenų bazės, kurioje laikoma
-  šaltinio duomenų kopija. Vidinė duomenų bazė praturtina šaltinio duomenis
+  Duomenys publikuojami iš duomenų bazės, kurioje laikoma
+  šaltinio duomenų kopija. Šiuo atveju, Spinta praturtina šaltinio duomenis
   metaduomenimis, kurie leidžia užtikrinti sklandesnį duomenų publikavimą.
 
 mode: external
-  Duomenys gali būti publikuojami tiesiai iš duomenų šaltinio (kol kas tai yra
-  eksperimentinė funkcija, naudojama tik pasitikrinti, kaip atrodys duomenų
-  publikavimas, prie atliekant realų duomenų perdavimą į Saugyklą).
+  Duomenys gali būti publikuojami tiesiai iš duomenų šaltinio. Šis režimas
+  turėtų būti naudojamas tada, kai nėra galimybės leisti Agentui rašyti papildomus
+  duomenis į šaltinio duomenų bazę, ar šaltinis nėra reliacinė duomenų bazė.
+  Šiuo būdu teikiant duomenis, šaltinio duomenų susiejimui su UDTS formato
+  universaliais identifikatoriais (UUID), naudojama papildoma duomenų bazė (keymap).
 
-Diegiant ir konfigūruojant duomenų publikavimo paslaugą rekomenduojame naudoti
-`model: internal` režimą, būtent toks režimas naudojamas ir get.data.gov.lt_
-adresu.
+Dažniausiai, bus naudojamas `external` režimas, nebent duomenų teikėjas
+sutiktų leisti Agentui įrašyti papildomus metaduomenis, kurie padėtų užtikrinti
+šį ir kitus funkcionalumus.
 
-
-Techniniai reikalavimai
-***********************
-
-Saugykla veikia ir yra testuota Linux operacinėse sistemose, konkrečiai
+Agentas veikia ir yra testuotas Linux operacinėse sistemose, konkrečiai
 naudojant Debian/Ubuntu distribucijas, todėl instrukcijos bus pateiktos būtent
 Debian/Ubuntu aplinkai. Diegimą galima atlikti ir kitose Linux distribucijose,
 tačiau tam tikros vietos nurodytos šioje dokumentacijoje turėtu būti
 priderintos taip, kad veiktų kitoje distribucijoje.
 
-Saugykla yra sukurta naudojant Python programavimo kalbą, reikalinga Python 3.9
-ar naujesnė versija. Naujose Saugyklos versijose reikalavimas Python versijai
+`Spinta` yra sukurta naudojant Python programavimo kalbą, reikalinga Python 3.10
+ar naujesnė versija. Naujose Agento versijose reikalavimas Python versijai
 gali keistis.
 
 Dėl serverio resursų, tokių kaip CPU, RAM ir HDD, reikalingi resursai
 tiesiogiai priklauso nuo publikuojamų duomenų kiekio ir naudotojų srauto, kurie
 naudosis duomenų publikavimo paslauga.
 
-Minimalūs reikalavimai Saugyklai, be duomenų ir su 5 naudotojais vienu metu
-besinaudojančiais publikavimo paslauga būtų 1 CPU, 512 Mb RAM ir 1G HDD laisvos
-vietos, kuri lieka pilnai įdiegus operacinę sistemą ir visas reikalingas
-priklausomybes.
+Minimalūs reikalavimai Agentui, be duomenų ir su 5 naudotojais vienu metu
+besinaudojančiais duomenų teikimo paslauga:
 
-Pati savaime Saugykla su visomis Python priklausomybes diske užima apie 500 Mb
+CPU
+    1 CPU, šiuo metu perduodant duomenis nėra naudojamas lygiagretinimas,
+    todėl bus naudojamas tik vienas CPU, ateityje tai gali keistis.
+
+RAM
+    512 MB, duomenys skaitomi srautiniu būdu, todėl nepriklausomai nuo
+    šaltinio dydžio, naudojamas fiksuotas RAM kiekis.
+
+    Vienas Spinta procesas naudoja apie 100 MB RAM.
+
+HDD
+    Priklauso nuo duomenų kiekio.
+
+    Unikalių identifikatorių duomenų įrašams suteikimui, saugomi papildomi duomenys:
+
+    1. Vidinių ir publikuojamų pirminių raktų sąsaja, saugoma
+       `~/.local/share/spinta/keymap.db` Sqlite arba Redis duomenų bazėje. Duomenys
+       atrodo taip::
+
+           bb969358-ce9e-4255-b596-c748f6885332|bf8b4530d8d246dd74ac53a13471bba17941dff7|BINDATA...
+           522a3615-8527-4eb7-8327-977fe4383dcd|c4ea21bb365bbeeaf5f2c654883e56d11e43c44e|BINDATA...
+           9be3e60b-d557-4596-a370-660f3c337772|9842926af7ca0a8cca12604f945414f07b01e13d|BINDATA...
+           60c2f4da-c32a-4fba-a39a-8e85252a77ad|a42c6cf1de3abfdea9b95f34687cbbe92b9a7383|BINDATA...
+           ab2baaa6-508d-4069-9a45-53bce46676ca|8dc00598417d4eb788a77ac6ccef3cb484905d8b|BINDATA...
+
+       Saugomas išorinis raktas, vidinio rakto sha1 ir vidinio rakto reikšmė
+       MsgPack formatu.
+
+       Šios lentelės dydis tiesiogiai proporcingas šaltinio įrašų skaičiui ir
+       šaltinio lentelių pirminių raktų dydžiui.
+
+       Vidutiniškai, 10^6 įrašų telpa į 200 MB.
+
+Pats savaime Agentas su visomis Python priklausomybes diske užima apie 500 MB
 vietos, tačiau sunaudojamos vietos skaičius gali skirtis, skirtingose
 distribucijose.
 
-Saugyklos veikimas turėtu būti nuolat stebimas ir reikiami resursai didinami,
+Agento veikimas turėtu būti nuolat stebimas ir reikiami resursai didinami,
 pagal poreikį.
-
 
 Operacinės sistemos paruošimas
 ******************************
 
-Saugykla turėtu būti diegiama ir leidžiama `spinta` naudotojo teisėmis, todėl
+Agentas turėtu būti diegiamas ir leidžiamas `spinta` naudotojo teisėmis, todėl
 reikia sukurti sisteminį naudotoją:
 
 .. code-block:: sh
@@ -81,28 +105,6 @@ turi būti vykdoma `spinta` naudotojo teisėmis. Tai yra svarbu, todėl
 nesupainiokite kokio naudotojo teisėmis vykdote komandas, priešingu atveju
 susidursite su sunkumais susijusiais su failų teisėmis.
 
-
-PostgreSQL diegimas
-*******************
-
-Kai Saugykla veikia `mode: internal` režimu, jai reikalinga duomenų bazė,
-kurioje saugoma publikuojamų duomenų kopija. Rekomenduojame naudoti PostgreSQL:
-
-.. code-block:: sh
-
-    sudo apt install postgresql
-    sudo -Hiu postgres createuser spinta
-    sudo -Hiu postgres createdb \
-      --template=template0 \
-      --owner=spinta \
-      --encoding=UTF8 \
-      --locale=C.UTF-8 \
-      spinta
-
-Žinomų apribojimų PostgreSQL versijai nėra. Rekomenduojame naudoti naujausią
-PostgreSQL versiją.
-
-
 Python diegimas
 ***************
 
@@ -113,10 +115,10 @@ Daugelis Linux distribucijų ateina su įdiegta Python versija, tačiau reikia
 
     python3 --version
 
-Jei Python versija yra 3.9 ar naujesnė, tada galite pereiti prie sekančio
+Jei Python versija yra 3.10 ar naujesnė, tada galite pereiti prie sekančio
 žingsnio.
 
-Jei versija yra žemesnė nei 3.9, tuomet reikės įsidiegti naujesnę Python
+Jei versija yra žemesnė nei 3.10, tuomet reikės įsidiegti naujesnę Python
 versiją. Tai galite padaryti naudodami pyenv_ (dėl pačio pyenv_ diegimo
 skaitykite `pyenv dokumentacijoje`_):
 
@@ -151,7 +153,7 @@ galite daryti taip:
     sudo apt install software-properties-common
     sudo add-apt-repository ppa:deadsnakes/ppa
     sudo apt update
-    sudo apt install python3.14 python3.14-venv
+    sudo apt install python3.10 python3.14-venv
 
 Naujausia python versija bus pasiekiama `python3.14` komandos pagalba.
 
@@ -170,7 +172,7 @@ Aktyvų naudotoją ir katalogą galite pasikeisti taip:
     sudo -Hsu spinta
     cd
 
-Saugykla veikia Spinta_ priemonės pagalba, kuriai reikia Python. Rekomenduojama
+Agentas veikia Spinta_ priemonės pagalba, kuriai reikia Python. Rekomenduojama
 visus Python paketus diegti taip vadinamoje izoliuotoje Python aplinkoje, kurią
 galima susikurti taip (nepamirškite nurodyti jūsų naudojamos Python versijos
 numerį, kuris gali skirtis):
@@ -185,27 +187,23 @@ numerį, kuris gali skirtis):
 
     .. code-block:: sh
 
-        python3.14 -m venv env
+        python3.14.0 -m venv env
 
-Toliau spintą įdiegsite taip:
+Toliau diekite `spinta`:
+
+DVMS partneriams projekto vystymo metu rekomenduojama diegti naujausią `pre-release`
+versiją, kadangi joje yra naujausi projekto vystymui ir partnerių darbui atlikti pakeitimai:
 
 .. code-block:: sh
 
-    env/bin/pip install spinta
+    env/bin/pip install --pre spinta
     env/bin/spinta --version
 
-Įdiegus spintą, rekomenduojama susidiegti spintos naudojamas bibliotekas su tomis versijomis,
-su kuriomis spinta buvo išleista. Tai padaryti galima taip:
 
-.. code-block:: sh
+Agento konfigūravimas
+*********************
 
-    env/bin/pip install --require-hashes -r https://raw.githubusercontent.com/atviriduomenys/spinta/refs/heads/master/requirements/spinta-latest.txt
-
-
-Saugyklos konfigūravimas
-************************
-
-Spinta yra konfigūruojama konfigūracijos failo pagalba, kurio, pagal nutylėjimą
+Spinta yra konfigūruojama konfigūracijos failo pagalba, kurio, pagal nutylėjimą,
 ieškoma aktyviame kataloge. Kur Spinta ieško konfigūracijos failo, galima
 patikrinti taip:
 
@@ -255,14 +253,33 @@ Pats konfigūracijos failas `config.yml` turėtu atrodyti panašiai taip:
         type: tabular
         path: /opt/spinta/manifest.csv
         backend: default
-        mode: internal
+        mode: external
 
     accesslog:
       type: file
       file: /opt/spinta/logs/access.log
 
+Jei naudojate daugiau, nei vieną manifestą, ir norite, kad Agentas pasiektų juos visus,
+galima tai atlikti operatoriaus `sync` pagalba:
+
+.. code-block:: yaml
+
+    manifests:
+      default:
+        type: tabular
+        path: /opt/spinta/manifest.csv
+        backend: default
+        mode: external
+        sync: additional
+      additional:
+        type: tabular
+        path: /opt/spinta/manifest2.csv
+        backend: default
+        mode: external
+
+
 Prieš testuojant ar konfigūracija veikia, sukuriame reikalingus katalogus:
-      
+
 .. code-block:: sh
 
     mkdir /opt/spinta/config
@@ -275,47 +292,10 @@ Generuojame kriptografinius autorizacijos raktus:
 
     env/bin/spinta key generate
 
-Sukuriame `default_auth_client`, kuriam suteiktos teisės bus naudojamos visiems
-neautorizuotiems klientams:
-
-.. code-block:: sh
-
-    env/bin/spinta client add -n default --add-secret --scope - <<EOF
-    spinta_getone
-    spinta_getall
-    spinta_search
-    spinta_changes
-    EOF
-
-Konkrečiai šiuo atveju suteikiamos visos skaitymo teisės.
-
-Sukuriame klientą `myclient`, kuriam suteikiame rašymo teises (pasikeiskite
-kliento pavadinimą savo nuožiūra):
-
-.. code-block:: sh
-
-    env/bin/spinta client add -n myclient --scope - <<EOF
-    spinta_set_meta_fields 
-    spinta_getone
-    spinta_getall
-    spinta_search
-    spinta_changes
-    spinta_insert
-    spinta_upsert
-    spinta_update
-    spinta_patch
-    spinta_delete
-    EOF
-
-Jei norite suteikti rašymo teistes tik į tam tikrą vardų erdvę, galite nurodyti
-tai `scope` pagalba, pavyzdžiui `spinta_datasets_gov_myorg_insert`, kas
-sureikia naujų objektų kūrimo teises į `datasets/gov/myorg` vardų erdvę.
 
 Nepamirškite, kad `/opt/spinta/manifest.csv` faile, kaip nurodyta
 konfigūracijos faile, turite pateikti duomenų struktūros aprašą, kurio pagrindu
-veiks saugykla. Šioje vietoje reikia pateikti ne ŠDSA, o ADSA variantą, t.y.
-struktūros aprašą, kuriame pašalinta viskas, kas nereikalinga atvėrimui
-(žiūrėti :ref:`šdsa-vertimas-į-adsa`).
+veiks agentas.
 
 Galiausiai patikriname konfigūraciją:
 
@@ -335,14 +315,6 @@ Patikriname ar Spinta gali prisijungti prie duomenų bazės.
 
    env/bin/spinta wait 1
 
-Ir galiausiai, paleidžiame duomenų bazės migracijas, kurių metu pagal
-struktūros apraše pateiktus metaduomenis bus sukuriamos reikalingos lentelės
-PostgreSQL duomenų bazėje.
-
-.. code-block:: sh
-
-    env/bin/spinta bootstrap
-
 Keymap
 ******
 
@@ -352,26 +324,40 @@ tačiau galima pakeisti į kitą, pvz. - greitesnę ar stabilesnę saugyklą. Č
 
 - SQLite duomenų bazė su SQLAlchemy backend'u, konfigūruojama taip:
 
-  .. code-block:: yaml
+.. code-block:: yaml
 
-      keymaps:
-        default:
-          type: sqlalchemy
-          dsn: sqlite:////path/to/keymap.db
+  keymaps:
+    default:
+      type: sqlalchemy
+      dsn: sqlite:////path/to/keymap.db
 
 - Redis **persistent** saugykla su Redis, konfigūruojama taip:
 
-  .. code-block:: yaml
+.. code-block:: yaml
 
-      keymaps:
-        default:
-          type: redis
-          dsn: redis://redis-address:6379/1
+  keymaps:
+    default:
+      type: redis
+      dsn: redis://redis-address:6379/1
 
-Redis Docker paleidimo konfigūracija pateikta projekto docker-compose.yml faile (root kataloge).
-**SVARBU! Redis turi būti būtinai leidžiamas persistent režimu (`--appendonly yes --appendfsync always`)**
+Redis rekomenduojame diegti Docker konteineryje. Docker paleidimo konfigūracija:
+
+.. code-block:: yaml
+
+  redis-keymap: # sqlite faster alternative
+    image: valkey/valkey:9
+    restart: always
+    command: [ "redis-server", "--appendonly", "yes" ] # persistence settings to persist always, without any data loss.
+    volumes:
+      - redis_keymap_data:/data
+    ports:
+      - "6379:6379"
+volumes:
+  redis_keymap_data:
+
+**SVARBU! Redis turi būti būtinai leidžiamas persistent režimu (appendonly yes parametras)**
 Yra keli persistent režimai (žr. Redis/Valkey dokumentaciją).
-Rekomenduojamas režimas (`--appendonly yes --appendfsync always`) užtikrina didžiausią duomenų nepraradimo patikimumą,
+Numatytasis režimas (appendonly) užtikrina didžiausią duomenų nepraradimo patikimumą,
 tačiau turi mažiausią greitį, lyginant su kitais režimais.
 
 Web serverio diegimas ir konfigūravimas
@@ -420,7 +406,7 @@ Aktyvuokite servisą:
     sudo systemctl daemon-reload
     sudo systemctl start gunicorn
 
-Patikrinkite are servisas veikia:
+Patikrinkite ar servisas veikia:
 
 .. code-block:: sh
 
@@ -491,15 +477,7 @@ Norint atnaujinti Spinta versiją, jums reikia įvykdyti tokias komandas:
 
     sudo -Hsu spinta
     cd
-    env/bin/pip install --upgrade spinta
-
-
-Įdiegus spintą, rekomenduojama susidiegti spintos naudojamas bibliotekas su tomis versijomis,
-su kuriomis spinta buvo išleista. Tai padaryti galima taip:
-
-.. code-block:: sh
-
-    env/bin/pip install --require-hashes -r https://raw.githubusercontent.com/atviriduomenys/spinta/refs/heads/master/requirements/spinta-latest.txt
+    env/bin/pip install --upgrade --pre spinta
 
 
 Struktūros aprašo naujinimas
@@ -519,64 +497,11 @@ Jei pasikeitė struktūros aprašas, jį galite atnaujinti taip:
     mv manifest-new.csv manifest.csv
 
     diff -y --suppress-common-lines manifest-old.csv manifest-new.csv
-    psql spinta
-    \q
-
-    env/bin/spinta bootstrap
 
     exit  # spinta user
     sudo systemctl restart gunicorn
     sudo systemctl status gunicorn
     exit  # server
-
-Atkreipkite dėmesį, kad `spinta bootstrap` komanda gali sukurti tik naujas
-lenteles, kurios dar nebuvo sukurtos. Jei keitėsi lentelė, kuri jau buvo
-publikuojama anksčiau, tuomet, prieš `spinta bootstrap`, jums reikės
-pasižiūrėti, kas keitėsi (`diff` komanda) ir atitinkamai pakoreguoti duomenų
-bazės schema SQL užklausų pagalba (`psql` komanda).
-
-Dažniausiai naudojamos SQL komandos schemos koregavimui pateiktos žemiau.
-
-Lentelių sąrašo peržiūrą (PostgreSQL riboja lentelės pavadinimo ilgį, todėl
-ilgi pavadinimai gali būti trumpinami):
-
-.. code-block:: psql
-
-    \dt "datasets/gov/myorg"*;
-
-Lentelės trynimas:
-
-.. code-block:: sql
-
-    drop table "datasets/gov/org/dataset/Model/:changelog";
-    drop table "datasets/gov/org/dataset/Model";
-
-Lentelės pavadinimo keitimas:
-
-.. code-block:: sql
-
-    alter table "datasets/gov/org/dataset/Model/:changelog"
-        rename to "datasets/gov/org/dataset/Model2/:changelog";
-    alter table "datasets/gov/org/dataset/Model"
-        rename to "datasets/gov/org/dataset/Model2";
-
-Stulpelio pavadinimo keitimas:
-
-.. code-block:: sql
-
-    alter table "datasets/gov/org/dataset/Model" rename column "abc" to "xyz";
-
-Naujo stulpelio pridėjimas:
-
-.. code-block:: sql
-
-    alter table "datasets/gov/org/dataset/Model" add "abc" integer;
-
-Esamo stulpeio tipo keitimas:
-
-.. code-block:: sql
-
-    alter table "datasets/gov/org/dataset/Model" alter "abc" type double precision;
 
 
 Problemos ir sprendimai
