@@ -387,6 +387,15 @@ Organizacijos rekvizitai
 | |organizacijos_informacija|
 | *26 pav. Organizacijos redagavimo langas*
 
+Organizacijos informacijos lange matomi laukai:
+
+- **Kodinis pavadinimas:** Organizacijos vietinė rinkinio vardų erdvė;
+
+- **Leistini kodiniai pavadinimai:** Organizacijos vietinių rinkinių leidžiamų vardų erdvių sąrašas;
+
+*Pastaba: Organizacijos leistinus kodinius pavadinimus administravimo aplinkoje kurti bei redaguoti gali tik VSSA administratorius.*
+
+
 3. Organizacijos redagavimo lange redaguokite reikiamus duomenis.
 
 4. Įsitikinę, kad tinkamai užpildėte/redagavote laukus, spauskite **[**\ |redaguoti_mygtukas|\ **]** lango apačioje.
