@@ -1119,6 +1119,8 @@ Arba naudojant supaprastintą sintaksę::
 
     /example/Model?_limit=10
 
+Šios užklausos grąžins ne daugiau kaip 10 objektų.
+
 Objektų skaičius
 ================
 
