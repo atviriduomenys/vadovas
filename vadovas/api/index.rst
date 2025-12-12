@@ -1121,6 +1121,9 @@ Arba naudojant supaprastintą sintaksę::
 
 Šios užklausos grąžins ne daugiau kaip 10 objektų.
 
+.. _query-count:
+
+
 Objektų skaičius
 ================
 
