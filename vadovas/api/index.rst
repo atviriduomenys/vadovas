@@ -1011,6 +1011,10 @@ jungimą galime atlikti taip::
 
     /example/City?select(country.name)
 
+Arba naudojant supaprastintą sintaksę::
+
+    /example/City?_select=country.name
+
 Čia, `country` laukas priklauso miesto modeliui, o `name` laukas
 priklauso šalied modeliui.
 
@@ -1025,10 +1029,14 @@ Atranka
 
 Yra galimėbė gauti ne visus duomenų laukus, o tik tim tikrus, kurie
 nurodyti užklausoje. Tokią atranką galima atlikti naudojant `select()`
-funkciją. Pavyzdžiui:
+funkciją. Pavyzdžiui::
 
     /example/Model?select(prop1, prop2, prop3)
 
+
+Arba naudojant supaprastintą sintaksę::
+
+    /example/Model?_select=prop1,prop2,prop3
 
 Filtravimas
 ===========
@@ -1043,12 +1051,18 @@ filtravimo operatoriai:
 - `prop` [ `>`, `>=`, `<`, `<=` ] `value` - atranka palyginant ar
   reikšmų didesnė ar mažesnė.
 
+- `prop.` [`_gt`, `_ge`, `_lt`, `_le`] `=value` - tas pats kas aukščiau,
+  tik naudojant supaprastintą sintaksę.
+
 - `prop.contains(value)` - atranka objektus, jei `value` yra `prop`
   reikšmės dalis.
 
+- `prop._co=value` - tas pats kas aukščiau, tik naudojant supaprastintą sintaksę.
 
 - `prop.startswith(value)` - atrenka objektus, kurie prasideda `value`
   reikšme.
+
+- `prop._sw=value` - tas pats kas aukščiau, tik naudojant supaprastintą sintaksę.
 
 Tais atvejais jei `value` yra simbolių eilutė, reikia naudoti kabutes.
 
@@ -1063,6 +1077,10 @@ Filtruojanti taip pat galima naudoti AND ir OR operatorius, pavyzdžiui::
 
 .. _query-sort:
 
+Arba naudojant supaprastintą sintaksę::
+
+    /example/Model?prop=value1&_or.prop=value2&_and.prop=value3
+
 Rūšiavimas
 ==========
 
@@ -1071,25 +1089,40 @@ Duomenis rūšiuoti galima pasitelkus `sort()` funkciją:
 - `sort(prop)` - rūšiuoja didėjančia tvarka.
 - `sort(-prop)` - rūšiuoja mažėjančia tvarka.
 
+Galima naudoti ir supaprastintą sintaksę:
+
+- `_sort=prop` - rūšiuoja didėjančia tvarka.
+- `_sort=-prop` - rūšiuoja mažėjančia tvarka.
+
+
+
 Kalima rūšiuoti pagal kelis stulpelius, pavyzdžiui::
 
     /example/Model?sort(prop1,-prop2,prop3)
 
+
+Arba naudojant supaprastintą sintaksę::
+
+    /example/Model?_sort=prop1,-prop2,prop3
 
 .. _query-limit:
 
 Objektų skaičiaus ribojimas
 ===========================
 
-Norint apriboti grąžinamų objektų skaičių galima naudoti `limit()`
-funkciją, pavyzdžiui:
+Norint apriboti grąžinamų objektų skaičių galima naudoti `limit()`::
+
 
     /example/Model?limit(10)
 
-Tokia užklausa grąžins ne daugiau kaip 10 objektų.
+Arba naudojant supaprastintą sintaksę::
 
+    /example/Model?_limit=10
+
+Šios užklausos grąžins ne daugiau kaip 10 objektų.
 
 .. _query-count:
+
 
 Objektų skaičius
 ================
@@ -1099,6 +1132,11 @@ Norinti gauti vieno modelio objektų skaičių galima panaudoti `count()` funkci
 .. code-block:: sh
 
     http GET /datasets/gov/dc/geo/Continent?count()
+
+
+Arba naudojant supaprastintą sintaksę::
+
+    http GET /datasets/gov/dc/geo/Continent?_count
 
 .. code-block:: http
 
@@ -1139,6 +1177,10 @@ funkcijos pagalba, pavyzdžiui:
 .. code-block:: sh
 
     http GET /datasets/gov/dc/geo/Continent?limit(10000)
+
+Arba naudojant supaprastintą sintaksę::
+
+    http GET /datasets/gov/dc/geo/Continent?_limit=10000
 
 Gausite tokį atsakymą:
 
