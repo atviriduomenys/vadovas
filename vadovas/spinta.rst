@@ -825,22 +825,23 @@ SAS Datasets
 ------------
 Generuojant :term:`DSA` iš SAS Datasets, naudojamas JDBC protokolas. Todėl jums papildomai reikia įdiegti:
 
-- Java 11
+- Java 11 interpretatorių. 
 - `SAS Drivers for JDBC`__
 - `JayDeBeApi`__ Python paketą 
 
-__ https://www.sas.com/apps/demosdownloads/setupintro.jsp.
+__ https://support.sas.com/downloads/browse.htm?fil=&cat=50
 __ https://pypi.org/project/JayDeBeApi/
 
-Pirmiausiai įsidiegiamą Java 11 versiją. Debian/Ubuntu sistemose tai galima padaryti taip:
+Pirmiausiai įsidiegiamą rekomenduojama Java 11 versiją (turtėtų veikti su Java 9 ir Java 10). Debian/Ubuntu sistemose tai galima padaryti taip:
 
 .. code-block:: sh
 
     $ sudo apt update
     $ sudo apt install openjdk-11-jre
 
-Parsisiunčiame `SAS Driver for JDBC` paketą ir surenkame jame esančius JAR failus į vieną katalogą. Tada juos aprašome `CLASSPATH` aplinkos `kintamajame`__:
+Parsisiunčiame `SAS Driver for JDBC`__ paketą ir surenkame jame esančius JAR failus į vieną katalogą. Tada juos aprašome `CLASSPATH` aplinkos `kintamajame`__:
 
+__ https://support.sas.com/downloads/browse.htm?fil=&cat=50
 __ https://documentation.sas.com/doc/lt/jdbcref/9.4/n0b06dcgstvo22n11rtu017ghbi6.htm
 
 .. code-block:: sh
@@ -856,7 +857,7 @@ __ https://pypi.org/project/JayDeBeApi/
     $ pip install JayDeBeApi
 
 
-Iš SAS Datasets generuojant ŠDSA naudojame tokį DSN šabloną:
+Generuojant ŠDSA iš SAS Datasets turime  naudoti tokį DSN šabloną:
 
 .. code-block:: sh
 
