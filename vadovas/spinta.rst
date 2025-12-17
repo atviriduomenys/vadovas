@@ -832,7 +832,7 @@ Generuojant :term:`DSA` iš SAS Datasets, naudojamas JDBC protokolas. Todėl jum
 __ https://support.sas.com/downloads/browse.htm?fil=&cat=50
 __ https://pypi.org/project/JayDeBeApi/
 
-Pirmiausiai įsidiegiamą rekomenduojama Java 11 versiją (turtėtų veikti su Java 9 ir Java 10). Debian/Ubuntu sistemose tai galima padaryti taip:
+Pirmiausiai įsidiegiame rekomenduojama Java 11 versiją (turtėtų veikti su Java 9 ir Java 10). Debian/Ubuntu sistemose tai galima padaryti taip:
 
 .. code-block:: sh
 
