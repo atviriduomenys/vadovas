@@ -710,9 +710,69 @@ Jei atliekant užklausą buvo susidurta su klaida, klaidą galima matyti žemiau
 Duomenų gavimas
 ***************
 
+Autorizacija
+============
+
+Duomenų gavimui autorizacija atliekama naudojant JWT žetono leidimus (angl. *scopes*). Agentas vykdo du tikrinimus:
+
+1. :ref:`(Nebūtinas) JWT leidimai tikrinami su Agente sinchronizuotų sutarčių leidimais. <contract_scope_check>`
+2. :ref:`JWT leidimai tikrinami su API prieigos taško reikalaujamais leidimais. <agent_scope_check>`
+
+.. _contract_scope_check:
+
+Leidimų tikrinimas su sutartimis
+--------------------------------
+
+Šis tikrinimas nėra privalomas. Norint įjungti šį patikrinimą, konfigūracijoje reikia pakeisti
+`check_contract_scopes` nustatymą į `True`.
+
+.. warning::
+
+    Šis tikrinimas netaikomas atviriems duomenims, kurių prieigos lygis yra `open`.
+
+
+Šis tikrinimas yra vykdomas kiekvienos užklausos metu. Tai Agente leidžia užtikrinti, kad JWT žetonas
+yra išduotas tik su tokiais leidimais, kurie yra įrašyti į sutartis, sinchronizuotas su Agentu ir
+susietas su klientu. Jei JWT žetonas turės leidimų, kurie nėra įrašyti į sutartį - užklausos vykdyti
+nebus galima.
+
+
+.. note::
+
+    Sutarčių leidimai yra tikrinami tik su tais JWT žetono leidimais, kurie atitinka Agente aprašytas
+    vardų erdves. Todėl tą patį JWT žetoną galima naudoti kreipiantis į Agentus, kurie aprašo skirtingas
+    vardų erdves, bet naudoja tą pačią sutartį.
+
 
 Klaidos ir jų paaiškinimai
-==========================
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`NoScopesForNamespaces`:
+    Klaida kyla, kai JWT žetonas neturi nė vieno leidimo, kuris atitinka bent vieną Agento vardų erdvę.
+
+`InvalidExtraScopes`:
+    Klaida kyla, kai JWT žetonas turi daugiau leidimų, atitinkančių Agento vardų erdves, negu nurodyta
+    Agente saugomose ir su šiuo klientu susietose sutartyse.
+
+
+.. _agent_scope_check:
+
+Leidimų tikrinimas su API prieigos taško teisėmis
+-------------------------------------------------
+
+Kiekvienas API prieigos taškas (angl. *endpoint*), reikalauja vieno ar kelių leidimų (netaikoma atviriems
+duomenims, kurių prieigos lygis yra `open`). Leidimai priklauso nuo modelio į kurį kreipiamasi, nuo duomenų
+rinkinio, kuriame aprašytas modelis, ir nuo atliekamo veiksmo.
+
+Jei JWT žetonas turi bent vieną leidimą, kuris sutampa su API prieigos taško reikalaujamu leidimu
+arba yra platesnis - užklausą galima vykdyti.
+
+
+Duomenų gavimas
+===============
+
+Klaidos ir jų paaiškinimai
+--------------------------
 
 `InvalidClientBackend`:
     Klaida kyla, kai turimas DSA aprašas su bent vienu resursu su `creds(key)` prepare funkcija,
