@@ -72,7 +72,7 @@ Agentą reikia konfigūruoti, kad būtų galima pasiekti:
 
 
 Lokalaus/Agento DSA failo nustatymas
-====================================
+------------------------------------
 
 Norint vykdyti sinchronizaciją, Agentui reikia nurodyti vietą, kur bus saugomas DSA failas.
 Pagal šį failą, lyginant jį su duomenų šaltiniu ir katalogu (atskiri proceso etapai), bus atliekami duomenų atnaujinimai
@@ -101,7 +101,7 @@ arba siunčiami pranešimai apie pasikeitusią duomenų struktūrą (į Katalog�
     
 
 Agento prisijungimas prie Duomenų Šaltinio
-==========================================
+------------------------------------------
 
 Norint prijungti agentą prie duomenų šaltinio, reikia papildomai sukonfigūruoti `config.yml` failą. Tikslui pasiekti reikia nustatyti:
 
@@ -126,7 +126,7 @@ Norint prijungti agentą prie duomenų šaltinio, reikia papildomai sukonfigūru
 
 
 Agento prisijungimas prie Duomenų Katalogo
-==========================================
+------------------------------------------
 
 Ši konfigūracija sugeneruojama automatiškai ir vartotojui reikia tik ją perkelti į `credentials.cfg` failą.
 
@@ -192,7 +192,7 @@ Agento prisijungimas prie Duomenų Katalogo
 
 
 Procesas
-********
+========
 
 Sinchronizacija yra procesas, kurio metu norima įsitikinti, kad duomenų struktūra tarp trijų skirtingų vietų, kuriose ji saugoma, yra nepakitusi.
 
@@ -216,7 +216,7 @@ Procesas vykdomas trimis etapais. Išsamesnė informacija apie kiekvieną etapą
 .. _sync_stage_catalog_to_agent:
 
 Sinchronizacija: Katalogas -> Agentas
-=====================================
+-------------------------------------
 
 Šio etapo metu yra atsisiunčiami duomenų rinkiniai iš Katalogo, susieti su pasirinktu Agentu.
 
@@ -291,7 +291,7 @@ failo iš Katalogo ir Agento vietinėje failinėje sistemoje esančio duomenų s
 .. _sync_stage_data_source_to_agent:
 
 Sinchronizacija: Duomenų Šaltinis -> Agentas
-============================================
+--------------------------------------------
 
 .. warning::
 
@@ -301,14 +301,14 @@ Sinchronizacija: Duomenų Šaltinis -> Agentas
 .. _sync_stage_agent_to_catalog:
 
 Sinchronizacija: Agentas -> Katalogas
-=====================================
+-------------------------------------
 
 .. warning::
 
     **Funkcionalumas vystomas**
 
 Viešųjų raktų sukėlimas ir konfigūravimas
-=========================================
+-----------------------------------------
 
 `Spinta` automatiškai įkelia visus galimus viešuosius raktus JWT žetonų tikrinimui. Raktai parenkami iš šių šaltinių prioritetų tvarka:
 
@@ -322,7 +322,7 @@ Viešųjų raktų sukėlimas ir konfigūravimas
    Jei nei konfigūracijoje, nei vietiniame faile nėra raktų, galima nurodyti OAuth serverio URL, iš kurio raktai bus atsisiųsti. Atsisiųsti raktai paprastai saugomi lokaliame faile (`downloaded_public_keys_file`) tolimesniam naudojimui.
 
 Konfigūracijos parametrai
--------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: yaml
 
@@ -355,7 +355,7 @@ Naujus raktus galima parsisiųsti su komanda:
     spinta key download
 
 Dėmesio
---------
+^^^^^^^
 
 Jei naudojamas `token_validation_keys_download_url` ir reikalingas raktų rotavimas, papildomai reikia sukonfigūruoti CRON,
 kuris periodiškai vykdytų komandą `spinta key download` (priklausomai nuo naudojamo auth serverio raktų rotacijos dažnio).
