@@ -258,7 +258,7 @@ Prisijungimas prie sistemos
 
 
 Pagrindinis puslapis
-*****************
+********************
 
 *Pagrindinis puslapis matomas prisijungus prie sistemos ir leidžia pasiekti aplinkos atributus:*
 
@@ -284,7 +284,7 @@ Pagrindinis puslapis
 
 
 Pagrindinis naudotojo meniu
-*****************
+***************************
 
 -  **Profilis:** jūsų profilio peržiūra;
 
@@ -312,7 +312,7 @@ Pagrindinis naudotojo meniu
 
 
 Duomenų išteklių tvarkytojai / koordinatoriai
-****************************
+*********************************************
 
 *Šis skyrius skirtas tik Koordinatoriams.*
 
@@ -386,6 +386,15 @@ Organizacijos rekvizitai
 
 | |organizacijos_informacija|
 | *26 pav. Organizacijos redagavimo langas*
+
+Organizacijos informacijos lange matomi laukai:
+
+- **Kodinis pavadinimas:** Organizacijos vietinė rinkinio vardų erdvė;
+
+- **Leistini kodiniai pavadinimai:** Organizacijos vietinių rinkinių leidžiamų vardų erdvių sąrašas;
+
+*Pastaba: Organizacijos leistinus kodinius pavadinimus administravimo aplinkoje kurti bei redaguoti gali tik VSSA administratorius.*
+
 
 3. Organizacijos redagavimo lange redaguokite reikiamus duomenis.
 
@@ -731,7 +740,7 @@ Duomenų išteklių sąrašo peržiūra
 *Išteklių sąrašą galima peržiūrėti dviem būdais - visų organizacijų ir savo organizacijos (einant per savo organizacijos išteklius bus matomi tik ištekliai, priklausantys savo organizacijai, taip pat bus galima pridėti duomenų išteklių)*
 
 Savo organizacijos duomenų išteklių sąrašo peržiūra
-================================
+===================================================
 
 *Duomenų išteklių sąrašo lange galite:*
 
@@ -1949,9 +1958,9 @@ Sukūrus sutartis, pridėti ir pašalinti išteklių nebegalima.
 .. _sutartys:
 
 Sutartys
-========
+********
 
-Šiame puslapyje galima sukurti ir pasirašyti pasirinkto panaudojimo atvejo sutartis.
+Sutarčių skirtuke galima sukurti ir pasirašyti pasirinkto panaudojimo atvejo sutartis.
 Taip pat, automatiškai sukurti sutarties dokumentus, juos peržiūrėti, atsisiųsti, pasirašyti
 ir įkelti.
 
@@ -1961,7 +1970,7 @@ pačios organizacijos bus sukurta viena sutartis.
 
 
 Sutarčių sąrašo peržiūra
-------------------------
+========================
 
 Sutarčių sąrašo formoje matysite visas sukurtas panaudojimo atvejo sutartis. Taip pat, kiekvienos
 sutarties duomenis teikiančią organizaciją, sutarties būseną ir paskutinį duomenų atnaujinimo laiką.
@@ -1986,8 +1995,19 @@ Sutarčių būsenų paaiškinimai:
 - **Nutraukta** – Sutartis nutraukta. Duomenų gauti nebegalima.
 
 
+Alternatyvus sutarčių peržiūros būdas organizacijos puslapyje
+=============================================================
+
+Sutartis taip pat galima pasiekti per organizacijos puslapį. Šiame puslapyje rodomos tik tos sutartys,
+kuriose organizacija veikia kaip duomenų teikėjas. Per šį puslapį organizacijos atstovas gali atlikti visus tuos pačius veiksmus,
+kuriuos būtų galima atlikti pasiekus sutartis per panaudojimo atvejus.
+
+| |image_organization_tab_agreements|
+| *Sutarčių sąrašo peržiūra organizacijos puslapyje*
+
+
 Sutarčių derinimas
-------------------
+==================
 
 Sutartis (sutarties įrašus, kuriems vėliau bus sukuriami sutarties dokumentai) galima sukurti paspaudus mygtuką
 **„Generuoti sutartis“**, esantį dešiniajame viršutiniame sutarčių skirtuko kampe.
@@ -2003,7 +2023,7 @@ Sutartys sukuriamos kiekvienai organizacijai atskirai. Atsidariusioje formoje ga
 Kiekvienam sukurtam įrašui derinimą galima pradėti nuspaudus mygtuką **„Peržiūrėti“**.
 
 Pasiūlymo pateikimas (duomenų gavėjo žingsnis)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------------------------
 
 Pirmuosius veiksmus atlieka duomenų gavėjas. Atsivėrusiame sutarties įrašo puslapyje rodomi įrašo duomenys ir mygtukas
 **„Pateikti pasiūlymą“**.
@@ -2022,7 +2042,7 @@ Paspaudus šį mygtuką, vartotojas nukreipiamas į formą, kurioje turi pateikt
 Pateikęs formą ir paspaudęs „Pateikti pasiūlymą“, duomenų gavėjas užbaigia derinimo etapą iš savo pusės.
 
 Pasiūlymo patvirtinimas (duomenų teikėjo žingsnis)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------------------
 
 Toliau veiksmus atlieka duomenų teikėjo atstovas. Sutarties puslapyje jis gali peržiūrėti, ką pateikė gavėjas,
 paspausdamas **„Peržiūrėti pateiktą pasiūlymą“**.
@@ -2042,7 +2062,7 @@ Paspaudus šį mygtuką atsidaro derinimo forma, kur teikėjas mato gavėjo pate
 | *Patvirtinimo forma (teikėjas)*
 
 Sutarties formavimas
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 Kitą žingsnį – **sutarties dokumento formavimą** – gali atlikti bet kuri iš dviejų, sutartį sudarančių, šalių.
 
@@ -2058,7 +2078,7 @@ Nuspaudus **„Formuoti sutartį“**, atidaromas langas su bendra, suderinta in
 Sistemoje sukuriami dokumentai: *Markdown*, *PDF* ir *ODRL-JSON* formatais.
 
 Duomenų gavėjo parašas
-~~~~~~~~~~~~~~~~~~~~~~
+----------------------
 
 | |image_agreement_upload_assignee|
 | *Pasirašytos sutarties įkėlimas (gavėjas)*
@@ -2068,7 +2088,7 @@ Gavęs ADOC versiją, įkelia ją per funkciją **„Įkelti pasirašytą dokume
 Jei failas neteisingas, sistema pateikia išsamius klaidų aprašymus.
 
 Duomenų teikėjo parašas
-~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 
 | |image_agreement_upload_assigner|
 | *Pasirašytos sutarties įkėlimas (Teikėjo)*
@@ -2078,13 +2098,13 @@ jį pasirašo ir įkelia per **„Įkelti pasirašytą dokumentą (Teikėjo)“*
 Dokumentą turi pasirašyti būtent derinimo metu pasirinktas teikėjo atstovas.
 
 Pastaba dėl kontaktų
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 **Svarbu:** Jeigu jau suformavus sutartį bet kuris kontaktas (vardas, pavardė, pareigos ir kt.) būtų pakeistas, sistema informuos apie klaidas.
 Taip yra todėl, kad sutarties dokumentai kuriami pagal tuo metu galiojusią informaciją ir nėra automatiškai perkurti atlikus pokyčius kontaktams.
 
 Sutarties pasirašymas ir patvirtinimas
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------
 
 Užbaigus abu pasirašymo žingsnius, sutarties būsena tampa **„Pasirašyta“**.
 
@@ -2100,7 +2120,7 @@ sutarties derinimo puslapio.
 .. _sutarties-perziura:
 
 Detali sutarties peržiūra
--------------------------
+=========================
 
 Peržiūrėti detalesnę sutarties informaciją galima sutarties peržiūros puslapyje. Į jį patekti galima
 spaudžiant "Peržiūrėti" sutarčių sąrašo formoje, norimos sutarties eilutėje.
@@ -2129,7 +2149,7 @@ Sutarties dokumentai gali būti:
 
 
 Sutarties dokumento kūrimas ir pasirašytos sutarties įkėlimas
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------------------------------
 
 Kurti arba įkelti pasirašytą sutartį galima spaudžiant mygtuką dešiniajame viršutiniame kampe.
 Šį veiksmą gali atlikti tik gavėjo ir teikėjo organizacijos atstovai, organizacijos vardu prisijungę per VIISP
@@ -2150,7 +2170,7 @@ Mygtuko veiksmas priklauso nuo sutarties būsenos:
 - Sutarties būsena **Inicijuota** – sutartį pasirašyti gali duomenų teikėjas.
 
 Sutarties *PDF* failo kūrimas
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------
 
 Šį veiksmą atlikti gali tik gavėjo organizacijos atstovas, organizacijos vardu prisijungęs per VIISP,
 turintis sutarčių pasirašymo teises.
@@ -2162,7 +2182,7 @@ bei papildoma informacija, kuri gali būti įtraukta į sutarties turinį, pavyz
 - Šablono, kuris buvo pasirinktas kūrimui, kopija. (*MD*)
 
 Sutarties *PDF* failo kūrimo šablonai (*MD*)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------------
 
 Kiekviena organizacija gali turėti savo sutarčių šabloną arba naudoti numatytąjį. 
 Šablonų administravimą atlieką sistemos administratorius.
@@ -2619,9 +2639,9 @@ Slaptažodis privalo būti saugus. (Daugiau: `Sąvokos <#naudojami-terminai-ir-s
 .. |image_agreement_form_both_parties| image:: /static/katalogas/okot/image_agreement_form_both_parties.png
 .. |image_agreement_forming_form| image:: /static/katalogas/okot/image_agreement_forming_form.png
 .. |image_agreement_upload_assignee| image:: /static/katalogas/okot/image_agreement_upload_assignee.png
-.. |image_agreement_upload_form| image:: /static/katalogas/okot/image_agreement_upload_form.png
 .. |image_agreement_upload_assigner| image:: /static/katalogas/okot/image_agreement_upload_assigner.png
 .. |image_agreement_signed| image:: /static/katalogas/okot/image_agreement_signed.png
+.. |image_organization_tab_agreements| image:: /static/katalogas/okot/image_organization_tab_agreements.png
 
 .. _objektas: https://ivpk.github.io/dsa/modelis.html#objektas
 .. _brandos lygis: https://ivpk.github.io/dsa/branda.html

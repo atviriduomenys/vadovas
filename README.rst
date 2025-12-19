@@ -17,8 +17,8 @@ reStructuredText_ markup language.
 .. _Sphinx: https://www.sphinx-doc.org/en/master/
 .. _reStructuredText: https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html
 
-Contibuting
-===========
+Contributing
+============
 
 If you want to contribute, you  can use DocuMatt_ tool, for previewing documentation if GitHub provided preview functionality is not enouth.
 
