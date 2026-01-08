@@ -2457,6 +2457,23 @@ Dėl išsamesnės informacijos apie Katalogo Partnerių API naudojimą, prašome
 žiūrėti `Partnerių API`_ dokumentacijoje.
 
 
+Istorija
+********
+
+Kataloge, prie tam tikrų modelių (sąrašas nuolat plečiamas), yra skirtukas „Istorija“.
+Jį atidarius rodoma kontekstinio modelio ir su juo susijusių modelių veiksmų bei pokyčių istorija.
+Istorijoje pateikiama:
+
+- **Data/laikas**, kada buvo atliktas veiksmas
+- **Naudotojas**, kuris atliko veiksmą
+- **Veiksmas**:
+
+  - Veiksmas (pvz `project-create`) ir veiksmo argumentai
+  - paveikti objektai; jei objektas pasiekiamas tiesiogine nuoroda, rodoma aktyvi nuoroda.
+
+|image_history|
+
+
 Slaptažodžio keitimas
 *********************
 
@@ -2642,6 +2659,7 @@ Slaptažodis privalo būti saugus. (Daugiau: `Sąvokos <#naudojami-terminai-ir-s
 .. |image_agreement_upload_assigner| image:: /static/katalogas/okot/image_agreement_upload_assigner.png
 .. |image_agreement_signed| image:: /static/katalogas/okot/image_agreement_signed.png
 .. |image_organization_tab_agreements| image:: /static/katalogas/okot/image_organization_tab_agreements.png
+.. |image_history| image:: /static/katalogas/okot/history.png
 
 .. _objektas: https://ivpk.github.io/dsa/modelis.html#objektas
 .. _brandos lygis: https://ivpk.github.io/dsa/branda.html
