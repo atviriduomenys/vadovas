@@ -339,7 +339,10 @@ Tvarkytojų peržiūros duomenys:
 
 - **Telefonas:** Telefono numeris.
 
-- **Rolė:** paskyrų naudotojų rolės. 
+- **Rolė:** paskyrų naudotojų rolės. Šiam laukui taikomi apribojimai.
+
+  - Atvirų duomenų koordinatorius / tvarkytojas. Gali tvarkyti duomenų išteklius, kurių prieigos teisė yra vieša arba apribota, neturi teisės tvarkyti informacinių sistemų.
+  - Duomenų išteklių koordinatorius / tvarkytojas. Gali tvarkyti visus duomenų išteklius, įskaitant neviešus duomenis ir informacines sistemas.
 
 \> **Pridėti naują organizacijos koordinatorių / tvarkytoją:**
 
