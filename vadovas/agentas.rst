@@ -732,7 +732,7 @@ Leidimų tikrinimas su sutartimis
 
 
 Šis tikrinimas yra vykdomas kiekvienos užklausos metu. Tai Agente leidžia užtikrinti, kad JWT žetonas
-yra išduotas tik su tokiais leidimais, kurie yra įrašyti į sutartis, sinchronizuotas su Agentu ir
+yra išduotas tik su leidimais, kurie yra įrašyti į sutartis, sinchronizuotas su Agentu ir
 susietas su klientu. Jei JWT žetonas turės leidimų, kurie nėra įrašyti į sutartį - užklausos vykdyti
 nebus galima.
 
