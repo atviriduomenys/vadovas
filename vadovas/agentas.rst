@@ -7,6 +7,27 @@ Agentas
 #######
 
 
+Konfigūracija
+*************
+
+Čia aprašyti Spinta nustatymai, kuriuos galima nurodyti per komandinę
+eilutę, per environment kintamuosius arba naudojant konfigūracinį failą.
+
+Įvykių registravimas
+====================
+
+**log_level**
+    Nustato įvykių registravimo žurnalo lygį standartinės išvesties (angl. *stdout*) žinutėms. Numatytoji reikšmė - `WARNING`.
+    Galimos reikšmės: `NOTSET`, `DEBUG`, `INFO`, `WARNING`, `ERROR`, `CRITICAL`.
+
+**file_log_level**
+    Nustato įvykių registravimo žurnalo lygį žinutėms įrašomoms į failą. Numatytoji reikšmė - `DEBUG`.
+    Galimos reikšmės: `NOTSET`, `DEBUG`, `INFO`, `WARNING`, `ERROR`, `CRITICAL`.
+
+**file_log_path**
+    Nustato direktoriją, kurioje bus kuriami žurnalo failai. Numatytoji reikšmė - namų direktorijoje, `.spinta_logs`.
+
+
 Sinchronizacija
 ***************
 
