@@ -6,6 +6,19 @@
 Agentas
 #######
 
+**Agento diegimas:**
+
+.. toctree::
+    :maxdepth: 1
+
+    /agentas/diegimas
+
+**Agento šaltinių konfigūravimas:**
+
+.. toctree::
+    :maxdepth: 1
+
+    /agentas/saltiniu-konfiguravimas.rst
 
 Konfigūracija
 *************
