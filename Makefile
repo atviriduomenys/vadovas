@@ -42,7 +42,7 @@ help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 auto: env
-	env/bin/sphinx-autobuild -b html $(SOURCEDIR) $(BUILDDIR)/html $(SPHINXOPTS)
+	env/bin/sphinx-autobuild -b html --port $(PORT) $(SOURCEDIR) $(BUILDDIR)/html $(SPHINXOPTS)
 
 open:
 	xdg-open http://127.0.0.1:8000

@@ -1743,8 +1743,63 @@ Fiksuotos reikšmės aprašymas.
 
 6. Įsitikinkite, kad įvedėte teisingus duomenis ir spauskite **[Sukurti]**.
 
-Duomenų struktūros versijavimas (aktyviai keičiamas)
-****************************************************
+Duomenų rinkinio struktūra
+*****************
+
+1. Duomenų rinkinio lange pasirinkite **[Struktūra]**.
+
+|image136|
+*119 pav. Duomenų struktūros lango mygtukai.*
+
+Duomenų rinkinio struktūros funkcionalumai
+==========================================
+
+1. Galimybė pasirinkti duomenų struktūros versija.
+
+2. Eksportuoti. Parsiunčiamas pasirinktos versijos duomenų rinkinio struktūros aprašas.
+
+3. Eksportuoti OpenAPI. Parsiunčiamas pasirinktos versijos duomenų rinkinio struktūros aprašas OpenAPI formatu.
+
+4. Importuoti. Galima importuoti duomenų struktūros aprašą.
+
+5. Naujas modelis. Galima sukurti naują modelį duomenų struktūros aprašui.
+
+6. Publikuoti versiją. Galima publikuoti pasirinkta duomenų struktūros aprašą.
+
+Versijos pasirinkimo funkcionalumas
+===================================
+
+Kiekvienas duomenų rinkinys turi juodraščio versiją ir gali turėti vieną ar daugiau publikuotų versijų. Versijas galima keisti naudojantis versijos pasirinkėjo mygtuku.
+
+Pasirinkus juodraščio versiją, leidžiama atlikti visus kūrimo, importavimo, publikavimo ir trynimo veiksmus.
+
+|image132|
+*120 pav. Pasirinkta juodraščio versija.*
+
+Pasirinkus publikuotą versiją, leidžiama atlikti tik eksportavimo veiksmus. Publikuota versija yra neliečiama ir nebegali būti pakeista.
+
+|image133|
+*121 pav. Pasirinkta išleista 1.0.0 versija.*
+
+Importavimo funkcionalumas
+==========================
+
+Kiekvienam duomenų rinkiniui galima importuoti duomenų struktūros aprašą, naudojantis importavimo mygtuku.
+Importuoti duomenų struktūros aprašą galima tik esant juodraščio versijoje.
+
+|image134|
+*122 pav. Struktūros importavimo vaizdas.*
+
+**Importavimo veiksmas yra destruktyvus – importuojant struktūros aprašą, esama (anksčiau importuota arba rankiniu būdu sukurta) struktūra yra pašalinama, o išsaugoma tik naujai importuota struktūra.**
+
+|image132|
+*123 pav. Struktūros apraše egzistuojantis Country modelis.*
+
+|image135|
+*124 pav. Importavus naują struktūrą, Country modelis ištrintas ir išsaugotas City modelis.*
+
+Duomenų struktūros versijavimo forma (aktyviai keičiamas)
+**********************************************************
 
 1. Duomenų rinkinio lange pasirinkite **[Struktūra]**.
 
@@ -1799,6 +1854,18 @@ Kuriant duomenų struktūros versiją, reikia pasirinkti visus laukus, kuriuos n
 
 |image131|
 *124 pav. Duomenų struktūros laukų įtraukimas į naują versiją.*
+
+**Galimos klaidos:**
+
+1. Publikuojant duomenų rinkinį, privaloma publikuoti ir paties duomenų rinkinio metaduomenis (pavyzdyje - pirma eilutė pavadinimu "rinkinukas"). Nepublikavus duomenų rinkinio metaduomenų, metama klaida.
+
+2. Publikuojant duomenų modelį, kuris yra susietas su duomenų distribucija, privaloma publikuoti ir duomenų distribuciją. Nepublikavus duomenų distribucijos, metama klaida.
+
+3. Publikuojant duomenų lauką, privaloma publikuoti ir to duomenų lauko duomenų modelį. Nepublikavus duomenų modelio, metama klaida.
+
+4. Publikuojant duomenų reikšmę, privaloma publikuoti ir tos duomenų reikšmės duomenų lauką. Nepublikavus duomenų lauko, metama klaida.
+
+5. Publikuojant duomenų modelį, kuris turi bazinį (base) modelį, privaloma publikuoti ir bazinį modelį arba jis turi būti jau publikuotas. Priešingu atveju metama klaida.
 
 
 
@@ -2668,6 +2735,11 @@ Slaptažodis privalo būti saugus. (Daugiau: `Sąvokos <#naudojami-terminai-ir-s
 .. |image129| image:: /static/katalogas/okot/image129.png
 .. |image130| image:: /static/katalogas/okot/image130.png
 .. |image131| image:: /static/katalogas/okot/image131.png
+.. |image132| image:: /static/katalogas/okot/image132.png
+.. |image133| image:: /static/katalogas/okot/image133.png
+.. |image134| image:: /static/katalogas/okot/image134.png
+.. |image135| image:: /static/katalogas/okot/image135.png
+.. |image136| image:: /static/katalogas/okot/image136.png
 .. |77pav| image:: /static/katalogas/okot/77pav.png
 .. |78pav| image:: /static/katalogas/okot/78pav.png
 .. |image_panaudojimoatvejai_sutartys_1| image:: /static/katalogas/okot/image_panaudojimoatvejai_sutartys_1.png
