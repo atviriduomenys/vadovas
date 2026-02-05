@@ -1113,7 +1113,7 @@ Struktūros eksportavimas
 
 Duomenų rinkinio struktūrą galima eksportuoti CSV formatu. Eksportuota struktūra
 gali būti naudojama atsarginėms kopijoms, struktūros perkėlimui į kitą sistemą,
-arba dalinimuisi su kitais vartotojais.
+arba dalinimuisi su kitais naudotojais.
 
 Kaip eksportuoti
 ~~~~~~~~~~~~~~~~
