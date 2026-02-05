@@ -455,7 +455,7 @@ Kontaktų sąrašo peržiūra
 
 3. Organizacijos lange pasirinkite skiltį **„Kontaktai"**.
 
-| |organizacijos_kontaktai| 
+| |organizacijos_kontaktai|
 | *29 pav. Organizacijos kontaktų skiltis*
 
 - **Kontaktas:** kontaktinio asmens vardas ir pavardė arba organizacijos pavadinimas;
@@ -476,7 +476,7 @@ Naujo kontakto sukūrimas
 
 2. Atsidariusiame lange užpildykite kontakto informaciją:
 
-| |organizacijos_kontaktu_forma| 
+| |organizacijos_kontaktu_forma|
 | *30 pav. Naujo organizacijos kontakto pridėjimo forma*
 
 Kurdami naują kontaktą turite pasirinkti **vieną iš dviejų variantų**:
@@ -486,13 +486,13 @@ Kurdami naują kontaktą turite pasirinkti **vieną iš dviejų variantų**:
 - **Registruotas kontaktinis asmuo ar organizacija:** iš išskleidžiamojo sąrašo pasirinkite jau sistemoje registruotą naudotoją arba organizaciją.
 
    Sąraše kontaktai pateikiami grupuojami pagal tipą:
-   
+
    - **„Organizacija:"** – organizacijos, kurios yra jūsų organizacijos atstovės;
    - **„Naudotojai:"** – naudotojai, kurie atstovauja jūsų organizaciją arba jos atstoves organizacijas.
 
 
    **Pasirinkus registruotą asmenį ar organizaciją:**
-   
+
    - **El. paštas** ir **Telefono numeris** automatiškai užpildomi iš pasirinkto asmens ar organizacijos profilio;
    - Šių laukų redaguoti negalima – jie atnaujinami tik pačiame profilyje;
    - Jei pasirinktas **naudotojas**, būtina nurodyti jo **Pareigas organizacijoje**;
@@ -891,7 +891,7 @@ IRS rinkinių sąraše galima peržiūrėti tokią bendrą informaciją:
 - **Tvarkytojas:** Organizacijos tvarkytojo, atsakingo už rinkinį, vardas ir pavardė.
 
 	*Galima filtruoti (tekstinis);*
-	
+
 	*Gali būti tuščias;*
 
 - **Atnaujintas:** data ir laikas, kada rinkinys buvo paskutinį kartą atnaujintas.
@@ -1107,6 +1107,76 @@ Duomenų ištekliaus struktūros lange pateikiama pagrindinė informacija:
 
 | |image50|
 | *63 pav. „Šalinti failą“ patvirtinimo pranešimas*
+
+Struktūros eksportavimas
+-------------------------
+
+Duomenų rinkinio struktūrą galima eksportuoti CSV formatu. Eksportuota struktūra
+gali būti naudojama atsarginėms kopijoms, struktūros perkėlimui į kitą sistemą,
+arba dalinimuisi su kitais naudotojais.
+
+Kaip eksportuoti
+~~~~~~~~~~~~~~~~
+
+1. Atidarykite duomenų rinkinį
+2. Eikite į **„Struktūra"** skiltį
+3. Paspauskite **[Eksportuoti]** mygtuką
+4. Atsisiųskite CSV failą
+
+Eksportuoto failo struktūra
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Eksportuotas failas apima:
+
+- Duomenų rinkinio metaduomenis
+- Visų modelių aprašus
+- Visų laukų aprašus su tipais ir aprašymais
+
+.. warning::
+   **Priklausomybių įtraukimas (kūrimo stadijoje)**
+
+   Šiuo metu eksportuojant automatiškai įtraukiami ir modeliai iš kitų duomenų
+   rinkinių, į kuriuos nurodoma per ``ref`` tipo laukus.
+
+   Eksportuotame faile priklausomi modeliai išdėstomi prieš pagrindinį duomenų
+   rinkinį. Įtraukiami tik priklausomų modelių pirminio rakto laukai.
+
+   **Šis funkcionalumas gali keistis.**
+
+Pavyzdys
+~~~~~~~~
+
+Jei duomenų rinkinys ``datasets/gov/main`` turi modelį ``Country``, kuris nurodo
+į ``datasets/gov/ref/Continent``, eksportuotas failas atrodys taip:
+
+.. code-block:: csv
+
+   # Priklausomybė iš kito duomenų rinkinio
+   datasets/gov/ref,,,,,,,Referenced Dataset
+   ,,,,Continent,,,id
+   ,,,,,id,integer
+
+   # Pagrindinis duomenų rinkinys
+   datasets/gov/main,,,,,,,Main Dataset
+   ,,,,Country,,,"id, title"
+   ,,,,,id,integer
+   ,,,,,title,string
+   ,,,,,continent,ref,datasets/gov/ref/Continent
+
+
+Struktūros importavimas
+-------------------------
+
+Eksportuotą struktūrą galima importuoti į tą patį arba kitą duomenų rinkinį:
+
+1. Atidarykite duomenų rinkinį (arba sukurkite naują)
+2. Eikite į **„Struktūra"** skiltį
+3. Paspauskite **[Importuoti]**
+4. Pasirinkite CSV failą
+
+**Svarbu:** Importuojant failą su priklausomybėmis, į duomenų rinkinį bus
+importuota tik paskutinė (pagrindinė) duomenų rinkinio struktūra. Priklausomybės
+bus automatiškai praleistos.
 
 Metaduomenys
 ============
@@ -1914,7 +1984,7 @@ Panaudojimo atvejo kūrimas
 | |panaudojimo_atvejo_forma|
 | *Panaudojimo atvejo kūrimo forma*
 
-Panaudojimo atvejus kurti gali visi prisijungę naudotojai. 
+Panaudojimo atvejus kurti gali visi prisijungę naudotojai.
 
 **Pastaba**: Laukas *[Panaudojimo atvejo iniciatorius]* matomas tik naudotojui, prisijungusiam per VIISP, kaip įgaliotam organizacijos atstovui, turinčiam teises sudaryti sutartis.
 Kitu atveju panaudojimo atveju organizacijos pasirinkti ir sudaryti sutarčių nebus galima.
@@ -1928,7 +1998,7 @@ Panaudojimo atvejo peržiūra
 | |panaudojimo_atvejo_perziura|
 | *Panaudojimo atvejo langas*
 
-Panaudojimo atvejį galima peržiūrėti tik jeigu jis matomas viešai ir yra patvirtintas, 
+Panaudojimo atvejį galima peržiūrėti tik jeigu jis matomas viešai ir yra patvirtintas,
 arba jeigu esate panaudojimo atvejo duomenų gavėjo arba teikėjo organizacijos atstovas.
 
 .. _panaudojimo_atvejo_redagavimas:
@@ -2187,7 +2257,7 @@ bei papildoma informacija, kuri gali būti įtraukta į sutarties turinį, pavyz
 Sutarties *PDF* failo kūrimo šablonai (*MD*)
 --------------------------------------------
 
-Kiekviena organizacija gali turėti savo sutarčių šabloną arba naudoti numatytąjį. 
+Kiekviena organizacija gali turėti savo sutarčių šabloną arba naudoti numatytąjį.
 Šablonų administravimą atlieką sistemos administratorius.
 
 
