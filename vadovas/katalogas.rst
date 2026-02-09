@@ -1060,53 +1060,40 @@ Struktūra
 | |image47|
 | *60 pav. Struktūros failo Excel dokumente pavyzdys*
 
-*SVARBU: Į Portalą vienam rinkiniui turi būti įkeliamas vienas duomenų struktūros aprašas (DSA).*
-
-*Galima įkelti kelias vieno rinkinio versijas, tačiau vienam rinkiniui gali būti publikuojamas tik vienas DSA.*
-
 1. Duomenų rinkinio lange spauskite kortelę **„Struktūra“**.
 
-   | |struktura|
+   | |image136|
    | *61 pav. Struktūros kortelė*
 
 2. Duomenų rinkinio struktūros lange matomi funkcionalumai:
 
-- **Eksportuoti**: parsisiųsti DSA;
+- **Pasirinkti versiją.** Galimybė pasirinkti duomenų struktūros versija.
 
-- **Importuoti**: importuoti DSA;
+- **Eksportuoti.** Parsiunčiamas pasirinktos versijos duomenų rinkinio struktūros aprašas CSV formatu.
 
-- **Naujas modelis**: kurti modelį;
+- **Eksportuoti OpenAPI.** Parsiunčiamas pasirinktos versijos duomenų rinkinio struktūros aprašas OpenAPI (OAS) formatu.
 
-- **Nauja versija:** kurti naują modelio versiją;
+- **Importuoti.** Galima importuoti duomenų struktūros aprašą.
 
+- **Naujas modelis.** Galima sukurti naują modelį duomenų struktūros aprašui.
 
-Duomenų ištekliaus struktūros lange pateikiama pagrindinė informacija:
+- **Publikuoti versiją.** Galima publikuoti pasirinkta duomenų struktūros aprašą.
 
-- **Pridėtas**: data ir laikas, kada struktūros failas buvo pridėtas;
+Versijos pasirinkimo funkcionalumas
+-----------------------------------
 
-- **Pavadinimas**: struktūros pavadinimas sistemoje, sukuriamas įkeliant struktūros failą;
+Kiekvienas duomenų rinkinys turi juodraščio versiją ir gali turėti vieną ar daugiau publikuotų versijų. Versijas galima keisti naudojantis versijos pasirinkimo mygtuku.
 
-- **Failo pavadinimas**: pilnas įkelto struktūros failo pavadinimas;
+Pasirinkus juodraščio versiją, leidžiama atlikti visus kūrimo, importavimo, publikavimo ir trynimo veiksmus.
 
-- **Standartinis:** požymis, kad duomenų rinkinys yra bendrinės struktūros;
+|image132|
+*62 pav. Pasirinkta juodraščio versija.*
 
-- **Aktualus:** požymis, kad duomenų rinkinys yra naujausios versijos.
+Pasirinkus publikuotą versiją, leidžiama atlikti tik eksportavimo veiksmus. Publikuota versija yra neliečiama ir nebegali būti pakeista.
 
-1. Pasirinkite reikiamą duomenų struktūros versiją ir spauskite [Padaryti aktualiu].
+|image133|
+*63 pav. Pasirinkta išleista 1.0.0 versija.*
 
-   *Sėkmingai atlikus veiksmą, sistema pažymės struktūrą stulpelyje „Aktualus“ su verte „Taip“.*
-
-*Jeigu nesate įkėlę duomenų struktūros, gausite klaidos pranešimą:*
-
-| |image49|
-| *62 pav. „Daryti aktualiu“ klaidos langas, kai nepateikta duomenų struktūra*
-
-2. Pasirinkite norimą pašalinti duomenų struktūros versiją ir spauskite **[Šalinti failą]**.
-
-   *Sėkmingai atlikus veiksmą, sistema pašalins pasirinktą struktūrą iš sąrašo.*
-
-| |image50|
-| *63 pav. „Šalinti failą“ patvirtinimo pranešimas*
 
 Struktūros eksportavimas
 -------------------------
@@ -1165,18 +1152,62 @@ Jei duomenų rinkinys ``datasets/gov/main`` turi modelį ``Country``, kuris nuro
 
 
 Struktūros importavimas
--------------------------
+-----------------------
 
-Eksportuotą struktūrą galima importuoti į tą patį arba kitą duomenų rinkinį:
+Kiekvienam duomenų rinkiniui galima importuoti duomenų struktūros aprašą, naudojantis importavimo mygtuku.
+Importuoti duomenų struktūros aprašą galima tik esant juodraščio versijoje.
 
 1. Atidarykite duomenų rinkinį (arba sukurkite naują)
 2. Eikite į **„Struktūra"** skiltį
 3. Paspauskite **[Importuoti]**
 4. Pasirinkite CSV failą
 
+**Svarbu:** Importavimo veiksmas yra destruktyvus – importuojant struktūros aprašą, esama (anksčiau importuota arba rankiniu būdu sukurta) struktūra yra pašalinama, o išsaugoma tik naujai importuota struktūra.
+
+|image132|
+*64 pav. Struktūros apraše egzistuojantis Country modelis.*
+
+|image135|
+*65 pav. Importavus naują struktūrą, Country modelis ištrintas ir išsaugotas City modelis.*
+
+Eksportuotos struktūros importavimas
+------------------------------------
+Galima importuoti anksčiau eksportuotą struktūrą į tą patį arba kitą duomenų rinkinį.
+
 **Svarbu:** Importuojant failą su priklausomybėmis, į duomenų rinkinį bus
 importuota tik paskutinė (pagrindinė) duomenų rinkinio struktūra. Priklausomybės
 bus automatiškai praleistos.
+
+Struktūros aprašo laukų kūrimas
+------------------------
+
+Struktūros aprašą galima sukurti neimportuojant aprašo failo, o rankiniu būdu.
+Mygtukas **„Naujas modelis"** leidžia sukurti duomenų modelį. Kūrimo forma aprašyta :ref:`čia <duomenu-modelio-forma>`.
+
+Sukūrus modelį jis atsiras struktūros skirtuke.
+
+|image142|
+*66 pav. Struktūros aprašui sukurtas Country modelis.*
+
+Paspaudus ant modelio, atsidarys duomenų modelio skirtukas.
+
+|image143|
+*67 pav. Duomenų modelio Country skirtukas.*
+
+Duomenų modelio skirtuke galėsite sukurti duomenų modelio lauką, paspaudę **„Naujas duomenų laukas"**. Kūrimo forma aprašyta :ref:`čia <duomenu-lauko-forma>`.
+
+|image146|
+*68 pav. Duomenų modelio Country skirtukas su sukurtu duomenų modelio lauku property.*
+
+Paspaudus ant duomenų lauko, atsidarys duomenų lauko skirtukas.
+
+|image144|
+*69 pav. Duomenų modelio lauko property skirtukas.*
+
+Jei sukurtas duomenų modelio laukas yra string tipo, galėsite sukurti jam reikšmes. Kūrimo forma aprašyta :ref:`čia <duomenu-reiksmes-forma>`.
+
+|image145|
+*70 pav. Duomenų modelio laukui property sukurta reikšmė.*
 
 Metaduomenys
 ============
@@ -1186,10 +1217,10 @@ Metaduomenys
 1. Spauskite **[5. Metaduomenys]**.
 
 | |image56|
-| *67 pav. Duomenų rinkinio metaduomenų įvedimo/redagavimo lango pirmas fragmentas*
+| *71 pav. Duomenų rinkinio metaduomenų įvedimo/redagavimo lango pirmas fragmentas*
 
 | |image57|
-| *68 pav. Duomenų rinkinio metaduomenų įvedimo/redagavimo lango antras fragmentas*
+| *72 pav. Duomenų rinkinio metaduomenų įvedimo/redagavimo lango antras fragmentas*
 
 2. Užpildykite laukus pagal poreikį (\* – privalomi; A – automatiniai):
 
@@ -1250,7 +1281,7 @@ Metaduomenys
    Lango apačioje pateikta prioriteto balų suma.
 
 | |image58|
-| *69 pav. Duomenų rinkinio metaduomenų įvedimo/redagavimo lango apatinis fragmentas*
+| *72 pav. Duomenų rinkinio metaduomenų įvedimo/redagavimo lango apatinis fragmentas*
 
 3. Užpildžius reikiamus laukus, galite spauskite mygtuką **[Saugoti]** arba pereikite prie kitų kortelių pildymo.
 
@@ -1263,12 +1294,12 @@ Metaduomenys
 4. Tekstiniuose laukuose įveskite priežastį kiekvienam DCAT laukui, kurio neužpildėte.
 
 | |48pav|
-| *70 pav. Duomenų rinkinio metaduomenų neužpildymo paaiškinimo lango pavyzdys*
+| *73 pav. Duomenų rinkinio metaduomenų neužpildymo paaiškinimo lango pavyzdys*
 
 *Nurodyta priežastis bus matoma poreikio peržiūros lango skiltyje*\ **„Įvykių istorija“**\ *, komentaro lauke.*
 
 | |image60|
-| *71 pav. DCAT lauko neužpildymo priežasties peržiūros pavyzdys*
+| *74 pav. DCAT lauko neužpildymo priežasties peržiūros pavyzdys*
 
 5. Įvedę priežastis neužpildyti privalomiems laukams, spauskite **[Saugoti]**.
 
@@ -1286,13 +1317,13 @@ aprašas **„2. Struktūra“**
 2. Sistema parodys duomenų įkėlimui skirtą langą.
 
 | |image61|
-| *72 pav. Duomenų rinkinio duomenų distribucijos langas*
+| *75 pav. Duomenų rinkinio duomenų distribucijos langas*
 
 *SVARBU: jeigu nėra sukurta aktualios duomenų struktūros, vartotojui nebus
 leidžiama įkelti duomenis ir bus rodomas atitinkamas pranešimo langas:*
 
 | |image62|
-| *73 pav. Duomenų rinkinio duomenų distribucijos lango klaidos pranešimas*
+| *76 pav. Duomenų rinkinio duomenų distribucijos lango klaidos pranešimas*
 
 Lange pateiktas sąrašas įkeltų nuorodų ir failų, kuriuose pateikti duomenys,
 nurodant šią informaciją:
@@ -1329,7 +1360,7 @@ nurodant šią informaciją:
    *Sistema parodys naujos distribucijos langą.*
 
 | |image63|
-| *74 pav. Naujos distribucijos kaip failo įkėlimo langas*
+| *77 pav. Naujos distribucijos kaip failo įkėlimo langas*
 
 4. Užpildykite reikiamus laukus ( \* - privalomi):
 
@@ -1364,14 +1395,14 @@ nurodant šią informaciją:
     kurios galima atsisiųsti duomenis.
 
 | |image64|
-| *75 pav. Distribucijos nuorodos įkėlimo langas*
+| *78 pav. Distribucijos nuorodos įkėlimo langas*
 
 7. Užpildę laukus, spauskite **[Saugoti]**.
 
 *Naujai įkeltas failas ar nuoroda bus iškart matomi distribucijų lange esančiame sąraše:*
 
 | |image61|
-| *76 pav. Duomenų distribucijų sąrašo pavyzdys*
+| *79 pav. Duomenų distribucijų sąrašo pavyzdys*
 
 ====
 
@@ -1393,7 +1424,7 @@ Prašymai gauti duomenis
 1. Ištekliaus peržiūros lango meniu pasirinkite skiltį **„Poreikiai“**.
 
 | |poreikiai|
-| *77 pav. Duomenų rinkiniui pateiktų poreikių peržiūros langas*
+| *80 pav. Duomenų rinkiniui pateiktų poreikių peržiūros langas*
 
 Poreikių peržiūros lange galite tik peržiūrėti pateiktų poreikių informaciją:
 
@@ -1410,7 +1441,7 @@ Istorija
 1. **Duomenų ištekliaus lango** viršuje esančiame meniu pasirinkite skiltį **„Istorija“**.
 
 | |image72|
-| *78 pav. Duomenų rinkinio istorijos langas*
+| *81 pav. Duomenų rinkinio istorijos langas*
 
 Lange pateikti rinkinio istorijos duomenys, automatiškai kaupiami nuo duomenų rinkinio sukūrimo:
 
@@ -1437,7 +1468,7 @@ Pastabos
 2. Duomenų rinkinio lango viršuje esančiame meniu pasirinkite **„Pastabos“**.
 
 | |image73|
-| *79 pav. Duomenų rinkinio pastabų sąrašo lango fragmentas*
+| *82 pav. Duomenų rinkinio pastabų sąrašo lango fragmentas*
 
 Lange pateikiama pagrindinė pastabų informacija:
 
@@ -1450,12 +1481,98 @@ Lange pateikiama pagrindinė pastabų informacija:
 Sąraše galite pasirinkti reikiamą pastabą, kad atvertumėte jos peržiūros langą ir galėtumėte perskaityti pilną pastabos tekstą.
 
 | |past01|
-| *80 pav. Duomenų rinkiniui pateiktos pastabos peržiūros langas*
+| *83 pav. Duomenų rinkiniui pateiktos pastabos peržiūros langas*
 
 *Pateiktų pastabų redaguoti negalima, tik peržiūrėti.*
 
 *Naujos pastabos pateikiamos, kai vyr. koordinatorius atmeta iš naujo nacionaliniam planui pateiktą organizacijos duomenų rinkinį.*
 
+Duomenų struktūros versijavimo forma (aktyviai keičiama)
+**********************************************************
+
+1. Duomenų rinkinio lange pasirinkite **[Struktūra]**.
+
+2. Struktūros lange paspauskite **[Publikuoti versiją]**.
+
+|image125|
+*84 pav. Duomenų struktūros lango mygtukai.*
+
+Įsigalioja*
+===========
+
+Duomenų struktūros įsigaliojimo data. Įsigaliojimo data turi būti nutolusi bent per 2 savaites. Atėjus įsigaliojimo datai, duomenų struktūra yra publikuojama ir tampa viešai pasiekiama.
+
+|image126|
+*85 pav. Duomenų struktūros įsigaliojimo data.*
+
+Aprašymas
+=========
+
+Duomenų struktūros aprašymas.
+
+|image127|
+*86 pav. Duomenų struktūros aprašymas.*
+
+Versijos tipas
+==============
+
+Duomenų struktūros versijos tipas. Versijos tipų yra 3 - Pagrindinė, Papildoma ir Pataisa (Major, Minor, Patch). Versijos tipas priskiriamas pagal semantinio versijavimo SemVer principą. SemVer dokumentacija: https://semver.org/.
+
+Galimi versijos tipų pasirinkimai priklauso nuo to, kokia versija jau yra išleista. Jei nėra su pagrindinės (Major) versijos tipu išleistos duomenų struktūros, galimas versijos tipo pasirinkimas yra tik Pagrindinė (Major).
+
+|image128|
+*87 pav. Duomenų struktūros versijos tipo pasirinkimas.*
+
+Jei duomenų struktūros versija, turinti versijos tipą pagrindinė (Major) buvo išleista anksčiau, galimi variantai pasipildo papildomos (Minor) ir pataisos (Patch) versijų tipais.
+
+|image129|
+*88 pav. Duomenų struktūros versijos tipo pasirinkimai.*
+
+Priklauso versijai
+==================
+
+Pasirinkus papildomos (Minor) arba pataisos (Patch) versijos tipą, būtina pasirinkti versiją, kuri bus naujos versijos tėvinė versija.
+
+|image130|
+*89 pav. Duomenų struktūros versijos priklausymas kitai versijai.*
+
+Įtraukiama į versiją
+====================
+
+Kuriant duomenų struktūros versiją, reikia pasirinkti visus laukus, kuriuos norima įtraukti į versiją.
+
+|image131|
+*90 pav. Duomenų struktūros laukų įtraukimas į naują versiją.*
+
+**Publikavimo klaidos:**
+
+1. Publikuojant duomenų rinkinį, privaloma publikuoti ir paties duomenų rinkinio metaduomenis (pavyzdyje - pirma eilutė pavadinimu "rinkinukas"). Nepublikavus duomenų rinkinio metaduomenų, metama klaida.
+
+|image137|
+*91 pav. Publikavimo klaida, kai nepublikuojami duomenų rinkinio metaduomenys.*
+
+2. Publikuojant duomenų modelį, kuris yra susietas su duomenų distribucija, privaloma publikuoti ir duomenų distribuciją. Nepublikavus duomenų distribucijos, metama klaida.
+
+|image138|
+*92 pav. Publikavimo klaida, kai nepublikuojama duomenų distribucija.*
+
+3. Publikuojant duomenų lauką, privaloma publikuoti ir to duomenų lauko duomenų modelį. Nepublikavus duomenų modelio, metama klaida.
+
+|image139|
+*93 pav. Publikavimo klaida, kai nepublikuojamas duomenų lauko modelis.*
+
+4. Publikuojant duomenų reikšmę, privaloma publikuoti ir tos duomenų reikšmės duomenų lauką. Nepublikavus duomenų lauko, metama klaida.
+
+|image140|
+*94 pav. Publikavimo klaida, kai nepublikuojamas duomenų reikšmės laukas.*
+
+5. Publikuojant duomenų modelį, kuris turi bazinį (base) modelį, privaloma publikuoti ir bazinį modelį arba jis turi būti jau publikuotas. Priešingu atveju metama klaida.
+
+|image141|
+*95 pav. Publikavimo klaida, kai naudojamas nepublikuotas bazinis laukas.*
+
+
+.. _duomenu-modelio-forma:
 
 Duomenų modelio forma
 *********************
@@ -1463,7 +1580,7 @@ Duomenų modelio forma
 1. Duomenų rinkinio lange pasirinkite **[Struktūra]**.
 
 |image113|
-*81 pav. Duomenų rinkinio struktūros lango fragmentas.*
+*96 pav. Duomenų rinkinio struktūros lango fragmentas.*
 
 2. Duomenų rinkinių struktūros lange spauskite **[Naujas modelis]**.
 
@@ -1474,86 +1591,88 @@ Kodinis pavadinimas*
 Duomenų modelio kodinis pavadinimas. Užrašomas vienaskaitos forma iš didžiosios raidės, jei pavadinimas iš kelių žodžių, žodžiai atskiriami didžiąja raide.
 
 |image116|
-*82 pav. Duomenų modelio formos kodinio pavadinimo stulpelis.*
+*97 pav. Duomenų modelio formos kodinio pavadinimo stulpelis.*
 
 Duomenų šaltinis
 ================
 Modelio duomenų šaltinis, vieta ar pavadinimas fiziniame duomenų modelyje.
 
 |image93|
-*83 pav. Duomenų modelio formos duomenų šaltinio stulpelis.*
+*98 pav. Duomenų modelio formos duomenų šaltinio stulpelis.*
 
 Duomenų filtras
 ===============
 Formulė skirta duomenų filtravimui ir paruošimui.
 
 |image94|
-*84 pav. Duomenų modelio formos duomenų filtro stulpelis.*
+*99 pav. Duomenų modelio formos duomenų filtro stulpelis.*
 
 Klasė
 =====
 Sąsaja su `OWL <https://www.w3.org/TR/owl2-overview/>`_, `RDFS <https://www.w3.org/TR/rdf-schema/>`_ ontologijomis ar `SKOS <https://www.w3.org/TR/skos-primer/>`_ kontroliuojamais žodynais.
 
 |image95|
-*85 pav. Duomenų modelio formos klasės stulpelis.*
+*100 pav. Duomenų modelio formos klasės stulpelis.*
 
 Brandos lygis
 =============
 Modelio brandos lygis, nusakantis pačio modelio brandos lygį, pavyzdžiui ar nurodytas pirminis raktas, ar modelio pavadinimas atitinka kodiniams pavadinimams keliamus reikalavimus.
 
 |image96|
-*86 pav. Duomenų modelio formos brandos lygio stulpelis.*
+*101 pav. Duomenų modelio formos brandos lygio stulpelis.*
 
 Būsena
 ======
 Metaduomenų statusas nurodomas pagal EU Publications Office kontroliuojamą žodyną `Distribution status <http://publications.europa.eu/resource/authority/distribution-status>`_ ir EU Publications Office kontroliuojamą žodyną `Dataset status <http://publications.europa.eu/resource/authority/dataset-status>`_.
 
 |image97|
-*87 pav. Duomenų modelio formos būsenos stulpelis.*
+*102 pav. Duomenų modelio formos būsenos stulpelis.*
 
 Metaduomenų matomumas
 =====================
 Duomenų rinkinio metaduomenų matomumas ir prieinamumas.
 
 |image102|
-*88 pav. Duomenų modelio formos metaduomenų matomumo stulpelis.*
+*103 pav. Duomenų modelio formos metaduomenų matomumo stulpelis.*
 
 Europos teisės akto identifikatorius (ELI)
 ==========================================
 Modelį (esybę / objektą) teisiniuose šaltiniuose įteisinančio resurso nuoroda pagal `ELI <https://eur-lex.europa.eu/eli-register/about.html>`_.
 
 |image117|
-*89 pav. Duomenų modelio formos ELI stulpelis.*
+*104 pav. Duomenų modelio formos ELI stulpelis.*
 
 Pavadinimas
 ===========
 Trumpas modelio pavadinimas. Pirmas žodis iš didžiosios raidės, pavadinimo gale taško nereikia.
 
 |image98|
-*90 pav. Duomenų modelio formos pavadinimo stulpelis.*
+*105 pav. Duomenų modelio formos pavadinimo stulpelis.*
 
 Aprašymas
 =========
 Modelio aprašymas.
 
 |image99|
-*91 pav. Duomenų modelio formos aprašymo stulpelis.*
+*106 pav. Duomenų modelio formos aprašymo stulpelis.*
 
 Modelio bazė
 ============
 Modelio bazė naudojama objekto identifikatoriams susieti, kai keli skirtingi duomenų modeliai aprašo tą pačią realaus pasaulio esybę.
 
 |image100|
-*92 pav. Duomenų modelio formos modelio bazės stulpelis.*
+*107 pav. Duomenų modelio formos modelio bazės stulpelis.*
 
 Pirminis raktas
 ===============
 `model.property <https://ivpk.github.io/dsa/draft/dimensijos.html#model.property>`_ reikšmė, kurios pagalba model objektai siejami su base objektais. Jei susiejimas pagal vieną `model.property <https://ivpk.github.io/dsa/draft/dimensijos.html#model.property>`_ yra neįmanomas, galima nurodyti kelis `model.property <https://ivpk.github.io/dsa/draft/dimensijos.html#model.property>`_ pavadinimus atskirtus kableliu.
 
 |image101|
-*93 pav. Duomenų modelio formos modelio bazės pirminio rakto stulpelis.*
+*108 pav. Duomenų modelio formos modelio bazės pirminio rakto stulpelis.*
 
 4. Įsitikinkite, kad įvedėte teisingus duomenis ir spauskite **[Sukurti]**.
+
+.. _duomenu-lauko-forma:
 
 Duomenų lauko forma
 *******************
@@ -1563,7 +1682,7 @@ Duomenų lauko forma
 2. Duomenų rinkinių struktūros lange pasirinkite modelį.
 
 |image114|
-*94 pav. Duomenų modelio struktūros lango fragmentas.*
+*109 pav. Duomenų modelio struktūros lango fragmentas.*
 
 3. Duomenų modelio struktūros lange pasirinkite **[Naujas duomenų laukas]**.
 
@@ -1574,100 +1693,102 @@ Kodinis pavadinimas*
 Duomenų lauko kodinis pavadinimas. Galimi simboliai: lotyniškos mažosios raidės, skaičiai ir apatinio pabraukimo (`_`) simbolis.
 
 |image104|
-*95 pav. Duomenų lauko formos kodinio pavadinimo stulpelis.*
+*110 pav. Duomenų lauko formos kodinio pavadinimo stulpelis.*
 
 Tipas
 =====
 Loginis duomenų tipas. Loginis duomenų tipas yra toks tipas, kurį tikitės gauti publikuojant duomenis per API. Loginis tipas gali skirtis nuo duomenų šaltinio tipo.
 
 |image105|
-*96 pav. Duomenų lauko formos duomenų tipo stulpelis.*
+*111 pav. Duomenų lauko formos duomenų tipo stulpelis.*
 
 Tipo parametrai
 ===============
 Duomenų lauko tipo parametrai.
 
 |image106|
-*97 pav. Duomenų lauko formos duomenų lauko tipo parametrų stulpelis.*
+*112 pav. Duomenų lauko formos duomenų lauko tipo parametrų stulpelis.*
 
 Ryšys
 =====
 Nurodo matavimo vienetus, laiko ar vietos tikslumą, klasifikatorių arba ryšį su papildomais modeliais.
 
 |image107|
-*98 pav. Duomenų lauko formos ryšio stulpelis.*
+*113 pav. Duomenų lauko formos ryšio stulpelis.*
 
 Duomenų šaltinis
 ================
 Duomenų lauko pavadinimas šaltinyje.
 
 |image108|
-*99 pav. Duomenų lauko formos duomenų šaltinio stulpelis.*
+*114 pav. Duomenų lauko formos duomenų šaltinio stulpelis.*
 
 Duomenų transformacija
 ======================
 Formulė skirta duomenų tikrinimui ir transformavimui arba statinės reikšmės pateikimui.
 
 |image109|
-*100 pav. Duomenų lauko formos duomenų transformacijos stulpelis.*
+*115 pav. Duomenų lauko formos duomenų transformacijos stulpelis.*
 
 Klasė
 =====
 Sąsaja su išoriniu žodynu.
 
 |image95|
-*101 pav. Duomenų lauko formos klasės stulpelis.*
+*116 pav. Duomenų lauko formos klasės stulpelis.*
 
 Brandos lygis
 =============
 Duomenų lauko brandos lygis.
 
 |image96|
-*102 pav. Duomenų lauko formos brandos lygio stulpelis.*
+*117 pav. Duomenų lauko formos brandos lygio stulpelis.*
 
 Būsena
 ======
 Metaduomenų statusas nurodomas pagal EU Publications Office kontroliuojamą žodyną `Distribution status <http://publications.europa.eu/resource/authority/distribution-status>`_ ir EU Publications Office kontroliuojamą žodyną `Dataset status <http://publications.europa.eu/resource/authority/dataset-status>`_.
 
 |image97|
-*103 pav. Duomenų lauko formos metaduomenų būsenos stulpelis.*
+*118 pav. Duomenų lauko formos metaduomenų būsenos stulpelis.*
 
 Metaduomenų matomumas
 =====================
 Duomenų rinkinio metaduomenų matomumas ir prieinamumas.
 
 |image102|
-*104 pav. Duomenų lauko formos metaduomenų matomumo stulpelis.*
+*119 pav. Duomenų lauko formos metaduomenų matomumo stulpelis.*
 
 Prieigos lygis
 ==============
 Nurodo prieigos prie duomenų lygį.
 
 |image110|
-*105 pav. Duomenų lauko formos prieigos lygio stulpelis.*
+*120 pav. Duomenų lauko formos prieigos lygio stulpelis.*
 
 Europos teisės akto identifikatorius (ELI)
 ==========================================
 Modelį (esybę / objektą) teisiniuose šaltiniuose įteisinančio resurso nuoroda pagal `ELI <https://eur-lex.europa.eu/eli-register/about.html>`_.
 
 |image117|
-*106 pav. Duomenų lauko formos ELI stulpelis.*
+*121 pav. Duomenų lauko formos ELI stulpelis.*
 
 Pavadinimas
 ===========
 Duomenų lauko pavadinimas. Šis pavadinimas yra skirtas skaityti žmonėms ir bus rodomas duomenų laukų sąrašuose ir antraštėse.
 
 |image118|
-*107 pav. Duomenų modelio formos modelio bazės pirminio rakto stulpelis.*
+*122 pav. Duomenų modelio formos modelio bazės pirminio rakto stulpelis.*
 
 Aprašymas
 =========
 Duomenų lauko aprašymas.
 
 |image119|
-*108 pav. Duomenų modelio formos modelio bazės pirminio rakto stulpelis.*
+*123 pav. Duomenų modelio formos modelio bazės pirminio rakto stulpelis.*
 
 5. Įsitikinkite, kad įvedėte teisingus duomenis ir spauskite **[Sukurti]**.
+
+.. _duomenu-reiksmes-forma:
 
 Duomenų reikšmės forma
 **********************
@@ -1679,7 +1800,7 @@ Duomenų reikšmės forma
 3. Duomenų modelio struktūros lange pasirinkite duomenų lauką.
 
 |image115|
-*109 pav. Duomenų lauko struktūros lango fragmentas.*
+*124 pav. Duomenų lauko struktūros lango fragmentas.*
 
 4. Duomenų lauko struktūros lange pasirinkite **[Nauja reikšmė]**.
 
@@ -1690,117 +1811,58 @@ Reikšmė*
 Fiksuotos reikšmės vertė.
 
 |image111|
-*110 pav. Duomenų modelio formos kodinio pavadinimo stulpelis.*
+*125 pav. Duomenų modelio formos kodinio pavadinimo stulpelis.*
 
 Reikšmė šaltinyje
 =================
 Pateikiama originali reikšmė, taip kaip ji saugoma duomenų šaltinyje. Pateiktos reikšmės turi būti unikalios ir negali kartotis.
 
 |image112|
-*111 pav. Duomenų modelio formos duomenų šaltinio stulpelis.*
+*126 pav. Duomenų modelio formos duomenų šaltinio stulpelis.*
 
 Prieigos lygmuo
 ===============
 Nurodo prieigos prie duomenų lygį.
 
 |image94|
-*112 pav. Duomenų modelio formos duomenų filtro stulpelis.*
+*127 pav. Duomenų modelio formos duomenų filtro stulpelis.*
 
 Būsena
 ======
 Metaduomenų statusas nurodomas pagal EU Publications Office kontroliuojamą žodyną `Distribution status <http://publications.europa.eu/resource/authority/distribution-status>`_ ir EU Publications Office kontroliuojamą žodyną `Dataset status <http://publications.europa.eu/resource/authority/dataset-status>`_.
 
 |image95|
-*113 pav. Duomenų modelio formos klasės stulpelis.*
+*128 pav. Duomenų modelio formos klasės stulpelis.*
 
 Metaduomenų matomumas
 =====================
 Duomenų rinkinio metaduomenų matomumas ir prieinamumas.
 
 |image102|
-*114 pav. Duomenų modelio formos brandos lygio stulpelis.*
+*129 pav. Duomenų modelio formos brandos lygio stulpelis.*
 
 Europos teisės akto identifikatorius (ELI)
 ==========================================
 Modelį (esybę / objektą) teisiniuose šaltiniuose įteisinančio resurso nuoroda pagal `ELI <https://eur-lex.europa.eu/eli-register/about.html>`_.
 
 |image117|
-*115 pav. Duomenų modelio formos brandos lygio stulpelis.*
+*130 pav. Duomenų modelio formos brandos lygio stulpelis.*
 
 Pavadinimas
 ===========
 Fiksuotos reikšmės pavadinimas.
 
 |image120|
-*116 pav. Duomenų modelio formos brandos lygio stulpelis.*
+*131 pav. Duomenų modelio formos brandos lygio stulpelis.*
 
 Aprašymas
 =========
 Fiksuotos reikšmės aprašymas.
 
 |image121|
-*117 pav. Duomenų modelio formos brandos lygio stulpelis.*
+*132 pav. Duomenų modelio formos brandos lygio stulpelis.*
 
 6. Įsitikinkite, kad įvedėte teisingus duomenis ir spauskite **[Sukurti]**.
-
-Duomenų struktūros versijavimas (aktyviai keičiamas)
-****************************************************
-
-1. Duomenų rinkinio lange pasirinkite **[Struktūra]**.
-
-2. Struktūros lange paspauskite **[Publikuoti versiją]**.
-
-|image125|
-*118 pav. Duomenų struktūros lango mygtukai.*
-
-Įsigalioja*
-===========
-
-Duomenų struktūros įsigaliojimo data. Įsigaliojimo data turi būti nutolusi bent per 2 savaites. Atėjus įsigaliojimo datai, duomenų struktūra yra publikuojama ir tampa viešai pasiekiama.
-
-|image126|
-*119 pav. Duomenų struktūros įsigaliojimo data.*
-
-Aprašymas
-=========
-
-Duomenų struktūros aprašymas.
-
-|image127|
-*120 pav. Duomenų struktūros aprašymas.*
-
-Versijos tipas
-==============
-
-Duomenų struktūros versijos tipas. Versijos tipų yra 3 - Pagrindinė, Papildoma ir Pataisa (Major, Minor, Patch). Versijos tipas priskiriamas pagal semantinio versijavimo SemVer principą. SemVer dokumentacija: https://semver.org/.
-
-Galimi versijos tipų pasirinkimai priklauso nuo to, kokia versija jau yra išleista. Jei nėra su pagrindinės (Major) versijos tipu išleistos duomenų struktūros, galimas versijos tipo pasirinkimas yra tik Pagrindinė (Major).
-
-|image128|
-*121 pav. Duomenų struktūros versijos tipo pasirinkimas.*
-
-Jei duomenų struktūros versija, turinti versijos tipą pagrindinė (Major) buvo išleista anksčiau, galimi variantai pasipildo papildomos (Minor) ir pataisos (Patch) versijų tipais.
-
-|image129|
-*122 pav. Duomenų struktūros versijos tipo pasirinkimai.*
-
-Priklauso versijai
-==================
-
-Pasirinkus papildomos (Minor) arba pataisos (Patch) versijos tipą, būtina pasirinkti versiją, kuri bus naujos versijos tėvinė versija.
-
-|image130|
-*123 pav. Duomenų struktūros versijos priklausymas kitai versijai.*
-
-Įtraukiama į versiją
-====================
-
-Kuriant duomenų struktūros versiją, reikia pasirinkti visus laukus, kuriuos norima įtraukti į versiją.
-
-|image131|
-*124 pav. Duomenų struktūros laukų įtraukimas į naują versiją.*
-
-
 
 Atvėrimo planas
 ***************
@@ -1828,7 +1890,7 @@ Metinio plano sudarymas
 2. Atsivėrusiame metinių atvėrimų plane spauskite **[+ Naujas duomenų atvėrimo planas]**:
 
 | |image78|
-| *125 pav. Atvėrimo planų sąrašo langas*
+| *133 pav. Atvėrimo planų sąrašo langas*
 
 Lange pateikiama pagrindinė atvėrimo planų informacija:
 
@@ -1868,12 +1930,12 @@ Metinio plano formavimas ir pateikimas
 2. Atvėrimo planų lange pasirinkite planą, kurį norite formuoti:
 
 | |62pav|
-| *126 pav. Metinio duomenų atvėrimo plano langas*
+| *134 pav. Metinio duomenų atvėrimo plano langas*
 
 Metinio duomenų atvėrimo plano lango viršuje – plano būsena ir reikalingas finansavimas, suma EUR.
 
 | |image81|
-| *127 pav. Metinio duomenų atvėrimo plano lango poskyrių meniu*
+| *135 pav. Metinio duomenų atvėrimo plano lango poskyrių meniu*
 
 *Numatyta lango įjungimo skiltis –*\ **„Duomenų rinkiniai“**\ *.*
 
@@ -1884,7 +1946,7 @@ Metinio duomenų atvėrimo plano lango viršuje – plano būsena ir reikalingas
 4. Atvertame rinkinių įtraukimo lange, pasirinkite, kurie rinkinių poreikiai turi būti įtraukti į metinį planą, pažymėdami žymimąjį laukelį rinkinio kairėje pusėje.
 
 | |image82|
-| *128 pav. Pasirinkto metinio duomenų atvėrimo plano langas*
+| *136 pav. Pasirinkto metinio duomenų atvėrimo plano langas*
 
    Sąraše pateikti tik tie rinkiniai, kurie priskirti Jūsų organizacijai, yra nepriskirti kitam metiniam planui, neturi įkeltų duomenų ir kurių būsena yra **„Įvertintas finansavimas“** arba **„Užpildyti metaduomenys“**.
 
@@ -1923,12 +1985,12 @@ Metinio plano išformavimas
 2. Rinkinių įtraukimo lango apačioje spauskite mygtuką **[Išformuoti planą]**.
 
 | |image83|
-| *129 pav. Metinio plano išformavimo mygtukas*
+| *137 pav. Metinio plano išformavimo mygtukas*
 
 3. Spauskite **[Patvirtinti]**, jei tikrai norite išformuoti planą.
 
 | |image84|
-| *130 pav. Metinio plano išformavimo patvirtinimo langas*
+| *138 pav. Metinio plano išformavimo patvirtinimo langas*
 
 Planas tebeliks matomas planų sąraše ir jį bus galima formuoti iš naujo įtraukiant rinkinius, tačiau jis bus tuščias, o jam buvę priskirti rinkiniai nebebus jam priskirti ir juos bus galima priskirti kitiems metiniams planams.
 
@@ -1945,14 +2007,14 @@ Plano patvirtinimas organizacijos vardu
 3. Plano lange spauskite mygtuką **[Patvirtinti planą organizacijos vardu]**:
 
 | |image85|
-| *131 pav. Metinio plano patvirtinimo organizacijos vardu pavyzdys*
+| *139 pav. Metinio plano patvirtinimo organizacijos vardu pavyzdys*
 
 4. Pasirinkimo patvirtinimo lange spauskite **[Taip]**, kad patvirtintumėte planą organizacijos vardu.
 
    Patvirtinus, plano būsena pasikeis į „Patvirtintas organizacijos“ ir bus matomas vyr. koordinatoriui.
 
 | |image86|
-| *132 pav. Plano patvirtinimo organizacijos vardu langas*
+| *140 pav. Plano patvirtinimo organizacijos vardu langas*
 
 
 .. _panaudojimo_atvejai:
@@ -2668,6 +2730,21 @@ Slaptažodis privalo būti saugus. (Daugiau: `Sąvokos <#naudojami-terminai-ir-s
 .. |image129| image:: /static/katalogas/okot/image129.png
 .. |image130| image:: /static/katalogas/okot/image130.png
 .. |image131| image:: /static/katalogas/okot/image131.png
+.. |image132| image:: /static/katalogas/okot/image132.png
+.. |image133| image:: /static/katalogas/okot/image133.png
+.. |image134| image:: /static/katalogas/okot/image134.png
+.. |image135| image:: /static/katalogas/okot/image135.png
+.. |image136| image:: /static/katalogas/okot/image136.png
+.. |image137| image:: /static/katalogas/okot/image137.png
+.. |image138| image:: /static/katalogas/okot/image138.png
+.. |image139| image:: /static/katalogas/okot/image139.png
+.. |image140| image:: /static/katalogas/okot/image140.png
+.. |image141| image:: /static/katalogas/okot/image141.png
+.. |image142| image:: /static/katalogas/okot/image142.png
+.. |image143| image:: /static/katalogas/okot/image143.png
+.. |image144| image:: /static/katalogas/okot/image144.png
+.. |image145| image:: /static/katalogas/okot/image145.png
+.. |image146| image:: /static/katalogas/okot/image146.png
 .. |77pav| image:: /static/katalogas/okot/77pav.png
 .. |78pav| image:: /static/katalogas/okot/78pav.png
 .. |image_panaudojimoatvejai_sutartys_1| image:: /static/katalogas/okot/image_panaudojimoatvejai_sutartys_1.png
