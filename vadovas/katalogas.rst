@@ -1071,7 +1071,7 @@ Struktūra
 
 - **Eksportuoti.** Parsiunčiamas pasirinktos versijos duomenų rinkinio struktūros aprašas CSV formatu.
 
-- **Eksportuoti OpenAPI.** Parsiunčiamas pasirinktos versijos duomenų rinkinio struktūros aprašas OpenAPI formatu.
+- **Eksportuoti OpenAPI.** Parsiunčiamas pasirinktos versijos duomenų rinkinio struktūros aprašas OpenAPI (OAS) formatu.
 
 - **Importuoti.** Galima importuoti duomenų struktūros aprašą.
 
@@ -1082,7 +1082,7 @@ Struktūra
 Versijos pasirinkimo funkcionalumas
 -----------------------------------
 
-Kiekvienas duomenų rinkinys turi juodraščio versiją ir gali turėti vieną ar daugiau publikuotų versijų. Versijas galima keisti naudojantis versijos pasirinkėjo mygtuku.
+Kiekvienas duomenų rinkinys turi juodraščio versiją ir gali turėti vieną ar daugiau publikuotų versijų. Versijas galima keisti naudojantis versijos pasirinkimo mygtuku.
 
 Pasirinkus juodraščio versiją, leidžiama atlikti visus kūrimo, importavimo, publikavimo ir trynimo veiksmus.
 
