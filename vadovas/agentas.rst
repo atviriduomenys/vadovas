@@ -49,7 +49,7 @@ Prieš pradedant sinchronizaciją, reikia:
 Agento registracija Kataloge
 ----------------------------
 
-**Agentų sąsajos registracija duomenų Kataloge**.
+**Agentų sąsajos registracija duomenų Kataloge**
 
 Registracija vykdoma organizacijos, kuriai priklauso naudotojas, puslapyje. Norėdami tai atlikti:
 
@@ -233,6 +233,13 @@ Procesas vykdomas trimis etapais. Išsamesnė informacija apie kiekvieną etapą
 
     **Norint pradėti sinchronizaciją, Agentui reikia įvykdyti komandą:** `spinta sync`
 
+Pradinis `spinta sync` komandos žingsnis - įsitikinti, kad agentas buvo konfigūruotas teisingai. Paleidus komandą agentas atlieka užklausą į Katalogą,
+užklausa yra užregistruojama ir agento detalioje peržiūroje atvaizduojamos užklausos detalės, fiksuojama aktuali, su agentu susijusi, informacija.
+
+Šias užklausas galima peržiūrėti užėjus į savo organizacijos puslapio skirtuką „Agentai“ ir
+pasirinkus konkretų agentą, kurio prieiga buvo konfigūruota agente. Apačioje matomoje :ref:`užklausų istorijoje<agent_requests>`.
+
+Todėl rekomenduojama, atlikus `spinta check` ten užeiti ir įsitikinti, kad agentas buvo sėkmingai prijungtas prie Katalogo.
 
 .. _sync_stage_catalog_to_agent:
 
@@ -541,7 +548,7 @@ Formos laukai ir jų paaiškinimai
 
 
 Agentų sąrašo lentelė
-======================
+=====================
 
 Ši lentelė atvaizduoja visus registruotus Agentus ir jų pagrindinę informaciją.
 
@@ -590,7 +597,7 @@ Rodomi laukai ir jų reikšmės
 
 
 Agento peržiūros forma
-=======================
+======================
 
 Ši forma naudojama peržiūrėti sukurto Agento informaciją ir būseną.
 
@@ -675,6 +682,8 @@ Papildomai, priklausomai nuo pasirinktos **rūšies**, rodoma specifinė Agento 
     | |image_formos_ir_laukai_6|
     | *pav. Konfigūracija pasirinkus „Kita“*
 
+.. _agent_requests:
+
 Užklausų vykdomų per Agentą lentelė
 -----------------------------------
 
@@ -685,14 +694,17 @@ Dar žemiau galima rasti visų užklausų, kurios į Katalogą yra vykdomos per 
 **Tipas**
     Atliktos užklausos tipas ("GET", "POST", "PUT", "DELETE", "PATCH").
 **Adresas**
-    Adresas, i kurį buvo atlikta užklausa.
+    Adresas, į kurį buvo atlikta užklausa. Užvedus pėlytę galima pamatyti pilną adresą.
 **Rezultatas**
     Atliktos užklausos rezultatas ("Sėkminga" arba "Nesėkminga").
+**Informacija**
+    Papildoma informacija susijusi su atlikta užklausa, pvz.: `spinta` versija, iš kurios buvo vykdyta užklausa.
+    Informacija yra apkerpama, jei jos yra per daug, pilną informaciją galima peržiūrėti :ref:`detalios peržiūros puslapyje<agent_request_history_addition_information>`.
 **Klaidos pranešimas**
     Jei atliekant užklausą įvyko klaida, matoma nuoroda į detalesnę užklausos informaciją.
 
-| |image_uzklausu_istorija_lentele|
-| *pav. Užklausų istorijos lentelė*
+| |image_agento_uzklausu_istorija|
+| *pav. Agento užklausų istorija*
 
 
 Užklausos peržiūros forma
@@ -718,6 +730,18 @@ Paaiškinimai apie laukų reikšmes
 
 | |image_uzklausu_detali_istorija_1|
 | *pav. Užklausos peržiūros forma*
+
+.. _agent_request_history_addition_information:
+
+Papildoma užklausos informacija
+-------------------------------
+
+Jei užklausa atlikta sėkmingai, išsaugoma ir papildoma informacija susijusi su užklausa:
+
+- Sudiegtos `spinta` aplikacijos versija, iš kurios buvo atliekama užklausa.
+
+| |image_uzklausu_detali_istorija_informacija|
+| *pav. Užklausos informacija*
 
 Klaidos atliekant užklausą
 --------------------------
@@ -842,7 +866,7 @@ Klaidos ir jų paaiškinimai
 .. |image_formos_ir_laukai_6| image:: /static/katalogas/okot/image_formos_ir_laukai_6.png
    :alt: Konfigūracija pasirinkus rūšį „Kita“
 
-.. |image_uzklausu_istorija_lentele| image:: /static/katalogas/okot/image_uzklausu_istorija_lentele.png
+.. |image_agento_uzklausu_istorija| image:: /static/katalogas/okot/image_agento_uzklausu_istorija.png
    :alt: Agento užklausų istorijos lentelė
 
 .. |image_uzklausu_detali_istorija_1| image:: /static/katalogas/okot/image_uzklausu_detali_istorija_1.png
@@ -850,3 +874,6 @@ Klaidos ir jų paaiškinimai
 
 .. |image_uzklausu_detali_istorija_2| image:: /static/katalogas/okot/image_uzklausu_detali_istorija_2.png
    :alt: Agento užklausų istorijos klaidos
+
+.. |image_uzklausu_detali_istorija_informacija| image:: /static/katalogas/okot/image_uzklausu_detali_istorija_informacija.png
+   :alt: Agento užklausų istorijos informacija
