@@ -1151,6 +1151,32 @@ Jei duomenų rinkinys ``datasets/gov/main`` turi modelį ``Country``, kuris nuro
    ,,,,,continent,ref,datasets/gov/ref/Continent
 
 
+Struktūros eksportavimas OpenAPI formatu
+-------------------------
+
+Duomenų rinkinio struktūrą galima eksportuoti ir OpenAPI formatu. Eksportuota struktūra
+gali būti naudojama atsarginėms kopijoms, struktūros perkėlimui į kitą sistemą,
+arba dalinimuisi su kitais naudotojais.
+
+Kaip eksportuoti
+~~~~~~~~~~~~~~~~
+
+1. Atidarykite duomenų rinkinį
+2. Eikite į **„Struktūra"** skiltį
+3. Paspauskite **[Eksportuoti OpenAPI]** mygtuką
+4. Atsisiųskite JSON failą
+
+.. warning::
+   **Priklausomybių įtraukimas (kūrimo stadijoje)**
+
+   Šiuo metu eksportuojant automatiškai įtraukiami ir modeliai iš kitų duomenų
+   rinkinių, į kuriuos nurodoma per ``ref`` tipo laukus. Prie API `paths` įtraukiami
+   tik eksportuojamo duomenų rinkinio modeliai. Priklausomų duomenų rinkinių modeliai
+   yra pridedami tik į schemų aprašymus.
+
+   **Šis funkcionalumas gali keistis.**
+
+
 Struktūros importavimas
 -----------------------
 
