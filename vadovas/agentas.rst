@@ -78,7 +78,35 @@ Registracija vykdoma organizacijos, kuriai priklauso naudotojas, puslapyje. Nor�
 
     - :ref:`Agento pildymo forma ir jos laukai <agent_create_edit_form>`
 
+
+Naujai atsidariusiame lange, matysite sukurtą Agentą bei galėsite sukurti agento aplinkas.
+Agentas gali turėti iki trijų :ref:`Aplinkų <agent_env_types>`.
+Viena aplinka atitinka viena fizinį agentą įdiegtą organizacijos infrastruktūroje.
+
+**Agento aplinkos pridėjimas**
+
+
+#. Norėdami pridėti naują aplinką, spauskite mygtuką **„Pridėti aplinką“**.
+
+    | |prideti_aplinka|
+    | *pav. Aplinkos pridėjimas*
+
+#. Užpildykite formos laukus ir spauskite **„Sukurti“**.
+
+    - :ref:`Agento aplinkos pildymo forma ir jos laukai <agent_env_create_edit_form>`
+
 #. Atlikus registraciją, pateikiami prisijungimo duomenys. Galimos dvi prisijungimo konfigūracijos, jos priklauso nuo pasirinktos :ref:`Agento rūšies<agent_create_edit_form_field_kind>`.
+
+
+.. _agent_registration_in_catalog:
+
+Duomenų publikavimo paslaugos susiejimas su Agentu
+--------------------------------------------------
+
+Norėdami susieti Duomenų publikavimo paslaugą su agentu, paslaugos redagavimo formoje pasirinkite norimą Agentą.
+
+    | |agento_pasirinkimas_paslaugoje|
+    | *pav. Agento pasirinkimas Duomenų publikavimo paslaugoje*
 
 
 .. _agent_configuration:
@@ -197,7 +225,7 @@ Agento prisijungimas prie Duomenų Katalogo
 
     **client**
 
-        Nurodomas *OAuth 2.0* kliento pavadinimas, automatiškai sukuriamas pagal Kataloge nurodytą pavadinimą ir naudojamas autorizacijos procese.
+        Sutampa su *client_id*.
 
     **secret**
 
@@ -492,7 +520,7 @@ Agento kūrimo / redagavimo forma
 - Naujo Agento kūrimą inicijuokite paspaudę **[Pridėti Agentą]** viršutiniame dešiniajame kampe.
 - Norėdami redaguoti jau sukurtą Agentą, sąraše spustelėkite **[Redaguoti]** šalia įrašo.
 
-| |image_formos_ir_laukai_1|
+| |agento_forma|
 | *pav. Agento kūrimo / redagavimo forma*
 
 
@@ -514,8 +542,25 @@ Formos laukai ir jų paaiškinimai
 
     - **Kita** – suteikiamas prieigos raktas. Likusi dalis priklauso sprendimo tiekėjui.
 
-**Duomenų paslauga**
-    Nurodo, kuriai duomenų paslaugai Agentas bus priskirtas. Jei nenurodyta, duomenų paslauga bus sukurta automatiškai.
+
+.. _agent_env_create_edit_form:
+
+Agento aplinkos kūrimo / redagavimo forma
+=========================================
+
+Ši forma naudojama Agento aplinkai sukurti arba esamai Agento aplinkai redaguoti.
+
+- Naujos Agento aplinkos kūrimą inicijuokite paspaudę **[Pridėti aplinką]** dešinėje pusėje po agento informacija.
+- Norėdami redaguoti jau sukurtą aplinką, sąraše spustelėkite **[Redaguoti]** šalia įrašo.
+
+| |agento_aplinkos_forma|
+| *pav. Agento aplinkos kūrimo / redagavimo forma*
+
+
+Formos laukai ir jų paaiškinimai
+--------------------------------
+
+.. _agent_env_types:
 
 **Aplinka**
     Nurodo, kurioje aplinkoje bus diegiamas Agentas. Galimos reikšmės:
@@ -533,17 +578,17 @@ Formos laukai ir jų paaiškinimai
 **API vartų serverio adresas**
     Nurodo API vartų serverio adresą, kuris bus naudojamas metaduomenų sinchronizacijai arba duomenų apsikeitimui.
 
-**Agentas įjungtas**
-    Nurodo, ar Agentas šiuo metu aktyvus.
-
 **Atviri duomenys publikuojami Saugykloje**
     Pažymėjus šį lauką, leidžiama publikuoti atvirus duomenis per Agentą.
 
-**Duomenų publikavimo nuoroda**
+**Atvirų duomenų publikavimo nuoroda**
     Nurodoma tik tada, kai pažymėtas ankstesnis laukas dėl duomenų publikavimo.
 
+**Agentas įjungtas**
+    Nurodo, ar Agentas šiuo metu aktyvus.
+
 .. note::
-   Sukūrus Agentą, pateikiamos reikalingos konfigūracijos ir slaptas prisijungimo raktas.
+   Sukūrus Agento aplinką, pateikiamos reikalingos konfigūracijos ir slaptas prisijungimo raktas.
    **Dėl saugumo šis raktas rodomas tik vieną kartą – būtinai jį išsaugokite.**
 
 
@@ -848,7 +893,7 @@ Klaidos ir jų paaiškinimai
 .. |image_agent_create| image:: /static/katalogas/okot/image_agent_add.png
    :alt: Agento pridėjimas
 
-.. |image_formos_ir_laukai_1| image:: /static/katalogas/okot/image_formos_ir_laukai_1.png
+.. |agento_forma| image:: /static/katalogas/okot/agento_forma.png
    :alt: Agento kūrimo/redagavimo forma
 
 .. |image_formos_ir_laukai_2| image:: /static/katalogas/okot/image_formos_ir_laukai_2.png
@@ -877,3 +922,12 @@ Klaidos ir jų paaiškinimai
 
 .. |image_uzklausu_detali_istorija_informacija| image:: /static/katalogas/okot/image_uzklausu_detali_istorija_informacija.png
    :alt: Agento užklausų istorijos informacija
+
+.. |prideti_aplinka| image:: /static/katalogas/okot/prideti_aplinka.png
+   :alt: Pridėti aplinką
+
+.. |agento_aplinkos_forma| image:: /static/katalogas/okot/agento_aplinkos_forma.png
+   :alt: Agento aplinkos forma
+
+.. |agento_pasirinkimas_paslaugoje| image:: /static/katalogas/okot/agento_pasirinkimas_paslaugoje.png
+   :alt: Agento pasirinkimas Duomenų publikavimo paslaugoje
