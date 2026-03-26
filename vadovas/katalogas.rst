@@ -333,9 +333,9 @@ Pateksite į tvarkytojų administravimo puslapį:
 
 Tvarkytojų peržiūros duomenys:
 
-- **Vardas:** Paskyros naudotojo vardas ir pavardė.
+- **Vardas:** Paskyros naudotojo vardas ir pavardė, arba organizacijos pavadinimas, jei tvarkytojas yra organizacija.
 
-- **El. paštas:** el. paštas, kuriuo registruotos paskyros. Galima filtruoti ir rikiuoti.
+- **El. paštas:** el. paštas, kuriuo registruotos paskyros, organizacijos. Galima filtruoti ir rikiuoti.
 
 - **Telefonas:** Telefono numeris.
 
@@ -350,6 +350,36 @@ Tvarkytojų peržiūros duomenys:
 
 | |prideti_tvarkytoja|
 | *23 pav. Tvarkytojų / koordinatorių pridėjimo forma*
+
+Kurdami naują organizacijos koordinatorių / tvarkytoją turite pasirinkti **vieną iš dviejų variantų**:
+
+**1 variantas. Organizacijos priskyrimas tvarkytoju:**
+
+Organizacijos tvarkytojo pridėjimo duomenys:
+
+- **Vardas:** Organizacijos pavadinimas.
+
+- **El. paštas:** El. paštas, kuriuo registruota organizacija.
+
+- **Telefonas:** Organizacijos telefono numeris.
+
+- **Rolė:** Organizacijos tvarkytojo rolė. Šiam laukui taikomi apribojimai.
+
+  - Organizacija negali būti priskirta kaip koordinatorius, galimos tik atvirų duomenų tvarkytojo, duomenų išteklių tvarkytojo rolės.
+
+*Pastaba: Kai organizacija pridedama kaip tvarkytojas, jos nariai įgyja prieigą redaguoti organizacijos duomenų išteklius. Nario efektyvi rolė atitinka organizacijai priskirtą tvarkytojo rolę.*
+
+**2 variantas. Naudotojo priskyrimas tvarkytoju:**
+
+Organizacijos tvarkytojo pridėjimo duomenys:
+
+- **Vardas:** Paskyros naudotojo vardas ir pavardė.
+
+- **El. paštas:** El. paštas, kuriuo registruota paskyra.
+
+- **Telefonas:** Telefono numeris.
+
+- **Rolė:** Organizacijos tvarkytojo rolė.
 
 ====
 
