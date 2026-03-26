@@ -964,6 +964,11 @@ Duomenų ištekliaus rūšies forma
     | *116 pav. Duomenų ištekliaus rūšies forma
 
 3. Pasirinkite norimą duomenų ištekliaus rūšį.
+    1. Duomenų rinkinys
+    2. Metaduomenų katalogas
+    3. Informacinė sistema
+    4. :ref:`Duomenų publikavimo paslauga <data-service>`
+    5. Duomenų rinkinio serija
 
 4. Įsitikinkite, kad įvedėte teisingus duomenis ir spauskite **[Toliau]**.
 
@@ -978,6 +983,43 @@ Duomenų ištekliaus rūšies forma
     **Pastaba:** priklausomai nuo pasirinktos duomenų ištekliaus rūšies, šios formos laukai gali skirtis.
 
 7. Įsitikinkite, kad įvedėte teisingus duomenis ir spauskite **[Sukurti]**.
+
+
+.. _data-service:
+
+Duomenų publikavimo paslauga
+============================
+
+Duomenų publikavimo paslaugos forma
+-----------------------------------
+
+| |data_service_form|
+| *Duomenų ištekliaus forma, duomenų ištekliaus rūšį pasirinkus „Duomenų publikavimo paslauga“
+
+**Laukų paaiškinimai:**
+
+- **Pavadinimas*** - Duomenų ištekliui suteiktas pavadinimas. *Atitinka dct:title*.
+- **Kodinis pavadinimas** - Duomenų ištekliaus unikalus identifikatorius. Palikus tuščią reikšmę kodinis pavadinimas sugeneruojamas automatiškai. *Atitinka dct:identifier*.
+- **Aprašymas** - Duomenų paslaugos aprašymas laisvu tekstu. *Atitinka dct:description*.
+- **Tipas** - Paslaugos tipas. *Atitinka dct:type*.
+- **Žymės*** - Duomenų išteklių apibūdinantys raktažodžiai arba žymos. *Atitinka dcat:keyword*.
+- **Prieigos nuoroda** - Tinklalapis, kuriame galima susipažinti su duomenų ištekliumi, jo pateiktimi ir (arba) papildoma informacija. Ji skirta nukreipti į pradinio duomenų paslaugos teikėjo, o ne į trečiosios šalies, pavyzdžiui, agregatoriaus, svetainės puslapį. *Atitinka dcat:landingPage*.
+- **Katalogas** - Katalogas, kurio turinys domina šio katalogo kontekste. *Atitinka dcat:Catalog*.
+- **Agentas** - Duomenų publikavimo paslaugą teikiantis agentas. Privaloma nurodyti arba **Agentą** arba **API adresą**. Reikšmių sąrašas yra organizacijos, kurios vardu kuriama paslauga, agentai. *Atitinka dcat:endpointURL*.
+- **Atitinka** - Nurodo kokį standartą atitinka paslauga. Su agentu susietoms paslaugoms privaloma pasirinkti 'UDTS' reikšmę. *Atitinka dct:conformsTo*.
+- **API adresas** - Laisvu tekstu pateikiamas duomenų paslaugos galinio taško URL. Laukas privalomas jeigu nepasirinktas **Agentas**. Kitu atveju laukas privalo būti neužpildytas. *Atitinka dcat:endpointURL*.
+- **API formatas** - Struktūra, grąžinama kviečiant paslaugos URL. Pasirinkus **Agentą** reikšmė privalo būti 'JSON'. *Atitinka dct:format*.
+- **API specifikacija** - Šioje savybėje pateikiama paslaugų, prieinamų per galinius taškus, aprašymų nuoroda. Įskaitant jų operacijas, parametrus ir t. t. Laukas privalomas jeigu nepasirinktas **Agentas**. Kitu atveju laukas privalo būti neužpildytas. *Atitinka dcat:endpointDescription*.
+- **API specifikacijos formatas** - Nurodo, kokį formatą atitinka specifikacija. Pasirinkus **Agentą** reikšmė privalo būti 'OpenAPI'.
+- **Prieigos teisės*** - Informacija ar duomenų rinkinys yra atviri duomenys, ar jam taikomi prieigos apribojimai, ar jis nėra viešas, ar jis konfidencialus. *Atitinka dct:accessRights*.
+- **Kontaktinis asmuo ar organizacija*** - Kontaktinė informacija, kurią galima naudoti siunčiant pastabas apie duomenų išteklių. *Atitinka dcat:contactPoint*.
+- **Institucija teikianti duomenis** - Subjektas, atsakingas už duomenų rinkinio parengimą. *Atitinka dct:creator*.
+- **Paslaugų teikėjas** - Ši savybė nurodo subjektą (organizaciją), atsakingą už duomenų ištekliaus prieinamumą. *Atitinka dct:publisher*.
+- **Tėvinis išteklius** - Ši savybė nurodo susijusį resursą. *Atitinka dct:relation*.
+- **Teisinis pagrindas** - Teisės aktas, kurio pagrindu yra valdomas ir tvarkomas duomenų rinkinys. Norint nurodyti konkrečią vietą teisės akto dokumente, po „#“ pateikite konkrečią nuorodą, pvz., „#17.2“. Tais atvejais, kai yra keli dokumentai su priedais: „#priedas1/17.2“, „17.2/17.2.5“, kur „priedas1“ yra dokumento failo pavadinimas. *Atitinka dcatap:applicableLegislation*.
+
+**\*** - Laukas yra privalomas.
+
 
 Panaudojimo atvejai
 ===================
@@ -2866,6 +2908,7 @@ Slaptažodis privalo būti saugus. (Daugiau: `Sąvokos <#naudojami-terminai-ir-s
 .. |image_agreement_signed| image:: /static/katalogas/okot/image_agreement_signed.png
 .. |image_organization_tab_agreements| image:: /static/katalogas/okot/image_organization_tab_agreements.png
 .. |image_history| image:: /static/katalogas/okot/history.png
+.. |data_service_form| image:: /static/katalogas/okot/duomenu_paslaugos_forma.png
 
 .. _objektas: https://ivpk.github.io/dsa/modelis.html#objektas
 .. _brandos lygis: https://ivpk.github.io/dsa/branda.html
