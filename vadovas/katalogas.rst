@@ -2272,7 +2272,15 @@ Paspaudus šį mygtuką, vartotojas nukreipiamas į formą, kurioje turi pateikt
 | |image_submit_proposal_form_assignee|
 | *Pasiūlymo teikimo forma (gavėjas)*
 
-Pateikęs formą ir paspaudęs „Pateikti pasiūlymą“, duomenų gavėjas užbaigia derinimo etapą iš savo pusės.
+Pateikęs formą ir paspaudęs „Pateikti pasiūlymą”, duomenų gavėjas užbaigia derinimo etapą iš savo pusės.
+
+Pateikus pasiūlymą, duomenų teikėjo organizacijai automatiškai išsiunčiamas el. pašto pranešimas su:
+
+- projekto pavadinimu,
+- duomenų gavėjo organizacijos pavadinimu,
+- nuoroda į sutarties peržiūros puslapį.
+
+**Pastaba:** Pranešimas išsiunčiamas tik tuo atveju, jei duomenų teikėjo organizacija turi nurodytą el. pašto adresą.
 
 Pasiūlymo patvirtinimas (duomenų teikėjo žingsnis)
 --------------------------------------------------
