@@ -745,6 +745,9 @@ Užklausos skirstomos į šiuos veiksmus:
     Pilnas ir neatstatomas duomenų pašalinimas, naudojama tik testavimo
     tikslams.
 
+:move:
+    Objekto pirminio rakto `_id` pakeitimas į naują.
+
 
 
 Skaitymo veiksmai
@@ -960,6 +963,9 @@ Keitimų įrašai turi tokius metaduomenis apie kiekvieną keitimą:
 
     Atkreipkite dėmesį, kad vienam objektui, gali būti viena `insert`
     operacija, daug `patch` operacijų ir vienas `delete`.
+
+:_same_as:
+    Retai naudojamas parametras, kuris nurodo objekto naują `_id` (pridedamas `:move` veiksmo metu).
 
 Įgyvendinant duomenų atnaujinimą `:changes` protokolu, reikia interpretuoti
 `_op` reikšmę ir atlikti atitinkamą operaciją savo pusėje.
@@ -1519,6 +1525,45 @@ būdu ištrinto objekto atstatyti neįmanoma.
         "wiped": true
     }
 
+.. _move:
+
+move
+====
+
+Nurodo, kad senas įrašas buvo perkeltas į naują. Norint atlikti šį veiksmą, naujas įrašas privalo egzistuoti. Perkėlus,
+seno įrašo duomenys yra panaikinami.
+
+.. code-block:: sh
+
+    http DELETE /datasets/gov/dc/geo/Continent/b8f1edaa-220d-4e0b-b59b-dc27555a0fb5/:move $auth <<EOF
+    {
+        "_revision": "988969c3-663b-4edf-bd64-861a3f1b1d1c",
+        "_id": "3c61b8e9-dbbc-4345-b66f-32e10d17e7ed"
+    }
+    EOF
+
+.. code-block:: http
+
+    HTTP/1.1 200 OK
+    Content-Type: application/json
+
+    {
+        "_type": "datasets/gov/ivpk/adp/catalog/Dataset",
+        "_revision": "e6367a99-4cb2-46a2-9ff4-f0c77a321761",
+        "_id": "b8f1edaa-220d-4e0b-b59b-dc27555a0fb5",
+        "_same_as": "3c61b8e9-dbbc-4345-b66f-32e10d17e7ed"
+    }
+
+Bandant pasiekti seną įrašą, sistema automatiškai peradresuoja į naujo įrašo `_id`.
+
+.. code-block:: sh
+
+    http GET /datasets/gov/dc/geo/Continent/b8f1edaa-220d-4e0b-b59b-dc27555a0fb5 $auth
+
+.. code-block:: http
+
+    HTTP/1.1 301 Moved Permanently
+    Location: /datasets/gov/ivpk/adp/catalog/Dataset/3c61b8e9-dbbc-4345-b66f-32e10d17e7ed
 
 Grupiniai rašymo veiksmai
 *************************
