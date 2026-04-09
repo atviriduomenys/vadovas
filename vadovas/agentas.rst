@@ -972,7 +972,7 @@ kontroliuojami informacinės sistemos administratoriaus:
 3. Adapterio modulio kodo failo, paruošto pagal adapterio modulio struktūrą ir reikalavimus.
 
 Konfigūracinis failas - `config.yml`
------------------------------------
+------------------------------------
 
 .. code-block:: yaml
 
