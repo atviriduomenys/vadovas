@@ -957,7 +957,7 @@ Kai `Spinta` formuoja SOAP užklausą, vykdomi trys žingsniai:
    suformuotas.
 #. **Reikšmės apskaičiavimas** - kai visi kiti laukai jau yra paruošti,
    kiekvienas atidėtas laukas išskaičiuojamas iškviečiant atitinkamą
-   rezolverio (angl. *resolver*) funkciją. Rezolveris gauna `SoapQueryBuilder`
+   vertimo programos (angl. *resolver*) funkciją. Vertimo programa gauna `SoapQueryBuilder`
    aplinkos (angl. *env*) objektą su `env.soap_request_body`, `env.context` ir
    kt., ir grąžina galutinę reikšmę.
 
@@ -981,7 +981,7 @@ Konfigūracinis failas - `config.yml`
 
 .. note::
 
-   Nurodykite absoliučius kelius - taip adapteris veiks nepriklausomai nuo to,
+   Nurodykite absoliučius kelius (angl. *absolute paths*) - taip adapteris veiks nepriklausomai nuo to,
    iš kurios direktorijos paleidžiamas procesas. Jei failas nerastas, jis bus
    praleistas ir užfiksuotas žurnale.
 
@@ -1008,7 +1008,7 @@ reikšmė prieš vykdant užklausą.
 - Įprasti `prepare` (`input()`, `cdata().input()` ir pan.) išskaičiuojami iš
   karto, kai formuojamas užklausos turinys.
 - `prepare`, kviečiantis **atidėtą** ufunc (pavadinimas registruotas per
-  `get_deferred_prepare_names()`), lieka kaip `Expr` iki adapterio rezolverio
+  `get_deferred_prepare_names()`), lieka kaip `Expr` iki adapterio vertimo programos
   vykdymo.
 
 .. admonition:: Pavyzdys
