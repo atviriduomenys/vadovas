@@ -27,6 +27,16 @@ eilutę, per environment kintamuosius arba naudojant konfigūracinį failą.
 **file_log_path**
     Nustato direktoriją, kurioje bus kuriami žurnalo failai. Numatytoji reikšmė - namų direktorijoje, `.spinta_logs`.
 
+Saugumas
+========
+
+**default_access_level**
+    Nurodo numatytąjį duomenų prieigos lygį, jei jis nenurodytas elemento duomenų struktūros apraše. Numatytoji reikšmė – `private`. `Reikšmių aprašas <https://ivpk.github.io/dsa/1.1/prieiga.html>`_.
+
+**access**
+    Nurodo žemiausią duomenų prieigos lygį, kurio duomenis grąžina agentas. Pvz., jei konfigūracijoje nurodytas `access` lygis `public`,
+    bandant gauti duomenis, kurių `access` lygis yra žemesnis (pvz., `protected` arba `private`), grąžinama `404 ModelNotFound` klaida.
+    Numatytoji reikšmė – `open`. `Reikšmių aprašas <https://ivpk.github.io/dsa/1.1/prieiga.html>`_.
 
 Sinchronizacija
 ***************
