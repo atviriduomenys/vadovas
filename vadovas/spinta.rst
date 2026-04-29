@@ -1097,3 +1097,119 @@ Kitus galimus komandinės eilutės argumentus galite sužinoti taip:
 .. code-block:: sh
 
     $ spinta push --help
+
+
+Komandos
+********
+
+Šiame skyriuje aprašytos komandinės eilutės komandos skirtos
+dirbti su DSA failais.
+
+
+.. _spinta-comment:
+
+``spinta comment``
+==================
+
+Komanda ``spinta comment`` naudojama laikinai pakeisti pasirinktas DSA eilutes, pridedant komentarus.
+Eilutės pakeičiamos į supaprastintą formą, o žemiau įterpiama komentaro eilutė, kuri saugo originalią
+informaciją ir leidžia vėliau atkurti pradinę būseną naudojant komandą :ref:`spinta-uncomment`.
+
+Naudojimas::
+
+    spinta comment <dalis> [PARINKTYS] [MANIFESTAI]...
+
+Argumentai
+----------
+
+``dalis``
+    Nurodo, kokius DSA elementus komentuoti. Galimos reikšmės:
+
+    - ``missing-external-refs`` — komentuoja savybes, kurių `ref` nurodo į neegzistuojantį išorinį modelį.
+
+Parinktys
+---------
+
+``--author TEXT``
+    Komentaro autorius. Įrašomas į komentaro eilutės `source` stulpelį.
+
+``--uri TEXT``
+    URI žyma, susiejanti komentarą su konkrečia užduotimi ar problema.
+    Vėliau galima naudoti kaip filtrą ``spinta uncomment --uri`` komandoje,
+    norint atkomentuoti tik pasirinktas DSA dalis.
+
+``--description TEXT``
+    Papildomas aprašymas, įrašomas į komentaro eilutės `description` stulpelį.
+
+``-o, --output TEXT``
+    Išvesties failo kelias. Jei nenurodyta, rezultatas spausdinamas į komandinę eilutę.
+
+Pavyzdžiai
+----------
+
+Komentuoti visas trūkstamas išorines nuorodas::
+
+    spinta comment missing-external-refs manifest.csv -o commented.csv
+
+Komentuoti su autoriumi, URI ir aprašymu::
+
+    spinta comment missing-external-refs manifest.csv \
+        --author Vardenis \
+        --uri https://github.com/org/repo/issues/42 \
+        --description "Laukiama example2 duomenų rinkinio" \
+        -o commented.csv
+
+Pastabos
+--------
+
+- Komanda yra **idempotentiška** — paleidus du kartus ant to paties failo, papildomi komentarai nekuriami.
+- Komentaro eilutė `prepare` stulpelyje saugo originalią savybės informaciją
+  formatu ``update(type:ref, ref:ModelioPavadinimas)``.
+- Komentaro eilutės `title` stulpelyje įrašomas komentaro sukūrimo laikas ISO 8601 formatu.
+
+
+.. _spinta-uncomment:
+
+``spinta uncomment``
+====================
+
+Komanda ``spinta uncomment`` atkuria komentuotas eilutes į pradinę būseną.
+Komentaro eilutės `prepare` stulpelyje esanti `update(...)` išraiška panaudojama savybės eilutės laukams atkurti,
+po to komentaro eilutė pašalinama.
+
+Komanda veikia tiesiogiai su CSV failu — DSA nėra įkeliamas į atmintį ir nepereina visų įprastų programos fazių.
+
+Naudojimas::
+
+    spinta uncomment [PARINKTYS] [MANIFESTAI]...
+
+Parinktys
+---------
+
+``--uri TEXT``
+    Atkurti tik tuos komentarus, kurių `uri` stulpelis atitinka nurodytą reikšmę.
+    Jei nenurodyta, atkuriami visi komentarai.
+
+``-o, --output TEXT``
+    Išvesties failo kelias. Jei nenurodyta, rezultatas spausdinamas į komandinę eilutę.
+
+Pavyzdžiai
+----------
+
+Atkurti visas komentuotas savybes::
+
+    spinta uncomment commented.csv -o restored.csv
+
+Atkurti tik konkrečia URI žyma pažymėtas savybes::
+
+    spinta uncomment --uri https://github.com/org/repo/issues/42 commented.csv -o restored.csv
+
+Pastabos
+--------
+
+- Eilutės, kurių `type` nėra ``comment`` arba `prepare` neprasideda ``update``,
+  paliekamos nepakeistos.
+- Nežinomi `update(...)` laukų pavadinimai (pvz., dėl rašybos klaidų faile)
+  tyliai ignoruojami.
+- Naudojant ``--uri`` filtrą, komentarai su kitu URI paliekami faile
+  nepakeisti.
