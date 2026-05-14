@@ -1220,34 +1220,34 @@ Pastabos
 ``spinta admin add_local_ids``
 ==============================
 
-Komanda ``spinta admin add_local_ids`` automatiškai prideda išreikštines `_id`
-savybes prie modelių, kurie jų neturi. Ši komanda naudojama manifestui paversti
-į kooperatinį (angl. *cooperative*) veikimo režimą, kai pirminiai raktai
-saugomi pačiame manifeste.
+Komanda ``spinta admin add_local_ids`` automatiškai prideda `_id`
+savybes prie modelių, kurie jų neturi. Ši komanda naudojama DSA paversti
+į bendradarbiaujantį (angl. *cooperative*) veikimo režimą, kai pirminiai raktai
+saugomi pačiame DSA.
 
 Naudojimas::
 
-    spinta admin add_local_ids --manifests <manifestas>
+    spinta admin add_local_ids --manifests <DSA>
 
 Parinktys
 ---------
 
 ``--manifests TEXT``
-    Šaltinio manifesto failo kelias. Galima nurodyti kelis failus, kiekvienam
+    Šaltinio DSA failo kelias. Galima nurodyti kelis failus, kiekvienam
     pridedant atskirą ``--manifests`` argumentą. Parametras yra privalomas.
 
 ``-o, --output TEXT``
     Išvesties failo kelias. Jei nenurodyta, rezultatas išsaugomas pirmajame
-    nurodytame manifesto faile.
+    nurodytame DSA faile.
 
 Pavyzdžiai
 ----------
 
-Pridėti `_id` eilutes prie manifesto failo::
+Pridėti `_id` eilutes prie DSA failo::
 
     spinta admin add_local_ids --manifests manifest.csv
 
-Nurodyti kelis manifesto failus::
+Nurodyti kelis DSA failus::
 
     spinta admin add_local_ids --manifests manifest1.csv --manifests manifest2.csv
 
@@ -1258,14 +1258,12 @@ Išsaugoti rezultatą atskirame faile::
 Pastabos
 --------
 
-- Komanda praleidžia modelius, kurių pavadinimas prasideda ``_`` (vidiniai modeliai).
 - Jei modelis neturi `ref` reikšmės (nėra išorinio pirminio rakto), jis
   praleidžiamas ir įspėjimas išvedamas į klaidų srautą.
 - Jei pirminis raktas yra sudėtinis arba jo tipas yra `string`, `_id` savybei
   priskiriamas `base32` tipas. Kitais atvejais tipas atitinka pirminio rakto
   tipą.
-- Komanda yra **idempotentiška** — modeliai, turintys jau išreikštinę `_id`
-  savybę, praleidžiami.
+- Modeliai, jau turintys `_id` savybę yra praleidžiami.
 
 
 .. _spinta-admin-remove-local-ids:
@@ -1273,9 +1271,9 @@ Pastabos
 ``spinta admin remove_local_ids``
 ==================================
 
-Komanda ``spinta admin remove_local_ids`` pašalina išreikštines `_id` savybes
+Komanda ``spinta admin remove_local_ids`` pašalina `_id` savybes
 iš modelių, anuliuodama ``add_local_ids`` komandos rezultatą. Naudojama
-manifestui grąžinti į nekooperatinį veikimo režimą.
+DSA grąžinti į nebendradarbiaujantį veikimo režimą.
 
 Naudojimas::
 
@@ -1285,21 +1283,21 @@ Parinktys
 ---------
 
 ``--manifests TEXT``
-    Šaltinio manifesto failo kelias. Galima nurodyti kelis failus, kiekvienam
+    Šaltinio DSA failo kelias. Galima nurodyti kelis failus, kiekvienam
     pridedant atskirą ``--manifests`` argumentą. Parametras yra privalomas.
 
 ``-o, --output TEXT``
     Išvesties failo kelias. Jei nenurodyta, rezultatas išsaugomas pirmajame
-    nurodytame manifesto faile.
+    nurodytame DSA faile.
 
 Pavyzdžiai
 ----------
 
-Pašalinti `_id` eilutes iš manifesto failo::
+Pašalinti `_id` eilutes iš DSA failo::
 
     spinta admin remove_local_ids --manifests manifest.csv
 
-Nurodyti kelis manifesto failus::
+Nurodyti kelis DSA failus::
 
     spinta admin remove_local_ids --manifests manifest1.csv --manifests manifest2.csv
 
@@ -1310,6 +1308,5 @@ Išsaugoti rezultatą atskirame faile::
 Pastabos
 --------
 
-- Komanda praleidžia modelius, kurių pavadinimas prasideda ``_`` (vidiniai modeliai).
-- Pašalinamos tik išreikštinės `_id` savybės — automatiškai sugeneruotos
-  `_id` eilutės paliekamos nepakeistos.
+- Pašalinamos tik DSA esančios `_id` savybės.
+
