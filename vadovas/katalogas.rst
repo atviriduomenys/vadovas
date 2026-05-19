@@ -1035,95 +1035,6 @@ Plačiau :ref:`panaudojimo_atvejo_istekliai`
 
 *- Kuriuos turite teisę peržiūrėti. Apie teises skaitykite čia :ref:`panaudojimo_atvejo_perziura`
 
-Duomenų rinkinio forma
-**********************
-
-1. Užpildykite kortelę (\*: privalomi laukai):
-
-   - **Duomenų išteklius viešinamas**;
-
-	 *Numatytas teigiamas pasirinkimas;*
-
-   | |ar_viesinamas|
-   | *44 pav. Formos fragmentas - duomenų ištekliaus viešinimo pasirinkimas.*
-
-   - **Pavadinimas*:** pateikiamas pilnas duomenų rinkinio pavadinimas.;
-
-   | |rink_pavadinimas|
-   | *45 pav. Formos fragmentas - duomenų ištekliaus pavadinimas.*
-
-   - **Kodinis pavadinimas:** duomenų ištekliaus identifikatorius.;
-
-   | |rink_kodinis_pavadinimas|
-   | *46 pav. Formos fragmentas - duomenų ištekliaus kodinis pavadinimas.*
-
-   - **Aprašymas*:** pilnas duomenų rinkinio aprašymas;
-
-   | |rink_aprasymas|
-   | *47 pav. Formos fragmentas - duomenų ištekliaus aprašymas.*
-
-   - **Dokumentacija:** dokumentai apie duomenų išteklių;
-
-   | |dok_failai|
-   | *48 pav. Formos fragmentas - dokumentai apie duomenų išteklių.*
-
-   - **Dokumentacija:** puslapiai apie duomenų išteklių;
-
-   | |dok_nuoroda|
-   | *49 pav. Formos fragmentas - puslapis apie duomenų išteklių.*
-
-
-   - **Žymės:** iš sąrašo pasirenkami raktažodžiai arba žymos;
-
-   | |rink_zymes|
-   | *50 pav. Formos fragmentas - žymės.*
-
-   - **Prieigos nuoroda:** tinklalapis, kuriame galima susipažinti su duomenų ištekliu, jo pateiktimi ir (arba) papildoma informacija;
-
-   | |rink_prieigos_nuoroda|
-   | *51 pav. Formos fragmentas - prieigos nuoroda.*
-
-   - **Katalogas:** katalogas, kurio turinys domina šio katalogo kontekste;
-
-   | |rink_katalogas|
-   | *52 pav. Formos fragmentas - katalogas.*
-
-   - **Atnaujinimo dažnumas*:** duomenų atnaujinimo dažnumas;
-
-   | |rink_atnaujinimo_daznumas|
-   | *53 pav. Formos fragmentas - atnaujinimo dažnumas.*
-
-   - **Prieigos teisės*:** atviri, apsaugoti ar uždari duomenys;
-
-   | |rink_prieigos_teises|
-   | *54 pav. Formos fragmentas - prieigos teisės.*
-
-   - **Kontaktinis asmuo ar organizacija:** skirta pastabų siuntimui;
-
-   | |rink_kontaktinis_asmuo|
-   | *55 pav. Formos fragmentas - kontaktinis asmuo ar organizacija.*
-
-   - **Tėvinis išteklius:* pasirenkamas išteklius, kuris gali būti duomenų rinkinio tėvinis išteklius;
-
-   | |rink_tevinis|
-   | *56 pav. Formos fragmentas - tėvinis išteklius.*
-
-   - **Teisės - Aprašymas:** - Teisių deklaracijų aprašymas.
-
-   | |teises_aprasymas|
-   | *57 pav. Formos fragmentas - teisės - aprašymas.*
-
-   - **Teisės - Susijęs dokumentas:** - Teisių deklaracijos nuoroda.
-
-   | |susijes_dok|
-   | *58 pav. Formos fragmentas - teisės - susijęs dokumentas.*
-
-4. Įsitikinkite, kad įvedėte teisingus duomenis ir spauskite **[Sukurti]**.
-
-   | |34pav|
-   | *59 pav. Sėkmingai išsaugotos duomenų rinkinio formos pranešimas.*
-
-
 Struktūra
 =========
 
@@ -1306,6 +1217,144 @@ Jei sukurtas duomenų modelio laukas yra string tipo, galėsite sukurti jam reik
 
 |image145|
 *70 pav. Duomenų modelio laukui property sukurta reikšmė.*
+
+UML Diagrama
+------------
+
+Duomenų rinkinio struktūrą galima peržiūrėti UML klasių diagramos pavidalu.
+Diagramoje vaizduojami visi struktūros modeliai, jų laukai bei modelių
+tarpusavio ryšiai. Diagrama padeda greitai susidaryti vaizdą apie duomenų
+rinkinio sandarą.
+
+Kaip atidaryti
+~~~~~~~~~~~~~~
+
+1. Atidarykite duomenų išteklių.
+2. Eikite į **„Struktūra"** skiltį.
+3. Paspauskite mygtuką **„UML Diagrama"**.
+
+| |uml_button|
+| *71 pav. „UML Diagrama" mygtukas struktūros skiltyje*
+
+Atvėrus puslapį pirmą kartą arba pasikeitus duomenų ištekliaus struktūrai,
+diagrama pergeneruojama iš naujo – tokiu atveju puslapis pats
+atsinaujins, kai diagrama bus paruošta.
+
+Diagramos funkcijos
+~~~~~~~~~~~~~~~~~~~
+
+- **Slinkimas ir mastelio keitimas.** Pelės ratuku galima keisti diagramos
+  mastelį, o tempiant pele – perkelti vaizdą.
+
+- **Modelio nuoroda.** Paspaudus ant modelio dėžutės, atidaromas to modelio
+  puslapis duomenų rinkinio struktūroje.
+
+- **Pilno ekrano režimas.** Dešiniajame viršutiniame diagramos kampe esantis
+  ⛶ mygtukas atidaro diagramą naujame naršyklės skirtuke didesniam vaizdui.
+
+- **Diagramos atsisiuntimas.** Šalia **„Atsisiųsti"** mygtuko esančiame
+  pasirinkimo lauke galima pasirinkti formatą:
+
+  - **Mermaid** – ``.mmd`` failas su diagramos šaltinio kodu, suderinamu su
+    `Mermaid <https://mermaid.js.org/>`_ įrankiais.
+  - **SVG** – ``.svg`` failas su jau sugeneruotu vektoriniu diagramos vaizdu,
+    kurį galima atidaryti naršyklėje ar paveikslėlių peržiūros programoje.
+
+  | |uml_download|
+  | *72 pav. „Atsisiųsti" mygtukas su formato pasirinkimu*
+
+Jei diagramos sugeneruoti nepavyko, vietoje jos parodoma įspėjimo žinutė su
+klaidos aprašymu. Tokiu atveju rekomenduojama patikrinti, ar struktūros
+aprašas yra korektiškas, o jei klaida kartojasi – pranešti administratoriui.
+
+Duomenų rinkinio forma
+**********************
+
+1. Užpildykite kortelę (\*: privalomi laukai):
+
+   - **Duomenų išteklius viešinamas**;
+
+	 *Numatytas teigiamas pasirinkimas;*
+
+   | |ar_viesinamas|
+   | *44 pav. Formos fragmentas - duomenų ištekliaus viešinimo pasirinkimas.*
+
+   - **Pavadinimas*:** pateikiamas pilnas duomenų rinkinio pavadinimas.;
+
+   | |rink_pavadinimas|
+   | *45 pav. Formos fragmentas - duomenų ištekliaus pavadinimas.*
+
+   - **Kodinis pavadinimas:** duomenų ištekliaus identifikatorius.;
+
+   | |rink_kodinis_pavadinimas|
+   | *46 pav. Formos fragmentas - duomenų ištekliaus kodinis pavadinimas.*
+
+   - **Aprašymas*:** pilnas duomenų rinkinio aprašymas;
+
+   | |rink_aprasymas|
+   | *47 pav. Formos fragmentas - duomenų ištekliaus aprašymas.*
+
+   - **Dokumentacija:** dokumentai apie duomenų išteklių;
+
+   | |dok_failai|
+   | *48 pav. Formos fragmentas - dokumentai apie duomenų išteklių.*
+
+   - **Dokumentacija:** puslapiai apie duomenų išteklių;
+
+   | |dok_nuoroda|
+   | *49 pav. Formos fragmentas - puslapis apie duomenų išteklių.*
+
+
+   - **Žymės:** iš sąrašo pasirenkami raktažodžiai arba žymos;
+
+   | |rink_zymes|
+   | *50 pav. Formos fragmentas - žymės.*
+
+   - **Prieigos nuoroda:** tinklalapis, kuriame galima susipažinti su duomenų ištekliu, jo pateiktimi ir (arba) papildoma informacija;
+
+   | |rink_prieigos_nuoroda|
+   | *51 pav. Formos fragmentas - prieigos nuoroda.*
+
+   - **Katalogas:** katalogas, kurio turinys domina šio katalogo kontekste;
+
+   | |rink_katalogas|
+   | *52 pav. Formos fragmentas - katalogas.*
+
+   - **Atnaujinimo dažnumas*:** duomenų atnaujinimo dažnumas;
+
+   | |rink_atnaujinimo_daznumas|
+   | *53 pav. Formos fragmentas - atnaujinimo dažnumas.*
+
+   - **Prieigos teisės*:** atviri, apsaugoti ar uždari duomenys;
+
+   | |rink_prieigos_teises|
+   | *54 pav. Formos fragmentas - prieigos teisės.*
+
+   - **Kontaktinis asmuo ar organizacija:** skirta pastabų siuntimui;
+
+   | |rink_kontaktinis_asmuo|
+   | *55 pav. Formos fragmentas - kontaktinis asmuo ar organizacija.*
+
+   - **Tėvinis išteklius:* pasirenkamas išteklius, kuris gali būti duomenų rinkinio tėvinis išteklius;
+
+   | |rink_tevinis|
+   | *56 pav. Formos fragmentas - tėvinis išteklius.*
+
+   - **Teisės - Aprašymas:** - Teisių deklaracijų aprašymas.
+
+   | |teises_aprasymas|
+   | *57 pav. Formos fragmentas - teisės - aprašymas.*
+
+   - **Teisės - Susijęs dokumentas:** - Teisių deklaracijos nuoroda.
+
+   | |susijes_dok|
+   | *58 pav. Formos fragmentas - teisės - susijęs dokumentas.*
+
+4. Įsitikinkite, kad įvedėte teisingus duomenis ir spauskite **[Sukurti]**.
+
+   | |34pav|
+   | *59 pav. Sėkmingai išsaugotos duomenų rinkinio formos pranešimas.*
+
 
 Metaduomenys
 ============
@@ -2851,6 +2900,8 @@ Slaptažodis privalo būti saugus. (Daugiau: `Sąvokos <#naudojami-terminai-ir-s
 .. |image144| image:: /static/katalogas/okot/image144.png
 .. |image145| image:: /static/katalogas/okot/image145.png
 .. |image146| image:: /static/katalogas/okot/image146.png
+.. |uml_button| image:: /static/katalogas/okot/uml_button.png
+.. |uml_download| image:: /static/katalogas/okot/uml_download.png
 .. |77pav| image:: /static/katalogas/okot/77pav.png
 .. |78pav| image:: /static/katalogas/okot/78pav.png
 .. |image_panaudojimoatvejai_sutartys_1| image:: /static/katalogas/okot/image_panaudojimoatvejai_sutartys_1.png
@@ -2917,6 +2968,8 @@ Slaptažodis privalo būti saugus. (Daugiau: `Sąvokos <#naudojami-terminai-ir-s
 .. |image_organization_tab_agreements| image:: /static/katalogas/okot/image_organization_tab_agreements.png
 .. |image_history| image:: /static/katalogas/okot/history.png
 .. |data_service_form| image:: /static/katalogas/okot/duomenu_paslaugos_forma.png
+.. |uml_button| image:: /static/katalogas/okot/uml_button.png
+.. |uml_download| image:: /static/katalogas/okot/uml_download.png
 
 .. _objektas: https://ivpk.github.io/dsa/modelis.html#objektas
 .. _brandos lygis: https://ivpk.github.io/dsa/branda.html
