@@ -1125,7 +1125,8 @@ Argumentai
 ``dalis``
     Nurodo, kokius DSA elementus komentuoti. Galimos reikšmės:
 
-    - ``missing-external-refs`` — komentuoja savybes, kurių `ref` nurodo į neegzistuojantį išorinį modelį.
+    - ``missing-external-refs`` — komentuoja savybes, kurių `ref` nurodo į neegzistuojantį išorinį modelį, taip pat
+      komentuoja base stulpelius, kurių modelis neegzistuoja.
 
 Parinktys
 ---------
@@ -1164,7 +1165,9 @@ Pastabos
 
 - Komanda yra **idempotentiška** — paleidus du kartus ant to paties failo, papildomi komentarai nekuriami.
 - Komentaro eilutė `prepare` stulpelyje saugo originalią savybės informaciją
-  formatu ``update(type:ref, ref:ModelioPavadinimas)``.
+  formatu ``update(type:ref, ref:ModelioPavadinimas)``, ``insert(type:base, base:BazinioModelioPavadinimas)``.
+  Jei baziniame modelyje buvo nurodytos `level` arba `ref` reikšmės, jos taip pat įtraukiamos į ``insert(...)``
+  išraišką.
 - Komentaro eilutės `title` stulpelyje įrašomas komentaro sukūrimo laikas ISO 8601 formatu.
 
 
@@ -1174,8 +1177,8 @@ Pastabos
 ====================
 
 Komanda ``spinta uncomment`` atkuria komentuotas eilutes į pradinę būseną.
-Komentaro eilutės `prepare` stulpelyje esanti `update(...)` išraiška panaudojama savybės eilutės laukams atkurti,
-po to komentaro eilutė pašalinama.
+Komentaro eilutės `prepare` stulpelyje esanti `update(...)` arba `insert(...)` išraiška panaudojama savybės eilutės
+laukams atkurti, po to komentaro eilutė pašalinama.
 
 Komanda veikia tiesiogiai su CSV failu — DSA nėra įkeliamas į atmintį ir nepereina visų įprastų programos fazių.
 
@@ -1207,9 +1210,9 @@ Atkurti tik konkrečia URI žyma pažymėtas savybes::
 Pastabos
 --------
 
-- Eilutės, kurių `type` nėra ``comment`` arba `prepare` neprasideda ``update``,
+- Eilutės, kurių `type` nėra ``comment`` arba `prepare` neprasideda ``update`` arba ``insert``,
   paliekamos nepakeistos.
-- Nežinomi `update(...)` laukų pavadinimai (pvz., dėl rašybos klaidų faile)
+- Nežinomi `update(...)` arba `insert(...)` laukų pavadinimai (pvz., dėl rašybos klaidų faile)
   tyliai ignoruojami.
 - Naudojant ``--uri`` filtrą, komentarai su kitu URI paliekami faile
   nepakeisti.
