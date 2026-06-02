@@ -1169,6 +1169,7 @@ Pastabos
   Jei baziniame modelyje buvo nurodytos `level` arba `ref` reikšmės, jos taip pat įtraukiamos į ``insert(...)``
   išraišką.
 - Komentaro eilutės `title` stulpelyje įrašomas komentaro sukūrimo laikas ISO 8601 formatu.
+- Komentaro eilutės `level` stulpelyje įrašomas komentuojamo elemento lygis.
 
 
 .. _spinta-uncomment:
@@ -1179,6 +1180,7 @@ Pastabos
 Komanda ``spinta uncomment`` atkuria komentuotas eilutes į pradinę būseną.
 Komentaro eilutės `prepare` stulpelyje esanti `update(...)` arba `insert(...)` išraiška panaudojama savybės eilutės
 laukams atkurti, po to komentaro eilutė pašalinama.
+Komentaro eilutės level stulpelyje esanti reikšmė panaudojama atkurti užkomentuotos eilutės brandos lygį.
 
 Komanda veikia tiesiogiai su CSV failu — DSA nėra įkeliamas į atmintį ir nepereina visų įprastų programos fazių.
 
