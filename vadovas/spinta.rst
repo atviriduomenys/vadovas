@@ -473,7 +473,7 @@ Norint atnaujinti Spinta paketą, reikia atlikti tokius žingsnius:
 
    .. code-block:: sh
 
-       venv/bin/pip install --upgrade spinta
+       venv/bin/pip install --require-hashes -r https://raw.githubusercontent.com/atviriduomenys/spinta/refs/heads/master/requirements/spinta-latest-pre.txt
 
 
 .. _spinta-configuravimas:
