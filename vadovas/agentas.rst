@@ -200,6 +200,7 @@ Agento prisijungimas prie Duomenų Katalogo
         resource_server = https://example-resource-server.com
         organization = <kliento-organizacija>
         organization_type = <kliento-organizacijos-tipas>
+        agent_id = https://data.gov.lt/id/dcat/Agent/<uuid>
         client_id = <kliento-identifikatorius>
         client = <klientas>
         secret = <kliento-paslaptis>
@@ -228,6 +229,15 @@ Agento prisijungimas prie Duomenų Katalogo
     **organization_type**
 
         Organizacijos, kuriai priklauso klientas, tipas (Valstybinė įstaiga, Verslo organizacija, Nepelno ir nevalstybinė organizacija).
+
+    **agent_id**
+
+        Agento (Spintos instancijos) identifikatorius, kurį Katalogas sugeneruoja sukuriant Agento aplinką.
+        Jis nesikeičia ir yra skirtingas kiekvienai aplinkai. Pagal jį Agentas tikrina prieigos žetono
+        `aud` reikšmę: žetonas, išduotas kitam Agentui, turi būti atmestas.
+
+        Skirtingai nei *client_id*, šis identifikatorius nepriklauso nuo *OAuth 2.0* kliento: klientą
+        galima ištrinti ar sukurti naują, o Agento identifikatorius lieka tas pats.
 
     **client_id**
 
@@ -686,6 +696,11 @@ Paaiškinimai apie laukų reikšmes
 
     - **Spinta** – naudojama „Spintos“ sinchronizavimo logika.
     - **Kita** – nestandartinė implementacija, įgyvendinta sprendimo tiekėjo.
+
+**Agento identifikatorius**
+    Unikalus aplinkos (Spintos instancijos) identifikatorius, generuojamas sistemoje, pvz.:
+    `https://data.gov.lt/id/dcat/Agent/<uuid>`. Jis nesikeičia ir `credentials.cfg` faile
+    nurodomas kaip `agent_id`.
 
 **Agento adresas**
     Agento pasiekimas per URL arba IP adresą.
