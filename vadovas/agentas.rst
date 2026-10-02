@@ -193,15 +193,16 @@ Duomenų šaltinio nustatymus (`backends`) reikia pakeisti savo duomenų šaltin
     .. code-block:: yaml
 
         env: production
-        resource: https://data.gov.lt/id/dcat/Agent/<uuid>
-        token_issuer: https://example-server.com
+        resource_server_id: https://data.gov.lt/id/dcat/Agent/<uuid>
+        auth_server_id: https://example-server.com
+        auth_server_url: https://example-server.com
         token_validation_keys_download_url: https://example-server.com/<raktų-kelias>
 
     **env**
 
         Agento aplinka: `development`, `testing` arba `production`.
 
-    **resource**
+    **resource_server_id**
 
         Agento aplinkos identifikatorius, kurį Katalogas sugeneruoja sukuriant Agento aplinką.
         Jis nesikeičia ir yra skirtingas kiekvienai aplinkai. Pagal jį Agentas tikrina prieigos žetono
@@ -210,7 +211,11 @@ Duomenų šaltinio nustatymus (`backends`) reikia pakeisti savo duomenų šaltin
         Šis identifikatorius nepriklauso nuo *OAuth 2.0* kliento: klientą galima ištrinti ar sukurti naują,
         o aplinkos identifikatorius lieka tas pats.
 
-    **token_issuer**
+    **auth_server_id**
+
+        Autorizacijos serverio identifikatorius. Su juo turi sutapti prieigos žetono `iss` reikšmė.
+
+    **auth_server_url**
 
         Autorizacijos serverio adresas (URL), kuris išduoda prieigos žetonus.
 
@@ -231,10 +236,10 @@ Agento prisijungimas prie Duomenų Katalogo
 
     .. code-block:: ini
 
-        [default]
-        server = https://example-server.com
-        resource_server = https://data.gov.lt/uapi/
-        resource = https://data.gov.lt/uapi/
+        [katalogas]
+        auth_server_url = https://example-server.com
+        resource_server_url = https://data.gov.lt/uapi/
+        resource_server_id = https://data.gov.lt/uapi/
         client = <kliento-identifikatorius>
         secret = <kliento-paslaptis>
         scopes =
@@ -247,19 +252,22 @@ Agento prisijungimas prie Duomenų Katalogo
             uapi:/datasets/gov/vssa/dcat/Distribution/:create
             uapi:/datasets/gov/vssa/dcat/Agreement/:patch
 
-    **server**
+    **auth_server_url**
 
         Autorizacijos serverio adresas (URL), kuris išduoda prieigos žetoną (angl. *access token*) ir valdo *OAuth 2.0* klientus.
+        Senesnėse konfigūracijose – `server`.
 
-    **resource_server**
+    **resource_server_url**
 
         Duomenų Katalogo UAPI adresas (URL), su kuriuo vyks sinchronizacija, pvz. `https://data.gov.lt/uapi/`.
-        Kiekviena Katalogo aplinka turi savo adresą.
+        Kiekviena Katalogo aplinka turi savo adresą. Senesnėse konfigūracijose – `resource_server`.
 
-    **resource**
+    **resource_server_id**
 
-        Duomenų Katalogo, kaip resursų serverio, identifikatorius. Jis nurodomas prašant prieigos žetono
-        ir tampa žetono `aud` reikšme.
+        Duomenų Katalogo, kaip resursų serverio, identifikatorius. Agentas jį siunčia kaip `resource`
+        parametrą prašydamas prieigos žetono, ir jis tampa žetono `aud` reikšme.
+
+    Sekcija `[katalogas]` senesnėse konfigūracijose vadinosi `[default]`; ji vis dar skaitoma, jei `[katalogas]` nėra.
 
     **client**
 
@@ -718,7 +726,7 @@ Paaiškinimai apie laukų reikšmes
 **Agento identifikatorius**
     Unikalus Agento aplinkos identifikatorius, generuojamas sistemoje, pvz.:
     `https://data.gov.lt/id/dcat/Agent/<uuid>`. Jis nesikeičia ir `config.yml` faile
-    nurodomas kaip `resource`.
+    nurodomas kaip `resource_server_id`.
 
 **Agento adresas**
     Agento pasiekimas per URL arba IP adresą.
