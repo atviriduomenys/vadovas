@@ -183,6 +183,47 @@ Norint prijungti agentą prie duomenų šaltinio, reikia papildomai sukonfigūru
         - `backends.default.type` nurodomas duomenų šaltinio tipas.
         - `backends.default.dsn` nurodoma duomenų šaltinio nuoroda.
 
+Agento aplinkos puslapyje Katalogas sugeneruoja `config.yml` pavyzdį, kuriame jau užpildyti aplinkos duomenys.
+Duomenų šaltinio nustatymus (`backends`) reikia pakeisti savo duomenų šaltinio nustatymais.
+
+.. note::
+
+    Katalogo sugeneruotos `config.yml` dalies pavyzdys:
+
+    .. code-block:: yaml
+
+        env: production
+        resource_server_id: https://data.gov.lt/id/dcat/Agent/<uuid>
+        auth_server_id: https://example-server.com
+        auth_server_url: https://example-server.com
+        token_validation_keys_download_url: https://example-server.com/<raktų-kelias>
+
+    **env**
+
+        Agento aplinka: `development`, `testing` arba `production`.
+
+    **resource_server_id**
+
+        Agento aplinkos identifikatorius, kurį Katalogas sugeneruoja sukuriant Agento aplinką.
+        Jis nesikeičia ir yra skirtingas kiekvienai aplinkai. Pagal jį Agentas tikrina prieigos žetono
+        `aud` reikšmę: žetonas, išduotas kitam Agentui, turi būti atmestas.
+
+        Šis identifikatorius nepriklauso nuo *OAuth 2.0* kliento: klientą galima ištrinti ar sukurti naują,
+        o aplinkos identifikatorius lieka tas pats.
+
+    **auth_server_id**
+
+        Autorizacijos serverio identifikatorius. Su juo turi sutapti prieigos žetono `iss` reikšmė.
+
+    **auth_server_url**
+
+        Autorizacijos serverio adresas (URL), kuris išduoda prieigos žetonus.
+
+    **token_validation_keys_download_url**
+
+        Adresas (URL), iš kurio atsisiunčiami viešieji raktai prieigos žetonams tikrinti.
+        Plačiau – skyriuje „Viešųjų raktų sukėlimas ir konfigūravimas“.
+
 
 Agento prisijungimas prie Duomenų Katalogo
 ------------------------------------------
@@ -195,13 +236,11 @@ Agento prisijungimas prie Duomenų Katalogo
 
     .. code-block:: ini
 
-        [default]
-        server = https://example-server.com
-        resource_server = https://example-resource-server.com
-        organization = <kliento-organizacija>
-        organization_type = <kliento-organizacijos-tipas>
-        client_id = <kliento-identifikatorius>
-        client = <klientas>
+        [katalogas]
+        auth_server_url = https://example-server.com
+        resource_server_url = https://data.gov.lt/uapi/
+        resource_server_id = https://data.gov.lt/uapi/
+        client = <kliento-identifikatorius>
         secret = <kliento-paslaptis>
         scopes =
             uapi:/datasets/gov/vssa/dcat/Dataset/:getall
@@ -213,29 +252,26 @@ Agento prisijungimas prie Duomenų Katalogo
             uapi:/datasets/gov/vssa/dcat/Distribution/:create
             uapi:/datasets/gov/vssa/dcat/Agreement/:patch
 
-    **server**
+    **auth_server_url**
 
         Autorizacijos serverio adresas (URL), kuris išduoda prieigos žetoną (angl. *access token*) ir valdo *OAuth 2.0* klientus.
+        Senesnėse konfigūracijose – `server`.
 
-    **resource_server**
+    **resource_server_url**
 
-        Nurodomas duomenų Katalogo adresas (URL), su kuriuo vyks sinchronizacija.
+        Duomenų Katalogo UAPI adresas (URL), su kuriuo vyks sinchronizacija, pvz. `https://data.gov.lt/uapi/`.
+        Kiekviena Katalogo aplinka turi savo adresą. Senesnėse konfigūracijose – `resource_server`.
 
-    **organization**
+    **resource_server_id**
 
-        Organizacijos, kuriai priklauso klientas, pavadinimas.
+        Duomenų Katalogo, kaip resursų serverio, identifikatorius. Agentas jį siunčia kaip `resource`
+        parametrą prašydamas prieigos žetono, ir jis tampa žetono `aud` reikšme.
 
-    **organization_type**
-
-        Organizacijos, kuriai priklauso klientas, tipas (Valstybinė įstaiga, Verslo organizacija, Nepelno ir nevalstybinė organizacija).
-
-    **client_id**
-
-        Nurodomas *OAuth 2.0* kliento identifikatorius.
+    Sekcija `[katalogas]` senesnėse konfigūracijose vadinosi `[default]`; ji vis dar skaitoma, jei `[katalogas]` nėra.
 
     **client**
 
-        Sutampa su *client_id*.
+        Nurodomas *OAuth 2.0* kliento identifikatorius.
 
     **secret**
 
@@ -686,6 +722,11 @@ Paaiškinimai apie laukų reikšmes
 
     - **Spinta** – naudojama „Spintos“ sinchronizavimo logika.
     - **Kita** – nestandartinė implementacija, įgyvendinta sprendimo tiekėjo.
+
+**Agento identifikatorius**
+    Unikalus Agento aplinkos identifikatorius, generuojamas sistemoje, pvz.:
+    `https://data.gov.lt/id/dcat/Agent/<uuid>`. Jis nesikeičia ir `config.yml` faile
+    nurodomas kaip `resource_server_id`.
 
 **Agento adresas**
     Agento pasiekimas per URL arba IP adresą.
