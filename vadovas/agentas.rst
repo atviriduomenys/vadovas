@@ -194,6 +194,7 @@ Duomenų šaltinio nustatymus (`backends`) reikia pakeisti savo duomenų šaltin
 
         env: production
         resource_server_id: https://data.gov.lt/id/dcat/Agent/<uuid>
+        resource_server_url: https://agentas.example.com
         auth_server_id: https://example-server.com
         auth_server_url: https://example-server.com
         token_validation_keys_download_url: https://example-server.com/<raktų-kelias>
@@ -210,6 +211,11 @@ Duomenų šaltinio nustatymus (`backends`) reikia pakeisti savo duomenų šaltin
 
         Šis identifikatorius nepriklauso nuo *OAuth 2.0* kliento: klientą galima ištrinti ar sukurti naują,
         o aplinkos identifikatorius lieka tas pats.
+
+    **resource_server_url**
+
+        Viešas Agento adresas (URL). Jei Agentas pasiekiamas per API vartus, tai vartų adresas,
+        kitu atveju – Agento adresas. Spinta jį naudoja `Location` antraštėse.
 
     **auth_server_id**
 
@@ -266,6 +272,9 @@ Agento prisijungimas prie Duomenų Katalogo
 
         Duomenų Katalogo, kaip resursų serverio, identifikatorius. Agentas jį siunčia kaip `resource`
         parametrą prašydamas prieigos žetono, ir jis tampa žetono `aud` reikšme.
+
+        Tai ne Agento identifikatorius: šiame faile Agentas yra Katalogo klientas, todėl čia nurodomas
+        Katalogo identifikatorius. Agento identifikatorius nurodomas `config.yml` faile.
 
     Sekcija `[katalogas]` senesnėse konfigūracijose vadinosi `[default]`; ji vis dar skaitoma, jei `[katalogas]` nėra.
 
